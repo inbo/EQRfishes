@@ -37,10 +37,10 @@ data_fish <-
 data_fish <- data_fish %>%
   spread(key = Variabelecode, value = Waarde) %>%
   transmute(
-    WaarnemingKey, MetingID, Taxoncode,
-    Number = TAXONAANTAL,
-    Length = TAXONLEN,
-    Weight = ifelse(!is.na(TAXONGEW), TAXONGEW, TAXONTOTGEW)
+    waarnemingkey = WaarnemingKey, metingid = MetingID, taxoncode = Taxoncode,
+    number = TAXONAANTAL,
+    length = TAXONLEN,
+    weight = ifelse(!is.na(TAXONGEW), TAXONGEW, TAXONTOTGEW)
   )
 
 odbcClose(connection_VIS)

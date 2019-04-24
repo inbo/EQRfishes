@@ -2,7 +2,7 @@
 #'
 #' xxx
 #'
-#' @inheritParams calculate.EQR
+#' @inheritParams calculate_eqr
 #'
 #' @return data_sample with some additional (calculated) parameters
 #'
