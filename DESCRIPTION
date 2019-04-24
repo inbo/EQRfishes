@@ -1,0 +1,13 @@
+Package: EQRfishes
+Type: Package
+Title: Ecological Quality Ratio of waters based on fish data
+Version: 0.1.0
+Authors@R: c(
+  person("Els", "Lommelen", email = "els.lommelen@inbo.be",
+    comment = c(ORCID = "0000-0002-3481-5684"), role = c("aut", "cre")),
+  person(family = "Research Institute for Nature and Forest (INBO)",
+    email = "info@inbo.be", role = "cph"))
+Description: Package contains a function to calculate the Ecological Quality Ratio of waters based on fish data
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
