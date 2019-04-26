@@ -37,7 +37,8 @@ data_fish <-
 data_fish <- data_fish %>%
   spread(key = Variabelecode, value = Waarde) %>%
   transmute(
-    waarnemingkey = WaarnemingKey, metingid = MetingID, taxoncode = Taxoncode,
+    sample_key = WaarnemingKey, record_id = MetingID,
+    taxoncode = Taxoncode,
     number = TAXONAANTAL,
     length = TAXONLEN,
     weight = ifelse(!is.na(TAXONGEW), TAXONGEW, TAXONTOTGEW)
@@ -45,4 +46,4 @@ data_fish <- data_fish %>%
 
 odbcClose(connection_VIS)
 
-usethis::use_data(data_sample, data_fish, internal = TRUE, overwrite = TRUE)
+save(data_sample, data_fish, file = "inst/extrafiles/visdata.Rdata")
