@@ -8,10 +8,11 @@ connection_VIS <-
   )
 
 query_sample <-
-  "SELECT dw.Begindatum, dw.Einddatum, dw.WaarnemingKey, dw.BreedteTransect,
-    dw.LengteTraject, dw.BreedteRivier, dG.Helling, dW.AantalFuiken,
-    dW.AantalDagen, dM.Methodenaam, dG.Stilstaand, dG.Getijdewater, dG.Bekken,
-    dG.Brak
+  "SELECT dw.Begindatum, dw.Einddatum, dw.WaarnemingKey,
+    dw.BreedteTransect AS width_transect, dw.LengteTraject AS length_trajectory,
+    dw.BreedteRivier AS width_river, dG.Helling AS slope,
+    dW.AantalFuiken AS n_fyke_nets, dW.AantalDagen, dM.Methodecode AS method,
+    dG.Stilstaand, dG.Getijdewater AS tidal, dG.Bekken, dG.Brak
   FROM DimWaarneming dW
     LEFT JOIN DimGebied dG
       ON dW.GebiedKey = dG.GebiedKey

@@ -7,7 +7,7 @@
 calculate_metrics(data_sample, data_fish)
 }
 \arguments{
-\item{data_sample}{Data on the sample with some additional paramaters, including guild}
+\item{data_sample}{Data on the sample with additional paramaters guild (calculated by calculate_guild) and surface}
 
 \item{data_fish}{Measurements on fish: taxon, length, weight, number of individuals}
 }

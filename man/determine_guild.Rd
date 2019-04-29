@@ -4,14 +4,18 @@
 \alias{determine_guild}
 \title{determine the guild of the location}
 \usage{
-determine_guild(data_sample)
+determine_guild(var_width, var_slope, var_tidal)
 }
 \arguments{
-\item{data_sample}{Data on the sample with some additional paramaters (as calculated in the function pre.calculating)}
+\item{var_width}{width of the river at the sample location}
+
+\item{var_slope}{slope of the river at the sample location}
+
+\item{var_tidal}{tidal ... present (TRUE) or absent (FALSE)?}
 }
 \value{
-data_sample with an additional field guild
+guild of the focal location(s)
 }
 \description{
-xxxxxx
+This function determines the guild based on the given measurements for one or more locations.
 }
