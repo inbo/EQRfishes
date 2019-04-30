@@ -5,6 +5,7 @@
 #' @param var_width width of the river at the sample location
 #' @param var_slope slope of the river at the sample location
 #' @param var_tidal tidal effect present (TRUE) or absent (FALSE)?
+#' @param var_basin basin in which the sample location is situated
 #'
 #' @return guild of the focal location(s)
 #'
@@ -15,16 +16,26 @@
 #'
 #' @export
 #'
-determine_guild <- function(var_width, var_slope, var_tidal) {
+determine_guild <- function(var_width, var_slope, var_tidal, var_basin) {
 
   data_guild <-
     read_csv2(system.file("extdata/data_guild.csv", package = "EQRfishes"))
   data_guild %<>%
     filter(
-      .data$tidal == as.logical(var_tidal),
-      var_in_interval(var_width, .data$width),
-      var_in_interval(var_slope, .data$slope)
+      .data$tidal == as.logical(var_tidal)
     )
+  if (var_tidal) {
+    data_guild %<>%
+      filter(
+        .data$basin == var_basin
+      )
+  } else {
+    data_guild %<>%
+      filter(
+        var_in_interval(var_width, .data$width),
+        var_in_interval(var_slope, .data$slope)
+      )
+  }
 
   return(data_guild$guild)
 }

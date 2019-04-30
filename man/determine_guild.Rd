@@ -4,18 +4,18 @@
 \alias{determine_guild}
 \title{determine the guild of the location}
 \usage{
-determine_guild(var_width, var_slope, var_tidal)
+determine_guild(var_width, var_slope, var_tidal, var_basin)
 }
 \arguments{
 \item{var_width}{width of the river at the sample location}
 
 \item{var_slope}{slope of the river at the sample location}
 
-\item{var_tidal}{tidal ... present (TRUE) or absent (FALSE)?}
+\item{var_tidal}{tidal effect present (TRUE) or absent (FALSE)?}
 }
 \value{
 guild of the focal location(s)
 }
 \description{
-This function determines the guild based on the given measurements for one or more locations.
+This function determines the guild based on the given measurements for one location.
 }

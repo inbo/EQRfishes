@@ -18,7 +18,10 @@ calculate_eqr <- function(data_sample, data_fish) {
   data_sample %<>%
     rowwise() %>%
     mutate(
-      guild = determine_guild(.data$width_river, .data$slope, .data$tidal), #nog enkele extra's toevoegen voor nieuwe versie
+      guild =
+        determine_guild(
+          .data$width_river, .data$slope, .data$tidal, .data$Bekken
+        ),
       surface =
         ifelse(
           .data$method %in% c("PF", "SF"),

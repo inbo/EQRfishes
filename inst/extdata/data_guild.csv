@@ -1,254 +1,257 @@
-width;slope;guild;tidal
-[4.5,5[;[0,0];stilstaand;FALSE
-[4.5,5[;[0.25,0.33[;brasem;FALSE
-[4.5,5[;[0.33,0.45[;brasem;FALSE
-[4.5,5[;[0.45,0.50[;brasem;FALSE
-[4.5,5[;[0.50,0.60[;brasem;FALSE
-[4.5,5[;[0.60,0.70[;brasem;FALSE
-[4.5,5[;[0.70,1.00[;brasem;FALSE
-[4.5,5[;[1.00,1.25[;barbeel;FALSE
-[4.5,5[;[1.25,1.50[;barbeel;FALSE
-[4.5,5[;[1.50,1.75[;barbeel;FALSE
-[4.5,5[;[1.75,2.00[;barbeel;FALSE
-[4.5,5[;[2.00,2.30[;barbeel;FALSE
-[4.5,5[;[2.30,2.70[;barbeel;FALSE
-[4.5,5[;[2.70,3.00[;vlagzalm;FALSE
-[4.5,5[;[3.00,4.50[;vlagzalm;FALSE
-[4.5,5[;[4.50,5.00[;vlagzalm;FALSE
-[4.5,5[;[5.00,5.50[;vlagzalm;FALSE
-[4.5,5[;[5.50,5.70[;vlagzalm;FALSE
-[4.5,5[;[5.70,6.00[;vlagzalm;FALSE
-[4.5,5[;[6.00,6.50[;vlagzalm;FALSE
-[4.5,5[;[6.50,7.00[;vlagzalm;FALSE
-[4.5,5[;[7.00, [;forel;FALSE
-[4.5,5[;]0.00,0.25[;brasem;FALSE
-[0,1];]0.00,0.25[;brasem;FALSE
-[0,1];[0.25,0.33[;brasem;FALSE
-[0,1];[0.33,0.45[;brasem;FALSE
-[0,1];[0.45,0.50[;brasem;FALSE
-[0,1];[0.50,0.60[;brasem;FALSE
-[0,1];[0.60,0.70[;brasem;FALSE
-[0,1];[0.70,1.00[;brasem;FALSE
-[0,1];[1.00,1.25[;brasem;FALSE
-[0,1];[1.25,1.50[;barbeel;FALSE
-[0,1];[1.50,1.75[;barbeel;FALSE
-[0,1];[1.75,2.00[;barbeel;FALSE
-[0,1];[2.00,2.30[;barbeel;FALSE
-[0,1];[2.30,2.70[;barbeel;FALSE
-[0,1];[2.70,3.00[;barbeel;FALSE
-[0,1];[3.00,4.50[;upstream;FALSE
-[0,1];[4.50,5.00[;upstream;FALSE
-[0,1];[5.00,5.50[;upstream;FALSE
-[0,1];[5.50,5.70[;upstream;FALSE
-[0,1];[5.70,6.00[;upstream;FALSE
-[0,1];[6.00,6.50[;upstream;FALSE
-[0,1];[6.50,7.00[;upstream;FALSE
-[0,1];[7.00, [;upstream;FALSE
-]1,4.5[;[0,0];stilstaand;FALSE
-]1,4.5[;]0.00,0.25[;brasem;FALSE
-]1,4.5[;[0.25,0.33[;brasem;FALSE
-]1,4.5[;[0.33,0.45[;brasem;FALSE
-]1,4.5[;[0.45,0.50[;brasem;FALSE
-]1,4.5[;[0.50,0.60[;brasem;FALSE
-]1,4.5[;[0.60,0.70[;brasem;FALSE
-]1,4.5[;[0.70,1.00[;brasem;FALSE
-]1,4.5[;[1.00,1.25[;barbeel;FALSE
-]1,4.5[;[1.25,1.50[;barbeel;FALSE
-]1,4.5[;[1.50,1.75[;barbeel;FALSE
-]1,4.5[;[1.75,2.00[;barbeel;FALSE
-]1,4.5[;[2.00,2.30[;barbeel;FALSE
-]1,4.5[;[2.30,2.70[;barbeel;FALSE
-]1,4.5[;[2.70,3.00[;barbeel;FALSE
-]1,4.5[;[3.00,4.50[;upstream;FALSE
-]1,4.5[;[4.50,5.00[;upstream;FALSE
-]1,4.5[;[5.00,5.50[;upstream;FALSE
-]1,4.5[;[5.50,5.70[;upstream;FALSE
-]1,4.5[;[5.70,6.00[;upstream;FALSE
-]1,4.5[;[6.00,6.50[;upstream;FALSE
-]1,4.5[;[6.50,7.00[;upstream;FALSE
-]1,4.5[;[7.00, [;upstream;FALSE
-[5,10[;[0,0];stilstaand;FALSE
-[5,10[;]0.00,0.25[;brasem;FALSE
-[5,10[;[0.25,0.33[;brasem;FALSE
-[5,10[;[0.33,0.45[;brasem;FALSE
-[5,10[;[0.45,0.50[;brasem;FALSE
-[5,10[;[0.50,0.60[;brasem;FALSE
-[5,10[;[0.60,0.70[;brasem;FALSE
-[5,10[;[0.70,1.00[;barbeel;FALSE
-[5,10[;[1.00,1.25[;barbeel;FALSE
-[5,10[;[1.25,1.50[;barbeel;FALSE
-[5,10[;[1.50,1.75[;barbeel;FALSE
-[5,10[;[1.75,2.00[;barbeel;FALSE
-[5,10[;[2.00,2.30[;barbeel;FALSE
-[5,10[;[2.30,2.70[;barbeel;FALSE
-[5,10[;[2.70,3.00[;vlagzalm;FALSE
-[5,10[;[3.00,4.50[;vlagzalm;FALSE
-[5,10[;[4.50,5.00[;vlagzalm;FALSE
-[5,10[;[5.00,5.50[;vlagzalm;FALSE
-[5,10[;[5.50,5.70[;vlagzalm;FALSE
-[5,10[;[5.70,6.00[;vlagzalm;FALSE
-[5,10[;[6.00,6.50[;vlagzalm;FALSE
-[5,10[;[6.50,7.00[;vlagzalm;FALSE
-[5,10[;[7.00, [;forel;FALSE
-[10,15[;[0,0];stilstaand;FALSE
-[10,15[;]0.00,0.25[;brasem;FALSE
-[10,15[;[0.25,0.33[;brasem;FALSE
-[10,15[;[0.33,0.45[;brasem;FALSE
-[10,15[;[0.45,0.50[;brasem;FALSE
-[10,15[;[0.50,0.60[;brasem;FALSE
-[10,15[;[0.60,0.70[;brasem;FALSE
-[10,15[;[0.70,1.00[;barbeel;FALSE
-[10,15[;[1.00,1.25[;barbeel;FALSE
-[10,15[;[1.25,1.50[;barbeel;FALSE
-[10,15[;[1.50,1.75[;barbeel;FALSE
-[10,15[;[1.75,2.00[;barbeel;FALSE
-[10,15[;[2.00,2.30[;barbeel;FALSE
-[10,15[;[2.30,2.70[;vlagzalm;FALSE
-[10,15[;[2.70,3.00[;vlagzalm;FALSE
-[10,15[;[3.00,4.50[;vlagzalm;FALSE
-[10,15[;[4.50,5.00[;vlagzalm;FALSE
-[10,15[;[5.00,5.50[;vlagzalm;FALSE
-[10,15[;[5.50,5.70[;vlagzalm;FALSE
-[10,15[;[5.70,6.00[;vlagzalm;FALSE
-[10,15[;[6.00,6.50[;vlagzalm;FALSE
-[10,15[;[6.50,7.00[;forel;FALSE
-[10,15[;[7.00, [;forel;FALSE
-[15,20[;[0,0];stilstaand;FALSE
-[15,20[;]0.00,0.25[;brasem;FALSE
-[15,20[;[0.25,0.33[;brasem;FALSE
-[15,20[;[0.33,0.45[;brasem;FALSE
-[15,20[;[0.45,0.50[;brasem;FALSE
-[15,20[;[0.50,0.60[;brasem;FALSE
-[15,20[;[0.60,0.70[;barbeel;FALSE
-[15,20[;[0.70,1.00[;barbeel;FALSE
-[15,20[;[1.00,1.25[;barbeel;FALSE
-[15,20[;[1.25,1.50[;barbeel;FALSE
-[15,20[;[1.50,1.75[;barbeel;FALSE
-[15,20[;[1.75,2.00[;barbeel;FALSE
-[15,20[;[2.00,2.30[;vlagzalm;FALSE
-[15,20[;[2.30,2.70[;vlagzalm;FALSE
-[15,20[;[2.70,3.00[;vlagzalm;FALSE
-[15,20[;[3.00,4.50[;vlagzalm;FALSE
-[15,20[;[4.50,5.00[;vlagzalm;FALSE
-[15,20[;[5.00,5.50[;vlagzalm;FALSE
-[15,20[;[5.50,5.70[;vlagzalm;FALSE
-[15,20[;[5.70,6.00[;vlagzalm;FALSE
-[15,20[;[6.00,6.50[;forel;FALSE
-[15,20[;[6.50,7.00[;forel;FALSE
-[15,20[;[7.00, [;forel;FALSE
-[20,25[;[0,0];stilstaand;FALSE
-[20,25[;]0.00,0.25[;brasem;FALSE
-[20,25[;[0.25,0.33[;brasem;FALSE
-[20,25[;[0.33,0.45[;brasem;FALSE
-[20,25[;[0.45,0.50[;brasem;FALSE
-[20,25[;[0.50,0.60[;barbeel;FALSE
-[20,25[;[0.60,0.70[;barbeel;FALSE
-[20,25[;[0.70,1.00[;barbeel;FALSE
-[20,25[;[1.00,1.25[;barbeel;FALSE
-[20,25[;[1.25,1.50[;barbeel;FALSE
-[20,25[;[1.50,1.75[;barbeel;FALSE
-[20,25[;[1.75,2.00[;barbeel;FALSE
-[20,25[;[2.00,2.30[;vlagzalm;FALSE
-[20,25[;[2.30,2.70[;vlagzalm;FALSE
-[20,25[;[2.70,3.00[;vlagzalm;FALSE
-[20,25[;[3.00,4.50[;vlagzalm;FALSE
-[20,25[;[4.50,5.00[;vlagzalm;FALSE
-[20,25[;[5.00,5.50[;vlagzalm;FALSE
-[20,25[;[5.50,5.70[;vlagzalm;FALSE
-[20,25[;[5.70,6.00[;forel;FALSE
-[20,25[;[6.00,6.50[;forel;FALSE
-[20,25[;[6.50,7.00[;forel;FALSE
-[20,25[;[7.00, [;forel;FALSE
-[25,30[;[0,0];stilstaand;FALSE
-[25,30[;]0.00,0.25[;brasem;FALSE
-[25,30[;[0.25,0.33[;brasem;FALSE
-[25,30[;[0.33,0.45[;brasem;FALSE
-[25,30[;[0.45,0.50[;brasem;FALSE
-[25,30[;[0.50,0.60[;barbeel;FALSE
-[25,30[;[0.60,0.70[;barbeel;FALSE
-[25,30[;[0.70,1.00[;barbeel;FALSE
-[25,30[;[1.00,1.25[;barbeel;FALSE
-[25,30[;[1.25,1.50[;barbeel;FALSE
-[25,30[;[1.50,1.75[;barbeel;FALSE
-[25,30[;[1.75,2.00[;vlagzalm;FALSE
-[25,30[;[2.00,2.30[;vlagzalm;FALSE
-[25,30[;[2.30,2.70[;vlagzalm;FALSE
-[25,30[;[2.70,3.00[;vlagzalm;FALSE
-[25,30[;[3.00,4.50[;vlagzalm;FALSE
-[25,30[;[4.50,5.00[;vlagzalm;FALSE
-[25,30[;[5.00,5.50[;vlagzalm;FALSE
-[25,30[;[5.50,5.70[;forel;FALSE
-[25,30[;[5.70,6.00[;forel;FALSE
-[25,30[;[6.00,6.50[;forel;FALSE
-[25,30[;[6.50,7.00[;forel;FALSE
-[25,30[;[7.00, [;forel;FALSE
-[30,60[;[0,0];stilstaand;FALSE
-[30,60[;]0.00,0.25[;brasem;FALSE
-[30,60[;[0.25,0.33[;brasem;FALSE
-[30,60[;[0.33,0.45[;brasem;FALSE
-[30,60[;[0.45,0.50[;barbeel;FALSE
-[30,60[;[0.50,0.60[;barbeel;FALSE
-[30,60[;[0.60,0.70[;barbeel;FALSE
-[30,60[;[0.70,1.00[;barbeel;FALSE
-[30,60[;[1.00,1.25[;barbeel;FALSE
-[30,60[;[1.25,1.50[;barbeel;FALSE
-[30,60[;[1.50,1.75[;vlagzalm;FALSE
-[30,60[;[1.75,2.00[;vlagzalm;FALSE
-[30,60[;[2.00,2.30[;vlagzalm;FALSE
-[30,60[;[2.30,2.70[;vlagzalm;FALSE
-[30,60[;[2.70,3.00[;vlagzalm;FALSE
-[30,60[;[3.00,4.50[;vlagzalm;FALSE
-[30,60[;[4.50,5.00[;vlagzalm;FALSE
-[30,60[;[5.00,5.50[;forel;FALSE
-[30,60[;[5.50,5.70[;forel;FALSE
-[30,60[;[5.70,6.00[;forel;FALSE
-[30,60[;[6.00,6.50[;forel;FALSE
-[30,60[;[6.50,7.00[;forel;FALSE
-[30,60[;[7.00, [;forel;FALSE
-[60,100[;[0,0];stilstaand;FALSE
-[60,100[;]0.00,0.25[;brasem;FALSE
-[60,100[;[0.25,0.33[;brasem;FALSE
-[60,100[;[0.33,0.45[;barbeel;FALSE
-[60,100[;[0.45,0.50[;barbeel;FALSE
-[60,100[;[0.50,0.60[;barbeel;FALSE
-[60,100[;[0.60,0.70[;barbeel;FALSE
-[60,100[;[0.70,1.00[;barbeel;FALSE
-[60,100[;[1.00,1.25[;barbeel;FALSE
-[60,100[;[1.25,1.50[;vlagzalm;FALSE
-[60,100[;[1.50,1.75[;vlagzalm;FALSE
-[60,100[;[1.75,2.00[;vlagzalm;FALSE
-[60,100[;[2.00,2.30[;vlagzalm;FALSE
-[60,100[;[2.30,2.70[;vlagzalm;FALSE
-[60,100[;[2.70,3.00[;vlagzalm;FALSE
-[60,100[;[3.00,4.50[;vlagzalm;FALSE
-[60,100[;[4.50,5.00[;forel;FALSE
-[60,100[;[5.00,5.50[;forel;FALSE
-[60,100[;[5.50,5.70[;forel;FALSE
-[60,100[;[5.70,6.00[;forel;FALSE
-[60,100[;[6.00,6.50[;forel;FALSE
-[60,100[;[6.50,7.00[;forel;FALSE
-[60,100[;[7.00, [;forel;FALSE
-[100, [;[0,0];stilstaand;FALSE
-[100, [;]0.00,0.25[;brasem;FALSE
-[100, [;[0.25,0.33[;barbeel;FALSE
-[100, [;[0.33,0.45[;barbeel;FALSE
-[100, [;[0.45,0.50[;barbeel;FALSE
-[100, [;[0.50,0.60[;barbeel;FALSE
-[100, [;[0.60,0.70[;barbeel;FALSE
-[100, [;[0.70,1.00[;barbeel;FALSE
-[100, [;[1.00,1.25[;barbeel;FALSE
-[100, [;[1.25,1.50[;barbeel;FALSE
-[100, [;[1.50,1.75[;barbeel;FALSE
-[100, [;[1.75,2.00[;barbeel;FALSE
-[100, [;[2.00,2.30[;barbeel;FALSE
-[100, [;[2.30,2.70[;barbeel;FALSE
-[100, [;[2.70,3.00[;barbeel;FALSE
-[100, [;[3.00,4.50[;barbeel;FALSE
-[100, [;[4.50,5.00[;barbeel;FALSE
-[100, [;[5.00,5.50[;barbeel;FALSE
-[100, [;[5.50,5.70[;barbeel;FALSE
-[100, [;[5.70,6.00[;barbeel;FALSE
-[100, [;[6.00,6.50[;barbeel;FALSE
-[100, [;[6.50,7.00[;barbeel;FALSE
-[100, [;[7.00, [;barbeel;FALSE
-[0, [;[0, [;estuarien;TRUE
+width;slope;guild;tidal;basin
+[4.5,5[;[0,0];stilstaand;FALSE;NA
+[4.5,5[;[0.25,0.33[;brasem;FALSE;NA
+[4.5,5[;[0.33,0.45[;brasem;FALSE;NA
+[4.5,5[;[0.45,0.50[;brasem;FALSE;NA
+[4.5,5[;[0.50,0.60[;brasem;FALSE;NA
+[4.5,5[;[0.60,0.70[;brasem;FALSE;NA
+[4.5,5[;[0.70,1.00[;brasem;FALSE;NA
+[4.5,5[;[1.00,1.25[;barbeel;FALSE;NA
+[4.5,5[;[1.25,1.50[;barbeel;FALSE;NA
+[4.5,5[;[1.50,1.75[;barbeel;FALSE;NA
+[4.5,5[;[1.75,2.00[;barbeel;FALSE;NA
+[4.5,5[;[2.00,2.30[;barbeel;FALSE;NA
+[4.5,5[;[2.30,2.70[;barbeel;FALSE;NA
+[4.5,5[;[2.70,3.00[;vlagzalm;FALSE;NA
+[4.5,5[;[3.00,4.50[;vlagzalm;FALSE;NA
+[4.5,5[;[4.50,5.00[;vlagzalm;FALSE;NA
+[4.5,5[;[5.00,5.50[;vlagzalm;FALSE;NA
+[4.5,5[;[5.50,5.70[;vlagzalm;FALSE;NA
+[4.5,5[;[5.70,6.00[;vlagzalm;FALSE;NA
+[4.5,5[;[6.00,6.50[;vlagzalm;FALSE;NA
+[4.5,5[;[6.50,7.00[;vlagzalm;FALSE;NA
+[4.5,5[;[7.00, [;forel;FALSE;NA
+[4.5,5[;]0.00,0.25[;brasem;FALSE;NA
+[0,1];]0.00,0.25[;brasem;FALSE;NA
+[0,1];[0.25,0.33[;brasem;FALSE;NA
+[0,1];[0.33,0.45[;brasem;FALSE;NA
+[0,1];[0.45,0.50[;brasem;FALSE;NA
+[0,1];[0.50,0.60[;brasem;FALSE;NA
+[0,1];[0.60,0.70[;brasem;FALSE;NA
+[0,1];[0.70,1.00[;brasem;FALSE;NA
+[0,1];[1.00,1.25[;brasem;FALSE;NA
+[0,1];[1.25,1.50[;barbeel;FALSE;NA
+[0,1];[1.50,1.75[;barbeel;FALSE;NA
+[0,1];[1.75,2.00[;barbeel;FALSE;NA
+[0,1];[2.00,2.30[;barbeel;FALSE;NA
+[0,1];[2.30,2.70[;barbeel;FALSE;NA
+[0,1];[2.70,3.00[;barbeel;FALSE;NA
+[0,1];[3.00,4.50[;upstream;FALSE;NA
+[0,1];[4.50,5.00[;upstream;FALSE;NA
+[0,1];[5.00,5.50[;upstream;FALSE;NA
+[0,1];[5.50,5.70[;upstream;FALSE;NA
+[0,1];[5.70,6.00[;upstream;FALSE;NA
+[0,1];[6.00,6.50[;upstream;FALSE;NA
+[0,1];[6.50,7.00[;upstream;FALSE;NA
+[0,1];[7.00, [;upstream;FALSE;NA
+]1,4.5[;[0,0];stilstaand;FALSE;NA
+]1,4.5[;]0.00,0.25[;brasem;FALSE;NA
+]1,4.5[;[0.25,0.33[;brasem;FALSE;NA
+]1,4.5[;[0.33,0.45[;brasem;FALSE;NA
+]1,4.5[;[0.45,0.50[;brasem;FALSE;NA
+]1,4.5[;[0.50,0.60[;brasem;FALSE;NA
+]1,4.5[;[0.60,0.70[;brasem;FALSE;NA
+]1,4.5[;[0.70,1.00[;brasem;FALSE;NA
+]1,4.5[;[1.00,1.25[;barbeel;FALSE;NA
+]1,4.5[;[1.25,1.50[;barbeel;FALSE;NA
+]1,4.5[;[1.50,1.75[;barbeel;FALSE;NA
+]1,4.5[;[1.75,2.00[;barbeel;FALSE;NA
+]1,4.5[;[2.00,2.30[;barbeel;FALSE;NA
+]1,4.5[;[2.30,2.70[;barbeel;FALSE;NA
+]1,4.5[;[2.70,3.00[;barbeel;FALSE;NA
+]1,4.5[;[3.00,4.50[;upstream;FALSE;NA
+]1,4.5[;[4.50,5.00[;upstream;FALSE;NA
+]1,4.5[;[5.00,5.50[;upstream;FALSE;NA
+]1,4.5[;[5.50,5.70[;upstream;FALSE;NA
+]1,4.5[;[5.70,6.00[;upstream;FALSE;NA
+]1,4.5[;[6.00,6.50[;upstream;FALSE;NA
+]1,4.5[;[6.50,7.00[;upstream;FALSE;NA
+]1,4.5[;[7.00, [;upstream;FALSE;NA
+[5,10[;[0,0];stilstaand;FALSE;NA
+[5,10[;]0.00,0.25[;brasem;FALSE;NA
+[5,10[;[0.25,0.33[;brasem;FALSE;NA
+[5,10[;[0.33,0.45[;brasem;FALSE;NA
+[5,10[;[0.45,0.50[;brasem;FALSE;NA
+[5,10[;[0.50,0.60[;brasem;FALSE;NA
+[5,10[;[0.60,0.70[;brasem;FALSE;NA
+[5,10[;[0.70,1.00[;barbeel;FALSE;NA
+[5,10[;[1.00,1.25[;barbeel;FALSE;NA
+[5,10[;[1.25,1.50[;barbeel;FALSE;NA
+[5,10[;[1.50,1.75[;barbeel;FALSE;NA
+[5,10[;[1.75,2.00[;barbeel;FALSE;NA
+[5,10[;[2.00,2.30[;barbeel;FALSE;NA
+[5,10[;[2.30,2.70[;barbeel;FALSE;NA
+[5,10[;[2.70,3.00[;vlagzalm;FALSE;NA
+[5,10[;[3.00,4.50[;vlagzalm;FALSE;NA
+[5,10[;[4.50,5.00[;vlagzalm;FALSE;NA
+[5,10[;[5.00,5.50[;vlagzalm;FALSE;NA
+[5,10[;[5.50,5.70[;vlagzalm;FALSE;NA
+[5,10[;[5.70,6.00[;vlagzalm;FALSE;NA
+[5,10[;[6.00,6.50[;vlagzalm;FALSE;NA
+[5,10[;[6.50,7.00[;vlagzalm;FALSE;NA
+[5,10[;[7.00, [;forel;FALSE;NA
+[10,15[;[0,0];stilstaand;FALSE;NA
+[10,15[;]0.00,0.25[;brasem;FALSE;NA
+[10,15[;[0.25,0.33[;brasem;FALSE;NA
+[10,15[;[0.33,0.45[;brasem;FALSE;NA
+[10,15[;[0.45,0.50[;brasem;FALSE;NA
+[10,15[;[0.50,0.60[;brasem;FALSE;NA
+[10,15[;[0.60,0.70[;brasem;FALSE;NA
+[10,15[;[0.70,1.00[;barbeel;FALSE;NA
+[10,15[;[1.00,1.25[;barbeel;FALSE;NA
+[10,15[;[1.25,1.50[;barbeel;FALSE;NA
+[10,15[;[1.50,1.75[;barbeel;FALSE;NA
+[10,15[;[1.75,2.00[;barbeel;FALSE;NA
+[10,15[;[2.00,2.30[;barbeel;FALSE;NA
+[10,15[;[2.30,2.70[;vlagzalm;FALSE;NA
+[10,15[;[2.70,3.00[;vlagzalm;FALSE;NA
+[10,15[;[3.00,4.50[;vlagzalm;FALSE;NA
+[10,15[;[4.50,5.00[;vlagzalm;FALSE;NA
+[10,15[;[5.00,5.50[;vlagzalm;FALSE;NA
+[10,15[;[5.50,5.70[;vlagzalm;FALSE;NA
+[10,15[;[5.70,6.00[;vlagzalm;FALSE;NA
+[10,15[;[6.00,6.50[;vlagzalm;FALSE;NA
+[10,15[;[6.50,7.00[;forel;FALSE;NA
+[10,15[;[7.00, [;forel;FALSE;NA
+[15,20[;[0,0];stilstaand;FALSE;NA
+[15,20[;]0.00,0.25[;brasem;FALSE;NA
+[15,20[;[0.25,0.33[;brasem;FALSE;NA
+[15,20[;[0.33,0.45[;brasem;FALSE;NA
+[15,20[;[0.45,0.50[;brasem;FALSE;NA
+[15,20[;[0.50,0.60[;brasem;FALSE;NA
+[15,20[;[0.60,0.70[;barbeel;FALSE;NA
+[15,20[;[0.70,1.00[;barbeel;FALSE;NA
+[15,20[;[1.00,1.25[;barbeel;FALSE;NA
+[15,20[;[1.25,1.50[;barbeel;FALSE;NA
+[15,20[;[1.50,1.75[;barbeel;FALSE;NA
+[15,20[;[1.75,2.00[;barbeel;FALSE;NA
+[15,20[;[2.00,2.30[;vlagzalm;FALSE;NA
+[15,20[;[2.30,2.70[;vlagzalm;FALSE;NA
+[15,20[;[2.70,3.00[;vlagzalm;FALSE;NA
+[15,20[;[3.00,4.50[;vlagzalm;FALSE;NA
+[15,20[;[4.50,5.00[;vlagzalm;FALSE;NA
+[15,20[;[5.00,5.50[;vlagzalm;FALSE;NA
+[15,20[;[5.50,5.70[;vlagzalm;FALSE;NA
+[15,20[;[5.70,6.00[;vlagzalm;FALSE;NA
+[15,20[;[6.00,6.50[;forel;FALSE;NA
+[15,20[;[6.50,7.00[;forel;FALSE;NA
+[15,20[;[7.00, [;forel;FALSE;NA
+[20,25[;[0,0];stilstaand;FALSE;NA
+[20,25[;]0.00,0.25[;brasem;FALSE;NA
+[20,25[;[0.25,0.33[;brasem;FALSE;NA
+[20,25[;[0.33,0.45[;brasem;FALSE;NA
+[20,25[;[0.45,0.50[;brasem;FALSE;NA
+[20,25[;[0.50,0.60[;barbeel;FALSE;NA
+[20,25[;[0.60,0.70[;barbeel;FALSE;NA
+[20,25[;[0.70,1.00[;barbeel;FALSE;NA
+[20,25[;[1.00,1.25[;barbeel;FALSE;NA
+[20,25[;[1.25,1.50[;barbeel;FALSE;NA
+[20,25[;[1.50,1.75[;barbeel;FALSE;NA
+[20,25[;[1.75,2.00[;barbeel;FALSE;NA
+[20,25[;[2.00,2.30[;vlagzalm;FALSE;NA
+[20,25[;[2.30,2.70[;vlagzalm;FALSE;NA
+[20,25[;[2.70,3.00[;vlagzalm;FALSE;NA
+[20,25[;[3.00,4.50[;vlagzalm;FALSE;NA
+[20,25[;[4.50,5.00[;vlagzalm;FALSE;NA
+[20,25[;[5.00,5.50[;vlagzalm;FALSE;NA
+[20,25[;[5.50,5.70[;vlagzalm;FALSE;NA
+[20,25[;[5.70,6.00[;forel;FALSE;NA
+[20,25[;[6.00,6.50[;forel;FALSE;NA
+[20,25[;[6.50,7.00[;forel;FALSE;NA
+[20,25[;[7.00, [;forel;FALSE;NA
+[25,30[;[0,0];stilstaand;FALSE;NA
+[25,30[;]0.00,0.25[;brasem;FALSE;NA
+[25,30[;[0.25,0.33[;brasem;FALSE;NA
+[25,30[;[0.33,0.45[;brasem;FALSE;NA
+[25,30[;[0.45,0.50[;brasem;FALSE;NA
+[25,30[;[0.50,0.60[;barbeel;FALSE;NA
+[25,30[;[0.60,0.70[;barbeel;FALSE;NA
+[25,30[;[0.70,1.00[;barbeel;FALSE;NA
+[25,30[;[1.00,1.25[;barbeel;FALSE;NA
+[25,30[;[1.25,1.50[;barbeel;FALSE;NA
+[25,30[;[1.50,1.75[;barbeel;FALSE;NA
+[25,30[;[1.75,2.00[;vlagzalm;FALSE;NA
+[25,30[;[2.00,2.30[;vlagzalm;FALSE;NA
+[25,30[;[2.30,2.70[;vlagzalm;FALSE;NA
+[25,30[;[2.70,3.00[;vlagzalm;FALSE;NA
+[25,30[;[3.00,4.50[;vlagzalm;FALSE;NA
+[25,30[;[4.50,5.00[;vlagzalm;FALSE;NA
+[25,30[;[5.00,5.50[;vlagzalm;FALSE;NA
+[25,30[;[5.50,5.70[;forel;FALSE;NA
+[25,30[;[5.70,6.00[;forel;FALSE;NA
+[25,30[;[6.00,6.50[;forel;FALSE;NA
+[25,30[;[6.50,7.00[;forel;FALSE;NA
+[25,30[;[7.00, [;forel;FALSE;NA
+[30,60[;[0,0];stilstaand;FALSE;NA
+[30,60[;]0.00,0.25[;brasem;FALSE;NA
+[30,60[;[0.25,0.33[;brasem;FALSE;NA
+[30,60[;[0.33,0.45[;brasem;FALSE;NA
+[30,60[;[0.45,0.50[;barbeel;FALSE;NA
+[30,60[;[0.50,0.60[;barbeel;FALSE;NA
+[30,60[;[0.60,0.70[;barbeel;FALSE;NA
+[30,60[;[0.70,1.00[;barbeel;FALSE;NA
+[30,60[;[1.00,1.25[;barbeel;FALSE;NA
+[30,60[;[1.25,1.50[;barbeel;FALSE;NA
+[30,60[;[1.50,1.75[;vlagzalm;FALSE;NA
+[30,60[;[1.75,2.00[;vlagzalm;FALSE;NA
+[30,60[;[2.00,2.30[;vlagzalm;FALSE;NA
+[30,60[;[2.30,2.70[;vlagzalm;FALSE;NA
+[30,60[;[2.70,3.00[;vlagzalm;FALSE;NA
+[30,60[;[3.00,4.50[;vlagzalm;FALSE;NA
+[30,60[;[4.50,5.00[;vlagzalm;FALSE;NA
+[30,60[;[5.00,5.50[;forel;FALSE;NA
+[30,60[;[5.50,5.70[;forel;FALSE;NA
+[30,60[;[5.70,6.00[;forel;FALSE;NA
+[30,60[;[6.00,6.50[;forel;FALSE;NA
+[30,60[;[6.50,7.00[;forel;FALSE;NA
+[30,60[;[7.00, [;forel;FALSE;NA
+[60,100[;[0,0];stilstaand;FALSE;NA
+[60,100[;]0.00,0.25[;brasem;FALSE;NA
+[60,100[;[0.25,0.33[;brasem;FALSE;NA
+[60,100[;[0.33,0.45[;barbeel;FALSE;NA
+[60,100[;[0.45,0.50[;barbeel;FALSE;NA
+[60,100[;[0.50,0.60[;barbeel;FALSE;NA
+[60,100[;[0.60,0.70[;barbeel;FALSE;NA
+[60,100[;[0.70,1.00[;barbeel;FALSE;NA
+[60,100[;[1.00,1.25[;barbeel;FALSE;NA
+[60,100[;[1.25,1.50[;vlagzalm;FALSE;NA
+[60,100[;[1.50,1.75[;vlagzalm;FALSE;NA
+[60,100[;[1.75,2.00[;vlagzalm;FALSE;NA
+[60,100[;[2.00,2.30[;vlagzalm;FALSE;NA
+[60,100[;[2.30,2.70[;vlagzalm;FALSE;NA
+[60,100[;[2.70,3.00[;vlagzalm;FALSE;NA
+[60,100[;[3.00,4.50[;vlagzalm;FALSE;NA
+[60,100[;[4.50,5.00[;forel;FALSE;NA
+[60,100[;[5.00,5.50[;forel;FALSE;NA
+[60,100[;[5.50,5.70[;forel;FALSE;NA
+[60,100[;[5.70,6.00[;forel;FALSE;NA
+[60,100[;[6.00,6.50[;forel;FALSE;NA
+[60,100[;[6.50,7.00[;forel;FALSE;NA
+[60,100[;[7.00, [;forel;FALSE;NA
+[100, [;[0,0];stilstaand;FALSE;NA
+[100, [;]0.00,0.25[;brasem;FALSE;NA
+[100, [;[0.25,0.33[;barbeel;FALSE;NA
+[100, [;[0.33,0.45[;barbeel;FALSE;NA
+[100, [;[0.45,0.50[;barbeel;FALSE;NA
+[100, [;[0.50,0.60[;barbeel;FALSE;NA
+[100, [;[0.60,0.70[;barbeel;FALSE;NA
+[100, [;[0.70,1.00[;barbeel;FALSE;NA
+[100, [;[1.00,1.25[;barbeel;FALSE;NA
+[100, [;[1.25,1.50[;barbeel;FALSE;NA
+[100, [;[1.50,1.75[;barbeel;FALSE;NA
+[100, [;[1.75,2.00[;barbeel;FALSE;NA
+[100, [;[2.00,2.30[;barbeel;FALSE;NA
+[100, [;[2.30,2.70[;barbeel;FALSE;NA
+[100, [;[2.70,3.00[;barbeel;FALSE;NA
+[100, [;[3.00,4.50[;barbeel;FALSE;NA
+[100, [;[4.50,5.00[;barbeel;FALSE;NA
+[100, [;[5.00,5.50[;barbeel;FALSE;NA
+[100, [;[5.50,5.70[;barbeel;FALSE;NA
+[100, [;[5.70,6.00[;barbeel;FALSE;NA
+[100, [;[6.00,6.50[;barbeel;FALSE;NA
+[100, [;[6.50,7.00[;barbeel;FALSE;NA
+[100, [;[7.00, [;barbeel;FALSE;NA
+NA;NA;estuarien Schelde;TRUE;Benedenscheldebekken
+NA;NA;estuarien Schelde;TRUE;Netebekken
+NA;NA;estuarien Schelde;TRUE;Dijlebekken
+NA;NA;estuarien IJzer;TRUE;IJzerbekken
