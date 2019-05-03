@@ -41,7 +41,7 @@ calculate_eqr <- function(data_sample, data_fish) {
           .data$method == "SF",
           .data$surface * 4,
           .data$surface
-        ),
+        )
     )
 
   result <- calculate_metrics(data_sample, data_fish)
