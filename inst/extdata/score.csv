@@ -1,0 +1,6 @@
+score_id;score_value;score_cat
+1;0,2;bad
+2;0,4;poor
+3;0,6;moderate
+4;0,8;CEP
+5;1;MEP
