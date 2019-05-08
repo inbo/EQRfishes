@@ -12,21 +12,37 @@
 #'
 var_in_interval <- function(variable, interval) {
   operator_min <-
-    gsub("^(\\W)(\\d+(.\\d+)?)(,)((\\d+(.\\d+)?)|\\s)(\\W)$", "\\1", interval)
+    gsub(
+      "^(\\W)((\\d+(.\\d+)?)|\\s)(,)((\\d+(.\\d+)?)|\\s)(\\W)$",
+      "\\1", interval
+    )
   value_min <-
-    gsub("^(\\W)(\\d+(.\\d+)?)(,)((\\d+(.\\d+)?)|\\s)(\\W)$", "\\2", interval)
+    gsub(
+      "^(\\W)((\\d+(.\\d+)?)|\\s)(,)((\\d+(.\\d+)?)|\\s)(\\W)$",
+      "\\2", interval
+    )
   value_max <-
-    gsub("^(\\W)(\\d+(.\\d+)?)(,)((\\d+(.\\d+)?)|\\s)(\\W)$", "\\5", interval)
+    gsub(
+      "^(\\W)((\\d+(.\\d+)?)|\\s)(,)((\\d+(.\\d+)?)|\\s)(\\W)$",
+      "\\6", interval
+    )
   operator_max <-
-    gsub("^(\\W)(\\d+(.\\d+)?)(,)((\\d+(.\\d+)?)|\\s)(\\W)$", "\\8", interval)
+    gsub(
+      "^(\\W)((\\d+(.\\d+)?)|\\s)(,)((\\d+(.\\d+)?)|\\s)(\\W)$",
+      "\\9", interval
+    )
 
   result_min <-
     ifelse(
-      operator_min == "[",
-      variable >= as.numeric(value_min),
+      operator_min == "]",
       ifelse(
-        operator_min == "]",
-        variable > as.numeric(value_min),
+        value_min == " ",
+        TRUE,
+        variable > as.numeric(value_min)
+      ),
+      ifelse(
+        operator_min == "[",
+        variable >= as.numeric(value_min),
         NA
       )
     )

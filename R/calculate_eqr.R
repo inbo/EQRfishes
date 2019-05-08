@@ -44,7 +44,25 @@ calculate_eqr <- function(data_sample, data_fish) {
         )
     )
 
-  result <- calculate_metrics(data_sample, data_fish)
+  data_fish %<>%
+    group_by(.data$sample_key) %>%
+    nest(.key = "fishdata")
+
+  result <- data_sample %>%
+    left_join(
+      read.csv2(
+        system.file("extdata/guild_metric.csv", package = "EQRfishes"),
+        stringsAsFactors = FALSE
+      ),
+      by = "guild"
+    ) %>%
+    left_join(
+      data_fish,
+      by = "sample_key"
+    ) %>%
+    mutate(
+      metric_score = calculate_metric(.)
+    )
 
   return(result)
 }
