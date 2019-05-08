@@ -8,7 +8,7 @@ connection_VIS <-
   )
 
 query_sample <-
-  "SELECT dw.Begindatum, dw.Einddatum, dw.WaarnemingKey,
+  "SELECT dw.Begindatum, dw.Einddatum, dw.WaarnemingKey as sample_key,
     dw.BreedteTransect AS width_transect, dw.LengteTraject AS length_trajectory,
     dw.BreedteRivier AS width_river, dG.Helling AS slope,
     dW.AantalFuiken AS n_fyke_nets, dW.AantalDagen, dM.Methodecode AS method,

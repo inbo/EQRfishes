@@ -1,4 +1,4 @@
-metric_calculate;formula;submetric_calculate;submetric_score
+metric_formula_name;formula;submetric_calculate;submetric_score
 ManTol;Tolerance / Mantolzoetsoorten;Tolerance;
 ManTol;Tolerance / Mantolzoetsoorten;Mantolzoetsoorten;
 ManTyp_brasem;TypeWaardeBrasem / Mantypzoetsoorten_brasem;TypeWaardeBrasem;

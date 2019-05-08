@@ -1,15 +1,15 @@
 metric_calculate;metric type;speciesfilter;include_species_length;NULL_to_0;only_individual_measures;method;opmerking
 MnsRekr;species (count);Nat_Recrutering;;;;;
-Mnizoet;number of individuals;Water_Zoet = 1 OR Water_Anadroom = 1;;;;;
+Mnizoet;number of individuals;Water_Zoet == 1 | Water_Anadroom == 1;;;;;
 MnsTot;species (count);Totaal;;;;;
-Mnszoet;species (count);Water_Zoet = 1 OR Water_Anadroom = 1;;;;;
+Mnszoet;species (count);Water_Zoet = 1 | Water_Anadroom = 1;;;;;
 TotWeight;total weight;Totaal;;;0;;
-TotGewZoet;total weight;(Water_Zoet = 1 OR Water_Anadroom = 1) AND Totaal = 1;;;0;;
+TotGewZoet;total weight;(Water_Zoet = 1 | Water_Anadroom = 1) & Totaal = 1;;;0;;
 TotGew;total weight;;;;0;;
-Tolerance;sum(WF_Tolerantie);Water_Zoet = 1 OR Water_Brak = 1;;;;;
-Mantolzoetsoorten;species (count);(Water_Zoet = 1 OR Water_Brak = 2) AND WF_Tolerantie > 0;;;;;
-TypeWaardeBarbeel;sum(WF_Type_Barbeel);Water_Zoet = 1 OR Water_Anadroom = 1;;;;;
-Mantypzoetsoorten_barbeel;species (count);(Water_Zoet = 1 OR Water_Anadroom = 2) AND WF_Type_Barbeel;;;;;
+Tolerance;sum(WF_Tolerantie);Water_Zoet = 1 | Water_Brak = 1;;;;;
+Mantolzoetsoorten;species (count);(Water_Zoet = 1 | Water_Brak = 1) & WF_Tolerantie > 0;;;;;
+TypeWaardeBarbeel;sum(WF_Type_Barbeel);Water_Zoet = 1 | Water_Anadroom = 1;;;;;
+Mantypzoetsoorten_barbeel;species (count);(Water_Zoet = 1 | Water_Anadroom = 1) & WF_Type_Barbeel;;;;;
 GewLeuCep;total weight;Taxoncode = 'LEU.CEP.';;1;;;
 Klasse0LeuCep;presence length class;Taxoncode = 'LEU.CEP.' AND length >= 0 AND length < 7.0001;;;1;;past misschien beter in tabel met scores? Mss eerst programma schrijven
 Klasse1LeuCep;presence length class;Taxoncode = 'LEU.CEP.' AND length >= 7.0001 AND length < 10;;;1;;
@@ -17,7 +17,7 @@ Klasse2LeuCep;presence length class;Taxoncode = 'LEU.CEP.' AND length >= 10 AND 
 Klasse3LeuCep;presence length class;Taxoncode = 'LEU.CEP.' AND length >= 15.9999;;;1;;
 GewBarBus;total weight;Taxoncode = 'BAR.BUS.';;1;;;
 GewGasAcu;total weight;Taxoncode = 'GAS.ACU.';;1;;;
-GewExoten;total weight;(Water_Zoet = 1 OR Water_Anadroom = 2) AND Exoot = 1;;1;;;
+GewExoten;total weight;(Water_Zoet = 1 | Water_Anadroom = 2) & Exoot = 1;;1;;;
 MnsXxx;species (count);;;;;;
 OblSpe;;;;;;;
 MpiXxx;relative percentage individuals;;;;;;

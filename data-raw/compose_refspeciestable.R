@@ -10,7 +10,7 @@ connection_vis <-
   )
 
 query_taxonmetrics <-
-  "SELECT vit.Taxoncode, vit.Totaal, vit.Exoot, vit.WF_Tolerantie,
+  "SELECT vit.Taxoncode AS taxoncode, vit.Totaal, vit.Exoot, vit.WF_Tolerantie,
     vit.WF_Type_Brasem, vit.WF_Type_Barbeel, vit.WF_Type_Upstream,
     vit.Grootte_Klasse_zoetwater, vit.Grootte_Klasse_upstream,
     vit.Shannon_Weaner, vit.Migratie, vit.Spec_Paaier, vit.Bentisch,
@@ -25,5 +25,47 @@ data_taxonmetrics <-
   sqlQuery(connection_vis, query_taxonmetrics, stringsAsFactors = FALSE)
 
 odbcClose(connection_vis)
+
+# data_taxonmetrics %<>%
+#   mutate(
+#     Totaal = ifelse(.data$Totaal == 0, NA, .data$Totaal),
+#     Exoot = ifelse(.data$Exoot == 0, NA, .data$Exoot),
+#     Grootte_Klasse_zoetwater =
+#       ifelse(
+#         .data$Grootte_Klasse_zoetwater == 0, NA, .data$Grootte_Klasse_zoetwater
+#       ),
+#     Grootte_Klasse_upstream =
+#       ifelse(
+#         .data$Grootte_Klasse_upstream == 0, NA, .data$Grootte_Klasse_upstream
+#       ),
+#     Spec_Paaier = ifelse(.data$Spec_Paaier == 0, NA, .data$Spec_Paaier),
+#     Invertivoor = ifelse(.data$Invertivoor == 0, NA, .data$Invertivoor),
+#     Omnivoor = ifelse(.data$Omnivoor == 0, NA, .data$Omnivoor),
+#     Piscivoor = ifelse(.data$Piscivoor == 0, NA, .data$Piscivoor),
+#     Invertivoor_upstream =
+#       ifelse(.data$Invertivoor_upstream == 0, NA, .data$Invertivoor_upstream),
+#     Water_Anadroom =
+#       ifelse(.data$Water_Anadroom == 0, NA, .data$Water_Anadroom),
+#     Water_Brak = ifelse(.data$Water_Brak == 0, NA, .data$Water_Brak),
+#     Water_Zoet = ifelse(.data$Water_Zoet == 0, NA, .data$Water_Zoet),
+#     Nat_Recrutering =
+#       ifelse(.data$Nat_Recrutering == 0, NA, .data$Nat_Recrutering)
+#   ) %>%
+#   gather(key = listname, value = value, -taxoncode, na.rm = TRUE) %>%
+#   bind_rows(
+#     data.frame(
+#       taxoncode = c("LEU.CEP.", "BAR.BUS.", "GAS.ACU."),
+#       listname = c("LeuCep", "BarBus", "GasAcu"),
+#       value = 1,
+#       stringsAsFactors = FALSE
+#     )
+#   )
+
+data_taxonmetrics %<>%
+  mutate(
+    LeuCep = ifelse(.data$taxoncode == "LEU.CEP.", 1, 0),
+    BarBus = ifelse(.data$taxoncode == "BAR.BUS.", 1, 0),
+    GasAcu = ifelse(.data$taxoncode == "GAS.ACU", 1, 0)
+  )
 
 write_csv2(data_taxonmetrics, "inst/extdata/data_taxonmetrics.csv")
