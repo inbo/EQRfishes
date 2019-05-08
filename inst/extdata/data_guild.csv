@@ -251,7 +251,7 @@ width;slope;guild;tidal;basin
 [100, [;[6.00,6.50[;barbeel;FALSE;NA
 [100, [;[6.50,7.00[;barbeel;FALSE;NA
 [100, [;[7.00, [;barbeel;FALSE;NA
-NA;NA;estuarien Schelde;TRUE;Benedenscheldebekken
-NA;NA;estuarien Schelde;TRUE;Netebekken
-NA;NA;estuarien Schelde;TRUE;Dijlebekken
-NA;NA;estuarien IJzer;TRUE;IJzerbekken
+NA;NA;estuarien_Schelde;TRUE;Benedenscheldebekken
+NA;NA;estuarien_Schelde;TRUE;Netebekken
+NA;NA;estuarien_Schelde;TRUE;Dijlebekken
+NA;NA;estuarien_IJzer;TRUE;IJzerbekken

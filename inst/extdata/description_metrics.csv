@@ -1,0 +1,51 @@
+metric;description
+AbrBra;Abramis brama (% weight)
+AbrRut;percentage weight of Abramis brama and Rutilus rutilus
+BenWei;benthivore species (% weight)
+ManBio;total biomass per effort
+Mangkw;grootte klasse waarde
+Manmigw;migratiewaarde
+Manpik;
+ManRec;percentage recruitment
+ManSha;Shannon-Wiener diversity index
+ManSoort;
+Manswi;
+Manten;
+ManTol;tolerance value
+Mantyp;
+MedWei;Median weight of Abramis brama, Perca fluviatilis and Rutilus rutilus
+Mnizoet;aantal zoetwatervissen
+MnsBen;number of bentic species
+Mnsbrak;aantal soorten brak
+MnsDia;diadrome soorten
+MnsEst;estuarien residente soorten
+MnsInv;number of invertivorous species
+MnsLoc;number of local species
+MnsMjs;marien seizoenale soorten
+MnsOmn;number of omnivorous species
+MnsPis;number of piscivorous species
+Mnsrekr;number of species with recruitment
+MnsTot;number of species
+MnsTyp;typische soorten voor het estuarium
+Mnszoet;aantal soorten zoetwatervissen
+Mpgexo;percentage weight of exotes (?)
+MpiBen;percentage bentic individuals
+Mpigesp;gespecialiseerde paaiers
+MpiInv;percentage invertivorous individuals
+Mpiinvt;
+MpiMjm;percentage marien juveniele migrerende soorten
+MpiOmn;percentage omnivores
+Mpiomni;percentage omnivoren
+MpiPis;percentage piscivores
+Mpipisc;
+MpiSme;percentage spiering
+MpiSpa;percentage specialised spawners
+MpsRekr;
+OblSpe;obligate species
+PerFlu;Perca fluviatilis (% weight)
+Pisnon;
+RmniDia;relatief aantal diadrome individuen
+SanLuc;Sander lucioperca (% weight)
+TotGew;totaal gewicht gevangen vissen
+TotGewZoet;totaal gewicht gevangen zoetwatervissen
+Trofcomp;trophic composition
