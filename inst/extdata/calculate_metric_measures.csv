@@ -1,25 +1,28 @@
-metric_calculate;metric type;speciesfilter;include_species_length;NULL_to_0;only_individual_measures;method;opmerking
-MnsRekr;species (count);Nat_Recrutering;;;;;
-Mnizoet;number of individuals;Water_Zoet == 1 | Water_Anadroom == 1;;;;;
-MnsTot;species (count);Totaal;;;;;
-Mnszoet;species (count);Water_Zoet = 1 | Water_Anadroom = 1;;;;;
-TotWeight;total weight;Totaal;;;0;;
-TotGewZoet;total weight;(Water_Zoet = 1 | Water_Anadroom = 1) & Totaal = 1;;;0;;
-TotGew;total weight;;;;0;;
-Tolerance;sum(WF_Tolerantie);Water_Zoet = 1 | Water_Brak = 1;;;;;
-Mantolzoetsoorten;species (count);(Water_Zoet = 1 | Water_Brak = 1) & WF_Tolerantie > 0;;;;;
-TypeWaardeBarbeel;sum(WF_Type_Barbeel);Water_Zoet = 1 | Water_Anadroom = 1;;;;;
-Mantypzoetsoorten_barbeel;species (count);(Water_Zoet = 1 | Water_Anadroom = 1) & WF_Type_Barbeel;;;;;
-GewLeuCep;total weight;Taxoncode = 'LEU.CEP.';;1;;;
-Klasse0LeuCep;presence length class;Taxoncode = 'LEU.CEP.' AND length >= 0 AND length < 7.0001;;;1;;past misschien beter in tabel met scores? Mss eerst programma schrijven
-Klasse1LeuCep;presence length class;Taxoncode = 'LEU.CEP.' AND length >= 7.0001 AND length < 10;;;1;;
-Klasse2LeuCep;presence length class;Taxoncode = 'LEU.CEP.' AND length >= 10 AND length < 15.9999;;;1;;
-Klasse3LeuCep;presence length class;Taxoncode = 'LEU.CEP.' AND length >= 15.9999;;;1;;
-GewBarBus;total weight;Taxoncode = 'BAR.BUS.';;1;;;
-GewGasAcu;total weight;Taxoncode = 'GAS.ACU.';;1;;;
-GewExoten;total weight;(Water_Zoet = 1 | Water_Anadroom = 2) & Exoot = 1;;1;;;
-MnsXxx;species (count);;;;;;
-OblSpe;;;;;;;
+metric_measures_name;metric_type;speciesfilter;exclude_species_length;NULL_to_0;only_individual_measures;method;opmerking
+MnsRekr;number_of_species;Nat_Recrutering;;;;;
+MniZoet;number_of_individuals;Water_Zoet == 1 | Water_Anadroom == 1;;;;;
+MnsTot;number_of_species;Totaal;;;;;
+MnsZoet;number_of_species;Water_Zoet == 1 | Water_Anadroom == 1;;;;;
+TotWeight;total_weight;Totaal;;;0;;
+TotGewZoet;total_weight;(Water_Zoet == 1 | Water_Anadroom == 1) & Totaal == 1;;;0;;
+TotGew;total_weight;;;;0;;
+Tolerance;sum(WF_Tolerantie);Water_Zoet == 1 | Water_Brak == 1;;;;;
+Mantolzoetsoorten;number_of_species;(Water_Zoet == 1 | Water_Brak == 1) & WF_Tolerantie > 0;;;;;
+TypeWaardeBarbeel;sum(WF_Type_Barbeel);Water_Zoet == 1 | Water_Anadroom == 1;;;;;
+Mantypzoetsoorten_barbeel;number_of_species;(Water_Zoet == 1 | Water_Anadroom == 1) & WF_Type_Barbeel;;;;;
+GewLeuCep;total_weight;Taxoncode == 'LEU.CEP.';;1;;;
+Klasse0LeuCep;presence_length_class;Taxoncode == 'LEU.CEP.';length < 0 | length >= 7.0001;;1;;past misschien beter in tabel met scores? Mss eerst programma schrijven
+Klasse1LeuCep;presence_length_class;Taxoncode == 'LEU.CEP.';length < 7.0001 | length >= 10;;1;;past misschien beter in tabel met scores? Mss eerst programma schrijven
+Klasse2LeuCep;presence_length_class;Taxoncode == 'LEU.CEP.';length < 10 | length >= 15.9999;;1;;past misschien beter in tabel met scores? Mss eerst programma schrijven
+Klasse3LeuCep;presence_length_class;Taxoncode == 'LEU.CEP.';length < 15.9999;;1;;past misschien beter in tabel met scores? Mss eerst programma schrijven
+GewBarBus;total_weight;Taxoncode == 'BAR.BUS.';;1;;;
+GewGasAcu;total_weight;Taxoncode == 'GAS.ACU.';;1;;;
+GewExoten;total_weight;(Water_Zoet == 1 | Water_Anadroom == 1) & Exoot == 1;;1;;;
+OmniZoet;number_of_individuals;Omnivoor == 1 & (Water_Zoet == 1 | Water_Brak == 1);;;;;
+PisciZoet;number_of_individuals;Piscivoor == 1 & (Water_Zoet == 1 | Water_Brak == 1);"(taxoncode == ""OSM.EPE."" & length <= 10) | (taxoncode %in% c(""SAL.FAR."", ""SAL.TRU."") & length <= 24.9) | (taxoncode == ""PER.FLU."" & length <= 13.0001)";;;;
+InvertZoet;number_of_individuals;Invertivoor == 1 & (Water_Zoet == 1 | Water_Brak == 1);"(taxoncode == ""OSM.EPE."" & length <= 10) | (taxoncode %in% c(""SAL.FAR."", ""SAL.TRU."") & length <= 24.9) | (taxoncode == ""PER.FLU."" & length <= 13.0001)";;;;
+MnsXxx;number_of_species;;;;;;
+OblSpe;;;"iets van de vorm taxoncode == ""XXX"" & length < YYY";;;;
 MpiXxx;relative percentage individuals;;;;;;
 ManRec;relative percentage individuals;;;;;;
 ManXxx;sum of values;;;;;;
