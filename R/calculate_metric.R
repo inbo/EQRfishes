@@ -7,9 +7,17 @@
 #'
 #' @return Dataset with calculated EQR for each sample
 #'
+#' @importFrom magrittr %>%
+#' @importFrom dplyr left_join mutate select distinct group_by
+#' @importFrom readr read_csv2
+#' @importFrom tidyr nest
+#' @importFrom purrr map2
+#'
+#' @export
+#'
 calculate_metric <- function(data_sample_fish) {
 
-  data_sample_fish %<>%
+  result <- data_sample_fish %>%
     left_join(
       read_csv2(
         system.file(
@@ -57,24 +65,12 @@ calculate_metric <- function(data_sample_fish) {
           .data$metric,
           map2(
             .data$fishdata, .data$metric_measures_info,
-            calculate_metric_measures  #mogelijk nog te vervangen door iets met meerdere functies
+            calculate_metric_measures
           )
         )
-    )
-
-  test <- function(data, visnaam) {
-    data %<>%
-      filter(.data$taxoncode == visnaam$visnaam) %>%
-      summarise(n = sum(.data$number))
-    return(data$n)
-  }
-  data_fish %>%
-    head() %>%
-    mutate(
-      visnaam = "RUT.RUT."
     ) %>%
-    mutate(
-     newrec = map2(.data$data, list(.data$visnaam), test)
-    )
+    select(-.data$metric_measure_info) #en dan nog de scores berekenen en metric + metric_score teruggeven!
 
+
+  return(result)
 }
