@@ -48,8 +48,10 @@ calculate_metric_measures <-
       metric_type,
       number_of_species = number_of_species(result),
       number_of_individuals = number_of_individuals(result),
-      total_weight = total_weight(result)
+      total_weight = total_weight(result),
+      sum_WF_Tolerantie = sum_values(result, "WF_Tolerantie"),
+      sum_WF_Type_Barbeel = sum_values(result, "WR_Type_Barbeel")
     )
 
-  return(result)
+  return(unique(result))
 }

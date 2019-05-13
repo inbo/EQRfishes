@@ -22,3 +22,9 @@ total_weight <- function(data) {
     summarise(weight = sum(.data$weight))
   return(data$weight)
 }
+
+sum_values <- function(data, variable) {
+  data %<>%
+    summarise(value = sum(get(variable)))
+  return(data$value)
+}

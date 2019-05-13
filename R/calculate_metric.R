@@ -18,36 +18,14 @@
 calculate_metric <- function(data_sample_fish) {
 
   result <- data_sample_fish %>%
-    left_join(
-      read_csv2(
-        system.file(
-          "extdata/calculate_metric_formula.csv", package = "EQRfishes"
-        )
-      ),
-      by = "metric_formula_name"
-    ) %>%
     mutate(
-      submetric_score =
-        ifelse(
-          is.na(.data$submetric_calculate),
-          NA,
-          calculate_metric(...)
-        ),
       metric =
         ifelse(
-          is.na(.data$formula),
+          is.na(.data$metric_formula_name),
           NA,
-          #formule berekenen
+          calculate_metric_formula(.data)
         )
     ) %>%
-    select(
-      -.data$formula,
-      -.data$submetric_formula_name,
-      -.data$submetric_measures_name,
-      -.data$submetric_score_name,
-      -.data$submetric_score
-    ) %>%
-    distinct() %>%
     left_join(
       read_csv2(
         system.file(
@@ -78,5 +56,5 @@ calculate_metric <- function(data_sample_fish) {
       -.data$only_individual_measures
     )
 
-  return(result)
+  return(unlist(result$metric))
 }
