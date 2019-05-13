@@ -11,7 +11,7 @@
 #' @importFrom dplyr left_join mutate select distinct group_by
 #' @importFrom readr read_csv2
 #' @importFrom tidyr nest
-#' @importFrom purrr map2
+#' @importFrom purrr pmap
 #'
 #' @export
 #'
@@ -53,9 +53,7 @@ calculate_metric <- function(data_sample_fish) {
         system.file(
           "extdata/calculate_metric_measures.csv", package = "EQRfishes"
         )
-      ) %>%
-        group_by(.data$metric_measures_name) %>%
-        nest(.key = "metric_measures_info"),
+      ),
       by = "metric_measures_name"
     ) %>%
     mutate(
@@ -63,14 +61,22 @@ calculate_metric <- function(data_sample_fish) {
         ifelse(
           is.na(.data$metric_measures_name),
           .data$metric,
-          map2(
-            .data$fishdata, .data$metric_measures_info,
+          pmap(
+            list(
+              fishdata = .data$fishdata,
+              metric_type = .data$metric_type,
+              speciesfilter = .data$speciesfilter,
+              exclude_species_length = .data$exclude_species_length,
+              only_individual_measures = .data$only_individual_measures
+            ),
             calculate_metric_measures
           )
         )
     ) %>%
-    select(-.data$metric_measure_info) #en dan nog de scores berekenen en metric + metric_score teruggeven!
-
+    select(
+      -.data$metric_type, -.data$speciesfilter, -.data$exclude_species_length,
+      -.data$only_individual_measures
+    )
 
   return(result)
 }

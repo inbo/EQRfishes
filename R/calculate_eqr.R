@@ -44,7 +44,8 @@ calculate_eqr <- function(data_sample, data_fish) {
           .data$surface * 4,
           .data$surface
         )
-    )
+    ) %>%
+    ungroup()
 
   data_fish %<>%
     group_by(.data$sample_key) %>%

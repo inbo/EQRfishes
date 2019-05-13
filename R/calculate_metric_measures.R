@@ -13,27 +13,31 @@
 #'
 #' @export
 #'
-calculate_metric_measures <- function(fishdata, data_sample_metrics) {
+calculate_metric_measures <-
+  function(
+    fishdata, metric_type, speciesfilter, exclude_species_length,
+    only_individual_measures
+  ) {
 
   specieslist <-
     read_csv2(
       system.file("extdata/data_taxonmetrics.csv", package = "EQRfishes")
     )
-  if (!is.na(data_sample_metrics$speciesfilter)) {
+  if (!is.na(speciesfilter)) {
     specieslist %<>%
-      filter(eval(parse(text = data_sample_metrics$speciesfilter)))
+      filter(eval(parse(text = speciesfilter)))
   }
 
   result <- fishdata %>%
     filter(.data$taxoncode %in% specieslist$taxoncode)
 
-  if (!is.na(data_sample_metrics$exclude_species_length)) {
+  if (!is.na(exclude_species_length)) {
     result %<>%
-      filter(!eval(parse(text = data_sample_metrics$exclude_species_length)))
+      filter(!eval(parse(text = exclude_species_length)))
   }
 
-  if (!is.na(data_sample_metrics$only_individual_measures)) {
-    if (data_sample_metrics$only_individual_measures == 1) {
+  if (!is.na(only_individual_measures)) {
+    if (only_individual_measures == 1) {
       result %<>%
         filter(.data$number == 1)
     }
@@ -41,7 +45,7 @@ calculate_metric_measures <- function(fishdata, data_sample_metrics) {
 
   result <-
     switch(
-      data_sample_metrics$metric_type,
+      metric_type,
       number_of_species = number_of_species(result),
       number_of_individuals = number_of_individuals(result),
       total_weight = total_weight(result)
