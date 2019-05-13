@@ -5,13 +5,13 @@
 
 number_of_individuals <- function(data) {
   data %<>%
-    summarise(n_ind = sum(number))
+    summarise(n_ind = sum(.data$number))
   return(data$n_ind)
 }
 
 number_of_species <- function(data) {
   data %<>%
-    select(taxoncode) %>%
+    select(.data$taxoncode) %>%
     distinct() %>%
     count()
   return(data$n)
@@ -19,6 +19,6 @@ number_of_species <- function(data) {
 
 total_weight <- function(data) {
   data %<>%
-    summarise(weight = sum(weight))
+    summarise(weight = sum(.data$weight))
   return(data$weight)
 }

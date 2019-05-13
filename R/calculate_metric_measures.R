@@ -32,9 +32,11 @@ calculate_metric_measures <- function(fishdata, data_sample_metrics) {
       filter(!eval(parse(text = data_sample_metrics$exclude_species_length)))
   }
 
-  if (data_sample_metrics$only_individual_measures) {
-    result %<>%
-      filter(.data$number == 1)
+  if (!is.na(data_sample_metrics$only_individual_measures)) {
+    if (data_sample_metrics$only_individual_measures == 1) {
+      result %<>%
+        filter(.data$number == 1)
+    }
   }
 
   result <-

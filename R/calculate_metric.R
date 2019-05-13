@@ -61,7 +61,7 @@ calculate_metric <- function(data_sample_fish) {
     mutate(
       metric =
         ifelse(
-          is.na(.data$metric_measures),
+          is.na(.data$metric_measures_name),
           .data$metric,
           map2(
             .data$fishdata, .data$metric_measures_info,

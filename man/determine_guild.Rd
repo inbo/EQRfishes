@@ -12,6 +12,8 @@ determine_guild(var_width, var_slope, var_tidal, var_basin)
 \item{var_slope}{slope of the river at the sample location}
 
 \item{var_tidal}{tidal effect present (TRUE) or absent (FALSE)?}
+
+\item{var_basin}{basin in which the sample location is situated}
 }
 \value{
 guild of the focal location(s)

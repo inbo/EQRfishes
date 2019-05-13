@@ -1,9 +1,9 @@
 metric_measures_name;metric_type;speciesfilter;exclude_species_length;NULL_to_0;only_individual_measures;method;opmerking
-MnsRekr;number_of_species;Nat_Recrutering;;;;;
+MnsRekr;number_of_species;Nat_Recrutering == 1;;;;;
 MniZoet;number_of_individuals;Water_Zoet == 1 | Water_Anadroom == 1;;;;;
-MnsTot;number_of_species;Totaal;;;;;
+MnsTot;number_of_species;Totaal == 1;;;;;
 MnsZoet;number_of_species;Water_Zoet == 1 | Water_Anadroom == 1;;;;;
-TotWeight;total_weight;Totaal;;;0;;
+TotWeight;total_weight;Totaal == 1;;;0;;
 TotGewZoet;total_weight;(Water_Zoet == 1 | Water_Anadroom == 1) & Totaal == 1;;;0;;
 TotGew;total_weight;;;;0;;
 Tolerance;sum(WF_Tolerantie);Water_Zoet == 1 | Water_Brak == 1;;;;;

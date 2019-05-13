@@ -7,9 +7,11 @@
 #'
 #' @return Dataset with calculated EQR for each sample
 #'
-#' @importFrom dplyr mutate rowwise
+#' @importFrom dplyr mutate rowwise group_by
 #' @importFrom magrittr %<>% %>%
 #' @importFrom rlang .data
+#' @importFrom tidyr nest
+#' @importFrom readr read_csv2
 #'
 #' @export
 #'
@@ -50,9 +52,8 @@ calculate_eqr <- function(data_sample, data_fish) {
 
   result <- data_sample %>%
     left_join(
-      read.csv2(
-        system.file("extdata/guild_metric.csv", package = "EQRfishes"),
-        stringsAsFactors = FALSE
+      read_csv2(
+        system.file("extdata/guild_metric.csv", package = "EQRfishes")
       ),
       by = "guild"
     ) %>%
@@ -61,7 +62,7 @@ calculate_eqr <- function(data_sample, data_fish) {
       by = "sample_key"
     ) %>%
     mutate(
-      metric_score = calculate_metric(.)
+      metric_score = calculate_metric(.data)
     )
 
   return(result)
