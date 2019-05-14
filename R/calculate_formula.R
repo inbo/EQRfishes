@@ -13,8 +13,16 @@
 #' @export
 #'
 #'
-calculate_formula <- function(formula, metric_name, metric_value) {
+calculate_formula <-
+  function(
+    formula, metric_name, metric_value, metric_score_name, metric_score
+  ) {
   for (i in seq_len(length(metric_name))) {
+    formula <-
+      gsub(
+        pattern = metric_score_name[i], replacement = metric_score[i],
+        x = formula
+      )
     formula <-
       gsub(
         pattern = metric_name[i], replacement = metric_value[i], x = formula

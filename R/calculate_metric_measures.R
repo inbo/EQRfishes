@@ -8,7 +8,7 @@
 #' @param exclude_species_length formula indicating which individuals have to be EXCLUDED based on fish characteristics such as length (info from calculate_metric_measures.csv)
 #' @param only_individual_measures value 1 indicates that only individually measured data should be used (info from calculate_metric_measures.csv)
 #'
-#' @return Dataset with calculated metric for each record
+#' @return A calculated value for the metric based on the given dataset and information
 #'
 #' @importFrom readr read_csv2
 #' @importFrom magrittr %>% %<>%

@@ -35,18 +35,25 @@ calculate_metric_formula <- function(data_sample_fish) {
       metric_score_name = .data$submetric_score_name
     ) %>%
     mutate(
-      submetric_score = calculate_metric(.)
+      submetric_value = calculate_metric(.)
     ) %>%
     group_by(
       .data$sample_key, .data$metric_name, .data$metric_formula_name_parent,
       .data$metric_measures_name_parent, .data$metric_score_name_parent
     ) %>%
     summarise(
-      metric =
+      metric_value =
         calculate_formula(
           formula = unique(.data$formula),
-          metric_name = .data$metric_measures_name,
-          metric_value = .data$submetric_score
+          metric_name =
+            ifelse(
+              is.na(.data$metric_formula_name),
+              .data$metric_measures_name,
+              .data$metric_formula_name
+            ),
+          metric_value = .data$submetric_value,
+          metric_score_name = .data$metric_score_name,
+          metric_score = .data$submetric_score
         )
           #formule berekenen (nog uitwerken!), hier overal checken dat noemer niet 0 of NA is
     ) %>%

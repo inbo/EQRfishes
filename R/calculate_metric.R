@@ -21,7 +21,7 @@ calculate_metric <- function(data_sample_fish) {
 
   result <- data_sample_fish %>%
     mutate(
-      metric =
+      metric_value =
         ifelse(
           is.na(.data$metric_formula_name),
           NA,
@@ -37,10 +37,10 @@ calculate_metric <- function(data_sample_fish) {
       by = "metric_measures_name", suffix = c("", "_info_measures")
     ) %>%
     mutate(
-      metric =
+      metric_value =
         ifelse(
           is.na(.data$metric_measures_name),
-          .data$metric,
+          .data$metric_value,
           pmap(
             list(
               fishdata = .data$fishdata,
@@ -57,7 +57,35 @@ calculate_metric <- function(data_sample_fish) {
       -.data$metric_type, -.data$speciesfilter, -.data$exclude_species_length,
       -.data$only_individual_measures, -.data$NULL_to_0,  #de laatste 3 voorwaarden nog inwerken in script!
       -.data$method_info_measures, -.data$opmerking
+    ) %>%
+    left_join(
+      read_csv2(
+        system.file(
+          "extdata/calculate_metric_score.csv", package = "EQRfishes"
+        )
+      ) %>%
+        group_by(.data$metric_score) %>%
+        nest(.key = "indices"),
+      by = c("metric_score_name" = "metric_score")
+    ) %>%
+    mutate(
+      metric_score =
+        pmap(
+          list(
+            indices = .data$indices,
+            metric_name =
+              ifelse(
+                is.na(.data$metric_formula_name),
+                .data$metric_measures_name,
+                .data$metric_formula_name
+              ),
+            metric_value = .data$metric_value,
+            width_river = .data$width_river,
+            slope = .data$slope
+          ),
+          calculate_metric_score
+        )
     )
 
-  return(unlist(result$metric))
+  return(unlist(result$metric_value))
 }
