@@ -7,7 +7,8 @@
 #'
 #' @return Dataset with calculated EQR for each sample
 #'
-#' @importFrom dplyr mutate rowwise group_by
+#' @importFrom dplyr group_by left_join mutate rowwise ungroup
+#' @importFrom plyr .
 #' @importFrom magrittr %<>% %>%
 #' @importFrom rlang .data
 #' @importFrom tidyr nest
@@ -63,7 +64,7 @@ calculate_eqr <- function(data_sample, data_fish) {
       by = "sample_key"
     ) %>%
     mutate(
-      metric_score = calculate_metric(.data)
+      metric_score = calculate_metric(.)
     )
 
   return(result)

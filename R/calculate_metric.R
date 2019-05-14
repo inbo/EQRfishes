@@ -8,8 +8,10 @@
 #' @return Dataset with calculated EQR for each sample
 #'
 #' @importFrom magrittr %>%
-#' @importFrom dplyr left_join mutate select distinct group_by
+#' @importFrom dplyr distinct group_by left_join mutate select
+#' @importFrom plyr .
 #' @importFrom readr read_csv2
+#' @importFrom rlang .data
 #' @importFrom tidyr nest
 #' @importFrom purrr pmap
 #'
@@ -23,7 +25,7 @@ calculate_metric <- function(data_sample_fish) {
         ifelse(
           is.na(.data$metric_formula_name),
           NA,
-          calculate_metric_formula(.data)
+          calculate_metric_formula(.)
         )
     ) %>%
     left_join(
@@ -32,7 +34,7 @@ calculate_metric <- function(data_sample_fish) {
           "extdata/calculate_metric_measures.csv", package = "EQRfishes"
         )
       ),
-      by = "metric_measures_name"
+      by = "metric_measures_name", suffix = c("", "_info_measures")
     ) %>%
     mutate(
       metric =
@@ -53,7 +55,8 @@ calculate_metric <- function(data_sample_fish) {
     ) %>%
     select(
       -.data$metric_type, -.data$speciesfilter, -.data$exclude_species_length,
-      -.data$only_individual_measures
+      -.data$only_individual_measures, -.data$NULL_to_0,  #de laatste 3 voorwaarden nog inwerken in script!
+      -.data$method_info_measures, -.data$opmerking
     )
 
   return(unlist(result$metric))

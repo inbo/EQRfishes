@@ -1,15 +1,19 @@
-#' calculate the metrics of the EQR
+#' calculate the metrics of the EQR based on measures
 #'
 #' Calculates the metrics that are based on measures only, given a dataset with the information from calculate_metric_measures.csv and fish data.
 #'
 #' @param fishdata dataframe with fishdata
-#' @param data_sample_metrics Dataset with at least the fields metric_type, speciesfilter, include_species_length, NULL_to_0, only_individual_measures, method (for 1 record)
+#' @param metric_type reflects which information must be calculated: number_of_species, number_of_individuals, total_weight,... (info from calculate_metric_measures.csv)
+#' @param speciesfilter formula indicating how to select the required species from data_taxonmetrics.csv (info from calculate_metric_measures.csv)
+#' @param exclude_species_length formula indicating which individuals have to be EXCLUDED based on fish characteristics such as length (info from calculate_metric_measures.csv)
+#' @param only_individual_measures value 1 indicates that only individually measured data should be used (info from calculate_metric_measures.csv)
 #'
 #' @return Dataset with calculated metric for each record
 #'
 #' @importFrom readr read_csv2
 #' @importFrom magrittr %>% %<>%
 #' @importFrom dplyr filter
+#' @importFrom rlang .data
 #'
 #' @export
 #'
@@ -49,8 +53,8 @@ calculate_metric_measures <-
       number_of_species = number_of_species(result),
       number_of_individuals = number_of_individuals(result),
       total_weight = total_weight(result),
-      sum_WF_Tolerantie = sum_values(result, "WF_Tolerantie"),
-      sum_WF_Type_Barbeel = sum_values(result, "WR_Type_Barbeel")
+      sum_WF_Tolerantie = sum_values(result, specieslist, "WF_Tolerantie"),
+      sum_WF_Type_Barbeel = sum_values(result, specieslist, "WF_Type_Barbeel")
     )
 
   return(unique(result))

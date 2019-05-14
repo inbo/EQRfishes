@@ -2,13 +2,15 @@
 #'
 #' Calculates the metrics that are based on formulas only, given fish data and other .
 #'
-#' @inheritparams calculate_metric
+#' @inheritParams calculate_metric
 #'
 #' @return Dataset with calculated metric for each record
 #'
 #' @importFrom readr read_csv2
-#' @importFrom magrittr %>% %<>%
-#' @importFrom dplyr filter
+#' @importFrom magrittr %>%
+#' @importFrom dplyr filter group_by left_join mutate summarise ungroup
+#' @importFrom plyr .
+#' @importFrom rlang .data
 #'
 #' @export
 #'
@@ -50,5 +52,5 @@ calculate_metric_formula <- function(data_sample_fish) {
     ) %>%
     ungroup()
 
-  return(result)
+  return(unlist(result$metric))
 }

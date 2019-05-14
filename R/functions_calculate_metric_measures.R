@@ -1,7 +1,8 @@
 # this file contains small helper functions that are called in the function calculate_metric_measures
 
 #' @importFrom magrittr %>% %<>%
-#' @importFrom dplyr summarise select distinct count
+#' @importFrom dplyr count distinct left_join select summarise
+#' @importFrom rlang .data
 
 number_of_individuals <- function(data) {
   data %<>%
@@ -23,8 +24,9 @@ total_weight <- function(data) {
   return(data$weight)
 }
 
-sum_values <- function(data, variable) {
+sum_values <- function(data, specieslist, variable) {
   data %<>%
+    left_join(specieslist, by = "taxoncode") %>%
     summarise(value = sum(get(variable)))
   return(data$value)
 }

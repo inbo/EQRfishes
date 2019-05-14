@@ -2,14 +2,21 @@
 % Please edit documentation in R/calculate_metric_measures.R
 \name{calculate_metric_measures}
 \alias{calculate_metric_measures}
-\title{calculate the metrics of the EQR}
+\title{calculate the metrics of the EQR based on measures}
 \usage{
-calculate_metric_measures(fishdata, data_sample_metrics)
+calculate_metric_measures(fishdata, metric_type, speciesfilter,
+  exclude_species_length, only_individual_measures)
 }
 \arguments{
 \item{fishdata}{dataframe with fishdata}
 
-\item{data_sample_metrics}{Dataset with at least the fields metric_type, speciesfilter, include_species_length, NULL_to_0, only_individual_measures, method (for 1 record)}
+\item{metric_type}{reflects which information must be calculated: number_of_species, number_of_individuals, total_weight,... (info from calculate_metric_measures.csv)}
+
+\item{speciesfilter}{formula indicating how to select the required species from data_taxonmetrics.csv (info from calculate_metric_measures.csv)}
+
+\item{exclude_species_length}{formula indicating which individuals have to be EXCLUDED based on fish characteristics such as length (info from calculate_metric_measures.csv)}
+
+\item{only_individual_measures}{value 1 indicates that only individually measured data should be used (info from calculate_metric_measures.csv)}
 }
 \value{
 Dataset with calculated metric for each record
