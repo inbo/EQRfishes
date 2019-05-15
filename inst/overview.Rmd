@@ -1,0 +1,52 @@
+---
+title: "Outline package EQRfishes"
+output: html_notebook
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tibble)
+library(dplyr)
+library(ggplot2)
+
+```
+
+### Overview package functions
+
+Due to the complex nature of the calculations, it is rather complicated to keep track on the different functions. This overview shows which functions are called by calculate_eqr (direct and indirect), and which information is used.
+
+```{r overview, echo=FALSE}
+
+Information <- tribble(
+  ~Title, ~X, ~Y, ~Hjust, ~Vjust, ~Tekst,
+  "calculate_eqr", -1, 2, 0, 0.5, "",
+  "determine_guild", 0, 0, 0, 0.5, "data_guild.csv",
+  "var_in_interval", 1, -2, 0, 0.5, "",
+  "calculate_metric", 0, -4, 0, 0.5, "guild_metric.csv",
+  "calculate_metric_formula", 1, -6, 0, 0.5, "calculate_metric_formula.csv",
+  "calculate_metric", 2, -8, 0, 0.5, "",
+  "calculate_formula", 2, -10, 0, 0.5, "",
+  "calculate_metric_measures", 1, -12, 0, 0.5, "calculate_metric_measures.csv, extdata/data_taxonmetrics.csv",
+  "(small subfunctions)", 2, -14, 0, 0.5, "",
+  "calculate_metric_score", 1, -16, 0, 0.5, "calculate_metric_score.csv",
+  "var_in_interval", 2, -18, 0, 0.5, ""
+)
+
+Information %>%
+  ggplot(aes(x = X, y = Y, hjust = Hjust, vjust = Vjust)) +
+  geom_text(aes(label = Tekst, x = X + 8)) +
+  geom_label(
+    aes(label = Title, colour = Title),
+    show.legend = FALSE
+  ) +
+  xlim(-1, 25) +
+  ylim(-30, 2) +
+  theme(
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    panel.background = element_blank()
+  )
+```

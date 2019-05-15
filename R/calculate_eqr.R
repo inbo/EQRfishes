@@ -13,6 +13,7 @@
 #' @importFrom rlang .data
 #' @importFrom tidyr nest
 #' @importFrom readr read_csv2
+#' @importFrom purrr map
 #'
 #' @export
 #'
@@ -64,7 +65,9 @@ calculate_eqr <- function(data_sample, data_fish) {
       by = "sample_key"
     ) %>%
     mutate(
-      metric_score = calculate_metric(.)
+      metric_results = calculate_metric(.),
+      submetric_value = unlist(map(.data$metric_results, unlist_value)),
+      submetric_score = unlist(map(.data$metric_results, unlist_score))
     )
 
   return(result)

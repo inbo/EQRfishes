@@ -8,9 +8,10 @@
 #'
 #' @importFrom readr read_csv2
 #' @importFrom magrittr %>%
-#' @importFrom dplyr filter group_by left_join mutate summarise ungroup
+#' @importFrom dplyr arrange filter group_by left_join mutate rename summarise ungroup
 #' @importFrom plyr .
 #' @importFrom rlang .data
+#' @importFrom purrr map
 #'
 #' @export
 #'
@@ -35,7 +36,9 @@ calculate_metric_formula <- function(data_sample_fish) {
       metric_score_name = .data$submetric_score_name
     ) %>%
     mutate(
-      submetric_value = calculate_metric(.)
+      submetric_results = calculate_metric(.),
+      submetric_value = unlist(map(.data$submetric_results, unlist_value)),
+      submetric_score = unlist(map(.data$submetric_results, unlist_score))
     ) %>%
     group_by(
       .data$sample_key, .data$metric_name, .data$metric_formula_name_parent,
@@ -45,19 +48,25 @@ calculate_metric_formula <- function(data_sample_fish) {
       metric_value =
         calculate_formula(
           formula = unique(.data$formula),
-          metric_name =
+          submetric_name =
             ifelse(
-              is.na(.data$metric_formula_name),
-              .data$metric_measures_name,
-              .data$metric_formula_name
+              is.na(.data$submetric_formula_name),
+              .data$submetric_measures_name,
+              .data$submetric_formula_name
             ),
-          metric_value = .data$submetric_value,
-          metric_score_name = .data$metric_score_name,
-          metric_score = .data$submetric_score
+          submetric_value = .data$submetric_value,
+          submetric_score_name = .data$submetric_score_name,
+          submetric_score = .data$submetric_score
         )
           #formule berekenen (nog uitwerken!), hier overal checken dat noemer niet 0 of NA is
     ) %>%
-    ungroup()
+    ungroup() %>%
+    rename(
+      metric_formula_name = .data$metric_formula_name_parent,
+      metric_measures_name = .data$metric_measures_name_parent,
+      metric_score_name = .data$metric_score_name_parent
+    ) %>%
+    arrange(.data$rownr)
 
-  return(unlist(result$metric))
+  return(result$metric_value)
 }

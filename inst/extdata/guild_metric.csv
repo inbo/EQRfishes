@@ -46,7 +46,7 @@ lakes_fyke;MpiOmn;;;SMpiOmn_lakes
 lakes_fyke;MpiPis;;;SMpiPis_lakes
 lakes_fyke;MpiInv;;;SMpiInv_lakes
 canals_electric;MnsTot;;;SMnsTot_canals
-canals_electric;ManBio;;;SManbiom_canals
+canals_electric;ManBio;;;SManbio_canals
 canals_electric;ManSha;;;SManSha_canals
 canals_fyke;ManRec;;;SManRec
 canals_fyke;BenWei;;;SBenWei_canals

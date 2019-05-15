@@ -8,12 +8,12 @@
 #' @return Dataset with calculated EQR for each sample
 #'
 #' @importFrom magrittr %>%
-#' @importFrom dplyr distinct group_by left_join mutate select
+#' @importFrom dplyr distinct group_by left_join mutate row_number select
 #' @importFrom plyr .
 #' @importFrom readr read_csv2
 #' @importFrom rlang .data
 #' @importFrom tidyr nest
-#' @importFrom purrr pmap
+#' @importFrom purrr pmap map2
 #'
 #' @export
 #'
@@ -21,12 +21,10 @@ calculate_metric <- function(data_sample_fish) {
 
   result <- data_sample_fish %>%
     mutate(
-      metric_value =
-        ifelse(
-          is.na(.data$metric_formula_name),
-          NA,
-          calculate_metric_formula(.)
-        )
+      rownr = row_number()
+    ) %>%
+    mutate(
+      metric_value_formula = calculate_metric_formula(.)
     ) %>%
     left_join(
       read_csv2(
@@ -37,20 +35,22 @@ calculate_metric <- function(data_sample_fish) {
       by = "metric_measures_name", suffix = c("", "_info_measures")
     ) %>%
     mutate(
+      metric_value_measures =
+        pmap(
+          list(
+            fishdata = .data$fishdata,
+            metric_type = .data$metric_type,
+            speciesfilter = .data$speciesfilter,
+            exclude_species_length = .data$exclude_species_length,
+            only_individual_measures = .data$only_individual_measures
+          ),
+          calculate_metric_measures
+        ),
       metric_value =
         ifelse(
-          is.na(.data$metric_measures_name),
-          .data$metric_value,
-          pmap(
-            list(
-              fishdata = .data$fishdata,
-              metric_type = .data$metric_type,
-              speciesfilter = .data$speciesfilter,
-              exclude_species_length = .data$exclude_species_length,
-              only_individual_measures = .data$only_individual_measures
-            ),
-            calculate_metric_measures
-          )
+          is.na(.data$metric_value_formula),
+          .data$metric_value_measures,
+          .data$metric_value_formula
         )
     ) %>%
     select(
@@ -70,22 +70,27 @@ calculate_metric <- function(data_sample_fish) {
     ) %>%
     mutate(
       metric_score =
-        pmap(
-          list(
-            indices = .data$indices,
-            metric_name =
-              ifelse(
-                is.na(.data$metric_formula_name),
-                .data$metric_measures_name,
-                .data$metric_formula_name
-              ),
-            metric_value = .data$metric_value,
-            width_river = .data$width_river,
-            slope = .data$slope
-          ),
-          calculate_metric_score
-        )
+        ifelse(
+          is.na(.data$metric_score_name),
+          NA,
+          pmap(
+            list(
+              indices = .data$indices,
+              metric_name =
+                ifelse(
+                  is.na(.data$metric_formula_name),
+                  .data$metric_measures_name,
+                  .data$metric_formula_name
+                ),
+              metric_value = .data$metric_value,
+              width_river = .data$width_river,
+              slope = .data$slope
+            ),
+            calculate_metric_score
+          )
+        ),
+      metric_combi = map2(.data$metric_value, .data$metric_score, list)
     )
 
-  return(unlist(result$metric_value))
+  return(result$metric_combi)
 }

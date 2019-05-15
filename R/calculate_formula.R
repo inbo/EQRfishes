@@ -3,11 +3,14 @@
 #' small function that calculates a formula after replacing the parameter names with their values
 #'
 #' @param formula formula including only given parameters
-#' @param metric_name vector with names of all parameters mentioned in formula
-#' @param metric_value vector with values of all parameters of metric name (in same order as metric_name)
+#' @param submetric_name vector with names of all parameters mentioned in formula (only calculated values)
+#' @param submetric_value vector with values of all parameters of metric name (in same order as submetric_name)
+#' @param submetric_score_name vector with names of all parameters mentioned in formula (only scores of calculated values)
+#' @param submetric_score vector with values of all parameters of metric score name (in same order as submetric_score_name)
 #'
 #' @return a value which is the result of calculating the formula
 #'
+#' @importFrom dplyr filter
 #' @importFrom pander evals
 #'
 #' @export
@@ -15,19 +18,25 @@
 #'
 calculate_formula <-
   function(
-    formula, metric_name, metric_value, metric_score_name, metric_score
+    formula, submetric_name, submetric_value, submetric_score_name,
+    submetric_score
   ) {
-  for (i in seq_len(length(metric_name))) {
+
+  parameters <-
+    data.frame(
+      name = c(submetric_name, submetric_score_name),
+      value = c(submetric_value, submetric_score),
+      stringsAsFactors = FALSE
+    ) %>%
+    filter(!is.na(.data$name))
+
+  for (i in seq_len(nrow(parameters))) {
     formula <-
       gsub(
-        pattern = metric_score_name[i], replacement = metric_score[i],
+        pattern = parameters$name[i], replacement = parameters$value[i],
         x = formula
       )
-    formula <-
-      gsub(
-        pattern = metric_name[i], replacement = metric_value[i], x = formula
-      )
-    result <- evals(formula)[[1]]$result
   }
+  result <- evals(formula)[[1]]$result
   return(result)
 }
