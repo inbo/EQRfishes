@@ -19,7 +19,7 @@ calculate_metric_measures(fishdata, metric_type, speciesfilter,
 \item{only_individual_measures}{value 1 indicates that only individually measured data should be used (info from calculate_metric_measures.csv)}
 }
 \value{
-Dataset with calculated metric for each record
+A calculated value for the metric based on the given dataset and information
 }
 \description{
 Calculates the metrics that are based on measures only, given a dataset with the information from calculate_metric_measures.csv and fish data.

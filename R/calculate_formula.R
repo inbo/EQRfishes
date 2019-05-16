@@ -7,6 +7,7 @@
 #' @param submetric_value vector with values of all parameters of metric name (in same order as submetric_name)
 #' @param submetric_score_name vector with names of all parameters mentioned in formula (only scores of calculated values)
 #' @param submetric_score vector with values of all parameters of metric score name (in same order as submetric_score_name)
+#' @param surface value of variable surface (specific for location)
 #'
 #' @return a value which is the result of calculating the formula
 #'
@@ -19,13 +20,13 @@
 calculate_formula <-
   function(
     formula, submetric_name, submetric_value, submetric_score_name,
-    submetric_score
+    submetric_score, surface
   ) {
 
   parameters <-
     data.frame(
-      name = c(submetric_name, submetric_score_name),
-      value = c(submetric_value, submetric_score),
+      name = c(submetric_name, submetric_score_name, "surface"),
+      value = c(submetric_value, submetric_score, surface),
       stringsAsFactors = FALSE
     ) %>%
     filter(!is.na(.data$name))

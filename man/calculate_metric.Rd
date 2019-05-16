@@ -4,10 +4,14 @@
 \alias{calculate_metric}
 \title{calculate the metrics of the EQR}
 \usage{
-calculate_metric(data_sample_fish)
+calculate_metric(data_sample_fish,
+  metric_names = c("metric_formula_name", "metric_measures_name",
+  "metric_score_name"))
 }
 \arguments{
 \item{data_sample_fish}{Data on the sample with additional paramaters guild (calculated by calculate_guild) and surface and fishdata included}
+
+\item{metric_names}{default column names to refer to the metric names are metric_formula_name, metric_measures_name and metric_score_name. To recall this function in subfunctions, it could be necessary to rename column names to these standard names in this funtion.}
 }
 \value{
 Dataset with calculated EQR for each sample

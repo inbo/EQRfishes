@@ -24,25 +24,30 @@ calculate_metric_formula <- function(data_sample_fish) {
           "extdata/calculate_metric_formula.csv", package = "EQRfishes"
         )
       ),
-      by = "metric_formula_name"
+      by = "metric_formula_name", suffix = c("", "_")
     ) %>%
     filter(!is.na(.data$submetric_measures_name)) %>% #tijdelijk!!!!!
     mutate(
-      metric_formula_name_parent = .data$metric_formula_name,
-      metric_measures_name_parent = .data$metric_measures_name,
-      metric_score_name_parent = .data$metric_measures_name,
-      metric_formula_name = .data$submetric_formula_name,
-      metric_measures_name = .data$submetric_measures_name,
-      metric_score_name = .data$submetric_score_name
-    ) %>%
-    mutate(
-      submetric_results = calculate_metric(.),
+      submetric_results =
+        ifelse(
+          is.na(.data$formula),
+          NA,
+          calculate_metric(
+            .,
+            metric_names =
+              c(
+                "submetric_formula_name", "submetric_measures_name",
+                "submetric_score_name"
+              )
+          )
+        ),
       submetric_value = unlist(map(.data$submetric_results, unlist_value)),
       submetric_score = unlist(map(.data$submetric_results, unlist_score))
     ) %>%
     group_by(
-      .data$sample_key, .data$metric_name, .data$metric_formula_name_parent,
-      .data$metric_measures_name_parent, .data$metric_score_name_parent
+      .data$sample_key, .data$metric_name, .data$metric_formula_name,
+      .data$metric_measures_name, .data$metric_score_name,
+      .data$rownr
     ) %>%
     summarise(
       metric_value =
@@ -56,16 +61,12 @@ calculate_metric_formula <- function(data_sample_fish) {
             ),
           submetric_value = .data$submetric_value,
           submetric_score_name = .data$submetric_score_name,
-          submetric_score = .data$submetric_score
+          submetric_score = .data$submetric_score,
+          surface = unique(.data$surface)
         )
           #formule berekenen (nog uitwerken!), hier overal checken dat noemer niet 0 of NA is
     ) %>%
     ungroup() %>%
-    rename(
-      metric_formula_name = .data$metric_formula_name_parent,
-      metric_measures_name = .data$metric_measures_name_parent,
-      metric_score_name = .data$metric_score_name_parent
-    ) %>%
     arrange(.data$rownr)
 
   return(result$metric_value)

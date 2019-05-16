@@ -5,5 +5,9 @@ unlist_value <- function(data) {
 }
 
 unlist_score <- function(data) {
-  return(unlist(data)[[2]])
+  if (all(is.na(data))) {
+    return(NA)
+  } else {
+    return(unlist(data)[[2]])
+  }
 }
