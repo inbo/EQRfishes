@@ -24,18 +24,6 @@ calculate_metric <-
       c("metric_formula_name", "metric_measures_name", "metric_score_name")
   ) {
 
-  if (has_name(data_sample_fish, "rownr")) {
-    data_sample_fish %<>%
-      mutate(
-        rownr = 1:length(.data$rownr)
-      )
-  } else {
-    data_sample_fish %<>%
-      mutate(
-        rownr = 1:length(.data$sample_key)
-      )
-  }
-
   if (has_name(data_sample_fish, "formula")) {
     data_sample_fish %<>%
       select(
@@ -50,6 +38,7 @@ calculate_metric <-
       metric_measures_name = metric_names[2],
       metric_score_name = metric_names[3]
     ) %>%
+    arrange(.data$row_id) %>%
     mutate(
       metric_value_formula =
         ifelse(
@@ -123,7 +112,7 @@ calculate_metric <-
         ),
       metric_combi = map2(.data$metric_value, .data$metric_score, list)
     ) %>%
-    arrange(.data$rownr)
+    arrange(.data$row_id)
 
   return(result$metric_combi)
 }

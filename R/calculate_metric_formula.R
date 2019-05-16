@@ -26,7 +26,10 @@ calculate_metric_formula <- function(data_sample_fish) {
       ),
       by = "metric_formula_name", suffix = c("", "_")
     ) %>%
-    filter(!is.na(.data$submetric_measures_name)) %>% #tijdelijk!!!!!
+    arrange(.data$row_id) %>%
+    mutate(
+      row_id = 1:length(.data$row_id)
+    ) %>%
     mutate(
       submetric_results =
         ifelse(
@@ -47,7 +50,7 @@ calculate_metric_formula <- function(data_sample_fish) {
     group_by(
       .data$sample_key, .data$metric_name, .data$metric_formula_name,
       .data$metric_measures_name, .data$metric_score_name,
-      .data$rownr
+      .data$row_id
     ) %>%
     summarise(
       metric_value =
@@ -67,7 +70,7 @@ calculate_metric_formula <- function(data_sample_fish) {
           #formule berekenen (nog uitwerken!), hier overal checken dat noemer niet 0 of NA is
     ) %>%
     ungroup() %>%
-    arrange(.data$rownr)
+    arrange(.data$row_id)
 
   return(result$metric_value)
 }
