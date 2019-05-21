@@ -2,6 +2,7 @@
 #'
 #' Calculates the metric score, given a calculated metric value (and some parameters specific to the sampling location), and a table with the indices and their tresholds (info from calculate_metric_score.csv).
 #'
+#' @param metric_score_name name of metric score to be calculated (NA if no calculation has to be done)
 #' @param indices dataframe with indices and their tresholds (info from calculate_metric_score.csv)
 #' @param metric_name name of the calculated metric
 #' @param metric_value calculated value of the metric mentioned as metric_name
@@ -17,7 +18,13 @@
 #' @export
 #'
 calculate_metric_score <-
-  function(indices, metric_name, metric_value, width_river, slope) {
+  function(
+    metric_score_name, indices, metric_name, metric_value, width_river, slope
+  ) {
+
+  if (is.na(metric_score_name)) {
+    return(NA)
+  }
 
   result <- indices %>%
     filter(

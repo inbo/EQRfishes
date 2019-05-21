@@ -17,6 +17,10 @@
 #'
 calculate_metric_formula <- function(data_sample_fish) {
 
+  if(nrow(data_sample_fish) == 0) {
+    return(NA)
+  }
+
   result <- data_sample_fish %>%
     left_join(
       read_csv2(
@@ -28,21 +32,14 @@ calculate_metric_formula <- function(data_sample_fish) {
     ) %>%
     arrange(.data$row_id) %>%
     mutate(
-      row_id = 1:length(.data$row_id)
-    ) %>%
-    mutate(
       submetric_results =
-        ifelse(
-          is.na(.data$formula),
-          NA,
-          calculate_metric(
-            .,
-            metric_names =
-              c(
-                "submetric_formula_name", "submetric_measures_name",
-                "submetric_score_name"
-              )
-          )
+        calculate_metric(
+          .,
+          metric_names =
+            c(
+              "submetric_formula_name", "submetric_measures_name",
+              "submetric_score_name"
+            )
         ),
       submetric_value = unlist(map(.data$submetric_results, unlist_value)),
       submetric_score = unlist(map(.data$submetric_results, unlist_score))

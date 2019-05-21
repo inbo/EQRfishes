@@ -8,7 +8,7 @@
 #' @return Dataset with calculated EQR for each sample
 #'
 #' @importFrom magrittr %>% %<>%
-#' @importFrom dplyr arrange distinct group_by left_join mutate select
+#' @importFrom dplyr arrange bind_rows distinct group_by left_join mutate select
 #' @importFrom plyr .
 #' @importFrom readr read_csv2
 #' @importFrom rlang .data has_name
@@ -32,21 +32,23 @@ calculate_metric <-
       )
   }
 
-  result <- data_sample_fish %>%
+  data_sample_fish %<>%
     rename(
       metric_formula_name = metric_names[1],
       metric_measures_name = metric_names[2],
       metric_score_name = metric_names[3]
-    ) %>%
+    )
+
+  result_formula <- data_sample_fish %>%
+    filter(!is.na(.data$metric_formula_name)) %>%
     arrange(.data$row_id) %>%
     mutate(
-      metric_value_formula =
-        ifelse(
-          is.na(.data$metric_formula_name),
-          NA,
-          calculate_metric_formula(.)
-        )
-    ) %>%
+      metric_value = calculate_metric_formula(.)
+    )
+
+  result_measures <- data_sample_fish %>%
+    filter(!is.na(.data$metric_measures_name)) %>%
+    arrange(.data$row_id) %>%
     left_join(
       read_csv2(
         system.file(
@@ -56,29 +58,29 @@ calculate_metric <-
       by = "metric_measures_name", suffix = c("", "_info_measures")
     ) %>%
     mutate(
-      metric_value_measures =
-        pmap(
-          list(
-            fishdata = .data$fishdata,
-            metric_type = .data$metric_type,
-            speciesfilter = .data$speciesfilter,
-            exclude_species_length = .data$exclude_species_length,
-            only_individual_measures = .data$only_individual_measures
-          ),
-          calculate_metric_measures
-        ),
       metric_value =
-        ifelse(
-          is.na(.data$metric_value_formula),
-          .data$metric_value_measures,
-          .data$metric_value_formula
+        unlist(
+          pmap(
+            list(
+              fishdata = .data$fishdata,
+              metric_type = .data$metric_type,
+              speciesfilter = .data$speciesfilter,
+              exclude_species_length = .data$exclude_species_length,
+              only_individual_measures = .data$only_individual_measures
+            ),
+            calculate_metric_measures
+          )
         )
     ) %>%
     select(
       -.data$metric_type, -.data$speciesfilter, -.data$exclude_species_length,
       -.data$only_individual_measures, -.data$NULL_to_0,  #de laatste 3 voorwaarden nog inwerken in script!
       -.data$method_info_measures, -.data$opmerking
-    ) %>%
+    )
+
+  result <- result_formula %>%
+    bind_rows(result_measures) %>%
+    arrange(.data$row_id) %>%
     left_join(
       read_csv2(
         system.file(
@@ -89,13 +91,13 @@ calculate_metric <-
         nest(.key = "indices"),
       by = c("metric_score_name" = "metric_score")
     ) %>%
+    arrange(.data$row_id) %>%
     mutate(
       metric_score =
-        ifelse(
-          is.na(.data$metric_score_name),
-          NA,
+        unlist(
           pmap(
             list(
+              metric_score_name = .data$metric_score_name,
               indices = .data$indices,
               metric_name =
                 ifelse(

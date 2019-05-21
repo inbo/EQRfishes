@@ -4,10 +4,12 @@
 \alias{calculate_metric_score}
 \title{calculate the metric scores of the EQR}
 \usage{
-calculate_metric_score(indices, metric_name, metric_value, width_river,
-  slope)
+calculate_metric_score(metric_score_name, indices, metric_name,
+  metric_value, width_river, slope)
 }
 \arguments{
+\item{metric_score_name}{name of metric score to be calculated (NA if no calculation has to be done)}
+
 \item{indices}{dataframe with indices and their tresholds (info from calculate_metric_score.csv)}
 
 \item{metric_name}{name of the calculated metric}
