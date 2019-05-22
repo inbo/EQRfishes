@@ -3,7 +3,7 @@
 #' Calculates the metrics of the ecological quality ratio based on sample data and fish data.
 #'
 #' @param data_sample_fish Data on the sample with additional paramaters guild (calculated by calculate_guild) and surface and fishdata included
-#' @param metric_names default column names to refer to the metric names are metric_formula_name, metric_measures_name and metric_score_name. To recall this function in subfunctions, it could be necessary to rename column names to these standard names in this funtion.
+#' @param aberant_column_names default column names to refer to the metric names are metric_formula_name, metric_measures_name and metric_score_name. To recall this function in subfunctions, it could be necessary to rename column names to these standard names in this funtion.
 #'
 #' @return Dataset with calculated EQR for each sample
 #'
@@ -20,23 +20,28 @@
 calculate_metric <-
   function(
     data_sample_fish,
-    metric_names =
-      c("metric_formula_name", "metric_measures_name", "metric_score_name")
+    aberant_column_names =
+      c(
+        "metric_formula_name", "metric_measures_name", "metric_score_name",
+        "row_id"
+      )
   ) {
 
   if (has_name(data_sample_fish, "formula")) {
     data_sample_fish %<>%
       select(
         -.data$formula, -.data$metric_formula_name, -.data$metric_measures_name,
-        -.data$metric_score_name
+        -.data$metric_score_name, -.data$row_id
       )
   }
 
   data_sample_fish %<>%
+    #filter(!metric_name %in% c("MpsRekr")) %>%
     rename(
-      metric_formula_name = metric_names[1],
-      metric_measures_name = metric_names[2],
-      metric_score_name = metric_names[3]
+      metric_formula_name = aberant_column_names[1],
+      metric_measures_name = aberant_column_names[2],
+      metric_score_name = aberant_column_names[3],
+      row_id = aberant_column_names[4]
     )
 
   result_formula <- data_sample_fish %>%
@@ -106,6 +111,7 @@ calculate_metric <-
                   .data$metric_formula_name
                 ),
               metric_value = .data$metric_value,
+              surface = .data$surface,
               width_river = .data$width_river,
               slope = .data$slope
             ),

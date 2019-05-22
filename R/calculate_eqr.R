@@ -70,8 +70,8 @@ calculate_eqr <- function(data_sample, data_fish) {
     arrange(.data$row_id) %>%
     mutate(
       metric_results = calculate_metric(.),
-      submetric_value = unlist(map(.data$metric_results, unlist_value)),
-      submetric_score = unlist(map(.data$metric_results, unlist_score))
+      metric_value = unlist(map(.data$metric_results, unlist_value)),
+      metric_score = unlist(map(.data$metric_results, unlist_score))
     )
 
   return(result)

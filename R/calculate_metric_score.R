@@ -6,6 +6,7 @@
 #' @param indices dataframe with indices and their tresholds (info from calculate_metric_score.csv)
 #' @param metric_name name of the calculated metric
 #' @param metric_value calculated value of the metric mentioned as metric_name
+#' @param surface calculated surface of the sampling location (could be needed for calculation)
 #' @param width_river width of the river at the sampling location (could be needed for calculation)
 #' @param slope slope of the river at the sampling location (could be needed for calculation)
 #'
@@ -19,7 +20,8 @@
 #'
 calculate_metric_score <-
   function(
-    metric_score_name, indices, metric_name, metric_value, width_river, slope
+    metric_score_name, indices, metric_name, metric_value, surface, width_river,
+    slope
   ) {
 
   if (is.na(metric_score_name)) {
