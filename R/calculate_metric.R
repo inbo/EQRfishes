@@ -48,8 +48,10 @@ calculate_metric <-
     filter(!is.na(.data$metric_formula_name)) %>%
     arrange(.data$row_id) %>%
     mutate(
-      metric_value = calculate_metric_formula(.)
-    )
+      metric_value = calculate_metric_formula(.),
+      metric_name_calc = .data$metric_formula_name
+    ) %>%
+    select(-.data$metric_formula_name, -.data$metric_measures_name)
 
   result_measures <- data_sample_fish %>%
     filter(!is.na(.data$metric_measures_name)) %>%
@@ -75,9 +77,11 @@ calculate_metric <-
             ),
             calculate_metric_measures
           )
-        )
+        ),
+      metric_name_calc = .data$metric_measures_name
     ) %>%
     select(
+      -.data$metric_formula_name, -.data$metric_measures_name,
       -.data$metric_type, -.data$speciesfilter, -.data$exclude_species_length,
       -.data$only_individual_measures, -.data$NULL_to_0,  #de laatste 3 voorwaarden nog inwerken in script!
       -.data$method_info_measures, -.data$opmerking
@@ -104,12 +108,7 @@ calculate_metric <-
             list(
               metric_score_name = .data$metric_score_name,
               indices = .data$indices,
-              metric_name =
-                ifelse(
-                  is.na(.data$metric_formula_name),
-                  .data$metric_measures_name,
-                  .data$metric_formula_name
-                ),
+              metric_name = .data$metric_name_calc,
               metric_value = .data$metric_value,
               surface = .data$surface,
               width_river = .data$width_river,
