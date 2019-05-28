@@ -4,8 +4,7 @@
 #'
 #' @param metric_score_name name of metric score to be calculated (NA if no calculation has to be done)
 #' @param indices dataframe with indices and their tresholds (info from calculate_metric_score.csv)
-#' @param metric_name name of the calculated metric
-#' @param metric_value calculated value of the metric mentioned as metric_name
+#' @param metric_values table with columns metric _name (name of the calculated metric) and metric_value (calculated value of the metric mentioned as metric_name)
 #' @param surface calculated surface of the sampling location (could be needed for calculation)
 #' @param width_river width of the river at the sampling location (could be needed for calculation)
 #' @param slope slope of the river at the sampling location (could be needed for calculation)
@@ -20,27 +19,33 @@
 #'
 calculate_metric_score <-
   function(
-    metric_score_name, indices, metric_name, metric_value, surface, width_river,
+    metric_score_name, indices, metric_values, surface, width_river,
     slope
   ) {
 
   if (is.na(metric_score_name)) {
-    return(NA)
+    return(c(unique(metric_values$metric_value), NA))
   }
+
+  metric_value1 <- metric_values %>%
+    filter(.data$metric_name_calc == unique(indices$metric))
 
   result <- indices %>%
     filter(
-      .data$metric == metric_name,
-      var_in_interval(metric_value, .data$value_metric)
+      .data$metric == metric_value1$metric_name_calc,
+      var_in_interval(metric_value1$metric_value, .data$value_metric)
     )
 
   if (!is.na(unique(indices$add_category))) {
+    metric_value_add <- metric_values %>%
+      filter(.data$metric_name_calc == unique(indices$add_category))
     variable <- unique(indices$add_category)
     result %<>%
       filter(
-        var_in_interval(variable, .data$value_add_category)
+        var_in_interval(variable, .data$value_add_category) |
+        var_in_interval(metric_value_add$metric_value, .data$value_add_category)
       )
   }
 
-  return(unique(result$score_id))
+  return(c(unique(metric_value1$metric_value), unique(result$score_id)))
 }

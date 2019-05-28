@@ -14,6 +14,7 @@ ManSoort_barbeel;ifelse(MnsZoet == 0, 0, (SMpggas + SMpgbar + SMpgleu) / 3);;Mns
 ManSoort_barbeel;ifelse(MnsZoet == 0, 0, (SMpggas + SMpgbar + SMpgleu) / 3);PercGasAcu;;SMpggas;
 ManSoort_barbeel;ifelse(MnsZoet == 0, 0, (SMpggas + SMpgbar + SMpgleu) / 3);PercBarBus;;SMpgbar;
 ManSoort_barbeel;ifelse(MnsZoet == 0, 0, (SMpggas + SMpgbar + SMpgleu) / 3);PercLeuCep;;SMpgleu;
+ManSoort_barbeel;ifelse(MnsZoet == 0, 0, (SMpggas + SMpgbar + SMpgleu) / 3);AantalGrootteKlassenLeuCep;;SMpgleu;
 PercLeuCep;GewLeuCep * 100 / TotGewZoet;;GewLeuCep;;
 PercLeuCep;GewLeuCep * 100 / TotGewZoet;;TotGewZoet;;
 PercBarBus;GewBarBus * 100 / TotGewZoet;;GewBarBus;;
@@ -31,9 +32,9 @@ MpgExo_river;GewExoten * 100 / TotGewZoet;;GewExoten;;
 MpgExo_river;GewExoten * 100 / TotGewZoet;;TotGewZoet;;
 MpgExo_stilstaand;GewExoten * 100 / TotGew;GewExoten;;;
 MpgExo_stilstaand;GewExoten * 100 / TotGew;TotGew;;;
-Trofcomp;(Smpiinvt_river + SMpipisc + SMpiomni) / 3;PercInvert;;Smpiinvt_river;
-Trofcomp;(SMpiinvt + SMpipisc + SMpiomni) / 3;PercPisci;;SMpipisc;
-Trofcomp;(SMpiinvt + SMpipisc + SMpiomni) / 3;PercOmni;;SMpiomni;
+Trofcomp;(SMpiinvt_river + SMpipisc + SMpiomni) / 3;PercInvert;;SMpiinvt_river;
+Trofcomp;(SMpiinvt_river + SMpipisc + SMpiomni) / 3;PercPisci;;SMpipisc;
+Trofcomp;(SMpiinvt_river + SMpipisc + SMpiomni) / 3;PercOmni;;SMpiomni;
 MpiInvt_river;Invertzoet * 100 / Mnizoet;Invertzoet;;;
 MpiInvt;Invertzoet * 100 / Mnizoet;Mnizoet;;;
 MpiPis;AantalGevangePiscivoor / AantalFuikdagen * 100 / MnitotFuikdag;AantalGevangePiscivoor;;;
@@ -41,9 +42,9 @@ MpiPis;AantalGevangePiscivoor / AantalFuikdagen * 100 / MnitotFuikdag;AantalFuik
 MpiPis;AantalGevangePiscivoor / AantalFuikdagen * 100 / MnitotFuikdag;MnitotFuikdag;;;
 MpiOmn;AantalGevangeOmnivoor / AantalFuikdagen * 100 / MnitotFuikdag;AantalGevangeOmnivoor;;;
 MpiOmn;AantalGevangeOmnivoor / AantalFuikdagen * 100 / MnitotFuikdag;AantalFuikdagen;;;
-MpiIOmn;AantalGevangeOmnivoor / AantalFuikdagen * 100 / MnitotFuikdag;MnitotFuikdag;;;
-MpsRekr;TotaleRecrutering * 100 / MnsRekr;TotaleRecrutering;;;
-MpsRekr;TotaleRecrutering * 100 / MnsRekr;;MnsRekr;;totale rekrutering nog uitwerken (zie Barbeel), is iets mat klassen zoals LeuCep
+MpiOmn;AantalGevangeOmnivoor / AantalFuikdagen * 100 / MnitotFuikdag;MnitotFuikdag;;;
+MpsRekr;TotaleRecrutering * 100 / MnsRekr;TotaleRecrutering;;;totale rekrutering nog uitwerken (zie Barbeel), is iets mat klassen zoals LeuCep
+MpsRekr;TotaleRecrutering * 100 / MnsRekr;;MnsRekr;;
 Mpigesp;aantal soorten * 100 / MniZoet;aantal soorten;;;
 Mpigesp;aantal soorten * 100 / MniZoet;MniZoet;;;
 Pisnon;GewPisc * 100 / GewPisnon;GewPisc;;;

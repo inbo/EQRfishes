@@ -12,7 +12,7 @@
 #' @importFrom plyr .
 #' @importFrom readr read_csv2
 #' @importFrom rlang .data has_name
-#' @importFrom tidyr nest
+#' @importFrom tidyr nest unnest
 #' @importFrom purrr pmap map2
 #'
 #' @export
@@ -22,8 +22,8 @@ calculate_metric <-
     data_sample_fish,
     aberant_column_names =
       c(
-        "metric_formula_name", "metric_measures_name", "metric_score_name",
-        "row_id"
+        "metric_name_group", "metric_formula_name", "metric_measures_name",
+        "metric_score_name", "row_id"
       )
   ) {
 
@@ -38,10 +38,14 @@ calculate_metric <-
   data_sample_fish %<>%
     #filter(!metric_name %in% c("MpsRekr")) %>%
     rename(
-      metric_formula_name = aberant_column_names[1],
-      metric_measures_name = aberant_column_names[2],
-      metric_score_name = aberant_column_names[3],
-      row_id = aberant_column_names[4]
+      metric_name_group = aberant_column_names[1],
+      metric_score_name = aberant_column_names[4],
+      row_id = aberant_column_names[5]
+    ) %>%
+    unnest(.data$metric_name_group, .preserve = .data$fishdata) %>%
+    rename(
+      metric_formula_name = aberant_column_names[2],
+      metric_measures_name = aberant_column_names[3]
     )
 
   result_formula <- data_sample_fish %>%
@@ -90,6 +94,11 @@ calculate_metric <-
   result <- result_formula %>%
     bind_rows(result_measures) %>%
     arrange(.data$row_id) %>%
+    group_by(
+      .data$row_id, .data$metric_score_name, .data$surface, .data$width_river,
+      .data$slope
+    ) %>%
+    nest(.data$metric_name_calc, .data$metric_value, .key = "metric_values") %>%
     left_join(
       read_csv2(
         system.file(
@@ -102,22 +111,18 @@ calculate_metric <-
     ) %>%
     arrange(.data$row_id) %>%
     mutate(
-      metric_score =
-        unlist(
-          pmap(
-            list(
-              metric_score_name = .data$metric_score_name,
-              indices = .data$indices,
-              metric_name = .data$metric_name_calc,
-              metric_value = .data$metric_value,
-              surface = .data$surface,
-              width_river = .data$width_river,
-              slope = .data$slope
-            ),
-            calculate_metric_score
-          )
-        ),
-      metric_combi = map2(.data$metric_value, .data$metric_score, list)
+      metric_combi =
+        pmap(
+          list(
+            metric_score_name = .data$metric_score_name,
+            indices = .data$indices,
+            metric_values = .data$metric_values,
+            surface = .data$surface,
+            width_river = .data$width_river,
+            slope = .data$slope
+          ),
+          calculate_metric_score
+        )
     ) %>%
     arrange(.data$row_id)
 

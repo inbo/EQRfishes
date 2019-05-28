@@ -4,17 +4,17 @@
 \alias{calculate_metric_score}
 \title{calculate the metric scores of the EQR}
 \usage{
-calculate_metric_score(metric_score_name, indices, metric_name,
-  metric_value, width_river, slope)
+calculate_metric_score(metric_score_name, indices, metric_values, surface,
+  width_river, slope)
 }
 \arguments{
 \item{metric_score_name}{name of metric score to be calculated (NA if no calculation has to be done)}
 
 \item{indices}{dataframe with indices and their tresholds (info from calculate_metric_score.csv)}
 
-\item{metric_name}{name of the calculated metric}
+\item{metric_values}{table with columns metric _name (name of the calculated metric) and metric_value (calculated value of the metric mentioned as metric_name)}
 
-\item{metric_value}{calculated value of the metric mentioned as metric_name}
+\item{surface}{calculated surface of the sampling location (could be needed for calculation)}
 
 \item{width_river}{width of the river at the sampling location (could be needed for calculation)}
 
