@@ -42,7 +42,9 @@ calculate_metric <-
       metric_score_name = aberant_column_names[4],
       row_id = aberant_column_names[5]
     ) %>%
-    unnest(.data$metric_name_group, .preserve = .data$fishdata) %>%
+    unnest(
+      .data$metric_name_group, .preserve = c(.data$fishdata, .data$sampledata)
+    ) %>%
     rename(
       metric_formula_name = aberant_column_names[2],
       metric_measures_name = aberant_column_names[3]
@@ -52,7 +54,7 @@ calculate_metric <-
     filter(!is.na(.data$metric_formula_name)) %>%
     arrange(.data$row_id) %>%
     mutate(
-      metric_value = calculate_metric_formula(.),
+      sampledata = calculate_metric_formula(.),
       metric_name_calc = .data$metric_formula_name
     ) %>%
     select(-.data$metric_formula_name, -.data$metric_measures_name)
@@ -69,18 +71,19 @@ calculate_metric <-
       by = "metric_measures_name", suffix = c("", "_info_measures")
     ) %>%
     mutate(
-      metric_value =
-        unlist(
-          pmap(
-            list(
-              fishdata = .data$fishdata,
-              metric_type = .data$metric_type,
-              speciesfilter = .data$speciesfilter,
-              exclude_species_length = .data$exclude_species_length,
-              only_individual_measures = .data$only_individual_measures
-            ),
-            calculate_metric_measures
-          )
+      sampledata =
+        pmap(
+          list(
+            fishdata = .data$fishdata,
+            metric_name = .data$metric_measures_name,
+            metric_type = .data$metric_type,
+            speciesfilter = .data$speciesfilter,
+            exclude_species_length = .data$exclude_species_length,
+            only_individual_measures = .data$only_individual_measures,
+            NULL_to_0 = .data$NULL_to_0,
+            sampledata = .data$sampledata
+          ),
+          calculate_metric_measures
         ),
       metric_name_calc = .data$metric_measures_name
     ) %>%
@@ -88,17 +91,19 @@ calculate_metric <-
       -.data$metric_formula_name, -.data$metric_measures_name,
       -.data$metric_type, -.data$speciesfilter, -.data$exclude_species_length,
       -.data$only_individual_measures, -.data$NULL_to_0,  #de laatste 3 voorwaarden nog inwerken in script!
-      -.data$method_info_measures, -.data$opmerking
+      -.data$method, -.data$opmerking
     )
 
   result <- result_formula %>%
     bind_rows(result_measures) %>%
     arrange(.data$row_id) %>%
+    unnest(.data$sampledata) %>%
+    distinct() %>%
     group_by(
-      .data$row_id, .data$metric_score_name, .data$surface, .data$width_river,
-      .data$slope
+      .data$sample_key, .data$guild, .data$metric_name, .data$metric_score_name,
+      .data$row_id
     ) %>%
-    nest(.data$metric_name_calc, .data$metric_value, .key = "metric_values") %>%
+    nest(.data$name, .data$value, .key = "sampledata") %>%
     left_join(
       read_csv2(
         system.file(
@@ -111,20 +116,17 @@ calculate_metric <-
     ) %>%
     arrange(.data$row_id) %>%
     mutate(
-      metric_combi =
+      sampledata =
         pmap(
           list(
             metric_score_name = .data$metric_score_name,
             indices = .data$indices,
-            metric_values = .data$metric_values,
-            surface = .data$surface,
-            width_river = .data$width_river,
-            slope = .data$slope
+            sampledata = .data$sampledata
           ),
           calculate_metric_score
         )
     ) %>%
     arrange(.data$row_id)
 
-  return(result$metric_combi)
+  return(result$sampledata)
 }

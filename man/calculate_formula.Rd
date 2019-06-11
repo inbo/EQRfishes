@@ -5,7 +5,7 @@
 \title{calculate formula based on given parameters}
 \usage{
 calculate_formula(formula, submetric_name, submetric_value,
-  submetric_score_name, submetric_score, surface)
+  submetric_score_name, submetric_score, sampledata)
 }
 \arguments{
 \item{formula}{formula including only given parameters}
@@ -18,7 +18,7 @@ calculate_formula(formula, submetric_name, submetric_value,
 
 \item{submetric_score}{vector with values of all parameters of metric score name (in same order as submetric_score_name)}
 
-\item{surface}{value of variable surface (specific for location)}
+\item{sampledata}{location specific variables (column name) with their values (value)}
 }
 \value{
 a value which is the result of calculating the formula

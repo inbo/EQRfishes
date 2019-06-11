@@ -11,7 +11,7 @@
 #' @importFrom plyr .
 #' @importFrom magrittr %<>% %>%
 #' @importFrom rlang .data
-#' @importFrom tidyr nest
+#' @importFrom tidyr gather nest
 #' @importFrom readr read_csv2
 #' @importFrom purrr map
 #'
@@ -47,7 +47,10 @@ calculate_eqr <- function(data_sample, data_fish) {
           .data$surface
         )
     ) %>%
-    ungroup()
+    ungroup() %>%
+    gather(key = "name", value = "value", -.data$sample_key, -.data$guild) %>%
+    group_by(.data$sample_key, .data$guild) %>%
+    nest(.key = "sampledata")
 
   data_fish %<>%
     group_by(.data$sample_key) %>%

@@ -3,15 +3,13 @@
 #' small function that calculates a formula after replacing the parameter names with their values
 #'
 #' @param formula formula including only given parameters
-#' @param submetric_name vector with names of all parameters mentioned in formula (only calculated values)
-#' @param submetric_value vector with values of all parameters of metric name (in same order as submetric_name)
-#' @param submetric_score_name vector with names of all parameters mentioned in formula (only scores of calculated values)
-#' @param submetric_score vector with values of all parameters of metric score name (in same order as submetric_score_name)
-#' @param surface value of variable surface (specific for location)
+#' @param sampledata location specific variables (column name) with their values (value)
+#' @param metric_name name of the variable to be calculated
 #'
-#' @return a value which is the result of calculating the formula
+#' @return table sampledata with an additional metric which is the result of calculating the formula
 #'
-#' @importFrom dplyr filter
+#' @importFrom magrittr %>% %<>%
+#' @importFrom dplyr arrange desc distinct
 #' @importFrom pander evals
 #'
 #' @export
@@ -19,25 +17,31 @@
 #'
 calculate_formula <-
   function(
-    formula, submetric_name, submetric_value, submetric_score_name,
-    submetric_score, surface
+    formula, sampledata, metric_name
   ) {
 
-  parameters <-
-    data.frame(
-      name = c(submetric_name, submetric_score_name, "surface"),
-      value = c(submetric_value, submetric_score, surface),
-      stringsAsFactors = FALSE
-    ) %>%
-    filter(!is.na(.data$name))
+  sampledata %<>%
+    distinct() %>%
+    arrange(desc(nchar(.data$name)))
 
-  for (i in seq_len(nrow(parameters))) {
+  for (i in seq_len(nrow(sampledata))) {
     formula <-
       gsub(
-        pattern = parameters$name[i], replacement = parameters$value[i],
+        pattern = sampledata$name[i], replacement = sampledata$value[i],
         x = formula
       )
   }
   result <- evals(formula)[[1]]$result
-  return(result)
+  result <- ifelse(is.null(result), NA, result)
+
+  sampledata %<>%
+    bind_rows(
+      data.frame(
+        name = metric_name,
+        value = as.character(result),
+        stringsAsFactors = FALSE
+      )
+    )
+
+  return(sampledata)
 }

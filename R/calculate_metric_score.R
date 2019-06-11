@@ -4,48 +4,52 @@
 #'
 #' @param metric_score_name name of metric score to be calculated (NA if no calculation has to be done)
 #' @param indices dataframe with indices and their tresholds (info from calculate_metric_score.csv)
-#' @param metric_values table with columns metric _name (name of the calculated metric) and metric_value (calculated value of the metric mentioned as metric_name)
-#' @param surface calculated surface of the sampling location (could be needed for calculation)
-#' @param width_river width of the river at the sampling location (could be needed for calculation)
-#' @param slope slope of the river at the sampling location (could be needed for calculation)
+#' @inheritParams calculate_formula
 #'
 #' @return A calculated metric score for the given values
 #'
 #' @importFrom magrittr %>% %<>%
-#' @importFrom dplyr filter
+#' @importFrom dplyr bind_rows filter
 #' @importFrom rlang .data
 #'
 #' @export
 #'
 calculate_metric_score <-
   function(
-    metric_score_name, indices, metric_values, surface, width_river,
-    slope
+    metric_score_name, indices, sampledata
   ) {
 
   if (is.na(metric_score_name)) {
-    return(c(unique(metric_values$metric_value), NA))
+    return(sampledata)
   }
 
-  metric_value1 <- metric_values %>%
-    filter(.data$metric_name_calc == unique(indices$metric))
+  metric_value1 <- sampledata %>%
+    filter(.data$name == unique(indices$metric))
 
   result <- indices %>%
     filter(
-      .data$metric == metric_value1$metric_name_calc,
-      var_in_interval(metric_value1$metric_value, .data$value_metric)
+      .data$metric == metric_value1$name,
+      var_in_interval(metric_value1$value, .data$value_metric)
     )
 
   if (!is.na(unique(indices$add_category))) {
-    metric_value_add <- metric_values %>%
-      filter(.data$metric_name_calc == unique(indices$add_category))
-    variable <- unique(indices$add_category)
+    metric_value_add <- sampledata %>%
+      filter(.data$name == unique(indices$add_category))
     result %<>%
       filter(
-        var_in_interval(variable, .data$value_add_category) |
-        var_in_interval(metric_value_add$metric_value, .data$value_add_category)
+        .data$add_category == unique(indices$add_category),
+        var_in_interval(metric_value_add$value, .data$value_add_category)
       )
   }
 
-  return(c(unique(metric_value1$metric_value), unique(result$score_id)))
+  sampledata %<>%
+    bind_rows(
+      data.frame(
+        name = metric_score_name,
+        value = as.character(unique(result$score_id)),
+        stringsAsFactors = FALSE
+      )
+    )
+
+  return(sampledata)
 }

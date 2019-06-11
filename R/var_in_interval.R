@@ -38,11 +38,11 @@ var_in_interval <- function(variable, interval) {
       ifelse(
         value_min == " ",
         TRUE,
-        variable > as.numeric(value_min)
+        as.numeric(variable) > as.numeric(value_min)
       ),
       ifelse(
         operator_min == "[",
-        variable >= as.numeric(value_min),
+        as.numeric(variable) >= as.numeric(value_min),
         NA
       )
     )
@@ -53,11 +53,11 @@ var_in_interval <- function(variable, interval) {
       ifelse(
         value_max == " ",
         TRUE,
-        variable < as.numeric(value_max)
+        as.numeric(variable) < as.numeric(value_max)
       ),
       ifelse(
         operator_max == "]",
-        variable <= as.numeric(value_max),
+        as.numeric(variable) <= as.numeric(value_max),
         NA
       )
     )

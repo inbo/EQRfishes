@@ -3,12 +3,15 @@
 #' Calculates the metrics that are based on measures only, given a dataset with the information from calculate_metric_measures.csv and fish data.
 #'
 #' @param fishdata dataframe with fishdata
+#' @param metric_name name of the variable to be calculated
 #' @param metric_type reflects which information must be calculated: number_of_species, number_of_individuals, total_weight,... (info from calculate_metric_measures.csv)
 #' @param speciesfilter formula indicating how to select the required species from data_taxonmetrics.csv (info from calculate_metric_measures.csv)
 #' @param exclude_species_length formula indicating which individuals have to be EXCLUDED based on fish characteristics such as length (info from calculate_metric_measures.csv)
 #' @param only_individual_measures value 1 indicates that only individually measured data should be used (info from calculate_metric_measures.csv)
+#' @param NULL_to_0 value 1 indicates that result NULL should be replaced by 0
+#' @param sampledata table with earlier calculated variables to which the newly calculated variable should be added
 #'
-#' @return A calculated value for the metric based on the given dataset and information
+#' @return table sampledata in which the newly calculated metric is added
 #'
 #' @importFrom readr read_csv2
 #' @importFrom magrittr %>% %<>%
@@ -19,8 +22,8 @@
 #'
 calculate_metric_measures <-
   function(
-    fishdata, metric_type, speciesfilter, exclude_species_length,
-    only_individual_measures
+    fishdata, metric_name, metric_type, speciesfilter, exclude_species_length,
+    only_individual_measures, NULL_to_0, sampledata
   ) {
 
   specieslist <-
@@ -61,5 +64,20 @@ calculate_metric_measures <-
       )
     )
 
-  return(unique(result))
+  if (!is.na(NULL_to_0) & is.null(result)) {
+    if (NULL_to_0 == 1) {
+      result <- 0
+    }
+  }
+
+  sampledata %<>%
+    bind_rows(
+      data.frame(
+        name = metric_name,
+        value = as.character(result),
+        stringsAsFactors = FALSE
+      )
+    )
+
+  return(sampledata)
 }
