@@ -7,13 +7,14 @@
 #'
 #' @return Dataset with calculated EQR for each sample
 #'
-#' @importFrom dplyr group_by left_join mutate rowwise ungroup
+#' @importFrom dplyr group_by left_join mutate n rowwise summarise ungroup
 #' @importFrom plyr .
 #' @importFrom magrittr %<>% %>%
 #' @importFrom rlang .data
-#' @importFrom tidyr gather nest
+#' @importFrom tidyr gather nest unnest
 #' @importFrom readr read_csv2
 #' @importFrom purrr map
+#' @importFrom stringr str_detect
 #'
 #' @export
 #'
@@ -74,10 +75,63 @@ calculate_eqr <- function(data_sample, data_fish) {
     ) %>%
     arrange(.data$row_id) %>%
     mutate(
-      metric_results = calculate_metric(.),
-      metric_value = unlist(map(.data$metric_results, unlist_value)),
-      metric_score = unlist(map(.data$metric_results, unlist_score))
+      sampledata = calculate_metric(.)
     )
 
-  return(result)
+  result_details <- result %>%
+    select(.data$sample_key, .data$guild, .data$sampledata) %>%
+    unnest() %>%
+    distinct()
+
+  result_metrics <- result %>%
+    select(
+      .data$sample_key, .data$guild, .data$sampledata, .data$metric_name,
+      .data$metric_score_name
+    ) %>%
+    unnest() %>%
+    mutate(
+      metric_value =
+        ifelse(
+          str_detect(.data$name, paste0("^", .data$metric_name)),
+          .data$value,
+          NA
+        ),
+      metric_score =
+        ifelse(
+          .data$metric_score_name == .data$name,
+          .data$value,
+          NA
+        )
+    ) %>%
+    group_by(.data$sample_key, .data$guild, .data$metric_name, .data$metric_score_name) %>%
+    summarise(
+      metric_value = max(.data$metric_value, na.rm = TRUE),
+      metric_score = max(.data$metric_score, na.rm = TRUE)
+    ) %>%
+    ungroup()
+
+  result_eqr <- result_metrics %>%
+    group_by(.data$sample_key, .data$guild) %>%
+    nest(.key = "metrics") %>%
+    mutate(
+      IBI =
+        unlist(
+          pmap(
+            list(.data$guild, .data$metrics),
+            calculate_ibi_score
+          )
+        ),
+      EQR =
+        unlist(
+          pmap(
+            list(.data$guild, .data$IBI),
+            calculate_eqr_score
+          )
+        )
+    ) %>%
+    select(-.data$metrics)
+
+  return(
+    list(eqr = result_eqr, metric = result_metrics, details = result_details)
+  )
 }
