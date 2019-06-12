@@ -4,24 +4,17 @@
 \alias{calculate_formula}
 \title{calculate formula based on given parameters}
 \usage{
-calculate_formula(formula, submetric_name, submetric_value,
-  submetric_score_name, submetric_score, sampledata)
+calculate_formula(formula, sampledata, metric_name)
 }
 \arguments{
 \item{formula}{formula including only given parameters}
 
-\item{submetric_name}{vector with names of all parameters mentioned in formula (only calculated values)}
-
-\item{submetric_value}{vector with values of all parameters of metric name (in same order as submetric_name)}
-
-\item{submetric_score_name}{vector with names of all parameters mentioned in formula (only scores of calculated values)}
-
-\item{submetric_score}{vector with values of all parameters of metric score name (in same order as submetric_score_name)}
-
 \item{sampledata}{location specific variables (column name) with their values (value)}
+
+\item{metric_name}{name of the variable to be calculated}
 }
 \value{
-a value which is the result of calculating the formula
+table sampledata with an additional metric which is the result of calculating the formula
 }
 \description{
 small function that calculates a formula after replacing the parameter names with their values

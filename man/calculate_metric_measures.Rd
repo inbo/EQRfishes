@@ -4,11 +4,14 @@
 \alias{calculate_metric_measures}
 \title{calculate the metrics of the EQR based on measures}
 \usage{
-calculate_metric_measures(fishdata, metric_type, speciesfilter,
-  exclude_species_length, only_individual_measures)
+calculate_metric_measures(fishdata, metric_name, metric_type,
+  speciesfilter, exclude_species_length, only_individual_measures,
+  NULL_to_0, sampledata)
 }
 \arguments{
 \item{fishdata}{dataframe with fishdata}
+
+\item{metric_name}{name of the variable to be calculated}
 
 \item{metric_type}{reflects which information must be calculated: number_of_species, number_of_individuals, total_weight,... (info from calculate_metric_measures.csv)}
 
@@ -17,9 +20,13 @@ calculate_metric_measures(fishdata, metric_type, speciesfilter,
 \item{exclude_species_length}{formula indicating which individuals have to be EXCLUDED based on fish characteristics such as length (info from calculate_metric_measures.csv)}
 
 \item{only_individual_measures}{value 1 indicates that only individually measured data should be used (info from calculate_metric_measures.csv)}
+
+\item{NULL_to_0}{value 1 indicates that result NULL should be replaced by 0}
+
+\item{sampledata}{table with earlier calculated variables to which the newly calculated variable should be added}
 }
 \value{
-A calculated value for the metric based on the given dataset and information
+table sampledata in which the newly calculated metric is added
 }
 \description{
 Calculates the metrics that are based on measures only, given a dataset with the information from calculate_metric_measures.csv and fish data.

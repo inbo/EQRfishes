@@ -4,15 +4,12 @@
 \alias{calculate_metric_score}
 \title{calculate the metric scores of the EQR}
 \usage{
-calculate_metric_score(metric_score_name, indices, metric_values,
-  sampledata)
+calculate_metric_score(metric_score_name, indices, sampledata)
 }
 \arguments{
 \item{metric_score_name}{name of metric score to be calculated (NA if no calculation has to be done)}
 
 \item{indices}{dataframe with indices and their tresholds (info from calculate_metric_score.csv)}
-
-\item{metric_values}{table with columns metric _name (name of the calculated metric) and metric_value (calculated value of the metric mentioned as metric_name)}
 
 \item{sampledata}{location specific variables (column name) with their values (value)}
 }
