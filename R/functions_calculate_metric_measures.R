@@ -1,8 +1,9 @@
 # this file contains small helper functions that are called in the function calculate_metric_measures
 
 #' @importFrom magrittr %>% %<>%
-#' @importFrom dplyr count distinct left_join select summarise
+#' @importFrom dplyr count distinct left_join select starts_with summarise
 #' @importFrom rlang .data
+#' @importFrom readr read_csv2
 
 number_of_individuals <- function(data) {
   data %<>%
@@ -18,6 +19,42 @@ number_of_species <- function(data) {
   return(data$n)
 }
 
+number_of_length_classes <- function(data) {
+  data %<>%
+    left_join(
+      read_csv2(
+        system.file("extdata/data_classes.csv", package = "EQRfishes")
+      ) %>%
+        filter(.data$variable == "Recr"),
+      by = "taxoncode"
+    ) %>%
+    filter(var_in_interval(.data$length, .data$interval)) %>%
+    select(.data$taxoncode, .data$class) %>%
+    distinct() %>%
+    count()
+  return(data$n)
+}
+
+number_of_species_with_multiple_length_classes <- function(data) {
+  data %<>%
+    left_join(
+      read_csv2(
+        system.file("extdata/data_classes.csv", package = "EQRfishes")
+      ) %>%
+        filter(.data$variable == "Recr"),
+      by = "taxoncode"
+    ) %>%
+    filter(var_in_interval(.data$length, .data$interval)) %>%
+    select(.data$taxoncode, .data$class) %>%
+    distinct() %>%
+    group_by(.data$taxoncode) %>%
+    summarise(nclass = n()) %>%
+    ungroup() %>%
+    filter(.data$nclass > 1) %>%
+    count()
+  return(data$n)
+}
+
 total_weight <- function(data) {
   data %<>%
     summarise(weight = sum(.data$weight))
@@ -26,6 +63,8 @@ total_weight <- function(data) {
 
 sum_values <- function(data, specieslist, variable) {
   data %<>%
+    select(.data$taxoncode, .data$number) %>%
+    distinct() %>%
     left_join(specieslist, by = "taxoncode") %>%
     summarise(value = sum(get(variable)))
   return(data$value)
