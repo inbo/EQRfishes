@@ -8,11 +8,11 @@
 #'
 #' @importFrom readr read_csv2
 #' @importFrom magrittr %>%
-#' @importFrom dplyr arrange bind_rows filter group_by left_join mutate rename select summarise ungroup
-#' @importFrom tidyr nest
+#' @importFrom dplyr arrange bind_rows filter group_by left_join mutate select
+#' @importFrom tidyr nest unnest
 #' @importFrom plyr .
 #' @importFrom rlang .data
-#' @importFrom purrr map
+#' @importFrom purrr pmap
 #'
 #' @export
 #'

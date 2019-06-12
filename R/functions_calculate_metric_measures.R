@@ -1,7 +1,7 @@
 # this file contains small helper functions that are called in the function calculate_metric_measures
 
 #' @importFrom magrittr %>% %<>%
-#' @importFrom dplyr count distinct left_join select starts_with summarise
+#' @importFrom dplyr count distinct filter group_by left_join select summarise ungroup
 #' @importFrom rlang .data
 #' @importFrom readr read_csv2
 

@@ -10,6 +10,7 @@
 #' @importFrom magrittr %>%
 #' @importFrom dplyr filter
 #' @importFrom pander evals
+#' @importFrom readr read_csv2
 #'
 #' @export
 #'

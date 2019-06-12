@@ -9,7 +9,7 @@
 #' @return table sampledata with an additional metric which is the result of calculating the formula
 #'
 #' @importFrom magrittr %>% %<>%
-#' @importFrom dplyr arrange desc distinct
+#' @importFrom dplyr arrange bind_rows desc distinct
 #' @importFrom pander evals
 #'
 #' @export

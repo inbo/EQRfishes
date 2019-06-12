@@ -15,7 +15,7 @@
 #'
 #' @importFrom readr read_csv2
 #' @importFrom magrittr %>% %<>%
-#' @importFrom dplyr filter
+#' @importFrom dplyr bind_rows filter
 #' @importFrom rlang .data
 #'
 #' @export

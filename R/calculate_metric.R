@@ -8,12 +8,12 @@
 #' @return Dataset with calculated EQR for each sample
 #'
 #' @importFrom magrittr %>% %<>%
-#' @importFrom dplyr arrange bind_rows distinct group_by left_join mutate select
+#' @importFrom dplyr arrange bind_rows distinct filter group_by left_join mutate rename select
 #' @importFrom plyr .
 #' @importFrom readr read_csv2
 #' @importFrom rlang .data has_name
 #' @importFrom tidyr nest unnest
-#' @importFrom purrr pmap map2
+#' @importFrom purrr pmap
 #'
 #' @export
 #'
@@ -36,7 +36,6 @@ calculate_metric <-
   }
 
   data_sample_fish %<>%
-    #filter(!metric_name %in% c("MpsRekr")) %>%
     rename(
       metric_name_group = aberant_column_names[1],
       metric_score_name = aberant_column_names[4],

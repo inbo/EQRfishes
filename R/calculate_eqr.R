@@ -7,13 +7,13 @@
 #'
 #' @return Dataset with calculated EQR for each sample
 #'
-#' @importFrom dplyr group_by left_join mutate n rowwise summarise ungroup
+#' @importFrom dplyr arrange distinct group_by left_join mutate n rowwise select summarise ungroup
 #' @importFrom plyr .
 #' @importFrom magrittr %<>% %>%
 #' @importFrom rlang .data
 #' @importFrom tidyr gather nest unnest
 #' @importFrom readr read_csv2
-#' @importFrom purrr map
+#' @importFrom purrr pmap
 #' @importFrom stringr str_detect
 #'
 #' @export
