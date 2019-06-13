@@ -61,7 +61,7 @@ total_weight <- function(data) {
   return(data$weight)
 }
 
-sum_values <- function(data, specieslist, variable) {
+sum_values_column <- function(data, specieslist, variable) {
   data %<>%
     select(.data$taxoncode, .data$number) %>%
     distinct() %>%

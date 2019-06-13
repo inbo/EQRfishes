@@ -76,6 +76,7 @@ calculate_metric <-
             fishdata = .data$fishdata,
             metric_name = .data$metric_measures_name,
             metric_type = .data$metric_type,
+            values_column = .data$values_column,
             speciesfilter = .data$speciesfilter,
             exclude_species_length = .data$exclude_species_length,
             only_individual_measures = .data$only_individual_measures,

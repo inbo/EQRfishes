@@ -5,6 +5,7 @@
 #' @param fishdata dataframe with fishdata
 #' @param metric_name name of the variable to be calculated
 #' @param metric_type reflects which information must be calculated: number_of_species, number_of_individuals, total_weight,... (info from calculate_metric_measures.csv)
+#' @param values_column additional information for column if metric_type refers to colomn from data_taxonmetrics.csv (info from calculate_metric_measures.csv)
 #' @param speciesfilter formula indicating how to select the required species from data_taxonmetrics.csv (info from calculate_metric_measures.csv)
 #' @param exclude_species_length formula indicating which individuals have to be EXCLUDED based on fish characteristics such as length (info from calculate_metric_measures.csv)
 #' @param only_individual_measures value 1 indicates that only individually measured data should be used (info from calculate_metric_measures.csv)
@@ -22,8 +23,8 @@
 #'
 calculate_metric_measures <-
   function(
-    fishdata, metric_name, metric_type, speciesfilter, exclude_species_length,
-    only_individual_measures, NULL_to_0, sampledata
+    fishdata, metric_name, metric_type, values_column, speciesfilter,
+    exclude_species_length, only_individual_measures, NULL_to_0, sampledata
   ) {
 
   specieslist <-
@@ -62,8 +63,8 @@ calculate_metric_measures <-
         number_of_species_with_multiple_length_classes =
           number_of_species_with_multiple_length_classes(result),
         total_weight = total_weight(result),
-        sum_WF_Tolerantie = sum_values(result, specieslist, "WF_Tolerantie"),
-        sum_WF_Type_Barbeel = sum_values(result, specieslist, "WF_Type_Barbeel")
+        sum_values_column =
+          sum_values_column(result, specieslist, values_column)
       )
     )
 
