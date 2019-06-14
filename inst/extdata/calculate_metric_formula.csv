@@ -1,8 +1,8 @@
 metric_formula_name;formula;submetric_formula_name;submetric_measures_name;submetric_score_name;opmerking
 ManTol;Tolerance / Mantolzoetsoorten;;Tolerance;;
 ManTol;Tolerance / Mantolzoetsoorten;;Mantolzoetsoorten;;
-ManTyp_brasem;TypeWaardeBrasem / Mantypzoetsoorten_brasem;TypeWaardeBrasem;;;
-ManTyp_brasem;TypeWaardeBrasem / Mantypzoetsoorten_brasem;Mantypzoetsoorten_brasem;;;
+ManTyp_brasem;TypeWaardeBrasem / Mantypzoetsoorten_brasem;;TypeWaardeBrasem;;
+ManTyp_brasem;TypeWaardeBrasem / Mantypzoetsoorten_brasem;;Mantypzoetsoorten_brasem;;
 ManTyp_barbeel;TypeWaardeBarbeel / Mantypzoetsoorten_barbeel;;TypeWaardeBarbeel;;
 ManTyp_barbeel;TypeWaardeBarbeel / Mantypzoetsoorten_barbeel;;Mantypzoetsoorten_barbeel;;
 ManTyp_upstream;TypeWaardeUpstream / AantalSoortenMantyp;TypeWaardeUpstream;;;

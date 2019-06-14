@@ -1,5 +1,5 @@
 guild;metric_name;metric_formula_name;metric_measures_name;metric_score_name
-brasem;MnsTot;MnsTot;;SMnsTot_brasem
+brasem;MnsTot;;MnsTot;SMnsTot_brasem
 brasem;ManTol;ManTol;;SManTol
 brasem;ManTyp;ManTyp_brasem;;SManTyp_brasem
 brasem;ManSoort;ManSoort_brasem;;SManSoort
