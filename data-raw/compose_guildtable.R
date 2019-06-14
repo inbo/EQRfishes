@@ -25,7 +25,7 @@ data_guild %<>%
   ) %>%
   bind_rows(
     data.frame(
-      guild = c(rep("estuarien Schelde", 3),"estuarien IJzer"),
+      guild = c(rep("estuarien_Schelde", 3),"estuarien_IJzer"),
       tidal = TRUE,
       basin =
         c("Benedenscheldebekken", "Netebekken", "Dijlebekken", "IJzerbekken"),
