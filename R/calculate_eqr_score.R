@@ -20,14 +20,19 @@ calculate_eqr_score <-
     guild, IBI
   ) {
 
+  guild_input <- guild
+
   EQR_formula <-
     read_csv2(
       system.file("extdata/calculate_IBI_EQR.csv", package = "EQRfishes")
     ) %>%
     filter(
-      .data$guild == guild,
+      .data$guild == guild_input,
       .data$to_calculate == "EQR",
       var_in_interval(IBI, .data$interval)
+    ) %>%
+    mutate(
+      result = gsub("IBI", IBI, .data$result)
     )
 
   EQR <- evals(EQR_formula$result)[[1]]$result
