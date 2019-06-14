@@ -24,9 +24,11 @@ calculate_metric_formula <- function(data_sample_fish) {
 
   result <- data_sample_fish %>%
     left_join(
-      read_csv2(
-        system.file(
-          "extdata/calculate_metric_formula.csv", package = "EQRfishes"
+      suppressMessages(
+        read_csv2(
+          system.file(
+            "extdata/calculate_metric_formula.csv", package = "EQRfishes"
+          )
         )
       ) %>%
         filter(!is.na(.data$submetric_score_name)) %>%
@@ -35,9 +37,11 @@ calculate_metric_formula <- function(data_sample_fish) {
         ) %>%
         nest(.key = "submetric_name_group") %>%
         bind_rows(
-          read_csv2(
-            system.file(
-              "extdata/calculate_metric_formula.csv", package = "EQRfishes"
+          suppressMessages(
+            read_csv2(
+              system.file(
+                "extdata/calculate_metric_formula.csv", package = "EQRfishes"
+              )
             )
           ) %>%
             filter(is.na(.data$submetric_score_name)) %>%

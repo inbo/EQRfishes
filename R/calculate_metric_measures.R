@@ -28,8 +28,10 @@ calculate_metric_measures <-
   ) {
 
   specieslist <-
-    read_csv2(
-      system.file("extdata/data_taxonmetrics.csv", package = "EQRfishes")
+    suppressMessages(
+      read_csv2(
+        system.file("extdata/data_taxonmetrics.csv", package = "EQRfishes")
+      )
     )
   if (!is.na(speciesfilter)) {
     specieslist %<>%

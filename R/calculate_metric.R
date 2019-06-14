@@ -62,9 +62,11 @@ calculate_metric <-
     filter(!is.na(.data$metric_measures_name)) %>%
     arrange(.data$row_id) %>%
     left_join(
-      read_csv2(
-        system.file(
-          "extdata/calculate_metric_measures.csv", package = "EQRfishes"
+      suppressMessages(
+        read_csv2(
+          system.file(
+            "extdata/calculate_metric_measures.csv", package = "EQRfishes"
+          )
         )
       ),
       by = "metric_measures_name", suffix = c("", "_info_measures")
@@ -105,9 +107,11 @@ calculate_metric <-
     ) %>%
     nest(.data$name, .data$value, .key = "sampledata") %>%
     left_join(
-      read_csv2(
-        system.file(
-          "extdata/calculate_metric_score.csv", package = "EQRfishes"
+      suppressMessages(
+        read_csv2(
+          system.file(
+            "extdata/calculate_metric_score.csv", package = "EQRfishes"
+          )
         )
       ) %>%
         group_by(.data$metric_score) %>%

@@ -19,7 +19,9 @@
 determine_guild <- function(var_width, var_slope, var_tidal, var_basin) {
 
   data_guild <-
-    read_csv2(system.file("extdata/data_guild.csv", package = "EQRfishes"))
+    suppressMessages(
+      read_csv2(system.file("extdata/data_guild.csv", package = "EQRfishes"))
+    )
   data_guild %<>%
     filter(
       .data$tidal == as.logical(var_tidal)

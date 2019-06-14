@@ -22,8 +22,10 @@ number_of_species <- function(data) {
 number_of_length_classes <- function(data) {
   data %<>%
     left_join(
-      read_csv2(
-        system.file("extdata/data_classes.csv", package = "EQRfishes")
+      suppressMessages(
+        read_csv2(
+          system.file("extdata/data_classes.csv", package = "EQRfishes")
+        )
       ) %>%
         filter(.data$variable == "Recr"),
       by = "taxoncode"
@@ -38,8 +40,10 @@ number_of_length_classes <- function(data) {
 number_of_species_with_multiple_length_classes <- function(data) {
   data %<>%
     left_join(
-      read_csv2(
-        system.file("extdata/data_classes.csv", package = "EQRfishes")
+      suppressMessages(
+        read_csv2(
+          system.file("extdata/data_classes.csv", package = "EQRfishes")
+        )
       ) %>%
         filter(.data$variable == "Recr"),
       by = "taxoncode"

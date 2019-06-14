@@ -23,8 +23,10 @@ calculate_eqr_score <-
   guild_input <- guild
 
   EQR_formula <-
-    read_csv2(
-      system.file("extdata/calculate_IBI_EQR.csv", package = "EQRfishes")
+    suppressMessages(
+      read_csv2(
+        system.file("extdata/calculate_IBI_EQR.csv", package = "EQRfishes")
+      )
     ) %>%
     filter(
       .data$guild == guild_input,

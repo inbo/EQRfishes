@@ -20,8 +20,10 @@ calculate_ibi_score <-
   ) {
 
   IBI_exceptions <-
-    read_csv2(
-      system.file("extdata/calculate_IBI_EQR.csv", package = "EQRfishes")
+    suppressMessages(
+      read_csv2(
+        system.file("extdata/calculate_IBI_EQR.csv", package = "EQRfishes")
+      )
     ) %>%
     filter(
       .data$guild == guild,

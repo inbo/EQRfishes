@@ -59,8 +59,10 @@ calculate_eqr <- function(data_sample, data_fish) {
 
   result <- data_sample %>%
     left_join(
-      read_csv2(
-        system.file("extdata/guild_metric.csv", package = "EQRfishes")
+      suppressMessages(
+        read_csv2(
+          system.file("extdata/guild_metric.csv", package = "EQRfishes")
+        )
       ) %>%
         group_by(.data$guild, .data$metric_name, .data$metric_score_name) %>%
         nest(.key = "metric_name_group"),
