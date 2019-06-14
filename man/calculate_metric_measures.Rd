@@ -5,8 +5,8 @@
 \title{calculate the metrics of the EQR based on measures}
 \usage{
 calculate_metric_measures(fishdata, metric_name, metric_type,
-  speciesfilter, exclude_species_length, only_individual_measures,
-  NULL_to_0, sampledata)
+  values_column, speciesfilter, exclude_species_length,
+  only_individual_measures, NULL_to_0, sampledata)
 }
 \arguments{
 \item{fishdata}{dataframe with fishdata}
@@ -14,6 +14,8 @@ calculate_metric_measures(fishdata, metric_name, metric_type,
 \item{metric_name}{name of the variable to be calculated}
 
 \item{metric_type}{reflects which information must be calculated: number_of_species, number_of_individuals, total_weight,... (info from calculate_metric_measures.csv)}
+
+\item{values_column}{additional information for column if metric_type refers to colomn from data_taxonmetrics.csv (info from calculate_metric_measures.csv)}
 
 \item{speciesfilter}{formula indicating how to select the required species from data_taxonmetrics.csv (info from calculate_metric_measures.csv)}
 
