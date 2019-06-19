@@ -125,15 +125,22 @@ calculate_eqr <- function(data_sample, data_fish) {
             calculate_ibi_score
           )
         ),
-      EQR =
-        unlist(
-          pmap(
-            list(.data$guild, .data$IBI),
-            calculate_eqr_score
-          )
+      EQR_interval =
+        pmap(
+          list(.data$guild, .data$IBI),
+          calculate_eqr_score
         )
     ) %>%
-    select(-.data$metrics)
+    select(-.data$metrics) %>%
+    unnest() %>%
+    left_join(
+      suppressMessages(
+        read_csv2(system.file("extdata/score.csv", package = "EQRfishes"))
+      ) %>%
+        select(-.data$score_id),
+      by = c("interval_IBI" = "IBI")
+    ) %>%
+    select(-.data$interval_IBI)
 
   return(
     list(eqr = result_eqr, metric = result_metrics, details = result_details)

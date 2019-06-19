@@ -39,5 +39,9 @@ calculate_eqr_score <-
 
   EQR <- evals(EQR_formula$result)[[1]]$result
 
-  return(EQR)
+  return(
+    data.frame(
+      EQR = EQR, interval_IBI = EQR_formula$interval, stringsAsFactors = FALSE
+    )
+  )
 }
