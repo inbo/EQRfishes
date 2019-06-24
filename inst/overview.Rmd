@@ -21,7 +21,7 @@ Due to the complex nature of the calculations, it is rather complicated to keep 
 
 Information <- tribble(
   ~Title, ~X, ~Y, ~Hjust, ~Vjust, ~Tekst,
-  "calculate_eqr", -1, 2, 0, 0.5, "",
+  "calculate_eqr", -1, 2, 0, 0.5, "score.csv",
   "determine_guild", 0, 0, 0, 0.5, "data_guild.csv",
   "var_in_interval", 1, -2, 0, 0.5, "",
   "calculate_metric", 0, -4, 0, 0.5, "guild_metric.csv",
@@ -32,7 +32,10 @@ Information <- tribble(
   "calculate_metric_measures", 1, -14, 0, 0.5, "calculate_metric_measures.csv, extdata/data_taxonmetrics.csv",
   "(small subfunctions)", 2, -16, 0, 0.5, "",
   "calculate_metric_score", 1, -18, 0, 0.5, "calculate_metric_score.csv",
-  "var_in_interval", 2, -20, 0, 0.5, ""
+  "var_in_interval", 2, -20, 0, 0.5, "",
+  "calculate_ibi_score", 0, -22, 0, 0.5, "",
+  "var_in_interval", 1, -24, 0, 0.5, "",
+  "calculate_eqr_score", 0, -26, 0, 0.5, ""
 )
 
 Information %>%

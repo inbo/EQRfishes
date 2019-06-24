@@ -1,0 +1,168 @@
+---
+title: "Overview of package content"
+author: "Els Lommelen"
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::html_vignette:
+    fig_caption: yes
+vignette: >
+  %\VignetteIndexEntry{Overview of package content}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(tibble)
+library(dplyr)
+library(ggplot2)
+library(readr)
+library(EQRfishes)
+library(knitr)
+```
+
+## Introduction
+
+This vignette gives an overview of the content of the package. It documents how calculations are done and is a manual to make changes in the package.
+
+The EQRfishes-package allows to calculate quality indices on waterbodies, based on fish measurement data. The package is designed in such way that the information on how to calculate the indices (formulas, class intervals,...), is saved in data sheets (in the folder inst/extdata), while the R code itself only contains routines to execute these calculations. This allows users to redefine calculations without digging into the R code.
+
+## Overview package functions
+
+Due to the complex nature of the calculations, it is rather complicated to keep track on the different functions. This overview shows which functions are called by calculate_eqr (direct and indirect), and which information is used.
+
+```{r overview, fig.width=7, fig.height=5}
+
+Information <- tribble(
+  ~Title, ~X, ~Y, ~Hjust, ~Vjust, ~Tekst,
+  "calculate_eqr", -1, 2, 0, 0.5, "score.csv",
+  "determine_guild", 0, 0, 0, 0.5, "data_guild.csv",
+  "var_in_interval", 1, -2, 0, 0.5, "",
+  "calculate_metric", 0, -4, 0, 0.5, "guild_metric.csv",
+  "calculate_metric_formula", 1, -6, 0, 0.5, "calculate_metric_formula.csv",
+  "calculate_metric", 2, -8, 0, 0.5, "",
+  "...", 3, -10, 0, 0.5, "",
+  "calculate_formula", 2, -12, 0, 0.5, "",
+  "calculate_metric_measures", 1, -14, 0, 0.5, "calculate_metric_measures.csv, data_taxonmetrics.csv",
+  "(small subfunctions)", 2, -16, 0, 0.5, "data_classes.csv",
+  "calculate_metric_score", 1, -18, 0, 0.5, "calculate_metric_score.csv",
+  "var_in_interval", 2, -20, 0, 0.5, "",
+  "calculate_ibi_score", 0, -22, 0, 0.5, "calculate_IBI_EQR.csv",
+  "calculate_eqr_score", 0, -24, 0, 0.5, "calculate_IBI_EQR.csv"
+)
+
+Information %>%
+  ggplot(
+    aes(x = .data$X, y = .data$Y, hjust = .data$Hjust, vjust = .data$Vjust)
+  ) +
+  geom_text(aes(label = .data$Tekst, x = .data$X + 8)) +
+  geom_label(
+    aes(label = .data$Title, colour = .data$Title),
+    show.legend = FALSE
+  ) +
+  xlim(-1, 25) +
+  ylim(-30, 2) +
+  theme(
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    panel.background = element_blank()
+  )
+```
+
+## Overview information on calculations
+
+### data_guild.csv
+
+This datasheet gives all needed information to determine the guild of a specific location.
+
+```{r guild}
+suppressMessages(
+  read_csv2(system.file("extdata/data_guild.csv", package = "EQRfishes"))
+) %>%
+  kable()
+```
+
+### guild_metric.csv
+
+This datasheet shows which metrics and metric scores have to be calculated for each guild, with additional information on where to find the information for calculation of the metric:
+
+- column metric_formula_name contains metrics for which the formulas for calculation are added to calculate_metric_formula.csv
+- column metric_measures_name contains metrics for which the calculation methods (directly based on measures) are added to calculate_metric_measures.csv
+- column metric_score_name gives the score name, refering to calculate_metric_score.csv, which contains the indices to calculate the metric scores based on metric variables
+
+```{r guild_metric}
+suppressMessages(
+  read_csv2(system.file("extdata/guild_metric.csv", package = "EQRfishes"))
+) %>%
+  kable
+```
+
+### calculate_metric_formula.csv
+
+This datasheet shows which how to calculate metrics based on other metrics and metric scores:
+
+- column formula: R-code to calculate the metric based on variables
+- all variables from the formula should be mentioned in one of these columns:
+    - column submetric_formula_name: if the variable itself should be calculated using a formula (add variable to calculate_metric_formula.csv)
+    - column submetric_measures_name: if the variable can be calculated directly based on measures (add variable to calculate_metric_measures.csv)
+    - column submetric_score_name: if a score is used in the formula, in this case also the column submetric_formula_name or submetric_measures_name should be filled, with the variables needed in calculate_metric_score.csv
+- columns metric_formula_name and formula should be repeted to allow to add multiple variables for one formula
+
+```{r calculate_metric_formula}
+suppressMessages(
+  read_csv2(system.file("extdata/calculate_metric_formula.csv", package = "EQRfishes"))
+) %>%
+  kable
+```
+
+### calculate_metric_measures.csv
+
+This datasheet shows which how to calculate metrics based on fishdata of one location. Variables in this sheet mostly refer to species specific values that are gathered in data_taxonmetrics.csv (otherwise the origin is mentioned below).
+
+- column metric_type: refers to a specific type of calculation
+- column values_column: extra information needed for calculation of some metric types:
+    - sum_values_column: calculates the sum of the species specific values in the indicated column
+    - sum_of_scored_length_classes: each species get a score dependent on the length class, an this score is:
+        - if value_column mentions multiple: all species with > 1 length class are counted
+        - otherwise value_column refers to variable in data_classes.csv --> species get scores dependent on the number of length classes, and these scores are summed over different species
+- column speciesfilter: R-code indicating which species to add, refering to columns in data_taxonmetrics.csv
+- column exclude_species_length: which species lengths to exclude before doing the calculation?
+- ...
+
+```{r calculate_metric_measures}
+suppressMessages(
+  read_csv2(system.file("extdata/calculate_metric_measures.csv", package = "EQRfishes"))
+) %>%
+  kable
+```
+
+### calculate_metric_score.csv
+
+This datasheet mentions the intervals that are used to derive a metric score based on 1 or 2 variables/metrics (the 2nd variable is mentioned in add_category with interval value_add_category), score_id is the class (or score).
+
+```{r calculate_metric_score}
+suppressMessages(
+  read_csv2(system.file("extdata/calculate_metric_score.csv", package = "EQRfishes"))
+) %>%
+  kable
+```
+
+### calculate_IBI_EQR.csv
+
+This datasheet gives the information to calculate the IBI and EQR:
+
+- for IBI, only exceptions to the normal rule of the average of the metric scores are mentioned
+- EQR calculation is based on IBI and is given for each guild separately
+
+```{r calculate_IBI_EQR}
+suppressMessages(
+  read_csv2(system.file("extdata/calculate_IBI_EQR.csv", package = "EQRfishes"))
+) %>%
+  kable
+```
