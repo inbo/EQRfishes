@@ -213,7 +213,7 @@ describe("variables exist in dependent tables", {
           paste0(.data$metric, " (for ", .data$metric_score, ")")
       )
     expect_equal(
-      length(lacking_vars), 0,
+      nrow(lacking_vars), 0,
       info =
         paste(
           "To calculate the scores in parentheses, the following metrics should be added to columns metric_formula_name or metric_measures_name of table guild_metric.csv or to columns submetric_formula_name or submetric_measures_name of table calculate_metric_formula.csv: ", #nolint
@@ -227,7 +227,7 @@ describe("variables exist in dependent tables", {
         !unique(guild_metric$guild) %in% unique(calculate_IBI_EQR$guild)
         ]
     expect_equal(
-      length(lacking_vars), 0,
+      nrow(lacking_vars), 0,
       info =
         paste(
           "Info on calculation of IBI and EQR of guild(s)",
@@ -262,7 +262,7 @@ describe("variables exist in dependent tables", {
       ) %>%
       filter(is.na(.data$metric_score_name))
     expect_equal(
-      length(lacking_vars), 0,
+      nrow(lacking_vars), 0,
       info =
         paste0(
           "To calculate the IBI of ",
@@ -290,14 +290,14 @@ describe("items in calculate_metric_measures.csv have valable names", {
       unique(calculate_metric_measures$metric_type)[
         !unique(calculate_metric_measures$metric_type) %in%
           c(
-            "number_of_species", "number_of_individuals",
+            NA, "number_of_species", "number_of_individuals",
             "number_of_length_classes",
-            "number_of_species_with_multiple_length_classes",
-            "total_weight", "sum_values_column"
+            "sum_of_scored_length_classes",
+            "total_weight", "sum_values_column", "shannon_wiener_index"
           )
       ]
     expect_equal(
-      length(problems), 0,
+      nrow(problems), 0,
       info =
         paste(
           "No code for calculation is written for:",
@@ -359,7 +359,7 @@ describe("intervals are correct", {
             as.numeric(.data$value_min) <= as.numeric(.data$value_max))
       )
     expect_equal(
-      length(wrong_interval), 0,
+      nrow(wrong_interval), 0,
       info =
         paste(
           "Column value_metric from calculate_metric_score.csv has invalable interval(s):", #nolint
@@ -368,6 +368,7 @@ describe("intervals are correct", {
     )
     wrong_interval <- calculate_metric_score %>%
       select(.data$value_add_category) %>%
+      filter(!is.na(.data$value_add_category)) %>%
       distinct() %>%
       mutate(
         operator_min =
@@ -405,7 +406,7 @@ describe("intervals are correct", {
             as.numeric(.data$value_min) <= as.numeric(.data$value_max))
       )
     expect_equal(
-      length(wrong_interval), 0,
+      nrow(wrong_interval), 0,
       info =
         paste(
           "Column value_add_category from calculate_metric_score.csv has invalable interval(s):", #nolint
@@ -451,7 +452,7 @@ describe("intervals are correct", {
             as.numeric(.data$value_min) <= as.numeric(.data$value_max))
       )
     expect_equal(
-      length(wrong_interval), 0,
+      nrow(wrong_interval), 0,
       info =
         paste(
           "Column interval from calculate_IBI_EQR.csv has invalable interval(s):", #nolint

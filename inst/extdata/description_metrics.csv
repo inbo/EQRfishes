@@ -9,16 +9,17 @@ Manpik;
 ManRec;percentage recruitment
 ManSha;Shannon-Wiener diversity index
 ManSoort;
-Manswi;
+Manswi;Shannon-Wiener-index
 Manten;
 ManTol;tolerance value
-Mantyp;
+Mantyp;gemiddelde typewaarden / typische soorten waarde
 MedWei;Median weight of Abramis brama, Perca fluviatilis and Rutilus rutilus
 Mnizoet;aantal zoetwatervissen
 MnsBen;number of bentic species
 Mnsbrak;aantal soorten brak
 MnsDia;diadrome soorten
 MnsEst;estuarien residente soorten
+MnsGespa;aantal gespecialiseerde paaiers
 MnsInv;number of invertivorous species
 MnsLoc;number of local species
 MnsMjs;marien seizoenale soorten

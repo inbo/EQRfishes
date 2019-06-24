@@ -7,7 +7,7 @@
 #'
 #' @return single value being the result of the calculation
 #'
-#' @importFrom magrittr %>%
+#' @importFrom magrittr %>% %<>%
 #' @importFrom dplyr filter left_join summarise
 #' @importFrom readr read_csv2
 #'
@@ -16,7 +16,7 @@
 #'
 calculate_ibi_score <-
   function(
-    guild, metrics
+    guild_name, metrics
   ) {
 
   IBI_exceptions <-
@@ -26,7 +26,7 @@ calculate_ibi_score <-
       )
     ) %>%
     filter(
-      .data$guild == guild,
+      .data$guild == guild_name,
       .data$to_calculate == "IBI"
     ) %>%
     left_join(
@@ -37,10 +37,25 @@ calculate_ibi_score <-
       var_in_interval(.data$metric_value, .data$interval)
     )
 
+  if (!all(is.na(IBI_exceptions$calculated2))) {
+    IBI_exceptions %<>%
+      left_join(
+        metrics,
+        by = c("calculated2" = "metric_name"),
+        suffix = c("", "2")
+      ) %>%
+      filter(
+        var_in_interval(.data$metric_value2, .data$interval2)
+      )
+  }
+
   if (nrow(IBI_exceptions) > 0) {
-    IBI <- unique(IBI_exceptions$result)
+    IBI <- IBI_exceptions %>%
+      select(.data$result) %>%
+      distinct()
   } else {
     IBI <- metrics %>%
+      filter(!is.na(.data$metric_score_name)) %>%
       summarise(
         result = sum(as.numeric(.data$metric_score)) / n()
       )

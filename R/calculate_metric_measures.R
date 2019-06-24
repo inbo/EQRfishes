@@ -62,11 +62,12 @@ calculate_metric_measures <-
         number_of_species = number_of_species(result),
         number_of_individuals = number_of_individuals(result),
         number_of_length_classes = number_of_length_classes(result),
-        number_of_species_with_multiple_length_classes =
-          number_of_species_with_multiple_length_classes(result),
+        sum_of_scored_length_classes =
+          sum_of_scored_length_classes(result, values_column),
         total_weight = total_weight(result),
         sum_values_column =
-          sum_values_column(result, specieslist, values_column)
+          sum_values_column(result, specieslist, values_column),
+        shannon_wiener_index = shannon_wiener_index(result, specieslist)
       )
     )
 

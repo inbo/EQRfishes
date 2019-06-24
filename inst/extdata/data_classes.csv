@@ -1,162 +1,164 @@
-taxoncode;variable;interval;class;Recr_Grensw1;Recr_Grensw2;Recr_Grensw3;Recr_Grensw4;Recr_Grensw5;Gkla_Grenswa1;Gkla_Grenswa3;Gkla_Grenswa5
-LAM.PLA.;Recr;[0,9.9];0;9,9;NA;NA;NA;NA;NA;NA;NA
-ANG.ANG.;Recr;[0,9.39];0;9,39;15,5;NA;NA;NA;2;3;7
-ANG.ANG.;Recr;]9.39,15.5];1;;;;;;;;
-ANG.ANG.;Recr;]15.5, [;2;;;;;;;;
-ANG.ANG.;Gkla;] ,2[;1;;;;;;;;
-ANG.ANG.;Gkla;[2,3[;3;;;;;;;;
-ANG.ANG.;Gkla;[3,7];5;;;;;;;;
-ABR.BRA.;Recr;[0,7.0001];0;7,0001;14;NA;NA;NA;NA;NA;NA
-ABR.BRA.;Recr;]7.0001,14];1;;;;;;;;
-ABR.BRA.;Recr;]14, [;2;;;;;;;;
-ALB.BIP.;Recr;[0,4.8];0;4,8;NA;NA;NA;NA;2;7;NA
-ALB.BIP.;Recr;[4.8, [;1;;;;;;;;
-ALB.BIP.;Gkla;] ,2[;1;;;;;;;;
-ALB.BIP.;Gkla;[2,7[;3;;;;;;;;
-ALB.ALB.;Recr;[0,5.6001];0;5,6001;10;NA;NA;NA;NA;NA;NA
-ALB.ALB.;Recr;]5.6001,10];1;;;;;;;;
-ALB.ALB.;Recr;]10, [;2;;;;;;;;
-BAR.BAR.;Recr;[0,4];0;4;10;NA;NA;NA;NA;2;7
-BAR.BAR.;Recr;]4,10];1;;;;;;;;
-BAR.BAR.;Recr;]10, [;2;;;;;;;;
-BAR.BAR.;Gkla;] ,2[;3;;;;;;;;
-BAR.BAR.;Gkla;[2,7];5;;;;;;;;
-BLI.BJO.;Recr;[0,6];0;6;11;NA;NA;NA;NA;NA;NA
-BLI.BJO.;Recr;]6,11];1;;;;;;;;
-BLI.BJO.;Recr;]11, [;2;;;;;;;;
-CAR.CAR.;Recr;[0,4];0;4;8;14,5;NA;NA;NA;NA;NA
-CAR.CAR.;Recr;]4,8];1;;;;;;;;
-CAR.CAR.;Recr;]8,14.5];2;;;;;;;;
-CAR.CAR.;Recr;]14.5, [;3;;;;;;;;
-CAR.AUG.;Recr;[0,7.39];0;7,39;17;NA;NA;NA;NA;NA;NA
-CAR.AUG.;Recr;]7.39,17];1;;;;;;;;
-CAR.AUG.;Recr;]17, [;2;;;;;;;;
-CHO.NAS.;Recr;[0,8];0;8;20;NA;NA;NA;NA;2;7
-CHO.NAS.;Recr;]8,20];1;;;;;;;;
-CHO.NAS.;Recr;]20, [;2;;;;;;;;
-CHO.NAS.;Gkla;] ,2[;3;;;;;;;;
-CHO.NAS.;Gkla;[2,7];5;;;;;;;;
-CYP.CAR.;Recr;[0,13];0;13;25,5;NA;NA;NA;NA;NA;NA
-CYP.CAR.;Recr;]13,25.5];1;;;;;;;;
-CYP.CAR.;Recr;]25.5, [;2;;;;;;;;
-GOB.GOB.;Recr;[0,6.9999];0;6,9999;10,0001;NA;NA;NA;2;3;NA
-GOB.GOB.;Recr;]6.9999,10.0001];1;;;;;;;;
-GOB.GOB.;Recr;]10.0001, [;2;;;;;;;;
-GOB.GOB.;Gkla;] ,2[;1;;;;;;;;
-GOB.GOB.;Gkla;[2,3[;3;;;;;;;;
-LEU.CEP.;Recr;[0,7.0001];0;7,0001;10;15,9999;NA;NA;3;4;7
-LEU.CEP.;Recr;]7.0001,10];1;;;;;;;;
-LEU.CEP.;Recr;]10,15.9999];2;;;;;;;;
-LEU.CEP.;Recr;]15.9999, [;3;;;;;;;;
-LEU.CEP.;Gkla;] ,3[;1;;;;;;;;
-LEU.CEP.;Gkla;[3,4[;3;;;;;;;;
-LEU.CEP.;Gkla;[4,7];5;;;;;;;;
-LEU.DEL.;Recr;[0,3];0;3;NA;NA;NA;NA;NA;NA;NA
-LEU.DEL.;Recr;[3, [;1;;;;;;;;
-LEU.IDE.;Recr;[0,10];0;10;17;25;NA;NA;NA;NA;NA
-LEU.IDE.;Recr;]10,17];1;;;;;;;;
-LEU.IDE.;Recr;]17,25];2;;;;;;;;
-LEU.IDE.;Recr;]25, [;3;;;;;;;;
-LEU.LEU.;Recr;[0,12.3];0;12,3;17;NA;NA;NA;2;3;7
-LEU.LEU.;Recr;]12.3,17];1;;;;;;;;
-LEU.LEU.;Recr;]17, [;2;;;;;;;;
-LEU.LEU.;Gkla;] ,2[;1;;;;;;;;
-LEU.LEU.;Gkla;[2,3[;3;;;;;;;;
-LEU.LEU.;Gkla;[3,7];5;;;;;;;;
-PHO.PHO.;Recr;[0,4.4];0;4,4;6,7;NA;NA;NA;NA;2;7
-PHO.PHO.;Recr;]4.4,6.7];1;;;;;;;;
-PHO.PHO.;Recr;]6.7, [;2;;;;;;;;
-PHO.PHO.;Gkla;] ,2[;3;;;;;;;;
-PHO.PHO.;Gkla;[2,7];5;;;;;;;;
-PIM.PRO.;Recr;[0,5];0;5;10;NA;NA;NA;NA;NA;NA
-PIM.PRO.;Recr;]5,10];1;;;;;;;;
-PIM.PRO.;Recr;]10, [;2;;;;;;;;
-PSE.PAR.;Recr;[0,4];0;4;NA;NA;NA;NA;NA;NA;NA
-PSE.PAR.;Recr;[4, [;1;;;;;;;;
-RHO.SER.;Recr;[0,6];0;6;9;NA;NA;NA;NA;NA;NA
-RHO.SER.;Recr;]6,9];1;;;;;;;;
-RHO.SER.;Recr;]9, [;2;;;;;;;;
-RUT.RUT.;Recr;[0,6];0;6;11;15;18;NA;NA;NA;NA
-RUT.RUT.;Recr;]6,11];1;;;;;;;;
-RUT.RUT.;Recr;]11,15];2;;;;;;;;
-RUT.RUT.;Recr;]15,18];3;;;;;;;;
-RUT.RUT.;Recr;]18, [;4;;;;;;;;
-SCA.ERY.;Recr;[0,6];0;6;11;15;19;NA;NA;NA;NA
-SCA.ERY.;Recr;]6,11];1;;;;;;;;
-SCA.ERY.;Recr;]11,15];2;;;;;;;;
-SCA.ERY.;Recr;]15,19];3;;;;;;;;
-SCA.ERY.;Recr;]19, [;4;;;;;;;;
-TIN.TIN.;Recr;[0,6.3];0;6,3;15,8;21,5;NA;NA;NA;NA;NA
-TIN.TIN.;Recr;]6.3,15.8];1;;;;;;;;
-TIN.TIN.;Recr;]15.8,21.5];2;;;;;;;;
-TIN.TIN.;Recr;]21.5, [;3;;;;;;;;
-COB.TAE.;Recr;[0,5];0;5;NA;NA;NA;NA;NA;NA;NA
-COB.TAE.;Recr;[5, [;1;;;;;;;;
-MIS.FOS.;Recr;[0,7.5];0;7,5;15;NA;NA;NA;NA;NA;NA
-MIS.FOS.;Recr;]7.5,15];1;;;;;;;;
-MIS.FOS.;Recr;]15, [;2;;;;;;;;
-BAR.BUS.;Recr;[0,4.9];0;4,9;NA;NA;NA;NA;NA;2;7
-BAR.BUS.;Recr;[4.9, [;1;;;;;;;;
-BAR.BUS.;Gkla;] ,2[;3;;;;;;;;
-BAR.BUS.;Gkla;[2,7];5;;;;;;;;
-LOT.LOT.;Recr;[0,15];0;15;22;NA;NA;NA;NA;NA;NA
-LOT.LOT.;Recr;]15,22];1;;;;;;;;
-LOT.LOT.;Recr;]22, [;2;;;;;;;;
-AME.NEB.;Recr;[0,7];0;7;NA;NA;NA;NA;NA;NA;NA
-AME.NEB.;Recr;]7, [;1;;;;;;;;
-AME.MEL.;Recr;[0,7];0;7;NA;NA;NA;NA;NA;NA;NA
-AME.MEL.;Recr;]7, [;1;;;;;;;;
-SIL.GLA.;Recr;[0,15];0;15;40;NA;NA;NA;NA;NA;NA
-SIL.GLA.;Recr;]15,40];1;;;;;;;;
-SIL.GLA.;Recr;]40, [;2;;;;;;;;
-ESO.LUC.;Recr;[0,15];0;15;30;60;NA;NA;NA;NA;NA
-ESO.LUC.;Recr;]15,30];1;;;;;;;;
-ESO.LUC.;Recr;]30,60];2;;;;;;;;
-ESO.LUC.;Recr;]60, [;3;;;;;;;;
-UMB.PYG.;Recr;[0,5];0;5;NA;NA;NA;NA;NA;NA;NA
-UMB.PYG.;Recr;[5, [;1;;;;;;;;
-OSM.EPE.;Recr;[0,6];0;6;10;NA;NA;NA;NA;NA;NA
-OSM.EPE.;Recr;]6,10];1;;;;;;;;
-OSM.EPE.;Recr;]10, [;2;;;;;;;;
-SAL.FAR.;Recr;[0,10];0;10;14;18;NA;NA;2;3;7
-SAL.FAR.;Recr;]10,14];1;;;;;;;;
-SAL.FAR.;Recr;]14,18];2;;;;;;;;
-SAL.FAR.;Recr;]18, [;3;;;;;;;;
-SAL.FAR.;Gkla;] ,2[;1;;;;;;;;
-SAL.FAR.;Gkla;[2,3[;3;;;;;;;;
-SAL.FAR.;Gkla;[3,7];5;;;;;;;;
-THY.THY.;Recr;[0,14];0;14;24;NA;NA;NA;NA;2;7
-THY.THY.;Recr;]14,24];1;;;;;;;;
-THY.THY.;Recr;]24, [;2;;;;;;;;
-THY.THY.;Gkla;] ,2[;3;;;;;;;;
-THY.THY.;Gkla;[2,7];5;;;;;;;;
-GAS.ACU.;Recr;[0,4];0;4;NA;NA;NA;NA;NA;NA;NA
-GAS.ACU.;Recr;[4, [;1;;;;;;;;
-PUN.PUN.;Recr;[0,4];0;4;NA;NA;NA;NA;NA;NA;NA
-PUN.PUN.;Recr;[4, [;1;;;;;;;;
-COT.GOB.;Recr;[0,4.99];0;4,99;8;NA;NA;NA;2;3;7
-COT.GOB.;Recr;]4.99,8];1;;;;;;;;
-COT.GOB.;Recr;]8, [;2;;;;;;;;
-COT.GOB.;Gkla;] ,2[;1;;;;;;;;
-COT.GOB.;Gkla;[2,3[;3;;;;;;;;
-COT.GOB.;Gkla;[3,7];5;;;;;;;;
-LEP.GIB.;Recr;[0,4.6];0;4,6;8;NA;NA;NA;NA;NA;NA
-LEP.GIB.;Recr;]4.6,8];1;;;;;;;;
-LEP.GIB.;Recr;]8, [;2;;;;;;;;
-GYM.CER.;Recr;[0,5];0;5;7;11;NA;NA;NA;NA;NA
-GYM.CER.;Recr;]5,7];1;;;;;;;;
-GYM.CER.;Recr;]7,11];2;;;;;;;;
-GYM.CER.;Recr;]11, [;3;;;;;;;;
-PER.FLU.;Recr;[0,7];0;7;13;20;NA;NA;NA;NA;NA
-PER.FLU.;Recr;]7,13];1;;;;;;;;
-PER.FLU.;Recr;]13,20];2;;;;;;;;
-PER.FLU.;Recr;]20, [;3;;;;;;;;
-STI.LUC.;Recr;[0,12];0;12;29,2;40;NA;NA;NA;NA;NA
-STI.LUC.;Recr;]12,29.2];1;;;;;;;;
-STI.LUC.;Recr;]29.2,40];2;;;;;;;;
-STI.LUC.;Recr;]40, [;3;;;;;;;;
-ASP.ASP.;Recr;[0,14.99];0;14,99;35;NA;NA;NA;NA;NA;NA
-ASP.ASP.;Recr;]14.99,35];1;;;;;;;;
-ASP.ASP.;Recr;]35, [;2;;;;;;;;
-PRO.SEM.;Recr;[0,5];0;5;NA;NA;NA;NA;NA;NA;NA
-PRO.SEM.;Recr;[5, [;1;;;;;;;;
+taxoncode;variable;interval;class;score;Recr_Grensw1;Recr_Grensw2;Recr_Grensw3;Recr_Grensw4;Recr_Grensw5;Gkla_Grenswa1;Gkla_Grenswa3;Gkla_Grenswa5
+;multiple;] ,1];;0;;;;;;;;
+;multiple;]1, [;;1;;;;;;;;
+LAM.PLA.;Recr;[0,9.9];0;;9,9;NA;NA;NA;NA;NA;NA;NA
+ANG.ANG.;Recr;[0,9.39];0;;9,39;15,5;NA;NA;NA;2;3;7
+ANG.ANG.;Recr;]9.39,15.5];1;;;;;;;;;
+ANG.ANG.;Recr;]15.5, [;2;;;;;;;;;
+ANG.ANG.;Gkla;] ,2[;;1;;;;;;;;
+ANG.ANG.;Gkla;[2,3[;;3;;;;;;;;
+ANG.ANG.;Gkla;[3,7];;5;;;;;;;;
+ABR.BRA.;Recr;[0,7.0001];0;;7,0001;14;NA;NA;NA;NA;NA;NA
+ABR.BRA.;Recr;]7.0001,14];1;;;;;;;;;
+ABR.BRA.;Recr;]14, [;2;;;;;;;;;
+ALB.BIP.;Recr;[0,4.8];0;;4,8;NA;NA;NA;NA;2;7;NA
+ALB.BIP.;Recr;[4.8, [;1;;;;;;;;;
+ALB.BIP.;Gkla;] ,2[;;1;;;;;;;;
+ALB.BIP.;Gkla;[2,7[;;3;;;;;;;;
+ALB.ALB.;Recr;[0,5.6001];0;;5,6001;10;NA;NA;NA;NA;NA;NA
+ALB.ALB.;Recr;]5.6001,10];1;;;;;;;;;
+ALB.ALB.;Recr;]10, [;2;;;;;;;;;
+BAR.BAR.;Recr;[0,4];0;;4;10;NA;NA;NA;NA;2;7
+BAR.BAR.;Recr;]4,10];1;;;;;;;;;
+BAR.BAR.;Recr;]10, [;2;;;;;;;;;
+BAR.BAR.;Gkla;] ,2[;;3;;;;;;;;
+BAR.BAR.;Gkla;[2,7];;5;;;;;;;;
+BLI.BJO.;Recr;[0,6];0;;6;11;NA;NA;NA;NA;NA;NA
+BLI.BJO.;Recr;]6,11];1;;;;;;;;;
+BLI.BJO.;Recr;]11, [;2;;;;;;;;;
+CAR.CAR.;Recr;[0,4];0;;4;8;14,5;NA;NA;NA;NA;NA
+CAR.CAR.;Recr;]4,8];1;;;;;;;;;
+CAR.CAR.;Recr;]8,14.5];2;;;;;;;;;
+CAR.CAR.;Recr;]14.5, [;3;;;;;;;;;
+CAR.AUG.;Recr;[0,7.39];0;;7,39;17;NA;NA;NA;NA;NA;NA
+CAR.AUG.;Recr;]7.39,17];1;;;;;;;;;
+CAR.AUG.;Recr;]17, [;2;;;;;;;;;
+CHO.NAS.;Recr;[0,8];0;;8;20;NA;NA;NA;NA;2;7
+CHO.NAS.;Recr;]8,20];1;;;;;;;;;
+CHO.NAS.;Recr;]20, [;2;;;;;;;;;
+CHO.NAS.;Gkla;] ,2[;;3;;;;;;;;
+CHO.NAS.;Gkla;[2,7];;5;;;;;;;;
+CYP.CAR.;Recr;[0,13];0;;13;25,5;NA;NA;NA;NA;NA;NA
+CYP.CAR.;Recr;]13,25.5];1;;;;;;;;;
+CYP.CAR.;Recr;]25.5, [;2;;;;;;;;;
+GOB.GOB.;Recr;[0,6.9999];0;;6,9999;10,0001;NA;NA;NA;2;3;NA
+GOB.GOB.;Recr;]6.9999,10.0001];1;;;;;;;;;
+GOB.GOB.;Recr;]10.0001, [;2;;;;;;;;;
+GOB.GOB.;Gkla;] ,2[;;1;;;;;;;;
+GOB.GOB.;Gkla;[2,3[;;3;;;;;;;;
+LEU.CEP.;Recr;[0,7.0001];0;;7,0001;10;15,9999;NA;NA;3;4;7
+LEU.CEP.;Recr;]7.0001,10];1;;;;;;;;;
+LEU.CEP.;Recr;]10,15.9999];2;;;;;;;;;
+LEU.CEP.;Recr;]15.9999, [;3;;;;;;;;;
+LEU.CEP.;Gkla;] ,3[;;1;;;;;;;;
+LEU.CEP.;Gkla;[3,4[;;3;;;;;;;;
+LEU.CEP.;Gkla;[4,7];;5;;;;;;;;
+LEU.DEL.;Recr;[0,3];0;;3;NA;NA;NA;NA;NA;NA;NA
+LEU.DEL.;Recr;[3, [;1;;;;;;;;;
+LEU.IDE.;Recr;[0,10];0;;10;17;25;NA;NA;NA;NA;NA
+LEU.IDE.;Recr;]10,17];1;;;;;;;;;
+LEU.IDE.;Recr;]17,25];2;;;;;;;;;
+LEU.IDE.;Recr;]25, [;3;;;;;;;;;
+LEU.LEU.;Recr;[0,12.3];0;;12,3;17;NA;NA;NA;2;3;7
+LEU.LEU.;Recr;]12.3,17];1;;;;;;;;;
+LEU.LEU.;Recr;]17, [;2;;;;;;;;;
+LEU.LEU.;Gkla;] ,2[;;1;;;;;;;;
+LEU.LEU.;Gkla;[2,3[;;3;;;;;;;;
+LEU.LEU.;Gkla;[3,7];;5;;;;;;;;
+PHO.PHO.;Recr;[0,4.4];0;;4,4;6,7;NA;NA;NA;NA;2;7
+PHO.PHO.;Recr;]4.4,6.7];1;;;;;;;;;
+PHO.PHO.;Recr;]6.7, [;2;;;;;;;;;
+PHO.PHO.;Gkla;] ,2[;;3;;;;;;;;
+PHO.PHO.;Gkla;[2,7];;5;;;;;;;;
+PIM.PRO.;Recr;[0,5];0;;5;10;NA;NA;NA;NA;NA;NA
+PIM.PRO.;Recr;]5,10];1;;;;;;;;;
+PIM.PRO.;Recr;]10, [;2;;;;;;;;;
+PSE.PAR.;Recr;[0,4];0;;4;NA;NA;NA;NA;NA;NA;NA
+PSE.PAR.;Recr;[4, [;1;;;;;;;;;
+RHO.SER.;Recr;[0,6];0;;6;9;NA;NA;NA;NA;NA;NA
+RHO.SER.;Recr;]6,9];1;;;;;;;;;
+RHO.SER.;Recr;]9, [;2;;;;;;;;;
+RUT.RUT.;Recr;[0,6];0;;6;11;15;18;NA;NA;NA;NA
+RUT.RUT.;Recr;]6,11];1;;;;;;;;;
+RUT.RUT.;Recr;]11,15];2;;;;;;;;;
+RUT.RUT.;Recr;]15,18];3;;;;;;;;;
+RUT.RUT.;Recr;]18, [;4;;;;;;;;;
+SCA.ERY.;Recr;[0,6];0;;6;11;15;19;NA;NA;NA;NA
+SCA.ERY.;Recr;]6,11];1;;;;;;;;;
+SCA.ERY.;Recr;]11,15];2;;;;;;;;;
+SCA.ERY.;Recr;]15,19];3;;;;;;;;;
+SCA.ERY.;Recr;]19, [;4;;;;;;;;;
+TIN.TIN.;Recr;[0,6.3];0;;6,3;15,8;21,5;NA;NA;NA;NA;NA
+TIN.TIN.;Recr;]6.3,15.8];1;;;;;;;;;
+TIN.TIN.;Recr;]15.8,21.5];2;;;;;;;;;
+TIN.TIN.;Recr;]21.5, [;3;;;;;;;;;
+COB.TAE.;Recr;[0,5];0;;5;NA;NA;NA;NA;NA;NA;NA
+COB.TAE.;Recr;[5, [;1;;;;;;;;;
+MIS.FOS.;Recr;[0,7.5];0;;7,5;15;NA;NA;NA;NA;NA;NA
+MIS.FOS.;Recr;]7.5,15];1;;;;;;;;;
+MIS.FOS.;Recr;]15, [;2;;;;;;;;;
+BAR.BUS.;Recr;[0,4.9];0;;4,9;NA;NA;NA;NA;NA;2;7
+BAR.BUS.;Recr;[4.9, [;1;;;;;;;;;
+BAR.BUS.;Gkla;] ,2[;;3;;;;;;;;
+BAR.BUS.;Gkla;[2,7];;5;;;;;;;;
+LOT.LOT.;Recr;[0,15];0;;15;22;NA;NA;NA;NA;NA;NA
+LOT.LOT.;Recr;]15,22];1;;;;;;;;;
+LOT.LOT.;Recr;]22, [;2;;;;;;;;;
+AME.NEB.;Recr;[0,7];0;;7;NA;NA;NA;NA;NA;NA;NA
+AME.NEB.;Recr;]7, [;1;;;;;;;;;
+AME.MEL.;Recr;[0,7];0;;7;NA;NA;NA;NA;NA;NA;NA
+AME.MEL.;Recr;]7, [;1;;;;;;;;;
+SIL.GLA.;Recr;[0,15];0;;15;40;NA;NA;NA;NA;NA;NA
+SIL.GLA.;Recr;]15,40];1;;;;;;;;;
+SIL.GLA.;Recr;]40, [;2;;;;;;;;;
+ESO.LUC.;Recr;[0,15];0;;15;30;60;NA;NA;NA;NA;NA
+ESO.LUC.;Recr;]15,30];1;;;;;;;;;
+ESO.LUC.;Recr;]30,60];2;;;;;;;;;
+ESO.LUC.;Recr;]60, [;3;;;;;;;;;
+UMB.PYG.;Recr;[0,5];0;;5;NA;NA;NA;NA;NA;NA;NA
+UMB.PYG.;Recr;[5, [;1;;;;;;;;;
+OSM.EPE.;Recr;[0,6];0;;6;10;NA;NA;NA;NA;NA;NA
+OSM.EPE.;Recr;]6,10];1;;;;;;;;;
+OSM.EPE.;Recr;]10, [;2;;;;;;;;;
+SAL.FAR.;Recr;[0,10];0;;10;14;18;NA;NA;2;3;7
+SAL.FAR.;Recr;]10,14];1;;;;;;;;;
+SAL.FAR.;Recr;]14,18];2;;;;;;;;;
+SAL.FAR.;Recr;]18, [;3;;;;;;;;;
+SAL.FAR.;Gkla;] ,2[;;1;;;;;;;;
+SAL.FAR.;Gkla;[2,3[;;3;;;;;;;;
+SAL.FAR.;Gkla;[3,7];;5;;;;;;;;
+THY.THY.;Recr;[0,14];0;;14;24;NA;NA;NA;NA;2;7
+THY.THY.;Recr;]14,24];1;;;;;;;;;
+THY.THY.;Recr;]24, [;2;;;;;;;;;
+THY.THY.;Gkla;] ,2[;;3;;;;;;;;
+THY.THY.;Gkla;[2,7];;5;;;;;;;;
+GAS.ACU.;Recr;[0,4];0;;4;NA;NA;NA;NA;NA;NA;NA
+GAS.ACU.;Recr;[4, [;1;;;;;;;;;
+PUN.PUN.;Recr;[0,4];0;;4;NA;NA;NA;NA;NA;NA;NA
+PUN.PUN.;Recr;[4, [;1;;;;;;;;;
+COT.GOB.;Recr;[0,4.99];0;;4,99;8;NA;NA;NA;2;3;7
+COT.GOB.;Recr;]4.99,8];1;;;;;;;;;
+COT.GOB.;Recr;]8, [;2;;;;;;;;;
+COT.GOB.;Gkla;] ,2[;;1;;;;;;;;
+COT.GOB.;Gkla;[2,3[;;3;;;;;;;;
+COT.GOB.;Gkla;[3,7];;5;;;;;;;;
+LEP.GIB.;Recr;[0,4.6];0;;4,6;8;NA;NA;NA;NA;NA;NA
+LEP.GIB.;Recr;]4.6,8];1;;;;;;;;;
+LEP.GIB.;Recr;]8, [;2;;;;;;;;;
+GYM.CER.;Recr;[0,5];0;;5;7;11;NA;NA;NA;NA;NA
+GYM.CER.;Recr;]5,7];1;;;;;;;;;
+GYM.CER.;Recr;]7,11];2;;;;;;;;;
+GYM.CER.;Recr;]11, [;3;;;;;;;;;
+PER.FLU.;Recr;[0,7];0;;7;13;20;NA;NA;NA;NA;NA
+PER.FLU.;Recr;]7,13];1;;;;;;;;;
+PER.FLU.;Recr;]13,20];2;;;;;;;;;
+PER.FLU.;Recr;]20, [;3;;;;;;;;;
+STI.LUC.;Recr;[0,12];0;;12;29,2;40;NA;NA;NA;NA;NA
+STI.LUC.;Recr;]12,29.2];1;;;;;;;;;
+STI.LUC.;Recr;]29.2,40];2;;;;;;;;;
+STI.LUC.;Recr;]40, [;3;;;;;;;;;
+ASP.ASP.;Recr;[0,14.99];0;;14,99;35;NA;NA;NA;NA;NA;NA
+ASP.ASP.;Recr;]14.99,35];1;;;;;;;;;
+ASP.ASP.;Recr;]35, [;2;;;;;;;;;
+PRO.SEM.;Recr;[0,5];0;;5;NA;NA;NA;NA;NA;NA;NA
+PRO.SEM.;Recr;[5, [;1;;;;;;;;;
