@@ -5,7 +5,7 @@
 #' @param var_width width of the river at the sample location
 #' @param var_slope slope of the river at the sample location
 #' @param var_tidal tidal effect present (TRUE) or absent (FALSE)?
-#' @param var_basin basin in which the sample location is situated
+#' @param var_indextype type based on salinity of the sample location
 #'
 #' @return guild of the focal location(s)
 #'
@@ -16,7 +16,7 @@
 #'
 #' @export
 #'
-determine_guild <- function(var_width, var_slope, var_tidal, var_basin) {
+determine_guild <- function(var_width, var_slope, var_tidal, var_indextype) {
 
   data_guild <-
     suppressMessages(
@@ -24,14 +24,9 @@ determine_guild <- function(var_width, var_slope, var_tidal, var_basin) {
     )
   data_guild %<>%
     filter(
-      .data$tidal == as.logical(var_tidal)
+      .data$indextypecode == var_indextype
     )
-  if (var_tidal) {
-    data_guild %<>%
-      filter(
-        .data$basin == var_basin
-      )
-  } else {
+  if (var_indextype == "ZTWA") {
     data_guild %<>%
       filter(
         var_in_interval(var_width, .data$width),

@@ -25,7 +25,7 @@ calculate_eqr <- function(data_sample, data_fish) {
     mutate(
       guild =
         determine_guild(
-          .data$width_river, .data$slope, .data$tidal, .data$Bekken
+          .data$width_river, .data$slope, .data$tidal, .data$IndexTypeCode
         ),
       surface =
         ifelse(
