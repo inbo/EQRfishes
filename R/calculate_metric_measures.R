@@ -36,38 +36,37 @@ calculate_metric_measures <-
   if (!is.na(speciesfilter)) {
     specieslist %<>%
       filter(eval(parse(text = speciesfilter)))
+    fishdata %<>%
+      filter(.data$taxoncode %in% specieslist$taxoncode)
   }
 
-  result <- fishdata %>%
-    filter(.data$taxoncode %in% specieslist$taxoncode)
-
   if (!is.na(exclude_species_length)) {
-    result %<>%
+    fishdata %<>%
       filter(!eval(parse(text = exclude_species_length)))
   }
 
   if (!is.na(only_individual_measures)) {
     if (only_individual_measures == 1) {
-      result %<>%
+      fishdata %<>%
         filter(.data$number == 1)
     }
   }
 
   result <-
     ifelse(
-      nrow(result) == 0,
+      nrow(fishdata) == 0,
       0,
       switch(
         metric_type,
-        number_of_species = number_of_species(result),
-        number_of_individuals = number_of_individuals(result),
-        number_of_length_classes = number_of_length_classes(result),
+        number_of_species = number_of_species(fishdata),
+        number_of_individuals = number_of_individuals(fishdata),
+        number_of_length_classes = number_of_length_classes(fishdata),
         sum_of_scored_length_classes =
-          sum_of_scored_length_classes(result, values_column),
-        total_weight = total_weight(result),
+          sum_of_scored_length_classes(fishdata, values_column),
+        total_weight = total_weight(fishdata),
         sum_values_column =
-          sum_values_column(result, specieslist, values_column),
-        shannon_wiener_index = shannon_wiener_index(result, specieslist)
+          sum_values_column(fishdata, specieslist, values_column),
+        shannon_wiener_index = shannon_wiener_index(fishdata, specieslist)
       )
     )
 

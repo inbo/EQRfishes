@@ -24,7 +24,7 @@ calculate_metric_score <-
   }
 
   metric_value1 <- sampledata %>%
-    filter(.data$name == unique(indices$metric))
+    filter(.data$name %in% unique(indices$metric))
 
   result <- indices %>%
     filter(
