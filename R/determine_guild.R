@@ -6,6 +6,7 @@
 #' @param var_slope slope of the river at the sample location
 #' @param var_tidal tidal effect present (TRUE) or absent (FALSE)?
 #' @param var_indextype type based on salinity of the sample location
+#' @param var_method sampling method
 #'
 #' @return guild of the focal location(s)
 #'
@@ -16,7 +17,8 @@
 #'
 #' @export
 #'
-determine_guild <- function(var_width, var_slope, var_tidal, var_indextype) {
+determine_guild <-
+  function(var_width, var_slope, var_tidal, var_indextype, var_method) {
 
   data_guild <-
     suppressMessages(
@@ -31,6 +33,11 @@ determine_guild <- function(var_width, var_slope, var_tidal, var_indextype) {
       filter(
         var_in_interval(var_width, .data$width),
         var_in_interval(var_slope, .data$slope)
+      )
+  } else {
+    data_guild %<>%
+      filter(
+        is.na(.data$method) | str_detect(var_method, .data$method)
       )
   }
 
