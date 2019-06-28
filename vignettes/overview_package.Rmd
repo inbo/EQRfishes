@@ -24,6 +24,8 @@ library(ggplot2)
 library(readr)
 library(EQRfishes)
 library(knitr)
+
+options(knitr.kable.NA = "")
 ```
 
 ## Introduction
@@ -100,7 +102,19 @@ This datasheet shows which metrics and metric scores have to be calculated for e
 suppressMessages(
   read_csv2(system.file("extdata/guild_metric.csv", package = "EQRfishes"))
 ) %>%
-  kable
+  kable()
+```
+
+
+### description_metrics.csv
+
+This datasheet is not used in the calculations, but it gives an overview of all metrics (and variables) with a description
+
+```{r description_metrics}
+suppressMessages(
+  read_csv2(system.file("extdata/description_metrics.csv", package = "EQRfishes"))
+) %>%
+  kable()
 ```
 
 ### calculate_metric_formula.csv
@@ -118,7 +132,7 @@ This datasheet shows which how to calculate metrics based on other metrics and m
 suppressMessages(
   read_csv2(system.file("extdata/calculate_metric_formula.csv", package = "EQRfishes"))
 ) %>%
-  kable
+  kable()
 ```
 
 ### calculate_metric_measures.csv
@@ -139,7 +153,7 @@ This datasheet shows which how to calculate metrics based on fishdata of one loc
 suppressMessages(
   read_csv2(system.file("extdata/calculate_metric_measures.csv", package = "EQRfishes"))
 ) %>%
-  kable
+  kable()
 ```
 
 ### calculate_metric_score.csv
@@ -150,7 +164,7 @@ This datasheet mentions the intervals that are used to derive a metric score bas
 suppressMessages(
   read_csv2(system.file("extdata/calculate_metric_score.csv", package = "EQRfishes"))
 ) %>%
-  kable
+  kable()
 ```
 
 ### calculate_IBI_EQR.csv
@@ -164,5 +178,5 @@ This datasheet gives the information to calculate the IBI and EQR:
 suppressMessages(
   read_csv2(system.file("extdata/calculate_IBI_EQR.csv", package = "EQRfishes"))
 ) %>%
-  kable
+  kable()
 ```
