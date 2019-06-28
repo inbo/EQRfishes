@@ -30,7 +30,9 @@ calculate_eqr_score <-
     ) %>%
     filter(
       .data$guild == guild_input,
-      .data$to_calculate == "EQR",
+      .data$to_calculate == "EQR"
+    ) %>%
+    filter(
       var_in_interval(IBI, .data$interval)
     ) %>%
     mutate(

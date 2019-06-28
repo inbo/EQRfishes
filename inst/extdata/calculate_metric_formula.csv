@@ -71,3 +71,8 @@ PercInvert_brasem;InvertZoet_brasem * 100 / MniZoet;;InvertZoet_brasem;;
 PercInvert_brasem;InvertZoet_brasem * 100 / MniZoet;;MniZoet;;
 Mangkw;ifelse(!is.numeric(AantalSoortengkw) | AantalSoortengkw == 0, 0, Gkla / AantalSoortengkw);;AantalSoortengkw;;
 Mangkw;ifelse(!is.numeric(AantalSoortengkw) | AantalSoortengkw == 0, 0, Gkla / AantalSoortengkw);;Gkla;;
+ManBio_canals;TotWeight_canals / surface;;TotWeight_canals;;
+ManRec_canals;ifelse(is.na(MnsTot_canals) | Mnstot_canals == 0, 0, MnsRec * 100 / MnsTot_canals);;MnsTot_canals;;
+ManRec_canals;ifelse(is.na(MnsTot_canals) | Mnstot_canals == 0, 0, MnsRec * 100 / MnsTot_canals);;MnsRec;;
+BenWei_canals;GewBen_canals * 100 / ManBio_canals;;GewBen_canals;;
+BenWei_canals;GewBen_canals * 100 / ManBio_canals;ManBio_canals;;;

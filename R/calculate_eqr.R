@@ -110,8 +110,18 @@ calculate_eqr <- function(data_sample, data_fish) {
       .data$sample_key, .data$guild, .data$metric_name, .data$metric_score_name
     ) %>%
     summarise(
-      metric_value = max(.data$metric_value, na.rm = TRUE),
-      metric_score = max(.data$metric_score, na.rm = TRUE)
+      metric_value =
+        ifelse(
+          all(is.na(.data$metric_value)),
+          NA,
+          max(.data$metric_value, na.rm = TRUE)
+        ),
+      metric_score =
+        ifelse(
+          all(is.na(.data$metric_score)),
+          NA,
+          max(.data$metric_score, na.rm = TRUE)
+        )
     ) %>%
     ungroup()
 

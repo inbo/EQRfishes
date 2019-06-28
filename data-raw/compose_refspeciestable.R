@@ -2,6 +2,7 @@
 
 library(RODBC)
 library(tidyverse)
+library(magrittr)
 library(readr)
 
 connection_vis <-
@@ -65,7 +66,40 @@ data_taxonmetrics %<>%
   mutate(
     LeuCep = ifelse(.data$taxoncode == "LEU.CEP.", 1, 0),
     BarBus = ifelse(.data$taxoncode == "BAR.BUS.", 1, 0),
-    GasAcu = ifelse(.data$taxoncode == "GAS.ACU", 1, 0)
+    GasAcu = ifelse(.data$taxoncode == "GAS.ACU", 1, 0),
+    Canals =
+      ifelse(
+        .data$taxoncode %in%
+          c("ABR.BRA.", "ALB.ALB.", "ANG.ANG.", "BLI.BJO.", "CAR.CAR.",
+            "CAR.AUG.", "CYP.CAR.", "ESO.LUC.", "GAS.ACU.", "GOB.GOB.",
+            "GYM.CER.", "LEU.DEL.", "LEU.IDE.", "PER.FLU.", "PLA.FLE.",
+            "PUN.PUN.", "RHO.SER.", "RUT.RUT.", "STI.LUC.", "SCA.ERY.",
+            "SIL.GLA.", "LEU.CEP.", "TIN.TIN."),
+        1, 0
+      ),
+    Lakes =
+      ifelse(
+        .data$taxoncode %in%
+          c("ABR.BRA.", "ANG.ANG.", "BLI.BJO.", "CAR.CAR.", "CAR.AUG.",
+            "CYP.CAR.", "ESO.LUC.", "GAS.ACU.", "GOB.GOB.", "GYM.CER.",
+            "LEU.DEL.", "LEU.IDE.", "LOT.LOT.", "PER.FLU.", "PUN.PUN.",
+            "RHO.SER.", "RUT.RUT.", "STI.LUC.", "SCA.ERY.", "SIL.GLA.",
+            "TIN.TIN."),
+        1, 0
+      ),
+    BenWei =
+      ifelse(
+        .data$taxoncode %in%
+          c("ABR.BRA.", "BLI.BJO.", "CYP.CAR.", "GYM.CER.", "TIN.TIN."),
+        1, 0
+      ),
+    Obligatory_species =
+      ifelse(
+        .data$taxoncode %in%
+          c("ABR.BRA.", "BLI.BJO.", "ESO.LUC.", "GYM.CER.", "PER.FLU.",
+            "RUT.RUT.", "SCA.ERY."),
+        1, 0
+      )
   )
 
 write_csv2(data_taxonmetrics, "inst/extdata/data_taxonmetrics.csv")

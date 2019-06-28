@@ -40,6 +40,9 @@ determine_guild <-
         is.na(.data$method) | str_detect(var_method, .data$method)
       )
   }
+  if (nrow(data_guild) == 0) {
+    return("(undetermined)")
+  }
 
   return(data_guild$guild)
 }
