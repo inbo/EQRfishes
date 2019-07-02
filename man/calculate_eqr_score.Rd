@@ -4,10 +4,10 @@
 \alias{calculate_eqr_score}
 \title{calculate EQR based on given parameters}
 \usage{
-calculate_eqr_score(guild, IBI)
+calculate_eqr_score(guild_name, IBI)
 }
 \arguments{
-\item{guild}{guild of the location}
+\item{guild_name}{guild of the location}
 
 \item{IBI}{calculated IBI score}
 }

@@ -4,10 +4,10 @@
 \alias{calculate_ibi_score}
 \title{calculate IBI based on given parameters}
 \usage{
-calculate_ibi_score(guild, metrics)
+calculate_ibi_score(guild_name, metrics)
 }
 \arguments{
-\item{guild}{guild of the location}
+\item{guild_name}{guild of the location}
 
 \item{metrics}{calculated metrics and metric scores}
 }

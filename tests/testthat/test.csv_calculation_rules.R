@@ -293,7 +293,8 @@ describe("items in calculate_metric_measures.csv have valable names", {
             NA, "number_of_species", "number_of_individuals",
             "number_of_length_classes",
             "sum_of_scored_length_classes",
-            "total_weight", "sum_values_column", "shannon_wiener_index"
+            "total_weight", "sum_values_column", "shannon_wiener_index",
+            "no_metric"
           )
       ]
     expect_equal(

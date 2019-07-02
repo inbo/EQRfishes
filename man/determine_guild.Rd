@@ -4,7 +4,7 @@
 \alias{determine_guild}
 \title{determine the guild of the location}
 \usage{
-determine_guild(var_width, var_slope, var_tidal, var_basin)
+determine_guild(var_width, var_slope, var_tidal, var_indextype, var_method)
 }
 \arguments{
 \item{var_width}{width of the river at the sample location}
@@ -13,7 +13,9 @@ determine_guild(var_width, var_slope, var_tidal, var_basin)
 
 \item{var_tidal}{tidal effect present (TRUE) or absent (FALSE)?}
 
-\item{var_basin}{basin in which the sample location is situated}
+\item{var_indextype}{type based on salinity of the sample location}
+
+\item{var_method}{sampling method}
 }
 \value{
 guild of the focal location(s)
