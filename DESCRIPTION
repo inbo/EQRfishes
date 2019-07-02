@@ -23,7 +23,9 @@ Imports:
   stringr,
   tidyr
 Suggests: 
-    testthat,
+    ggplot2,
     knitr,
-    rmarkdown
+    rmarkdown,
+    testthat,
+    tibble
 VignetteBuilder: knitr

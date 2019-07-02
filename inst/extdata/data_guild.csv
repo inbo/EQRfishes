@@ -236,9 +236,9 @@ width;slope;guild;tidal;indextypecode;method
 [100, [;[6.00,6.50[;barbeel;FALSE;ZTWA;
 [100, [;[6.50,7.00[;barbeel;FALSE;ZTWA;
 [100, [;[7.00, [;barbeel;FALSE;ZTWA;
-NA;NA;estuarien_Schelde_meso;TRUE;SCHM;
-NA;NA;estuarien_Schelde_oligo;TRUE;SCHO;
-NA;NA;estuarien_Schelde_zoet;TRUE;SCHZ;
+NA;NA;estuarien_Schelde_mesohaline;TRUE;SCHM;
+NA;NA;estuarien_Schelde_oligohaline;TRUE;SCHO;
+NA;NA;estuarien_Schelde_freshwater;TRUE;SCHZ;
 NA;NA;estuarien_zijrivieren_zoet;TRUE;ZTWZ;
 NA;NA;estuarien_IJzer;TRUE;YZRP;
 NA;NA;canals_fyke;FALSE;CANA;F

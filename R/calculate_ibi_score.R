@@ -2,7 +2,7 @@
 #'
 #' small function that calculates IBI based on rules in calculate_IBI_EQR.csv or the formula 'sum of metric scores divided by number of metrics'
 #'
-#' @param guild guild of the location
+#' @param guild_name guild of the location
 #' @param metrics calculated metrics and metric scores
 #'
 #' @return single value being the result of the calculation

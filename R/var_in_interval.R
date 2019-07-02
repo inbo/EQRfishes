@@ -11,13 +11,6 @@
 #'
 #'
 var_in_interval <- function(variable, interval) {
-  if (is.na(variable) & is.na(interval)) {
-    return(TRUE)
-  }
-  if (variable == interval) {
-    return(TRUE)
-  }
-
   operator_min <-
     gsub(
       "^(\\W)((\\d+(.\\d+)?)|\\s)(,)((\\d+(.\\d+)?)|\\s)(\\W)$",
@@ -70,7 +63,8 @@ var_in_interval <- function(variable, interval) {
     )
 
   if (max(is.na(result_min)) | max(is.na(result_max))) {
-    stop("At least one interval is not recognised")
+    return((is.na(variable) & is.na(interval)) | (variable == interval))
+    #stop("At least one interval is not recognised")
   }
 
   return(result_min & result_max)

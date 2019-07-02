@@ -113,13 +113,13 @@ calculate_eqr <- function(data_sample, data_fish) {
       metric_value =
         ifelse(
           all(is.na(.data$metric_value)),
-          NA,
+          as.character(NA),
           max(.data$metric_value, na.rm = TRUE)
         ),
       metric_score =
         ifelse(
           all(is.na(.data$metric_score)),
-          NA,
+          as.character(NA),
           max(.data$metric_score, na.rm = TRUE)
         )
     ) %>%

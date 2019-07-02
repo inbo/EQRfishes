@@ -63,6 +63,12 @@ odbcClose(connection_vis)
 #   )
 
 data_taxonmetrics %<>%
+  bind_rows(
+    data.frame(
+      taxoncode = c("COT.GRP.", "LIZ.RAM.", "MIM.LIM.", "PSE.MAX.", "TRI.LUC."),  #mim.lim bij gelegenheid aanpassen naar lim.lim.
+      stringsAsFactors = FALSE
+    )
+  ) %>%
   mutate(
     LeuCep = ifelse(.data$taxoncode == "LEU.CEP.", 1, 0),
     BarBus = ifelse(.data$taxoncode == "BAR.BUS.", 1, 0),
@@ -73,7 +79,7 @@ data_taxonmetrics %<>%
           c("ABR.BRA.", "ALB.ALB.", "ANG.ANG.", "BLI.BJO.", "CAR.CAR.",
             "CAR.AUG.", "CYP.CAR.", "ESO.LUC.", "GAS.ACU.", "GOB.GOB.",
             "GYM.CER.", "LEU.DEL.", "LEU.IDE.", "PER.FLU.", "PLA.FLE.",
-            "PUN.PUN.", "RHO.SER.", "RUT.RUT.", "STI.LUC.", "SCA.ERY.",
+            "PUN.PUN.", "RHO.AMA.", "RUT.RUT.", "SAN.LUC.", "SCA.ERY.",
             "SIL.GLA.", "LEU.CEP.", "TIN.TIN."),
         1, 0
       ),
@@ -83,7 +89,7 @@ data_taxonmetrics %<>%
           c("ABR.BRA.", "ANG.ANG.", "BLI.BJO.", "CAR.CAR.", "CAR.AUG.",
             "CYP.CAR.", "ESO.LUC.", "GAS.ACU.", "GOB.GOB.", "GYM.CER.",
             "LEU.DEL.", "LEU.IDE.", "LOT.LOT.", "PER.FLU.", "PUN.PUN.",
-            "RHO.SER.", "RUT.RUT.", "STI.LUC.", "SCA.ERY.", "SIL.GLA.",
+            "RHO.AMA.", "RUT.RUT.", "SAN.LUC.", "SCA.ERY.", "SIL.GLA.",
             "TIN.TIN."),
         1, 0
       ),
@@ -98,6 +104,59 @@ data_taxonmetrics %<>%
         .data$taxoncode %in%
           c("ABR.BRA.", "BLI.BJO.", "ESO.LUC.", "GYM.CER.", "PER.FLU.",
             "RUT.RUT.", "SCA.ERY."),
+        1, 0
+      ),
+    mesohaline =
+      ifelse(
+        .data$taxoncode %in%
+          c("ALO.FAL.", "ANG.ANG.", "APH.MIN.", "CHE.LUC.", "CLU.HAR.",
+            "DIC.LAB.", "ENG.ENC.", "GAS.ACU.", "GYM.CER.", "LAM.FLU.",
+            "LIP.LIP.", "LIZ.RAM.", "MER.MER.", "MYO.SCO.", "OSM.EPE.",
+            "PER.FLU.", "PET.MAR.", "PLA.FLE.", "PLE.PLA.", "POM.MIC.",
+            "POM.MIN.", "RUT.RUT.", "SAL.TRU.", "SAN.LUC.", "SOL.SOL.",
+            "SPR.SPR.", "SYN.ACU.", "SYN.ROS.", "TRI.LUS.", "ZOA.VIV."),
+        1, 0
+      ),
+    oligohaline =
+      ifelse(
+        .data$taxoncode %in%
+          c("ABR.BRA.", "ALO.FAL.", "ANG.ANG.", "BLI.BJO.", "CLU.HAR.",
+            "DIC.LAB.", "ESO.LUC.", "GAS.ACU.", "GYM.CER.", "LAM.FLU.",
+            "LEU.IDE.", "LIZ.RAM.", "MIS.FOS.", "MYO.SCO.", "OSM.EPE.",
+            "PER.FLU.", "PET.MAR.", "PLA.FLE.", "POM.MIC.", "POM.MIN.",
+            "PUN.PUN.", "RHO.AMA.", "RUT.RUT.", "SAL.TRU.", "SAN.LUC.",
+            "SCA.ERY.", "SIL.GLA.", "SOL.SOL.", "SPR.SPR.", "SYN.ACU.",
+            "SYN.ROS.", "TRI.LUS.", "ZOA.VIV."),
+        1, 0
+      ),
+    freshwater =
+      ifelse(
+        .data$taxoncode %in%
+          c("ABR.BRA.", "ALO.FAL.", "ANG.ANG.", "BLI.BJO.", "CAR.CAR.",
+            "ESO.LUC.", "GAS.ACU.", "GYM.CER.", "LAM.FLU.", "LEU.IDE.",
+            "LIZ.RAM.", "MIS.FOS.", "OSM.EPE.", "PER.FLU.", "PET.MAR.",
+            "PLA.FLE.", "PUN.PUN.", "RHO.AMA.", "RUT.RUT.", "SAL.TRU.",
+            "SAN.LUC.", "SCA.ERY.", "SIL.GLA."),
+        1, 0
+      ),
+    brak =  #nog aanpassen!
+      ifelse(
+        .data$taxoncode %in%
+          c("ABR.BRA.", "ACI.BAE.", "AGO.CAT.", "ALB.ALB.", "ALO.ALO.",
+            "ALO.FAL.", "AMM.TOB.", "ANG.ANG.", "APH.MIN.", "ARN.LAT.",
+            "ATH.PRE.", "BEL.BEL.", "BLI.BJO.", "CAL.LYR.", "CAR.AUR.",
+            "CAR.CAR.", "CIL.MUS.", "CLU.HAR.", "CON.CON.", "COT.GRP.",
+            "CYC.LUM.", "CYP.CAR.", "DIC.LAB.", "ENG.ENC.", "ECH.VIP.",
+            "ESO.LUC.", "GAD.MOR.", "GAS.ACU.", "GYM.CER.", "HIP.RAM.",
+            "HYP.LAN.", "LAM.PLA.", "LEU.DEL.", "LEU.IDE.", "MIM.LIM.",
+            "LIP.LIP.", "LIZ.RAM.", "MER.MER.", "MIS.FOS.", "MUL.SUR.",
+            "MYO.SCO.", "OSM.EPE.", "PER.FLU.", "PET.MAR.", "PLA.FLE.",
+            "PLE.PLA.", "POM.LOZ.", "POM.MIC.", "POM.MIN.", "PSE.MAX.",
+            "PSE.PAR.", "PUN.PUN.", "RAJ.CLA.", "RHO.AMA.", "RUT.RUT.",
+            "SAL.SAL.", "SAL.TRU.", "SCA.ERY.", "SCO.SAU1", "SCO.RHO.",
+            "SOL.SOL.", "SPR.SPR.", "SQU.ACA.", "SQU.SQU.", "SAN.LUC.",
+            "SYN.ACU.", "SYN.ROS.", "TRA.TRA.", "TRI.LUC.", "TRI.LUs.",
+            "ZOA.VIV."),
         1, 0
       )
   )

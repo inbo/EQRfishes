@@ -17,10 +17,8 @@
 #'
 calculate_eqr_score <-
   function(
-    guild, IBI
+    guild_name, IBI
   ) {
-
-  guild_input <- guild
 
   EQR_formula <-
     suppressMessages(
@@ -29,7 +27,7 @@ calculate_eqr_score <-
       )
     ) %>%
     filter(
-      .data$guild == guild_input,
+      .data$guild == guild_name,
       .data$to_calculate == "EQR"
     ) %>%
     filter(
