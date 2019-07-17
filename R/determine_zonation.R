@@ -17,7 +17,7 @@
 #'
 #' @export
 #'
-determine_guild <-
+determine_zonation <-
   function(var_width, var_slope, var_tidal, var_indextype, var_method) {
 
   data_guild <-

@@ -24,7 +24,7 @@ calculate_eqr <- function(data_sample, data_fish) {
     rowwise() %>%
     mutate(
       guild =
-        determine_guild(
+        determine_zonation(
           .data$width_river, .data$slope, .data$tidal, .data$IndexTypeCode,
           .data$method
         ),
