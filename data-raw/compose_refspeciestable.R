@@ -11,7 +11,8 @@ connection_vis <-
   )
 
 query_taxonmetrics <-
-  "SELECT vit.Taxoncode AS taxoncode, vit.Totaal, vit.Exoot, vit.WF_Tolerantie,
+  "SELECT t.WetenschappelijkeNaam AS taxonname, vit.Taxoncode AS taxoncode,
+    vit.Totaal, vit.Exoot, vit.WF_Tolerantie,
     vit.WF_Type_Brasem, vit.WF_Type_Barbeel, vit.WF_Type_Upstream,
     vit.Grootte_Klasse_zoetwater, vit.Grootte_Klasse_upstream,
     vit.Shannon_Weaner, vit.Migratie, vit.Spec_Paaier, vit.Bentisch,
@@ -20,7 +21,8 @@ query_taxonmetrics <-
     vit.Water_Brak, vit.Water_Zoet, vit.Nat_Recrutering, vit.Recr_Grensw1,
     vit.Recr_Grensw2, vit.Recr_Grensw3, vit.Recr_Grensw4, vit.Recr_Grensw5,
     vit.Gkla_Grenswa1, Gkla_Grenswa3, Gkla_Grenswa5
-  FROM DimVisindexTaxon vit;"
+  FROM DimVisindexTaxon vit
+    LEFT JOIN DimTaxon t ON vit.TaxonKey = t.TaxonKey;"
 
 data_taxonmetrics <-
   sqlQuery(connection_vis, query_taxonmetrics, stringsAsFactors = FALSE)
@@ -65,7 +67,8 @@ odbcClose(connection_vis)
 data_taxonmetrics %<>%
   bind_rows(
     data.frame(
-      taxoncode = c("COT.GRP.", "LIZ.RAM.", "MIM.LIM.", "PSE.MAX.", "TRI.LUC."),  #mim.lim bij gelegenheid aanpassen naar lim.lim.
+      taxonname = c("Cottus gobio L."),
+      taxoncode = c("COT.GRP."),  #mim.lim bij gelegenheid aanpassen naar lim.lim.
       stringsAsFactors = FALSE
     )
   ) %>%
@@ -111,7 +114,7 @@ data_taxonmetrics %<>%
         .data$taxoncode %in%
           c("ALO.FAL.", "ANG.ANG.", "APH.MIN.", "CHE.LUC.", "CLU.HAR.",
             "DIC.LAB.", "ENG.ENC.", "GAS.ACU.", "GYM.CER.", "LAM.FLU.",
-            "LIP.LIP.", "LIZ.RAM.", "MER.MER.", "MYO.SCO.", "OSM.EPE.",
+            "LIP.LIP.", "CHE.RAM.", "MER.MER.", "MYO.SCO.", "OSM.EPE.",
             "PER.FLU.", "PET.MAR.", "PLA.FLE.", "PLE.PLA.", "POM.MIC.",
             "POM.MIN.", "RUT.RUT.", "SAL.TRU.", "SAN.LUC.", "SOL.SOL.",
             "SPR.SPR.", "SYN.ACU.", "SYN.ROS.", "TRI.LUS.", "ZOA.VIV."),
@@ -122,7 +125,7 @@ data_taxonmetrics %<>%
         .data$taxoncode %in%
           c("ABR.BRA.", "ALO.FAL.", "ANG.ANG.", "BLI.BJO.", "CLU.HAR.",
             "DIC.LAB.", "ESO.LUC.", "GAS.ACU.", "GYM.CER.", "LAM.FLU.",
-            "LEU.IDE.", "LIZ.RAM.", "MIS.FOS.", "MYO.SCO.", "OSM.EPE.",
+            "LEU.IDE.", "CHE.RAM.", "MIS.FOS.", "MYO.SCO.", "OSM.EPE.",
             "PER.FLU.", "PET.MAR.", "PLA.FLE.", "POM.MIC.", "POM.MIN.",
             "PUN.PUN.", "RHO.AMA.", "RUT.RUT.", "SAL.TRU.", "SAN.LUC.",
             "SCA.ERY.", "SIL.GLA.", "SOL.SOL.", "SPR.SPR.", "SYN.ACU.",
@@ -134,7 +137,7 @@ data_taxonmetrics %<>%
         .data$taxoncode %in%
           c("ABR.BRA.", "ALO.FAL.", "ANG.ANG.", "BLI.BJO.", "CAR.CAR.",
             "ESO.LUC.", "GAS.ACU.", "GYM.CER.", "LAM.FLU.", "LEU.IDE.",
-            "LIZ.RAM.", "MIS.FOS.", "OSM.EPE.", "PER.FLU.", "PET.MAR.",
+            "CHE.RAM.", "MIS.FOS.", "OSM.EPE.", "PER.FLU.", "PET.MAR.",
             "PLA.FLE.", "PUN.PUN.", "RHO.AMA.", "RUT.RUT.", "SAL.TRU.",
             "SAN.LUC.", "SCA.ERY.", "SIL.GLA."),
         1, 0
@@ -149,13 +152,13 @@ data_taxonmetrics %<>%
             "CYC.LUM.", "CYP.CAR.", "DIC.LAB.", "ENG.ENC.", "ECH.VIP.",
             "ESO.LUC.", "GAD.MOR.", "GAS.ACU.", "GYM.CER.", "HIP.RAM.",
             "HYP.LAN.", "LAM.PLA.", "LEU.DEL.", "LEU.IDE.", "MIM.LIM.",
-            "LIP.LIP.", "LIZ.RAM.", "MER.MER.", "MIS.FOS.", "MUL.SUR.",
+            "LIP.LIP.", "CHE.RAM.", "MER.MER.", "MIS.FOS.", "MUL.SUR.",
             "MYO.SCO.", "OSM.EPE.", "PER.FLU.", "PET.MAR.", "PLA.FLE.",
-            "PLE.PLA.", "POM.LOZ.", "POM.MIC.", "POM.MIN.", "PSE.MAX.",
+            "PLE.PLA.", "POM.LOZ.", "POM.MIC.", "POM.MIN.", "SCO.MAX.",
             "PSE.PAR.", "PUN.PUN.", "RAJ.CLA.", "RHO.AMA.", "RUT.RUT.",
             "SAL.SAL.", "SAL.TRU.", "SCA.ERY.", "SCO.SAU1", "SCO.RHO.",
             "SOL.SOL.", "SPR.SPR.", "SQU.ACA.", "SQU.SQU.", "SAN.LUC.",
-            "SYN.ACU.", "SYN.ROS.", "TRA.TRA.", "TRI.LUC.", "TRI.LUs.",
+            "SYN.ACU.", "SYN.ROS.", "TRA.TRA.", "CHE.LUC.", "TRI.LUs.",
             "ZOA.VIV."),
         1, 0
       )
