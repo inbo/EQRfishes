@@ -4,15 +4,23 @@
 \alias{calculate_eqr}
 \title{calculate the ecological quality ratio}
 \usage{
-calculate_eqr(data_sample, data_fish)
+calculate_eqr(data_sample, data_fish, output = c("EQR", "metric",
+  "detail"))
 }
 \arguments{
 \item{data_sample}{Data on the sample: date, method, location and location characteristics}
 
 \item{data_fish}{Measurements on fish: taxon, length, weight, number of individuals}
+
+\item{output}{Which output do you wish?
+\itemize{
+  \item \strong{EQR} (default) only gives the main result: a dataframe with calculated IBI and EQR for each sample (location),
+  \item \strong{metric} gives a list of 2 dataframes: one with the IBI and EQR, and one with the results for each metric,
+  \item \strong{detail} gives a list of 3 dataframes: one with the IBI and EQR, a second with the results for each metric and a third with all calculated values
+}}
 }
 \value{
-Dataset with calculated EQR for each sample
+Dataframe with calculated EQR for each sample, or list of dataframes if parameter output is specified
 }
 \description{
 Main function of this package, which calculates the EQR based on 2 tables of data.  Each table must contain a sample_key!

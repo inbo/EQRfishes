@@ -4,8 +4,14 @@
 #'
 #' @param data_sample Data on the sample: date, method, location and location characteristics
 #' @param data_fish Measurements on fish: taxon, length, weight, number of individuals
+#' @param output Which output do you wish?
+#'   \itemize{
+#'     \item \strong{EQR} (default) only gives the main result: a dataframe with calculated IBI and EQR for each sample (location),
+#'     \item \strong{metric} gives a list of 2 dataframes: one with the IBI and EQR, and one with the results for each metric,
+#'     \item \strong{detail} gives a list of 3 dataframes: one with the IBI and EQR, a second with the results for each metric and a third with all calculated values
+#'   }
 #'
-#' @return Dataset with calculated EQR for each sample
+#' @return Dataframe with calculated EQR for each sample, or list of dataframes if parameter output is specified
 #'
 #' @importFrom dplyr arrange distinct group_by left_join mutate n rowwise select summarise ungroup
 #' @importFrom plyr .
@@ -18,7 +24,8 @@
 #'
 #' @export
 #'
-calculate_eqr <- function(data_sample, data_fish) {
+calculate_eqr <-
+  function(data_sample, data_fish, output = c("EQR", "metric", "detail")) {
 
   data_sample %<>%
     rowwise() %>%
@@ -153,7 +160,17 @@ calculate_eqr <- function(data_sample, data_fish) {
     ) %>%
     select(-.data$interval_IBI)
 
-  return(
-    list(eqr = result_eqr, metric = result_metrics, details = result_details)
-  )
+  if (output[[1]] == "EQR") {
+    return(result_eqr)
+  }
+  if (output == "metric") {
+    return(
+      list(eqr = result_eqr, metric = result_metrics)
+    )
+  }
+  if (output == "detail") {
+    return(
+      list(eqr = result_eqr, metric = result_metrics, details = result_details)
+    )
+  }
 }
