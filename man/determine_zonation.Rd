@@ -4,8 +4,7 @@
 \alias{determine_zonation}
 \title{determine the guild of the location}
 \usage{
-determine_zonation(var_width, var_slope, var_tidal, var_indextype,
-  var_method)
+determine_zonation(var_width, var_slope, var_tidal, var_indextype)
 }
 \arguments{
 \item{var_width}{width of the river at the sample location}
@@ -15,8 +14,6 @@ determine_zonation(var_width, var_slope, var_tidal, var_indextype,
 \item{var_tidal}{tidal effect present (TRUE) or absent (FALSE)?}
 
 \item{var_indextype}{type based on salinity of the sample location}
-
-\item{var_method}{sampling method}
 }
 \value{
 guild of the focal location(s)

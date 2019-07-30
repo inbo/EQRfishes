@@ -81,7 +81,7 @@ Information %>%
 
 ### data_guild.csv
 
-This datasheet gives all needed information to determine the guild of a specific location.
+This datasheet gives all needed information to determine the zonation of a specific location.
 
 ```{r guild}
 suppressMessages(
@@ -92,11 +92,13 @@ suppressMessages(
 
 ### guild_metric.csv
 
-This datasheet shows which metrics and metric scores have to be calculated for each guild, with additional information on where to find the information for calculation of the metric:
+This datasheet shows which metrics and metric scores have to be calculated for each zonation, with additional information on where to find the information for calculation of the metric:
 
 - column metric_formula_name contains metrics for which the formulas for calculation are added to calculate_metric_formula.csv
 - column metric_measures_name contains metrics for which the calculation methods (directly based on measures) are added to calculate_metric_measures.csv
 - column metric_score_name gives the score name, refering to calculate_metric_score.csv, which contains the indices to calculate the metric scores based on metric variables
+
+If the metric is only applicable to one method, this method is mentioned (E = electric, F = fyke)
 
 ```{r guild_metric}
 suppressMessages(

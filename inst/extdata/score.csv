@@ -1,12 +1,6 @@
-score_id;score_value;score_cat;Beoordeling;IBI;IC5
-1;0,2;bad;slecht;[0,1.0[;1
-2;0,4;poor;ontoereikend;[1.0,2.5];2
-3;0,6;moderate;matig;]2.5,3.5];3
-4;0,8;GEP;goed;]3.5,4.5];4
-5;1;MEP;uitstekend;]4.5, ];5
-6;0,9;90%;;;
-7;0;;;;
-8;0,25;;;;
-9;0,5;;;;
-10;0,75;;;;
-11;1;;;;
+EQR_class;std_ibi_old;std_ibi_new;score_cat;Beoordeling;IC5
+1;0,2;0,2;bad;slecht;1
+2;0,5;0,4;poor;ontoereikend;2
+3;0,7;0,6;moderate;matig;3
+4;0,9;1;GEP;goed;4
+5;1;;MEP;uitstekend;5

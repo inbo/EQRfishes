@@ -1,9 +1,10 @@
 #' calculate IBI based on given parameters
 #'
-#' small function that calculates IBI based on rules in calculate_IBI_EQR.csv or the formula 'sum of metric scores divided by number of metrics'
+#' Small function that calculates IBI based on rules in calculate_IBI_EQR.csv or the formula 'sum of metric scores divided by number of metrics' (when using the old calculation method) or the formula 'sum of metric scores' (when using the new calculation method). Distinction between old an new method is made by the absence (old method) or presence (new method) of a specified method for the calculated methods.
 #'
 #' @param guild_name guild of the location
 #' @param metrics calculated metrics and metric scores
+#' @param calc_method_old does the calculation has to be done using the old method?
 #'
 #' @return single value being the result of the calculation
 #'
@@ -16,7 +17,7 @@
 #'
 calculate_ibi_score <-
   function(
-    guild_name, metrics
+    guild_name, metrics, calc_method_old
   ) {
 
   IBI_exceptions <-
@@ -57,7 +58,8 @@ calculate_ibi_score <-
     IBI <- metrics %>%
       filter(!is.na(.data$metric_score_name)) %>%
       summarise(
-        result = sum(as.numeric(.data$metric_score)) / n()
+        result = sum(as.numeric(.data$metric_score)),
+        result = ifelse(calc_method_old, .data$result / n(), .data$result)
       )
   }
 

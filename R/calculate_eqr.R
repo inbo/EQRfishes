@@ -21,6 +21,7 @@
 #' @importFrom readr read_csv2
 #' @importFrom purrr pmap
 #' @importFrom stringr str_detect
+#' @importFrom lubridate year month
 #'
 #' @export
 #'
@@ -28,12 +29,55 @@ calculate_eqr <-
   function(data_sample, data_fish, output = c("EQR", "metric", "detail")) {
 
   data_sample %<>%
+    mutate(
+      year_begin = year(.data$Begindatum),
+      year_end = year(.data$Einddatum),
+      season_begin =
+        ifelse(
+          month(.data$Begindatum) %in% 3:5,
+          "spring",
+          ifelse(
+            month(.data$Begindatum) %in% 6:8,
+            "summer",
+            ifelse(
+              month(.data$Begindatum) %in% 9:77,
+              "autumn",
+              NA
+            )
+          )
+        ),
+      season_end =
+        ifelse(
+          month(.data$Einddatum) %in% 3:5,
+          "spring",
+          ifelse(
+            month(.data$Einddatum) %in% 6:8,
+            "summer",
+            ifelse(
+              month(.data$Einddatum) %in% 9:11,
+              "autumn",
+              NA
+            )
+          )
+        )
+    ) %>%
+    filter( #data from winter are not used
+      !is.na(.data$season_begin), !is.na(.data$season_end),
+      .data$year_begin == .data$year_end,
+      .data$season_begin == .data$season_end
+    ) %>%
+    mutate(
+      year = .data$year_begin,
+      season = .data$season_begin,
+    ) %>%
+    select(
+      -.data$year_begin, -.data$year_end, -.data$season_begin, -.data$season_end
+    ) %>%
     rowwise() %>%
     mutate(
       guild =
         determine_zonation(
-          .data$width_river, .data$slope, .data$tidal, .data$IndexTypeCode,
-          .data$method
+          .data$width_river, .data$slope, .data$tidal, .data$IndexTypeCode
         ),
       surface =
         ifelse(
@@ -57,8 +101,15 @@ calculate_eqr <-
         )
     ) %>%
     ungroup() %>%
-    gather(key = "name", value = "value", -.data$sample_key, -.data$guild) %>%
-    group_by(.data$sample_key, .data$guild) %>%
+    gather(
+      key = "name", value = "value",
+      -.data$sample_key, -.data$guild, -.data$LocationID, -.data$method,
+      -.data$year, -.data$season
+    ) %>%
+    group_by(
+      .data$sample_key, .data$guild, .data$LocationID, .data$method,
+      .data$year, .data$season
+    ) %>%
     nest(.key = "sampledata")
 
   data_fish %<>%
@@ -72,9 +123,16 @@ calculate_eqr <-
           system.file("extdata/guild_metric.csv", package = "EQRfishes")
         )
       ) %>%
-        group_by(.data$guild, .data$metric_name, .data$metric_score_name) %>%
+        group_by(
+          .data$guild, .data$method, .data$metric_name, .data$metric_score_name
+        ) %>%
         nest(.key = "metric_name_group"),
-      by = "guild"
+      by = "guild",
+      suffix = c("", "_for_metric")
+    ) %>%
+    filter(
+      is.na(.data$method_for_metric) |
+        str_detect(.data$method, .data$method_for_metric)
     ) %>%
     left_join(
       data_fish,
@@ -89,14 +147,18 @@ calculate_eqr <-
     )
 
   result_details <- result %>%
-    select(.data$sample_key, .data$guild, .data$sampledata) %>%
+    select(
+      .data$sample_key, .data$guild, .data$LocationID, .data$sampledata,
+      .data$year, .data$season
+    ) %>%
     unnest() %>%
     distinct()
 
   result_metrics <- result %>%
     select(
-      .data$sample_key, .data$guild, .data$sampledata, .data$metric_name,
-      .data$metric_score_name
+      .data$sample_key, .data$guild, .data$LocationID, .data$year, .data$season,
+      .data$sampledata, .data$metric_name, .data$metric_score_name,
+      .data$method_for_metric
     ) %>%
     unnest() %>%
     mutate(
@@ -114,7 +176,8 @@ calculate_eqr <-
         )
     ) %>%
     group_by(
-      .data$sample_key, .data$guild, .data$metric_name, .data$metric_score_name
+      .data$sample_key, .data$guild, .data$LocationID, .data$year, .data$season,
+      .data$metric_name, .data$metric_score_name, .data$method_for_metric
     ) %>%
     summarise(
       metric_value =
@@ -132,33 +195,128 @@ calculate_eqr <-
     ) %>%
     ungroup()
 
+  eqr_scores <-
+    suppressMessages(
+      read_csv2(system.file("extdata/score.csv", package = "EQRfishes"))
+    )
+
   result_eqr <- result_metrics %>%
-    group_by(.data$sample_key, .data$guild) %>%
+    group_by(.data$guild, .data$LocationID, .data$year, .data$season) %>%
+    mutate(calc_method_old = all(is.na(.data$method_for_metric))) %>%
+    group_by(
+      .data$guild, .data$LocationID, .data$year, .data$season,
+      .data$calc_method_old
+    ) %>%
     nest(.key = "metrics") %>%
     mutate(
-      IBI =
+      ibi =
         unlist(
           pmap(
-            list(.data$guild, .data$metrics),
+            list(.data$guild, .data$metrics, .data$calc_method_old),
             calculate_ibi_score
           )
         ),
-      EQR_interval =
-        pmap(
-          list(.data$guild, .data$IBI),
-          calculate_eqr_score
+      std_ibi =
+        unlist(
+          pmap(
+            list(.data$ibi, .data$metrics, .data$calc_method_old),
+            standardise_ibi
+          )
         )
     ) %>%
     select(-.data$metrics) %>%
-    unnest() %>%
-    left_join(
-      suppressMessages(
-        read_csv2(system.file("extdata/score.csv", package = "EQRfishes"))
-      ) %>%
-        select(-.data$score_id),
-      by = c("interval_IBI" = "IBI")
+    mutate(
+      eqr_class =
+        cut(
+          .data$std_ibi,
+          breaks = c(0, eqr_scores$std_ibi_new[!is.na(eqr_scores$std_ibi_new)]),
+          labels = eqr_scores$EQR_class[!is.na(eqr_scores$std_ibi_new)],
+          right = FALSE
+        ),
+      eqr_class =
+        ifelse(
+          .data$calc_method_old,
+          cut(
+            .data$std_ibi,
+            breaks =
+              c(0, eqr_scores$std_ibi_old[!is.na(eqr_scores$std_ibi_old)]),
+            labels = eqr_scores$EQR_class[!is.na(eqr_scores$std_ibi_old)],
+            right = FALSE
+          ),
+          .data$eqr_class
+        ),
+      eqr_class = as.numeric(as.character(.data$eqr_class)),
+      ibi_classmin =
+        cut(
+          .data$std_ibi,
+          breaks = c(0, eqr_scores$std_ibi_new[!is.na(eqr_scores$std_ibi_new)]),
+          labels =
+            c(0,
+              eqr_scores$std_ibi_new[
+                !is.na(eqr_scores$std_ibi_new)
+              ][1:(sum(!is.na(eqr_scores$std_ibi_new)) - 1)]),
+          right = FALSE
+        ),
+      ibi_classmin = as.numeric(as.character(.data$ibi_classmin)),
+      ibi_classmin =
+        ifelse(
+          .data$calc_method_old,
+          cut(
+            .data$std_ibi,
+            breaks =
+              c(0, eqr_scores$std_ibi_old[!is.na(eqr_scores$std_ibi_old)]),
+            labels =
+              c(0,
+                eqr_scores$std_ibi_old[
+                  !is.na(eqr_scores$std_ibi_old)
+                ][1:(sum(!is.na(eqr_scores$std_ibi_old)) - 1)]),
+            right = FALSE
+          ),
+          .data$ibi_classmin
+        ),
+      ibi_classmin = as.numeric(as.character(.data$ibi_classmin)),
+      ibi_classmax =
+        cut(
+          .data$std_ibi,
+          breaks = c(0, eqr_scores$std_ibi_new[!is.na(eqr_scores$std_ibi_new)]),
+          labels = eqr_scores$std_ibi_new[!is.na(eqr_scores$std_ibi_new)],
+          right = FALSE
+        ),
+      ibi_classmax = as.numeric(as.character(.data$ibi_classmax)),
+      ibi_classmax =
+        ifelse(
+          .data$calc_method_old,
+          cut(
+            .data$std_ibi,
+            breaks =
+              c(0, eqr_scores$std_ibi_old[!is.na(eqr_scores$std_ibi_old)]),
+            labels = eqr_scores$std_ibi_old[!is.na(eqr_scores$std_ibi_old)],
+            right = FALSE
+          ),
+          .data$ibi_classmax
+        ),
+      ibi_classmax = as.numeric(as.character(.data$ibi_classmax)),
+      nclass = sum(!is.na(eqr_scores$std_ibi_new)),
+      nclass =
+        ifelse(
+          .data$calc_method_old,
+          sum(!is.na(eqr_scores$std_ibi_old)),
+          .data$nclass
+        ),
+      eqr =
+        (.data$eqr_class - 1) / .data$nclass +
+        (.data$std_ibi - .data$ibi_classmin) /
+        (.data$nclass * (.data$ibi_classmax - .data$ibi_classmin))
     ) %>%
-    select(-.data$interval_IBI)
+    select(
+      .data$guild, .data$LocationID, .data$year, .data$season,
+      .data$calc_method_old, .data$ibi, .data$eqr_class, .data$eqr
+    ) %>%
+    left_join(
+      eqr_scores %>%
+        select(-.data$std_ibi_old, -.data$std_ibi_new),
+      by = c("eqr_class" = "EQR_class")
+    )
 
   if (output[[1]] == "EQR") {
     return(result_eqr)
