@@ -7,7 +7,7 @@
 calculate_metric_formula(data_sample_fish)
 }
 \arguments{
-\item{data_sample_fish}{Data on the sample with additional paramaters guild (calculated by calculate_guild) and surface and fishdata included}
+\item{data_sample_fish}{Data on the sample with additional paramaters zonation (calculated by calculate_zonation) and surface and fishdata included}
 }
 \value{
 Dataset with calculated metric for each record

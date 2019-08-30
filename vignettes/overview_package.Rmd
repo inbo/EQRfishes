@@ -43,9 +43,9 @@ Due to the complex nature of the calculations, it is rather complicated to keep 
 Information <- tribble(
   ~Title, ~X, ~Y, ~Hjust, ~Vjust, ~Tekst,
   "calculate_eqr", -1, 2, 0, 0.5, "score.csv",
-  "determine_zonation", 0, 0, 0, 0.5, "data_guild.csv",
+  "determine_zonation", 0, 0, 0, 0.5, "data_zonation.csv",
   "var_in_interval", 1, -2, 0, 0.5, "",
-  "calculate_metric", 0, -4, 0, 0.5, "guild_metric.csv",
+  "calculate_metric", 0, -4, 0, 0.5, "zonation_metric.csv",
   "calculate_metric_formula", 1, -6, 0, 0.5, "calculate_metric_formula.csv",
   "calculate_metric", 2, -8, 0, 0.5, "",
   "...", 3, -10, 0, 0.5, "",
@@ -79,18 +79,18 @@ Information %>%
 
 ## Overview information on calculations
 
-### data_guild.csv
+### data_zonation.csv
 
 This datasheet gives all needed information to determine the zonation of a specific location.
 
-```{r guild}
+```{r zonation}
 suppressMessages(
-  read_csv2(system.file("extdata/data_guild.csv", package = "EQRfishes"))
+  read_csv2(system.file("extdata/data_zonation.csv", package = "EQRfishes"))
 ) %>%
   kable()
 ```
 
-### guild_metric.csv
+### zonation_metric.csv
 
 This datasheet shows which metrics and metric scores have to be calculated for each zonation, with additional information on where to find the information for calculation of the metric:
 
@@ -100,9 +100,9 @@ This datasheet shows which metrics and metric scores have to be calculated for e
 
 If the metric is only applicable to one method, this method is mentioned (E = electric, F = fyke)
 
-```{r guild_metric}
+```{r zonation_metric}
 suppressMessages(
-  read_csv2(system.file("extdata/guild_metric.csv", package = "EQRfishes"))
+  read_csv2(system.file("extdata/zonation_metric.csv", package = "EQRfishes"))
 ) %>%
   kable()
 ```
@@ -174,7 +174,7 @@ suppressMessages(
 This datasheet gives the information to calculate the IBI and EQR:
 
 - for IBI, only exceptions to the normal rule of the average of the metric scores are mentioned
-- EQR calculation is based on IBI and is given for each guild separately
+- EQR calculation is based on IBI and is given for each zonation separately
 
 ```{r calculate_IBI_EQR}
 suppressMessages(

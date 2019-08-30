@@ -2,7 +2,7 @@
 % Please edit documentation in R/determine_zonation.R
 \name{determine_zonation}
 \alias{determine_zonation}
-\title{determine the guild of the location}
+\title{determine the zonation of the location}
 \usage{
 determine_zonation(var_width, var_slope, var_tidal, var_indextype)
 }
@@ -16,8 +16,8 @@ determine_zonation(var_width, var_slope, var_tidal, var_indextype)
 \item{var_indextype}{type based on salinity of the sample location}
 }
 \value{
-guild of the focal location(s)
+zonation of the focal location(s)
 }
 \description{
-This function determines the guild based on the given measurements for one location.
+This function determines the zonation based on the given measurements for one location.
 }

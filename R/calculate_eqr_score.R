@@ -17,7 +17,7 @@
 #'
 calculate_eqr_score <-
   function(
-    guild_name, IBI
+    zonation_name, IBI
   ) {
 
   EQR_formula <-
@@ -27,7 +27,7 @@ calculate_eqr_score <-
       )
     ) %>%
     filter(
-      .data$guild == guild_name,
+      .data$zonation == zonation_name,
       .data$to_calculate == "EQR"
     ) %>%
     filter(

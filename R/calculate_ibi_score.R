@@ -2,14 +2,14 @@
 #'
 #' Small function that calculates IBI based on rules in calculate_IBI_EQR.csv or the formula 'sum of metric scores divided by number of metrics' (when using the old calculation method) or the formula 'sum of metric scores' (when using the new calculation method). Distinction between old an new method is made by the absence (old method) or presence (new method) of a specified method for the calculated methods.
 #'
-#' @param guild_name guild of the location
+#' @param zonation_name zonation of the location
 #' @param metrics calculated metrics and metric scores
 #' @param calc_method_old does the calculation has to be done using the old method?
 #'
 #' @return single value being the result of the calculation
 #'
 #' @importFrom magrittr %>% %<>%
-#' @importFrom dplyr filter left_join summarise
+#' @importFrom dplyr distinct filter left_join summarise
 #' @importFrom readr read_csv2
 #'
 #' @export
@@ -17,7 +17,7 @@
 #'
 calculate_ibi_score <-
   function(
-    guild_name, metrics, calc_method_old
+    zonation_name, metrics, calc_method_old
   ) {
 
   IBI_exceptions <-
@@ -27,7 +27,7 @@ calculate_ibi_score <-
       )
     ) %>%
     filter(
-      .data$guild == guild_name,
+      .data$zonation == zonation_name,
       .data$to_calculate == "IBI"
     ) %>%
     left_join(

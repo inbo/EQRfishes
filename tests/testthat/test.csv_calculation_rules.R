@@ -4,14 +4,14 @@ library(readr)
 library(dplyr)
 library(tidyr)
 
-data_guild <-
+data_zonation <-
   suppressMessages(
-    read_csv2(system.file("extdata/data_guild.csv", package = "EQRfishes"))
+    read_csv2(system.file("extdata/data_zonation.csv", package = "EQRfishes"))
   )
 
-guild_metric <-
+zonation_metric <-
   suppressMessages(
-    read_csv2(system.file("extdata/guild_metric.csv", package = "EQRfishes"))
+    read_csv2(system.file("extdata/zonation_metric.csv", package = "EQRfishes"))
   )
 
 calculate_metric_formula <-
@@ -63,24 +63,24 @@ calculate_IBI_EQR <-
 #   )
 
 describe("variables exist in dependent tables", {
-  it("data_guild.guild -> guild_metric.guild", {
+  it("data_zonation.zonation -> zonation_metric.zonation", {
     lacking_vars <-
-      unique(data_guild$guild)[
-        !unique(data_guild$guild) %in% unique(guild_metric$guild)
+      unique(data_zonation$zonation)[
+        !unique(data_zonation$zonation) %in% unique(zonation_metric$zonation)
       ]
     expect_equal(
       length(lacking_vars), 0,
       info =
         paste(
           paste(lacking_vars, collapse = ", "),
-          "should be added to column guild in table guild_metric.csv" #nolint
+          "should be added to column zonation in table zonation_metric.csv" #nolint
         )
     )
   })
-  it("guild_metric.metric_formula_name -> calculate_metric_formula.metric_formula_name", {#nolint
+  it("zonation_metric.metric_formula_name -> calculate_metric_formula.metric_formula_name", {#nolint
     lacking_vars <-
-      unique(guild_metric$metric_formula_name)[
-        !unique(guild_metric$metric_formula_name) %in%
+      unique(zonation_metric$metric_formula_name)[
+        !unique(zonation_metric$metric_formula_name) %in%
           unique(calculate_metric_formula$metric_formula_name)
         ]
     lacking_vars <- lacking_vars[!is.na(lacking_vars)]
@@ -93,10 +93,10 @@ describe("variables exist in dependent tables", {
         )
     )
   })
-  it("guild_metric.metric_measures_name -> calculate_metric_measures.metric_measures_name", {#nolint
+  it("zonation_metric.metric_measures_name -> calculate_metric_measures.metric_measures_name", {#nolint
     lacking_vars <-
-      unique(guild_metric$metric_measures_name)[
-        !unique(guild_metric$metric_measures_name) %in%
+      unique(zonation_metric$metric_measures_name)[
+        !unique(zonation_metric$metric_measures_name) %in%
           unique(calculate_metric_measures$metric_measures_name)
         ]
     lacking_vars <- lacking_vars[!is.na(lacking_vars)]
@@ -109,10 +109,10 @@ describe("variables exist in dependent tables", {
         )
     )
   })
-  it("guild_metric.metric_score_name -> calculate_metric_score.metric_score", {
+  it("zonation_metric.metric_score_name -> calculate_metric_score.metric_score", {
     lacking_vars <-
-      unique(guild_metric$metric_score_name)[
-        !unique(guild_metric$metric_score_name) %in%
+      unique(zonation_metric$metric_score_name)[
+        !unique(zonation_metric$metric_score_name) %in%
           unique(calculate_metric_score$metric_score)
         ]
     lacking_vars <- lacking_vars[!is.na(lacking_vars)]
@@ -182,7 +182,7 @@ describe("variables exist in dependent tables", {
       select(-.data$magweg) %>%
       distinct() %>%
       left_join(
-        guild_metric %>%
+        zonation_metric %>%
           transmute(
             metric_score = .data$metric_score_name,
             metric_source =
@@ -216,49 +216,50 @@ describe("variables exist in dependent tables", {
       nrow(lacking_vars), 0,
       info =
         paste(
-          "To calculate the scores in parentheses, the following metrics should be added to columns metric_formula_name or metric_measures_name of table guild_metric.csv or to columns submetric_formula_name or submetric_measures_name of table calculate_metric_formula.csv: ", #nolint
+          "To calculate the scores in parentheses, the following metrics should be added to columns metric_formula_name or metric_measures_name of table zonation_metric.csv or to columns submetric_formula_name or submetric_measures_name of table calculate_metric_formula.csv: ", #nolint
           paste(lacking_vars$metric_for_score, collapse = ", ")
         )
     )
   })
-  it("calculate_IBI_EQR.guild <-> guild_metric.guild", {
+  it("calculate_IBI_EQR.zonation <-> zonation_metric.zonation", {
     lacking_vars <-
-      unique(guild_metric$guild)[
-        !unique(guild_metric$guild) %in% unique(calculate_IBI_EQR$guild)
-        ]
+      unique(zonation_metric$zonation)[
+        !unique(zonation_metric$zonation) %in%
+          c(unique(calculate_IBI_EQR$zonation), "(undetermined)")
+      ]
     expect_equal(
       nrow(lacking_vars), 0,
       info =
         paste(
-          "Info on calculation of IBI and EQR of guild(s)",
+          "Info on calculation of IBI and EQR of zonation(s)",
           paste(lacking_vars, collapse = ", "),
-          "should be added to column guild in table calculate_IBI_EQR.csv"
+          "should be added to column zonation in table calculate_IBI_EQR.csv"
         )
     )
     lacking_vars <-
-      unique(calculate_IBI_EQR$guild)[
-        !unique(calculate_IBI_EQR$guild) %in% unique(guild_metric$guild)
+      unique(calculate_IBI_EQR$zonation)[
+        !unique(calculate_IBI_EQR$zonation) %in% unique(zonation_metric$zonation)
         ]
     expect_equal(
       length(lacking_vars), 0,
       info =
         paste(
-          "calculate_IBI_EQR.csv contains information on guild(s)",
+          "calculate_IBI_EQR.csv contains information on zonation(s)",
           paste(lacking_vars, collapse = ", "),
-          ", but there is no information on how to calculate the guild(s) in table guild_metric.csv" #nolint
+          ", but there is no information on how to calculate the zonation(s) in table zonation_metric.csv" #nolint
         )
     )
   })
-  it("calculate_IBI_EQR.calculated -> guild_metric.metric_name", {
+  it("calculate_IBI_EQR.calculated -> zonation_metric.metric_name", {
     lacking_vars <- calculate_IBI_EQR %>%
-      select(.data$guild, .data$to_calculate, .data$calculated) %>%
+      select(.data$zonation, .data$to_calculate, .data$calculated) %>%
       filter(!(.data$to_calculate == "EQR" & .data$calculated == "IBI")) %>%
       distinct() %>%
       left_join(
-        guild_metric %>%
-          select(.data$guild, .data$metric_name, .data$metric_score_name) %>%
+        zonation_metric %>%
+          select(.data$zonation, .data$metric_name, .data$metric_score_name) %>%
           distinct(),
-        by = c("guild", "calculated" = "metric_name")
+        by = c("zonation", "calculated" = "metric_name")
       ) %>%
       filter(is.na(.data$metric_score_name))
     expect_equal(
@@ -266,10 +267,10 @@ describe("variables exist in dependent tables", {
       info =
         paste0(
           "To calculate the IBI of ",
-          lacking_vars$guild,
+          lacking_vars$zonation,
           ", the metric ",
           lacking_vars$calculated,
-          " should be added to the column metric_name of table guild_metric.csv (and calculation rules should be provided in other columns)" #nolint
+          " should be added to the column metric_name of table zonation_metric.csv (and calculation rules should be provided in other columns)" #nolint
         )
     )
   })

@@ -75,7 +75,7 @@ calculate_eqr <-
     ) %>%
     rowwise() %>%
     mutate(
-      guild =
+      zonation =
         determine_zonation(
           .data$width_river, .data$slope, .data$tidal, .data$IndexTypeCode
         ),
@@ -103,11 +103,11 @@ calculate_eqr <-
     ungroup() %>%
     gather(
       key = "name", value = "value",
-      -.data$sample_key, -.data$guild, -.data$LocationID, -.data$method,
+      -.data$sample_key, -.data$zonation, -.data$LocationID, -.data$method,
       -.data$year, -.data$season
     ) %>%
     group_by(
-      .data$sample_key, .data$guild, .data$LocationID, .data$method,
+      .data$sample_key, .data$zonation, .data$LocationID, .data$method,
       .data$year, .data$season
     ) %>%
     nest(.key = "sampledata")
@@ -120,14 +120,14 @@ calculate_eqr <-
     left_join(
       suppressMessages(
         read_csv2(
-          system.file("extdata/guild_metric.csv", package = "EQRfishes")
+          system.file("extdata/zonation_metric.csv", package = "EQRfishes")
         )
       ) %>%
         group_by(
-          .data$guild, .data$method, .data$metric_name, .data$metric_score_name
+          .data$zonation, .data$method, .data$metric_name, .data$metric_score_name
         ) %>%
         nest(.key = "metric_name_group"),
-      by = "guild",
+      by = "zonation",
       suffix = c("", "_for_metric")
     ) %>%
     filter(
@@ -148,7 +148,7 @@ calculate_eqr <-
 
   result_details <- result %>%
     select(
-      .data$sample_key, .data$guild, .data$LocationID, .data$sampledata,
+      .data$sample_key, .data$zonation, .data$LocationID, .data$sampledata,
       .data$year, .data$season
     ) %>%
     unnest() %>%
@@ -156,7 +156,7 @@ calculate_eqr <-
 
   result_metrics <- result %>%
     select(
-      .data$sample_key, .data$guild, .data$LocationID, .data$year, .data$season,
+      .data$sample_key, .data$zonation, .data$LocationID, .data$year, .data$season,
       .data$sampledata, .data$metric_name, .data$metric_score_name,
       .data$method_for_metric
     ) %>%
@@ -176,8 +176,8 @@ calculate_eqr <-
         )
     ) %>%
     group_by(
-      .data$sample_key, .data$guild, .data$LocationID, .data$year, .data$season,
       .data$metric_name, .data$metric_score_name, .data$method_for_metric
+      .data$sample_key, .data$zonation, .data$LocationID, .data$year, .data$season,
     ) %>%
     summarise(
       metric_value =
@@ -201,10 +201,10 @@ calculate_eqr <-
     )
 
   result_eqr <- result_metrics %>%
-    group_by(.data$guild, .data$LocationID, .data$year, .data$season) %>%
+    group_by(.data$zonation, .data$LocationID, .data$year, .data$season) %>%
     mutate(calc_method_old = all(is.na(.data$method_for_metric))) %>%
     group_by(
-      .data$guild, .data$LocationID, .data$year, .data$season,
+      .data$zonation, .data$LocationID, .data$year, .data$season,
       .data$calc_method_old
     ) %>%
     nest(.key = "metrics") %>%
@@ -309,7 +309,7 @@ calculate_eqr <-
         (.data$nclass * (.data$ibi_classmax - .data$ibi_classmin))
     ) %>%
     select(
-      .data$guild, .data$LocationID, .data$year, .data$season,
+      .data$zonation, .data$LocationID, .data$year, .data$season,
       .data$calc_method_old, .data$ibi, .data$eqr_class, .data$eqr
     ) %>%
     left_join(

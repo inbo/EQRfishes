@@ -22,9 +22,9 @@ Due to the complex nature of the calculations, it is rather complicated to keep 
 Information <- tribble(
   ~Title, ~X, ~Y, ~Hjust, ~Vjust, ~Tekst,
   "calculate_eqr", -1, 2, 0, 0.5, "score.csv",
-  "determine_zonation", 0, 0, 0, 0.5, "data_guild.csv",
+  "determine_zonation", 0, 0, 0, 0.5, "data_zonation.csv",
   "var_in_interval", 1, -2, 0, 0.5, "",
-  "calculate_metric", 0, -4, 0, 0.5, "guild_metric.csv",
+  "calculate_metric", 0, -4, 0, 0.5, "zonation_metric.csv",
   "calculate_metric_formula", 1, -6, 0, 0.5, "calculate_metric_formula.csv",
   "calculate_metric", 2, -8, 0, 0.5, "",
   "...", 3, -10, 0, 0.5, "",
