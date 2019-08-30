@@ -46,7 +46,12 @@ calculate_metric_score <-
     bind_rows(
       data.frame(
         name = metric_score_name,
-        value = as.character(unique(result$score_id)),
+        value =
+          ifelse(
+            nrow(result) == 0,
+            NA,
+            as.character(unique(result$score_id))
+          ),
         stringsAsFactors = FALSE
       )
     )

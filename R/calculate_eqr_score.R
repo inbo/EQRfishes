@@ -1,6 +1,7 @@
 #' calculate EQR based on given parameters
 #'
 #' small function that calculates EQR based on rules in calculate_IBI_EQR.csv
+#' -> wordt niet meer gebruikt!!!
 #'
 #' @inheritParams calculate_ibi_score
 #' @param IBI calculated IBI score
@@ -11,8 +12,6 @@
 #' @importFrom dplyr filter
 #' @importFrom pander evals
 #' @importFrom readr read_csv2
-#'
-#' @export
 #'
 #'
 calculate_eqr_score <-

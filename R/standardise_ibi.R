@@ -7,7 +7,7 @@
 #'
 #' @return single value being the result of the calculation
 #'
-#' @importFrom magrittr %>% %<>%
+#' @importFrom magrittr %>%
 #' @importFrom dplyr distinct group_by left_join select summarise
 #' @importFrom readr read_csv2
 #'

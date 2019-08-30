@@ -1,7 +1,7 @@
 metric;description;remark
 AbrBra;Abramis brama (% weight);
 AbrRut;percentage weight of Abramis brama and Rutilus rutilus;
-BenWei;benthivore species (% weight);
+BenWei;relative weight percentage of benthivore species;
 ManBio;total biomass per effort;
 Mangkw;grootte klasse waarde;
 Manmigw;migratiewaarde;
@@ -32,15 +32,15 @@ Mnszoet;aantal soorten zoetwatervissen;
 Mpgexo;percentage weight of exotes (?);
 MpiBen;percentage bentic individuals;
 Mpigesp;gespecialiseerde paaiers;
-MpiInv;percentage invertivorous individuals;idem MpiInvt?
+MpiInv;relative percentage of invertivorous individuals;idem MpiInvt?
 MpiInvt;;
 MpiMjm;percentage marien juveniele migrerende soorten;
-MpiOmn;percentage omnivores;
+MpiOmn;relative percentage of omnivorous individuals;
 Mpiomni;percentage omnivoren;
 MpiPis;percentage piscivores;
 Mpipisc;;
 MpiSme;percentage spiering;
-MpiSpa;percentage specialised spawners;
+MpiSpa;relative percentage of specialised spawners (individuals);
 MpsRekr;;
 OblSpe;obligate species;
 PerFlu;Perca fluviatilis (% weight);

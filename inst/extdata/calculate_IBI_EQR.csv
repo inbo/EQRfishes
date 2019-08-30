@@ -1,35 +1,10 @@
 zonation;to_calculate;calculated;interval;calculated2;interval2;result
 barbeel;IBI;MnsTot;[0,0];;;0
 barbeel;IBI;MnsTot;]0,2];;;1
-barbeel;EQR;IBI;[0,1];;;IBI / 5
-barbeel;EQR;IBI;]1,2.5];;;0.2 + ( IBI / 5 - 0.2) * 0.2 / 0.3
-barbeel;EQR;IBI;]2.5,3.5];;;0.4 + ( IBI / 5 - 0.5) * 0.2 / 0.2
-barbeel;EQR;IBI;]3.5,4.5];;;0.6 + ( IBI / 5 - 0.7) * 0.2 / 0.2
-barbeel;EQR;IBI;]4.5, [;;;0.8 + ( IBI / 5 - 0.9) * 0.2 / 0.1
 brasem;IBI;MnsTot;[0,0];;;0
 brasem;IBI;MnsTot;]0,2];;;1
-brasem;EQR;IBI;[0,1];;;IBI / 5
-brasem;EQR;IBI;]1,2.5];;;0.2 + ( IBI / 5 - 0.2) * 0.2 / 0.3
-brasem;EQR;IBI;]2.5,3.5];;;0.4 + ( IBI / 5 - 0.5) * 0.2 / 0.2
-brasem;EQR;IBI;]3.5,4.5];;;0.6 + ( IBI / 5 - 0.7) * 0.2 / 0.2
-brasem;EQR;IBI;]4.5, [;;;0.8 + ( IBI / 5 - 0.9) * 0.2 / 0.1
 upstream;IBI;MnsTot;[0,0];;;0
 upstream;IBI;MnsTot;]0,1];MnsInd;] ,10[;1
 upstream;IBI;MnsTot;]0,2];MnsInd;] ,15[;1
-upstream;EQR;IBI;[0,1];;;IBI / 5
-upstream;EQR;IBI;]1,2.5];;;0.2 + ( IBI / 5 - 0.2) * 0.2 / 0.3
-upstream;EQR;IBI;]2.5,3.5];;;0.4 + ( IBI / 5 - 0.5) * 0.2 / 0.2
-upstream;EQR;IBI;]3.5,4.5];;;0.6 + ( IBI / 5 - 0.7) * 0.2 / 0.2
-upstream;EQR;IBI;]4.5, [;;;0.8 + ( IBI / 5 - 0.9) * 0.2 / 0.1
-lakes;EQR;IBI;[0,0];;;0
-lakes;EQR;IBI;]0,0.8[;;;IBI / 4 * 25 / 20
-lakes;EQR;IBI;[0.8,1.6[;;;0.25 + ( IBI / 4 - 0.2) * 0.25 / 0.2
-lakes;EQR;IBI;[1.6,2.4[;;;0.5 + ( IBI / 4 - 0.4) * 0.25 / 0.2
-lakes;EQR;IBI;[2.4, [;;;0.75 + ( IBI / 4 - 0.6) * 0.25 / 0.4
-canals;EQR;IBI;[0,0];;;0
-canals;EQR;IBI;]0,0.68[;;;IBI / 3.4 * 25 / 20
-canals;EQR;IBI;[0.68,1.36[;;;0.25 + ( IBI / 3.4 - 0.2) * 0.25 / 0.2
-canals;EQR;IBI;[1.36,2.04[;;;0.5 + ( IBI / 3.4 - 0.4) * 0.25 / 0.2
-canals;EQR;IBI;[2.04, [;;;0.75 + ( IBI / 3.4 - 0.6) * 0.25 / 0.4
 (undetermined);IBI;metric_score;;;;-1
 (undetermined);EQR;IBI;-1;;;-1

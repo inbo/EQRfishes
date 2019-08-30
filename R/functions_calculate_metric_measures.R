@@ -14,6 +14,10 @@ number_of_individuals <- function(data) {
 number_of_species <- function(data) {
   data %<>%
     select(.data$taxoncode) %>%
+    mutate(
+      taxoncode =
+        ifelse(.data$taxoncode == "SAL.FAR.", "SAL.TRU.", .data$taxoncode)
+    ) %>%
     distinct() %>%
     count()
   return(data$n)

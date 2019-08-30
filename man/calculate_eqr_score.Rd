@@ -16,4 +16,5 @@ single value being the result of the calculation
 }
 \description{
 small function that calculates EQR based on rules in calculate_IBI_EQR.csv
+-> wordt niet meer gebruikt!!!
 }

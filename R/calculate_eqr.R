@@ -13,7 +13,7 @@
 #'
 #' @return Dataframe with calculated EQR for each sample, or list of dataframes if parameter output is specified
 #'
-#' @importFrom dplyr arrange distinct group_by left_join mutate n rowwise select summarise ungroup
+#' @importFrom dplyr arrange distinct filter group_by left_join mutate n rowwise select summarise ungroup
 #' @importFrom plyr .
 #' @importFrom magrittr %<>% %>%
 #' @importFrom rlang .data
@@ -116,6 +116,14 @@ calculate_eqr <-
     group_by(.data$sample_key) %>%
     nest(.key = "fishdata")
 
+  fykedays <- function(data) {
+    n_fyke_nets <-
+      as.numeric((data %>% filter(.data$name == "n_fyke_nets"))$value)
+    AantalDagen <-
+      as.numeric((data %>% filter(.data$name == "AantalDagen"))$value)
+    return(n_fyke_nets * AantalDagen)
+  }
+
   result <- data_sample %>%
     left_join(
       suppressMessages(
@@ -144,6 +152,15 @@ calculate_eqr <-
     arrange(.data$row_id) %>%
     mutate(
       sampledata = calculate_metric(.)
+    ) %>%
+    mutate(
+      n_fyke_days =
+        unlist(
+          pmap(
+            list(.data$sampledata),
+            fykedays
+          )
+        )
     )
 
   result_details <- result %>%
@@ -158,8 +175,104 @@ calculate_eqr <-
     select(
       .data$sample_key, .data$zonation, .data$LocationID, .data$year, .data$season,
       .data$sampledata, .data$metric_name, .data$metric_score_name,
+      .data$method_for_metric, .data$n_fyke_days
+    ) %>%
+    unnest() %>%
+    mutate(
+      metric_name_ext =
+        ifelse(
+          str_detect(.data$name, paste0("^", .data$metric_name)),
+          .data$name,
+          NA
+        ),
+      metric_value =
+        ifelse(
+          str_detect(.data$name, paste0("^", .data$metric_name)),
+          .data$value,
+          NA
+        ),
+      metric_score =
+        ifelse(
+          .data$metric_score_name == .data$name,
+          .data$value,
+          NA
+        )
+    ) %>%
+    group_by(
+      .data$sample_key, .data$zonation, .data$LocationID, .data$year, .data$season,
+      .data$metric_name, .data$metric_score_name, .data$method_for_metric,
+      .data$n_fyke_days
+    ) %>%
+    summarise(
+      metric_name_ext =
+        ifelse(
+          all(is.na(.data$metric_name_ext)),
+          as.character(NA),
+          max(.data$metric_name_ext, na.rm = TRUE)
+        ),
+      metric_value =
+        ifelse(
+          all(is.na(.data$metric_value)),
+          as.character(NA),
+          max(.data$metric_value, na.rm = TRUE)
+        ),
+      metric_score =
+        ifelse(
+          all(is.na(.data$metric_score)),
+          as.character(NA),
+          max(.data$metric_score, na.rm = TRUE)
+        )
+    ) %>%
+    ungroup()
+
+  #for the new method (estuaries, lakes and canals), results are aggregated
+  result_metrics_aggregated <- result_metrics %>%
+    filter(!is.na(.data$method_for_metric)) %>%
+    group_by(
+      .data$zonation, .data$LocationID, .data$year, .data$season,
+      .data$metric_name, .data$metric_score_name, .data$metric_name_ext,
       .data$method_for_metric
     ) %>%
+    summarise(
+      n_fyke_days = sum(.data$n_fyke_days),
+      metric_value =
+        ifelse(
+          unique(.data$method_for_metric) == "F",
+          as.character(sum(as.numeric(.data$metric_value)) / .data$n_fyke_days),
+          as.character(sum(as.numeric(.data$metric_value)) / n())
+        )
+    ) %>%
+    rename(name = "metric_name_ext", value = "metric_value") %>%
+    group_by(
+      .data$zonation, .data$LocationID, .data$year, .data$season,
+      .data$metric_name, .data$metric_score_name, .data$method_for_metric,
+      .data$n_fyke_days
+    ) %>%
+    nest(.key = "sampledata") %>%
+    left_join(
+      suppressMessages(
+        read_csv2(
+          system.file(
+            "extdata/calculate_metric_score.csv", package = "EQRfishes"
+          )
+        )
+      ) %>%
+        group_by(.data$metric_score) %>%
+        nest(.key = "indices"),
+      by = c("metric_score_name" = "metric_score")
+    ) %>%
+    mutate(
+      sampledata =
+        pmap(
+          list(
+            metric_score_name = .data$metric_score_name,
+            indices = .data$indices,
+            sampledata = .data$sampledata
+          ),
+          calculate_metric_score
+        )
+    ) %>%
+    select(-.data$indices) %>%
     unnest() %>%
     mutate(
       metric_value =
@@ -176,8 +289,9 @@ calculate_eqr <-
         )
     ) %>%
     group_by(
-      .data$metric_name, .data$metric_score_name, .data$method_for_metric
-      .data$sample_key, .data$zonation, .data$LocationID, .data$year, .data$season,
+      .data$zonation, .data$LocationID, .data$year, .data$season,
+      .data$metric_name, .data$metric_score_name, .data$method_for_metric,
+      .data$n_fyke_days
     ) %>%
     summarise(
       metric_value =
@@ -192,8 +306,11 @@ calculate_eqr <-
           as.character(NA),
           max(.data$metric_score, na.rm = TRUE)
         )
-    ) %>%
-    ungroup()
+    )
+
+  result_metrics %<>%
+    filter(is.na(.data$method_for_metric)) %>%
+    bind_rows(result_metrics_aggregated)
 
   eqr_scores <-
     suppressMessages(
@@ -210,10 +327,12 @@ calculate_eqr <-
     nest(.key = "metrics") %>%
     mutate(
       ibi =
-        unlist(
-          pmap(
-            list(.data$guild, .data$metrics, .data$calc_method_old),
-            calculate_ibi_score
+        as.numeric(
+          unlist(
+            pmap(
+              list(.data$zonation, .data$metrics, .data$calc_method_old),
+              calculate_ibi_score
+            )
           )
         ),
       std_ibi =
@@ -261,20 +380,21 @@ calculate_eqr <-
       ibi_classmin =
         ifelse(
           .data$calc_method_old,
-          cut(
-            .data$std_ibi,
-            breaks =
-              c(0, eqr_scores$std_ibi_old[!is.na(eqr_scores$std_ibi_old)]),
-            labels =
-              c(0,
-                eqr_scores$std_ibi_old[
-                  !is.na(eqr_scores$std_ibi_old)
-                ][1:(sum(!is.na(eqr_scores$std_ibi_old)) - 1)]),
-            right = FALSE
+          as.numeric(as.character(
+            cut(
+              .data$std_ibi,
+              breaks =
+                c(0, eqr_scores$std_ibi_old[!is.na(eqr_scores$std_ibi_old)]),
+              labels =
+                c(0,
+                  eqr_scores$std_ibi_old[
+                    !is.na(eqr_scores$std_ibi_old)
+                  ][1:(sum(!is.na(eqr_scores$std_ibi_old)) - 1)]),
+              right = FALSE
+            ))
           ),
           .data$ibi_classmin
         ),
-      ibi_classmin = as.numeric(as.character(.data$ibi_classmin)),
       ibi_classmax =
         cut(
           .data$std_ibi,
@@ -286,16 +406,17 @@ calculate_eqr <-
       ibi_classmax =
         ifelse(
           .data$calc_method_old,
-          cut(
-            .data$std_ibi,
-            breaks =
-              c(0, eqr_scores$std_ibi_old[!is.na(eqr_scores$std_ibi_old)]),
-            labels = eqr_scores$std_ibi_old[!is.na(eqr_scores$std_ibi_old)],
-            right = FALSE
+          as.numeric(as.character(
+            cut(
+              .data$std_ibi,
+              breaks =
+                c(0, eqr_scores$std_ibi_old[!is.na(eqr_scores$std_ibi_old)]),
+              labels = eqr_scores$std_ibi_old[!is.na(eqr_scores$std_ibi_old)],
+              right = FALSE
+            ))
           ),
           .data$ibi_classmax
         ),
-      ibi_classmax = as.numeric(as.character(.data$ibi_classmax)),
       nclass = sum(!is.na(eqr_scores$std_ibi_new)),
       nclass =
         ifelse(

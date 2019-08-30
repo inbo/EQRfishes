@@ -67,8 +67,8 @@ odbcClose(connection_vis)
 data_taxonmetrics %<>%
   bind_rows(
     data.frame(
-      taxonname = c("Cottus gobio L."),
-      taxoncode = c("COT.GRP."),  #mim.lim bij gelegenheid aanpassen naar lim.lim.
+      taxonname = c("Cottus gobio L.", "Dasyatis pastinaca"),
+      taxoncode = c("COT.GRP.", "DAS.PAS."),  #mim.lim bij gelegenheid aanpassen naar lim.lim.
       stringsAsFactors = FALSE
     )
   ) %>%
@@ -160,6 +160,76 @@ data_taxonmetrics %<>%
             "SOL.SOL.", "SPR.SPR.", "SQU.ACA.", "SQU.SQU.", "SAN.LUC.",
             "SYN.ACU.", "SYN.ROS.", "TRA.TRA.", "CHE.LUC.", "TRI.LUs.",
             "ZOA.VIV."),
+        1, 0
+      ),
+    brak_estuarien =
+      ifelse(
+        .data$taxoncode %in%
+          c("AGO.CAT.", "AMM.TOB.", "APH.MIN.", "HIP.RAM.", "LIP.LIP.",
+            "MYO.SCO.", "PLA.FLE.", "POM.MIC.", "POM.MIN.", "SYN.ACU.",
+            "SYN.ROS.", "ZOA.VIV."),
+        1, 0
+      ),
+    brak_marine_juvenile_migrating =
+      ifelse(
+        .data$taxoncode %in%
+          c("ATH.PRE.", "CLU.HAR.", "DIC.LAB.", "GAD.MOR.", "MIM.LIM.",
+            "MER.MER.", "PLE.PLA.", "SCO.MAX.", "SCO.RHO.", "SOL.SOL.",
+            "CHE.LUC.", "TRI.LUs."),
+        1, 0
+      ),
+    # ref_Yzer =
+    #   ifelse(
+    #     .data$taxoncode %in%
+    #       c("AGO.CAT.", "ALO.FAL.", "ANG.ANG.", "APH.MIN.", "BEL.BEL.",
+    #         "CHE.LAB.", "CHE.LUC.", "CHE.RAM.", "CIL.MUS.", "CLU.HAR.",
+    #         "CYC.LUM.", "DAS.PAS.", "DIC.LAB.", "ENG.ENC.", "GAD.MOR.",
+    #         "GAS.ACU.", "GOB.NIG1.", "LAM.FLU", "LIZ.AUR.", "MIM.LIM.",
+    #         "LIP.LIP.", "MER.MER.", "MYO.SCO.", "OSM.EPE.", "PET.MAR.",
+    #         "PHO.GUN.", "PLA.FLE.", "PLE.PLA.", "POM.MIC.", "POM.MIN.",
+    #         "SCO.MAX.", "SAL.TRU.", "SCO.RHO.", "SOL.SOL.", "SPR.SPR.",
+    #         "SYN.ACU.", "SYN.ROS.", "TRI.LUS.", "ZOA.VIV.",
+    #         "SAL.FAR.", "SAL.SAL.", "COR.OXY.", "LAM.FLU.", "ALO.ALO.",
+    #         "COR.LAV."),
+    #     1, 0
+    #   ),
+    estuarien_Yzer =
+      ifelse(
+        .data$taxoncode %in%
+          c("AGO.CAT.", "APH.MIN.", "GOB.NIG1.", "LIP.LIP.", "MYO.SCO.",
+            "PHO.GUN.", "POM.MIC.", "POM.MIN.", "SYN.ACU.", "SYN.ROS.",
+            "TAU.BUB.", "ZOA.VIV."),
+        1, 0
+      ),
+    # diadrome_Yzer =
+    #   ifelse(
+    #     .data$taxoncode %in%
+    #       c("ALO.ALO.", "ALO.FAL.", "ANG.ANG.", "CHE.RAM.", "COR.LAV.",
+    #         "COR.OXY.", "LAM.FLU.", "OSM.EPE.", "PET.MAR.", "PLA.FLE.",
+    #         "SAL.FAR.", "SAL.SAL.", "SAL.TRU.", "LAM.PLA."),
+    #     1, 0
+    #   ),
+    diadrome =
+      ifelse(
+        .data$taxoncode %in%
+          c("COR.OXY.", "SAL.FAR."),
+        1, .data$Water_Anadroom
+      ),
+    Water_Anadroom = NULL,
+    marien_juveniele_soorten =
+      ifelse(
+        .data$taxoncode %in%
+          c("BEL.BEL.", "CHE.LAB.", "CHE.LUC.", "CIL.MUS.", "CLU.HAR.",
+            "CYC.LUM.", "DIC.LAB.", "ENG.ENC.", "GAD.MOR.", "MIM.LIM.",
+            "MER.MER.", "PLE.PLA.", "SCO.MAX.", "SCO.RHO.", "SOL.SOL.",
+            "SPR.SPR.", "TRI.LUS."),
+        1, 0
+      ),
+    typisch_Yzer =
+      ifelse(
+        .data$taxoncode %in%
+          c("AGO.CAT.", "AMM.TOB.", "CHE.RAM.", "CIL.MUS.", "DIC.LAB.",
+            "MYO.SCO.", "PLA.FLE.", "SOL.SOL.", "ZOA.VIV."),
         1, 0
       )
   )
