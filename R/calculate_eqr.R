@@ -21,7 +21,6 @@
 #' @importFrom readr read_csv2
 #' @importFrom purrr pmap
 #' @importFrom stringr str_detect
-#' @importFrom lubridate year month
 #'
 #' @export
 #'
@@ -29,50 +28,6 @@ calculate_eqr <-
   function(data_sample, data_fish, output = c("EQR", "metric", "detail")) {
 
   data_sample %<>%
-    mutate(
-      year_begin = year(.data$Begindatum),
-      year_end = year(.data$Einddatum),
-      season_begin =
-        ifelse(
-          month(.data$Begindatum) %in% 3:5,
-          "spring",
-          ifelse(
-            month(.data$Begindatum) %in% 6:8,
-            "summer",
-            ifelse(
-              month(.data$Begindatum) %in% 9:77,
-              "autumn",
-              NA
-            )
-          )
-        ),
-      season_end =
-        ifelse(
-          month(.data$Einddatum) %in% 3:5,
-          "spring",
-          ifelse(
-            month(.data$Einddatum) %in% 6:8,
-            "summer",
-            ifelse(
-              month(.data$Einddatum) %in% 9:11,
-              "autumn",
-              NA
-            )
-          )
-        )
-    ) %>%
-    filter( #data from winter are not used
-      !is.na(.data$season_begin), !is.na(.data$season_end),
-      .data$year_begin == .data$year_end,
-      .data$season_begin == .data$season_end
-    ) %>%
-    mutate(
-      year = .data$year_begin,
-      season = .data$season_begin,
-    ) %>%
-    select(
-      -.data$year_begin, -.data$year_end, -.data$season_begin, -.data$season_end
-    ) %>%
     rowwise() %>%
     mutate(
       zonation =
@@ -98,31 +53,22 @@ calculate_eqr <-
           .data$method == "SF",
           .data$surface * 4,
           .data$surface
-        )
+        ),
+      n_fyke_days = .data$n_fyke_nets * .data$n_days
     ) %>%
     ungroup() %>%
     gather(
       key = "name", value = "value",
-      -.data$sample_key, -.data$zonation, -.data$LocationID, -.data$method,
-      -.data$year, -.data$season
+      -.data$sample_key, -.data$zonation, -.data$LocationID, -.data$method
     ) %>%
     group_by(
-      .data$sample_key, .data$zonation, .data$LocationID, .data$method,
-      .data$year, .data$season
+      .data$sample_key, .data$zonation, .data$LocationID, .data$method
     ) %>%
     nest(.key = "sampledata")
 
   data_fish %<>%
     group_by(.data$sample_key) %>%
     nest(.key = "fishdata")
-
-  fykedays <- function(data) {
-    n_fyke_nets <-
-      as.numeric((data %>% filter(.data$name == "n_fyke_nets"))$value)
-    AantalDagen <-
-      as.numeric((data %>% filter(.data$name == "AantalDagen"))$value)
-    return(n_fyke_nets * AantalDagen)
-  }
 
   result <- data_sample %>%
     left_join(
@@ -132,7 +78,8 @@ calculate_eqr <-
         )
       ) %>%
         group_by(
-          .data$zonation, .data$method, .data$metric_name, .data$metric_score_name
+          .data$zonation, .data$method, .data$metric_name,
+          .data$metric_score_name
         ) %>%
         nest(.key = "metric_name_group"),
       by = "zonation",
@@ -152,30 +99,20 @@ calculate_eqr <-
     arrange(.data$row_id) %>%
     mutate(
       sampledata = calculate_metric(.)
-    ) %>%
-    mutate(
-      n_fyke_days =
-        unlist(
-          pmap(
-            list(.data$sampledata),
-            fykedays
-          )
-        )
     )
 
   result_details <- result %>%
     select(
-      .data$sample_key, .data$zonation, .data$LocationID, .data$sampledata,
-      .data$year, .data$season
+      .data$sample_key, .data$zonation, .data$LocationID, .data$sampledata
     ) %>%
     unnest() %>%
     distinct()
 
   result_metrics <- result %>%
     select(
-      .data$sample_key, .data$zonation, .data$LocationID, .data$year, .data$season,
+      .data$sample_key, .data$zonation, .data$LocationID,
       .data$sampledata, .data$metric_name, .data$metric_score_name,
-      .data$method_for_metric, .data$n_fyke_days
+      .data$method_for_metric
     ) %>%
     unnest() %>%
     mutate(
@@ -199,9 +136,8 @@ calculate_eqr <-
         )
     ) %>%
     group_by(
-      .data$sample_key, .data$zonation, .data$LocationID, .data$year, .data$season,
-      .data$metric_name, .data$metric_score_name, .data$method_for_metric,
-      .data$n_fyke_days
+      .data$sample_key, .data$zonation, .data$LocationID,
+      .data$metric_name, .data$metric_score_name, .data$method_for_metric
     ) %>%
     summarise(
       metric_name_ext =
@@ -225,104 +161,16 @@ calculate_eqr <-
     ) %>%
     ungroup()
 
-  #for the new method (estuaries, lakes and canals), results are aggregated
-  result_metrics_aggregated <- result_metrics %>%
-    filter(!is.na(.data$method_for_metric)) %>%
-    group_by(
-      .data$zonation, .data$LocationID, .data$year, .data$season,
-      .data$metric_name, .data$metric_score_name, .data$metric_name_ext,
-      .data$method_for_metric
-    ) %>%
-    summarise(
-      n_fyke_days = sum(.data$n_fyke_days),
-      metric_value =
-        ifelse(
-          unique(.data$method_for_metric) == "F",
-          as.character(sum(as.numeric(.data$metric_value)) / .data$n_fyke_days),
-          as.character(sum(as.numeric(.data$metric_value)) / n())
-        )
-    ) %>%
-    rename(name = "metric_name_ext", value = "metric_value") %>%
-    group_by(
-      .data$zonation, .data$LocationID, .data$year, .data$season,
-      .data$metric_name, .data$metric_score_name, .data$method_for_metric,
-      .data$n_fyke_days
-    ) %>%
-    nest(.key = "sampledata") %>%
-    left_join(
-      suppressMessages(
-        read_csv2(
-          system.file(
-            "extdata/calculate_metric_score.csv", package = "EQRfishes"
-          )
-        )
-      ) %>%
-        group_by(.data$metric_score) %>%
-        nest(.key = "indices"),
-      by = c("metric_score_name" = "metric_score")
-    ) %>%
-    mutate(
-      sampledata =
-        pmap(
-          list(
-            metric_score_name = .data$metric_score_name,
-            indices = .data$indices,
-            sampledata = .data$sampledata
-          ),
-          calculate_metric_score
-        )
-    ) %>%
-    select(-.data$indices) %>%
-    unnest() %>%
-    mutate(
-      metric_value =
-        ifelse(
-          str_detect(.data$name, paste0("^", .data$metric_name)),
-          .data$value,
-          NA
-        ),
-      metric_score =
-        ifelse(
-          .data$metric_score_name == .data$name,
-          .data$value,
-          NA
-        )
-    ) %>%
-    group_by(
-      .data$zonation, .data$LocationID, .data$year, .data$season,
-      .data$metric_name, .data$metric_score_name, .data$method_for_metric,
-      .data$n_fyke_days
-    ) %>%
-    summarise(
-      metric_value =
-        ifelse(
-          all(is.na(.data$metric_value)),
-          as.character(NA),
-          max(.data$metric_value, na.rm = TRUE)
-        ),
-      metric_score =
-        ifelse(
-          all(is.na(.data$metric_score)),
-          as.character(NA),
-          max(.data$metric_score, na.rm = TRUE)
-        )
-    )
-
-  result_metrics %<>%
-    filter(is.na(.data$method_for_metric)) %>%
-    bind_rows(result_metrics_aggregated)
-
   eqr_scores <-
     suppressMessages(
       read_csv2(system.file("extdata/score.csv", package = "EQRfishes"))
     )
 
   result_eqr <- result_metrics %>%
-    group_by(.data$zonation, .data$LocationID, .data$year, .data$season) %>%
+    group_by(.data$zonation, .data$LocationID) %>%
     mutate(calc_method_old = all(is.na(.data$method_for_metric))) %>%
     group_by(
-      .data$zonation, .data$LocationID, .data$year, .data$season,
-      .data$calc_method_old
+      .data$sample_key, .data$zonation, .data$LocationID, .data$calc_method_old
     ) %>%
     nest(.key = "metrics") %>%
     mutate(
@@ -430,8 +278,8 @@ calculate_eqr <-
         (.data$nclass * (.data$ibi_classmax - .data$ibi_classmin))
     ) %>%
     select(
-      .data$zonation, .data$LocationID, .data$year, .data$season,
-      .data$calc_method_old, .data$ibi, .data$eqr_class, .data$eqr
+      .data$sample_key, .data$zonation, .data$LocationID, .data$calc_method_old,
+      .data$ibi, .data$eqr_class, .data$eqr
     ) %>%
     left_join(
       eqr_scores %>%
