@@ -33,7 +33,10 @@ calculate_eqr <-
       zonation =
         determine_zonation(
           .data$width_river, .data$slope, .data$tidal, .data$IndexTypeCode
-        ),
+        )
+    ) %>%
+    ungroup() %>%
+    mutate(
       surface =
         ifelse(
           .data$method %in% c("PF", "SF"),
@@ -54,9 +57,19 @@ calculate_eqr <-
           .data$surface * 4,
           .data$surface
         ),
-      n_fyke_days = .data$n_fyke_nets * .data$n_days
+      surface = as.character(.data$surface),
+      n_fyke_days = as.character(.data$n_fyke_nets * .data$n_days),
+      sample_key = as.character(.data$sample_key),
+      width_transect = as.character(.data$width_transect),
+      length_trajectory = as.character(.data$length_trajectory),
+      width_river = as.character(.data$width_river),
+      slope = as.character(.data$slope),
+      n_fyke_nets = as.character(.data$n_fyke_nets),
+      n_days = as.character(.data$n_days),
+      Stilstaand = as.character(.data$Stilstaand),
+      tidal = as.character(.data$tidal),
+      Brak = as.character(.data$Brak)
     ) %>%
-    ungroup() %>%
     gather(
       key = "name", value = "value",
       -.data$sample_key, -.data$zonation, -.data$LocationID, -.data$method

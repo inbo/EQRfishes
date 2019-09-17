@@ -89,7 +89,8 @@ data_sample <- data_sample %>%
       )
   ) %>%
   select(
-    -.data$year_begin, -.data$year_end, -.data$season_begin, -.data$season_end
+    -.data$year_begin, -.data$year_end, -.data$season_begin, -.data$season_end,
+    -.data$Begindatum, -.data$Einddatum
   )
 
 data_sample_new <- data_sample %>%
