@@ -1,0 +1,8 @@
+
+```{r echo=FALSE}
+taxonlist %>%
+    select(.data$taxonname, presence = '{{column}}') %>%
+    filter(.data$presence == 1) %>%
+    select(!!sym('{{column}}') := taxonname) %>%
+    kable()
+```

@@ -73,9 +73,9 @@ data_taxonmetrics %<>%
     )
   ) %>%
   mutate(
-    LeuCep = ifelse(.data$taxoncode == "LEU.CEP.", 1, 0),
-    BarBus = ifelse(.data$taxoncode == "BAR.BUS.", 1, 0),
-    GasAcu = ifelse(.data$taxoncode == "GAS.ACU", 1, 0),
+    # LeuCep = ifelse(.data$taxoncode == "LEU.CEP.", 1, 0),
+    # BarBus = ifelse(.data$taxoncode == "BAR.BUS.", 1, 0),
+    # GasAcu = ifelse(.data$taxoncode == "GAS.ACU", 1, 0),
     Canals =
       ifelse(
         .data$taxoncode %in%

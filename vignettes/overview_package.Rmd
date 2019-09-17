@@ -158,6 +158,40 @@ suppressMessages(
   kable()
 ```
 
+### data_taxonmetrics.csv
+
+This datasheet contains the species lists where calculate_metric_measures.csv often refers to.  As this table is too large to display at once, a first table gives all columns that can contain different values.
+
+```{r data_taxonmetrics}
+suppressMessages(
+  taxonlist <-
+    read_csv2(system.file("extdata/data_taxonmetrics.csv", package = "EQRfishes")) %>%
+    arrange(.data$taxonname)
+)
+
+taxonlist %>%
+  select(.data$taxonname, .data$taxoncode, starts_with("WF_")) %>%
+  kable()
+```
+
+Other columns only give presence/absence.  We here list for each column the species that are present (xxx = 1).
+
+```{r include=FALSE}
+out = NULL
+columns_relevant <- taxonlist %>%
+  select(
+    -.data$taxonname, -.data$taxoncode, -starts_with("WF_"),
+    -starts_with("Recr_"), -starts_with("Gkla_"), -ends_with("_Opm")
+  ) %>%
+  colnames() %>%
+  sort()
+for (column in columns_relevant) {
+  out = c(out, knit_expand('taxontable.Rmd'))
+}
+```
+`r paste(knit(text = out), collapse = '\n')`
+
+
 ### calculate_metric_score.csv
 
 This datasheet mentions the intervals that are used to derive a metric score based on 1 or 2 variables/metrics (the 2nd variable is mentioned in add_category with interval value_add_category), score_id is the class (or score).
