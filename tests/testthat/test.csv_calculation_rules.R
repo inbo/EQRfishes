@@ -223,20 +223,6 @@ describe("variables exist in dependent tables", {
   })
   it("calculate_IBI_EQR.zonation <-> zonation_metric.zonation", {
     lacking_vars <-
-      unique(zonation_metric$zonation)[
-        !unique(zonation_metric$zonation) %in%
-          c(unique(calculate_IBI_EQR$zonation), "(undetermined)")
-      ]
-    expect_equal(
-      nrow(lacking_vars), 0,
-      info =
-        paste(
-          "Info on calculation of IBI and EQR of zonation(s)",
-          paste(lacking_vars, collapse = ", "),
-          "should be added to column zonation in table calculate_IBI_EQR.csv"
-        )
-    )
-    lacking_vars <-
       unique(calculate_IBI_EQR$zonation)[
         !unique(calculate_IBI_EQR$zonation) %in% unique(zonation_metric$zonation)
         ]
@@ -261,7 +247,9 @@ describe("variables exist in dependent tables", {
           distinct(),
         by = c("zonation", "calculated" = "metric_name")
       ) %>%
-      filter(is.na(.data$metric_score_name))
+      filter(
+        is.na(.data$metric_score_name) & .data$zonation != "(undetermined)"
+      )
     expect_equal(
       nrow(lacking_vars), 0,
       info =
@@ -299,7 +287,7 @@ describe("items in calculate_metric_measures.csv have valable names", {
           )
       ]
     expect_equal(
-      nrow(problems), 0,
+      nrow(problems), NULL,
       info =
         paste(
           "No code for calculation is written for:",
@@ -418,6 +406,7 @@ describe("intervals are correct", {
     wrong_interval <- calculate_IBI_EQR %>%
       select(.data$interval) %>%
       distinct() %>%
+      filter(!is.na(.data$interval) & !.data$interval %in% c("-1")) %>%
       mutate(
         operator_min =
           gsub(
