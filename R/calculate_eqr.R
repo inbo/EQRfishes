@@ -67,6 +67,7 @@ calculate_eqr <-
     nest(.key = "sampledata")
 
   data_fish %<>%
+    mutate(sample_key = as.character(.data$sample_key)) %>%
     group_by(.data$sample_key) %>%
     nest(.key = "fishdata")
 
@@ -161,6 +162,35 @@ calculate_eqr <-
     ) %>%
     ungroup()
 
+  #for the new method (estuaries, lakes and canals), results are aggregated
+  result_metrics_aggregated <- result_metrics %>%
+    filter(!is.na(.data$method_for_metric)) %>%
+    mutate(
+      sample_key = substr(.data$sample_key, 1, nchar(.data$sample_key) - 10)
+    ) %>%
+    group_by(
+      .data$sample_key, .data$zonation, .data$LocationID,
+      .data$metric_name, .data$metric_score_name
+    ) %>%
+    summarise(
+      metric_value =
+        ifelse(
+          all(is.na(.data$metric_value)),
+          as.character(NA),
+          max(.data$metric_value, na.rm = TRUE)
+        ),
+      metric_score =
+        ifelse(
+          all(is.na(.data$metric_score)),
+          as.character(NA),
+          max(.data$metric_score, na.rm = TRUE)
+        )
+    )
+
+  result_metrics %<>%
+    filter(is.na(.data$method_for_metric)) %>%
+    bind_rows(result_metrics_aggregated)
+
   eqr_scores <-
     suppressMessages(
       read_csv2(system.file("extdata/score.csv", package = "EQRfishes"))
@@ -169,6 +199,8 @@ calculate_eqr <-
   result_eqr <- result_metrics %>%
     group_by(.data$zonation, .data$LocationID) %>%
     mutate(calc_method_old = all(is.na(.data$method_for_metric))) %>%
+    ungroup() %>%
+    mutate() %>%
     group_by(
       .data$sample_key, .data$zonation, .data$LocationID, .data$calc_method_old
     ) %>%
