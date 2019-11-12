@@ -18,6 +18,11 @@
 #'
 calculate_metric_formula <- function(data_sample_fish) {
 
+  if (substr(packageVersion("tidyr"), 1, 1) == "1") {
+    nest <- tidyr::nest_legacy
+    unnest <- tidyr::unnest_legacy
+  }
+
   if (nrow(data_sample_fish) == 0) {
     return(NA)
   }

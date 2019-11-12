@@ -27,6 +27,11 @@ calculate_metric <-
       )
   ) {
 
+    if (substr(packageVersion("tidyr"), 1, 1) == "1") {
+      nest <- tidyr::nest_legacy
+      unnest <- tidyr::unnest_legacy
+    }
+
   if (has_name(data_sample_fish, "formula")) {
     data_sample_fish %<>%
       select(

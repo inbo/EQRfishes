@@ -27,6 +27,11 @@
 calculate_eqr <-
   function(data_sample, data_fish, output = c("EQR", "metric", "detail")) {
 
+  if (substr(packageVersion("tidyr"), 1, 1) == "1") {
+    nest <- tidyr::nest_legacy
+    unnest <- tidyr::unnest_legacy
+  }
+
   data_sample %<>%
     rowwise() %>%
     mutate(
