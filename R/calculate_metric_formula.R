@@ -9,18 +9,19 @@
 #' @importFrom readr read_csv2
 #' @importFrom magrittr %>%
 #' @importFrom dplyr arrange bind_rows filter group_by left_join mutate select
-#' @importFrom tidyr nest unnest
+#' @importFrom tidyr nest unnest nest_legacy unnest_legacy
 #' @importFrom plyr .
 #' @importFrom rlang .data
 #' @importFrom purrr pmap
+#' @importFrom utils packageVersion
 #'
 #' @export
 #'
 calculate_metric_formula <- function(data_sample_fish) {
 
   if (substr(packageVersion("tidyr"), 1, 1) == "1") {
-    nest <- tidyr::nest_legacy
-    unnest <- tidyr::unnest_legacy
+    nest <- nest_legacy
+    unnest <- unnest_legacy
   }
 
   if (nrow(data_sample_fish) == 0) {

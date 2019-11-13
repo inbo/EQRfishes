@@ -12,8 +12,9 @@
 #' @importFrom plyr .
 #' @importFrom readr read_csv2
 #' @importFrom rlang .data has_name
-#' @importFrom tidyr nest unnest
+#' @importFrom tidyr nest unnest nest_legacy unnest_legacy
 #' @importFrom purrr pmap
+#' @importFrom utils packageVersion
 #'
 #' @export
 #'
@@ -28,8 +29,8 @@ calculate_metric <-
   ) {
 
     if (substr(packageVersion("tidyr"), 1, 1) == "1") {
-      nest <- tidyr::nest_legacy
-      unnest <- tidyr::unnest_legacy
+      nest <- nest_legacy
+      unnest <- unnest_legacy
     }
 
   if (has_name(data_sample_fish, "formula")) {

@@ -17,10 +17,11 @@
 #' @importFrom plyr .
 #' @importFrom magrittr %<>% %>%
 #' @importFrom rlang .data
-#' @importFrom tidyr gather nest unnest
+#' @importFrom tidyr gather nest unnest nest_legacy unnest_legacy
 #' @importFrom readr read_csv2
 #' @importFrom purrr pmap
 #' @importFrom stringr str_detect
+#' @importFrom utils packageVersion
 #'
 #' @export
 #'
@@ -28,8 +29,8 @@ calculate_eqr <-
   function(data_sample, data_fish, output = c("EQR", "metric", "detail")) {
 
   if (substr(packageVersion("tidyr"), 1, 1) == "1") {
-    nest <- tidyr::nest_legacy
-    unnest <- tidyr::unnest_legacy
+    nest <- nest_legacy
+    unnest <- unnest_legacy
   }
 
   data_sample %<>%
