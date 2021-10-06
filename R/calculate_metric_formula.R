@@ -35,7 +35,8 @@ calculate_metric_formula <- function(data_sample_fish) {
           system.file(
             "extdata/calculate_metric_formula.csv", package = "EQRfishes"
           )
-        )
+        ) %>%
+          select(-.data$opmerking)  # tijdelijk zolang in deze csv een opmerking staat
       ) %>%
         filter(!is.na(.data$submetric_score_name)) %>%
         group_by(
@@ -48,7 +49,8 @@ calculate_metric_formula <- function(data_sample_fish) {
               system.file(
                 "extdata/calculate_metric_formula.csv", package = "EQRfishes"
               )
-            )
+            ) %>%
+              select(-.data$opmerking)  # tijdelijk zolang in deze csv een opmerking staat
           ) %>%
             filter(is.na(.data$submetric_score_name)) %>%
             mutate(temp_row_nr = 1:length(.data$metric_formula_name)) %>%

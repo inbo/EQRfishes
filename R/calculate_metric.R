@@ -74,7 +74,8 @@ calculate_metric <-
             "extdata/calculate_metric_measures.csv", package = "EQRfishes"
           )
         )
-      ),
+      ) %>%
+        select(-.data$opmerking),  # tijdelijk zolang in deze csv een opmerking staat
       by = "metric_measures_name", suffix = c("", "_info_measures")
     ) %>%
     mutate(
@@ -99,7 +100,7 @@ calculate_metric <-
       -.data$metric_formula_name, -.data$metric_measures_name,
       -.data$metric_type, -.data$speciesfilter, -.data$exclude_species_length,
       -.data$only_individual_measures, -.data$NULL_to_0,  #de laatste 3 voorwaarden nog inwerken in script!
-      -.data$method, -.data$opmerking
+      -.data$method #, -.data$opmerking
     )
 
   if (nrow(result_formula) > 0) {
@@ -123,7 +124,8 @@ calculate_metric <-
           system.file(
             "extdata/calculate_metric_score.csv", package = "EQRfishes"
           )
-        )
+        ) %>%
+          select(-.data$opmerkingen)  # tijdelijk zolang in deze csv een opmerking staat
       ) %>%
         group_by(.data$metric_score) %>%
         nest(.key = "indices"),
