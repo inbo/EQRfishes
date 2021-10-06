@@ -11,6 +11,10 @@
 #'
 #'
 var_in_interval <- function(variable, interval) {
+  if (length(variable) == 0) {
+    return(FALSE)
+  }
+
   operator_min <-
     gsub(
       "^(\\W)((\\d+(.\\d+)?)|\\s)(,)((\\d+(.\\d+)?)|\\s)(\\W)$",
