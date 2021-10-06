@@ -1,7 +1,7 @@
 # this file contains small helper functions that are called in the function calculate_metric_measures
 
 #' @importFrom magrittr %>% %<>%
-#' @importFrom dplyr count distinct filter group_by left_join mutate select summarise ungroup
+#' @importFrom dplyr count distinct filter group_by inner_join left_join mutate select summarise ungroup
 #' @importFrom rlang .data
 #' @importFrom readr read_csv2
 
@@ -57,7 +57,7 @@ sum_of_scored_length_classes <- function(data, var) {
       )
   }
   data %<>%
-    left_join(
+    inner_join(
       suppressMessages(
         read_csv2(
           system.file("extdata/data_classes.csv", package = "EQRfishes")
