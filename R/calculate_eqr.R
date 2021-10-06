@@ -17,21 +17,15 @@
 #' @importFrom plyr .
 #' @importFrom magrittr %<>% %>%
 #' @importFrom rlang .data
-#' @importFrom tidyr gather nest unnest nest_legacy unnest_legacy
+#' @importFrom tidyr gather nest unnest
 #' @importFrom readr read_csv2
 #' @importFrom purrr pmap
 #' @importFrom stringr str_detect
-#' @importFrom utils packageVersion
 #'
 #' @export
 #'
 calculate_eqr <-
   function(data_sample, data_fish, output = c("EQR", "metric", "detail")) {
-
-  if (substr(packageVersion("tidyr"), 1, 1) == "1") {
-    nest <- nest_legacy
-    unnest <- unnest_legacy
-  }
 
   data_sample %<>%
     rowwise() %>%
@@ -81,15 +75,15 @@ calculate_eqr <-
       key = "name", value = "value",
       -.data$sample_key, -.data$zonation, -.data$LocationID, -.data$method
     ) %>%
-    group_by(
-      .data$sample_key, .data$zonation, .data$LocationID, .data$method
-    ) %>%
-    nest(.key = "sampledata")
+    nest(sampledata = c(.data$name, .data$value))
 
   data_fish %<>%
     mutate(sample_key = as.character(.data$sample_key)) %>%
-    group_by(.data$sample_key) %>%
-    nest(.key = "fishdata")
+    nest(
+      fishdata =
+        c(.data$record_id, .data$taxoncode, .data$number, .data$length,
+          .data$weight)
+    )
 
   result <- data_sample %>%
     left_join(
@@ -98,11 +92,10 @@ calculate_eqr <-
           system.file("extdata/zonation_metric.csv", package = "EQRfishes")
         )
       ) %>%
-        group_by(
-          .data$zonation, .data$method, .data$metric_name,
-          .data$metric_score_name
-        ) %>%
-        nest(.key = "metric_name_group"),
+        nest(
+          metric_name_group =
+            c(.data$metric_formula_name, .data$metric_measures_name)
+        ),
       by = "zonation",
       suffix = c("", "_for_metric")
     ) %>%
@@ -126,7 +119,7 @@ calculate_eqr <-
     select(
       .data$sample_key, .data$zonation, .data$LocationID, .data$sampledata
     ) %>%
-    unnest() %>%
+    unnest(cols = c(.data$sampledata)) %>%
     distinct()
 
   result_metrics <- result %>%
@@ -135,7 +128,7 @@ calculate_eqr <-
       .data$sampledata, .data$metric_name, .data$metric_score_name,
       .data$method_for_metric
     ) %>%
-    unnest() %>%
+    unnest(cols = c(.data$sampledata)) %>%
     mutate(
       metric_name_ext =
         ifelse(
@@ -221,10 +214,11 @@ calculate_eqr <-
     mutate(calc_method_old = all(is.na(.data$method_for_metric))) %>%
     ungroup() %>%
     mutate() %>%
-    group_by(
-      .data$sample_key, .data$zonation, .data$LocationID, .data$calc_method_old
+    nest(
+      metrics =
+        c(.data$metric_name, .data$metric_score_name, .data$method_for_metric,
+          .data$metric_name_ext, .data$metric_value, .data$metric_score)
     ) %>%
-    nest(.key = "metrics") %>%
     mutate(
       ibi =
         as.numeric(

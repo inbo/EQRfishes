@@ -8,13 +8,12 @@
 #' @return Dataset with calculated EQR for each sample
 #'
 #' @importFrom magrittr %>% %<>%
-#' @importFrom dplyr arrange bind_rows distinct filter group_by left_join mutate rename select
+#' @importFrom dplyr arrange bind_rows distinct filter left_join mutate rename select
 #' @importFrom plyr .
 #' @importFrom readr read_csv2
 #' @importFrom rlang .data has_name
-#' @importFrom tidyr nest unnest nest_legacy unnest_legacy
+#' @importFrom tidyr nest unnest
 #' @importFrom purrr pmap
-#' @importFrom utils packageVersion
 #'
 #' @export
 #'
@@ -27,11 +26,6 @@ calculate_metric <-
         "metric_score_name", "row_id"
       )
   ) {
-
-    if (substr(packageVersion("tidyr"), 1, 1) == "1") {
-      nest <- nest_legacy
-      unnest <- unnest_legacy
-    }
 
   if (has_name(data_sample_fish, "formula")) {
     data_sample_fish %<>%
@@ -48,7 +42,7 @@ calculate_metric <-
       row_id = aberant_column_names[5]
     ) %>%
     unnest(
-      .data$metric_name_group, .preserve = c(.data$fishdata, .data$sampledata)
+      cols = .data$metric_name_group
     ) %>%
     rename(
       metric_formula_name = aberant_column_names[2],
@@ -111,13 +105,13 @@ calculate_metric <-
   }
   result %<>%
     arrange(.data$row_id) %>%
-    unnest(.data$sampledata) %>%
+    unnest(cols = .data$sampledata) %>%
     distinct() %>%
-    group_by(
+    select(
       .data$sample_key, .data$zonation, .data$metric_name, .data$metric_score_name,
-      .data$row_id
+      .data$row_id, .data$name, .data$value
     ) %>%
-    nest(.data$name, .data$value, .key = "sampledata") %>%
+    nest(sampledata = c(.data$name, .data$value)) %>%
     left_join(
       suppressMessages(
         read_csv2(
@@ -127,8 +121,11 @@ calculate_metric <-
         ) %>%
           select(-.data$opmerkingen)  # tijdelijk zolang in deze csv een opmerking staat
       ) %>%
-        group_by(.data$metric_score) %>%
-        nest(.key = "indices"),
+        nest(
+          indices =
+            c(.data$metric, .data$value_metric, .data$add_category,
+              .data$value_add_category, .data$score_id)
+        ),
       by = c("metric_score_name" = "metric_score")
     ) %>%
     arrange(.data$row_id) %>%

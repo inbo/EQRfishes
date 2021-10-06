@@ -8,21 +8,15 @@
 #'
 #' @importFrom readr read_csv2
 #' @importFrom magrittr %>%
-#' @importFrom dplyr arrange bind_rows filter group_by left_join mutate select
-#' @importFrom tidyr nest unnest nest_legacy unnest_legacy
+#' @importFrom dplyr arrange bind_rows filter left_join mutate select
+#' @importFrom tidyr nest unnest
 #' @importFrom plyr .
 #' @importFrom rlang .data
 #' @importFrom purrr pmap
-#' @importFrom utils packageVersion
 #'
 #' @export
 #'
 calculate_metric_formula <- function(data_sample_fish) {
-
-  if (substr(packageVersion("tidyr"), 1, 1) == "1") {
-    nest <- nest_legacy
-    unnest <- unnest_legacy
-  }
 
   if (nrow(data_sample_fish) == 0) {
     return(NA)
@@ -39,10 +33,10 @@ calculate_metric_formula <- function(data_sample_fish) {
           select(-.data$opmerking)  # tijdelijk zolang in deze csv een opmerking staat
       ) %>%
         filter(!is.na(.data$submetric_score_name)) %>%
-        group_by(
-          .data$metric_formula_name, .data$formula, .data$submetric_score_name
+        nest(
+          submetric_name_group =
+            c(.data$submetric_formula_name, .data$submetric_measures_name)
         ) %>%
-        nest(.key = "submetric_name_group") %>%
         bind_rows(
           suppressMessages(
             read_csv2(
@@ -54,11 +48,10 @@ calculate_metric_formula <- function(data_sample_fish) {
           ) %>%
             filter(is.na(.data$submetric_score_name)) %>%
             mutate(temp_row_nr = 1:length(.data$metric_formula_name)) %>%
-            group_by(
-              .data$temp_row_nr, .data$metric_formula_name, .data$formula,
-              .data$submetric_score_name
+            nest(
+              submetric_name_group =
+                c(.data$submetric_formula_name, .data$submetric_measures_name)
             ) %>%
-            nest(.key = "submetric_name_group") %>%
             select(-.data$temp_row_nr)
         ),
       by = "metric_formula_name", suffix = c("", "_")
@@ -78,13 +71,13 @@ calculate_metric_formula <- function(data_sample_fish) {
             )
         )
     ) %>%
-    unnest(.data$sampledata) %>%
-    group_by(
+    unnest(cols = .data$sampledata) %>%
+    select(
       .data$sample_key, .data$metric_name, .data$metric_formula_name,
       .data$formula, .data$metric_measures_name, .data$metric_score_name,
-      .data$row_id
+      .data$row_id, .data$name, .data$value
     ) %>%
-    nest(.data$name, .data$value, .key = "sampledata") %>%
+    nest(sampledata = c(.data$name, .data$value)) %>%
     mutate(
       sampledata =
         pmap(
