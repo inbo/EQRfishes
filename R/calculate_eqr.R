@@ -38,7 +38,8 @@ calculate_eqr <-
     mutate(
       zonation =
         determine_zonation(
-          .data$width_river, .data$slope, .data$tidal, .data$IndexTypeCode
+          var_width = .data$width_river, var_slope = .data$slope,
+          var_tidal = .data$tidal, var_indextype = .data$IndexTypeCode
         )
     ) %>%
     ungroup() %>%
