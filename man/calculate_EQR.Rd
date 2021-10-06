@@ -4,8 +4,7 @@
 \alias{calculate_eqr}
 \title{calculate the ecological quality ratio}
 \usage{
-calculate_eqr(data_sample, data_fish, output = c("EQR", "metric",
-  "detail"))
+calculate_eqr(data_sample, data_fish, output = c("EQR", "metric", "detail"))
 }
 \arguments{
 \item{data_sample}{Data on the sample: date, method, location and location characteristics}

@@ -4,9 +4,11 @@
 \alias{calculate_metric}
 \title{calculate the metrics of the EQR}
 \usage{
-calculate_metric(data_sample_fish,
+calculate_metric(
+  data_sample_fish,
   aberant_column_names = c("metric_name_group", "metric_formula_name",
-  "metric_measures_name", "metric_score_name", "row_id"))
+    "metric_measures_name", "metric_score_name", "row_id")
+)
 }
 \arguments{
 \item{data_sample_fish}{Data on the sample with additional paramaters zonation (calculated by calculate_zonation) and surface and fishdata included}

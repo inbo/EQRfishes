@@ -4,9 +4,17 @@
 \alias{calculate_metric_measures}
 \title{calculate the metrics of the EQR based on measures}
 \usage{
-calculate_metric_measures(fishdata, metric_name, metric_type,
-  values_column, speciesfilter, exclude_species_length,
-  only_individual_measures, NULL_to_0, sampledata)
+calculate_metric_measures(
+  fishdata,
+  metric_name,
+  metric_type,
+  values_column,
+  speciesfilter,
+  exclude_species_length,
+  only_individual_measures,
+  NULL_to_0,
+  sampledata
+)
 }
 \arguments{
 \item{fishdata}{dataframe with fishdata}
