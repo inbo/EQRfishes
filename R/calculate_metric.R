@@ -102,8 +102,13 @@ calculate_metric <-
       -.data$method, -.data$opmerking
     )
 
-  result <- result_formula %>%
-    bind_rows(result_measures) %>%
+  if (nrow(result_formula) > 0) {
+    result <- result_formula %>%
+      bind_rows(result_measures)
+  } else {
+    result <- result_measures
+  }
+  result %<>%
     arrange(.data$row_id) %>%
     unnest(.data$sampledata) %>%
     distinct() %>%
