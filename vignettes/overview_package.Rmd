@@ -90,6 +90,34 @@ suppressMessages(
   kable()
 ```
 
+Huetzonation for indextypecode ZTWA:
+
+```{r zonation-ZTWA}
+suppressMessages(
+  read_csv2(system.file("extdata/data_zonation.csv", package = "EQRfishes"))
+) %>%
+  filter(.data$indextypecode == "ZTWA") %>%
+  select(-.data$tidal, -.data$indextypecode, -.data$zonation_old) %>%
+  #mutate()
+  pivot_wider(names_from = "width", values_from = "zonation") %>%
+  arrange(.data$slope) %>%
+  kable()
+```
+
+Old huetzonation for indextypecode ZTWA:
+
+```{r zonation-ZTWA}
+suppressMessages(
+  read_csv2(system.file("extdata/data_zonation.csv", package = "EQRfishes"))
+) %>%
+  filter(.data$indextypecode == "ZTWA") %>%
+  select(-.data$tidal, -.data$indextypecode, -.data$zonation) %>%
+  #mutate()
+  pivot_wider(names_from = "width", values_from = "zonation_old") %>%
+  arrange(.data$slope) %>%
+  kable()
+```
+
 ### zonation_metric.csv
 
 This datasheet shows which metrics and metric scores have to be calculated for each zonation, with additional information on where to find the information for calculation of the metric:

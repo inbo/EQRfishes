@@ -1,4 +1,5 @@
 # This script composes a table for determining the zonation of a sample
+# Last changes added manually, check later what could be taken from DWH
 
 library(RODBC)
 library(tidyverse)
