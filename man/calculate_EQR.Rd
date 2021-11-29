@@ -7,7 +7,9 @@
 calculate_eqr(data_sample, data_fish, output = c("EQR", "metric", "detail"))
 }
 \arguments{
-\item{data_sample}{Data on the sample: date, method, location and location characteristics}
+\item{data_sample}{Data on the sample: date, method, location and location
+characteristics including zonation (which can be calculated using function
+`determine_zonation()`)}
 
 \item{data_fish}{Measurements on fish: taxon, length, weight, number of individuals}
 

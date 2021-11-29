@@ -2,7 +2,9 @@
 #'
 #' Main function of this package, which calculates the EQR based on 2 tables of data.  Each table must contain a sample_key!
 #'
-#' @param data_sample Data on the sample: date, method, location and location characteristics
+#' @param data_sample Data on the sample: date, method, location and location
+#' characteristics including zonation (which can be calculated using function
+#' `determine_zonation()`)
 #' @param data_fish Measurements on fish: taxon, length, weight, number of individuals
 #' @param output Which output do you wish?
 #'   \itemize{
@@ -13,7 +15,7 @@
 #'
 #' @return Dataframe with calculated EQR for each sample, or list of dataframes if parameter output is specified
 #'
-#' @importFrom dplyr arrange distinct filter group_by left_join mutate n rowwise select summarise ungroup
+#' @importFrom dplyr arrange distinct filter group_by left_join mutate n select summarise ungroup
 #' @importFrom plyr .
 #' @importFrom magrittr %<>% %>%
 #' @importFrom rlang .data
@@ -28,15 +30,6 @@ calculate_eqr <-
   function(data_sample, data_fish, output = c("EQR", "metric", "detail")) {
 
   data_sample %<>%
-    rowwise() %>%
-    mutate(
-      zonation =
-        determine_zonation(
-          var_width = .data$width_river, var_slope = .data$slope,
-          var_tidal = .data$tidal, var_indextype = .data$IndexTypeCode
-        )
-    ) %>%
-    ungroup() %>%
     mutate(
       surface =
         ifelse(

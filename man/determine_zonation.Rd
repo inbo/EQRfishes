@@ -2,22 +2,41 @@
 % Please edit documentation in R/determine_zonation.R
 \name{determine_zonation}
 \alias{determine_zonation}
-\title{determine the zonation of the location}
+\title{determine the zonation for records of a dataset}
 \usage{
-determine_zonation(var_width, var_slope, var_tidal, var_indextype)
+determine_zonation(dataset, version = c("new", "old"))
 }
 \arguments{
-\item{var_width}{width of the river at the sample location}
+\item{dataset}{dataset on location measures with at least columns
+\itemize{
+    \item \strong{width_river} width of the river at the sample location,
+    \item \strong{slope} slope of the river at the sample location,
+    \item \strong{tidal} tidal effect present (TRUE) or absent (FALSE)?
+    \item \strong{IndexTypeCode} type based on salinity of the sample location
+  }}
 
-\item{var_slope}{slope of the river at the sample location}
-
-\item{var_tidal}{tidal effect present (TRUE) or absent (FALSE)?}
-
-\item{var_indextype}{type based on salinity of the sample location}
+\item{version}{'new' version with bron and brabeel or 'old' version without
+these two zonations?
+Defaults to 'new'.
+This information will be used if dataset has no column `version` or to
+replace NA values in column `version`.}
 }
 \value{
-zonation of the focal location(s)
+input dataset with additional column 'zonation'
 }
 \description{
-This function determines the zonation based on the given measurements for one location.
+This function determines the zonation based on the given dataset with
+measurements.
+Recently 2 new zonations were added: 'bron' (replacing 'upstream' in rivers
+up to a width of 2 m) and 'brabeel' (replacing 'brasem' and 'barbeel' in
+rivers up to a width of 30 m), and both versions are available here:
+  \itemize{
+    \item \strong{new} (default) uses the new version with 'bron' and 'brabeel' included,
+    \item \strong{old} uses the version before 'bron' and 'brabeel' were added
+  }
+This version can be indicated on the level of the individual records in the
+dataset as an additional column or on the level of the whole dataset by using
+argument `version`.
+When both are added, NA values of column version in the dataset will be
+replaced by the version given in argument `version`.
 }
