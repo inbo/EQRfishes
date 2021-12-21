@@ -2,6 +2,7 @@ taxoncode;variable;interval;class;score;Recr_Grensw1;Recr_Grensw2;Recr_Grensw3;R
 ;multiple;] ,1];;0;;;;;;;;
 ;multiple;]1, [;;1;;;;;;;;
 LAM.PLA.;Recr;[0,9.9];0;;9,9;NA;NA;NA;NA;NA;NA;NA
+LAM.PLA.;Recr;]9.9, [;1;;;;;;;;;
 ANG.ANG.;Recr;[0,9.39];0;;9,39;15,5;NA;NA;NA;2;3;7
 ANG.ANG.;Recr;]9.39,15.5];1;;;;;;;;;
 ANG.ANG.;Recr;]15.5, [;2;;;;;;;;;

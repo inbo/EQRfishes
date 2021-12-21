@@ -42,6 +42,7 @@ Mpipisc;;
 MpiSme;percentage spiering;
 MpiSpa;relative percentage of specialised spawners (individuals);
 MpsRekr;;
+MpsRec;percentage of recruiting species (brabeel, terwijl met kr voor brasem en barbeel);
 OblSpe;obligate species;
 PerFlu;_Perca fluviatilis_ (% weight);
 RmniDia;relatief aantal diadrome individuen;

@@ -15,6 +15,11 @@ barbeel;ManBio;;ManBio;;SManBio_barbeel
 barbeel;MpgExo;;MpgExo_river;;SMpgExo
 barbeel;Trofcomp;;Trofcomp;;STrofcomp
 barbeel;MpsRekr;;MpsRekr;;SMpsRekr
+brabeel;MnsTot;;;MnsTot_brabeel;SMnsTot_brabeel
+brabeel;ManSha;;;ManSha;SManSha_brabeel
+brabeel;MpiTol;;MpiTol_brabeel;;SMpiTol_brabeel
+brabeel;MpiInv;;MpiInv_brabeel;;SMpiInv_brabeel
+brabeel;MpsRec;;MpsRec;;SMpsRec_brabeel
 upstream;MnsBen;;;MnsBen;SMnsBen
 upstream;MnsTot;;;MnsTot;SMnsTot_upstream
 upstream;ManTyp;;ManTyp_upstream;;SManTyp_upstream
