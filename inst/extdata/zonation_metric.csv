@@ -38,7 +38,7 @@ lakes;MpiInv;E;MpiInvt_lakes;;SMpiInv_lakes
 lakes;MpiSpa;E;MpiSpa_lakes;;SMpiSpa_lakes
 canals;MnsTot;E;;MnsTot_canals;SMnsTot_canals
 canals;ManBio;E;ManBio_canals;;SManbio_canals
-canals;ManSha;E;;ManSha_canals;SManSha_canals
+canals;ManSha;E;;ManSha;SManSha_canals
 canals;ManRec;F;ManRec_canals;;SManRec_canals
 canals;BenWei;F;BenWei_canals;;SBenWei_canals
 estuarien_IJzer;MnsEst;F;;MnsEst;SMnsEst

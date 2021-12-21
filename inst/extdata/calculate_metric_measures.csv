@@ -40,7 +40,7 @@ MnsTot_canals;number_of_species;;Canals == 1;;;;;
 MnsRec_canals;sum_of_scored_length_classes;multiple;Canals == 1;;;1;;
 GewBen_canals;total_weight;;Canals == 1 & BenWei == 1;;1;;;
 TotWeight_canals;total_weight;;Canals == 1;;;;;
-ManSha_canals;shannon_wiener_index;;Canals == 1;;;;;
+ManSha;shannon_wiener_index;;;;;;;
 GewBen_lakes;total_weight;;Lakes == 1 & BenWei == 1;;1;;;
 TotWeight_lakes;total_weight;;Lakes == 1;;;;;
 MniInd_lakes;number_of_individuals;;Lakes == 1;;;;;
