@@ -79,4 +79,7 @@ MniRec_brabeel;sum_of_scored_length_classes;multiple;brabeel == 1;;;1;;
 MniSpa_lakes;number_of_individuals;;Lakes == 1 & Spec_Paaier == 1;;;;;
 MnsPis_lakes;number_of_species;;Lakes == 1 & Piscivoor == 1;taxoncode == 'PER.FLU.' & length <= 13.0;;;;
 ManTol_lakes;sum_values_column;WF_Tolerantie;Lakes == 1;;;;;
+MniSpa_freshwater;number_of_individuals;;freshwater_paaier == 1;;;;;
+MniBen_freshwater;number_of_individuals;;freshwater == 1 & Bentisch == 1;;;;;
+MniInd_oligohaline;number_of_species;;oligohaline == 1;;;;;
 no_metric;no_metric;;;;;;;

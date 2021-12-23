@@ -68,8 +68,12 @@ MpiInvt_lakes;ifelse(MniInd_lakes != 0, MniInvt_lakes / MniInd_lakes, 0);;MniInv
 MpiInvt_lakes;ifelse(MniInd_lakes != 0, MniInvt_lakes / MniInd_lakes, 0);;MniInd_lakes;;
 ManRec_lakes;ifelse(is.na(MnsTot_lakes) | Mnstot_lakes == 0, 0, MnsRec_lakes * 100 / MnsTot_lakes);;MnsTot_lakes;;
 ManRec_lakes;ifelse(is.na(MnsTot_lakes) | Mnstot_lakes == 0, 0, MnsRec_lakes * 100 / MnsTot_lakes);;MnsRec_lakes;;
+MpiSpa_freshwater;ifelse(MniInd_freshwater != 0, MniSpa_freshwater / MniInd_freshwater, 0);;MniSpa_freshwater;;
+MpiSpa_freshwater;ifelse(MniInd_freshwater != 0, MniSpa_freshwater / MniInd_freshwater, 0);;MniInd_freshwater;;
 MpiPis_freshwater;ifelse(MniInd_freshwater != 0, MniPis_freshwater / MniInd_freshwater, 0);;MniPis_freshwater;;
 MpiPis_freshwater;ifelse(MniInd_freshwater != 0, MniPis_freshwater / MniInd_freshwater, 0);;MniInd_freshwater;;
+MpiBen_freshwater;ifelse(MniInd_freshwater != 0, MniBen_freshwater / MniInd_freshwater, 0);;MniBen_freshwater;;
+MpiBen_freshwater;ifelse(MniInd_freshwater != 0, MniBen_freshwater / MniInd_freshwater, 0);;MniInd_freshwater;;
 MpiPis_brak;ifelse(MniInd_brak != 0, MniPis_brak / MniInd_brak, 0);;MniPis_brak;;
 MpiPis_brak;ifelse(MniInd_brak != 0, MniPis_brak / MniInd_brak, 0);;MniInd_brak;;
 MpiOmn_brak;ifelse(MniInd_brak != 0, MniOmn_brak / MniInd_brak, 0);;MniOmn_brak;;
