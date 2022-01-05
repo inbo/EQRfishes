@@ -94,3 +94,5 @@ MpsRec;ifelse(MnsTot_brabeel == 0, 0, MniRec_brabeel * 100 / MnsTot_brabeel);;Mn
 MpsRec;ifelse(MnsTot_brabeel == 0, 0, MniRec_brabeel * 100 / MnsTot_brabeel);;MnsTot_brabeel;;
 MpiSpa_lakes;ifelse(MniInd_lakes != 0, MniSpa_lakes / MniInd_lakes, 0);;MniSpa_lakes;;
 MpiSpa_lakes;ifelse(MniInd_lakes != 0, MniSpa_lakes / MniInd_lakes, 0);;MniInd_lakes;;
+MpiInt_mesohaline;ifelse(MniInd_mesohaline != 0, MniInt_mesohaline / MniInd_mesohaline, 0);;MniInt_mesohaline;;
+MpiInt_mesohaline;ifelse(MniInd_mesohaline != 0, MniInt_mesohaline / MniInd_mesohaline, 0);;MniInd_mesohaline;;
