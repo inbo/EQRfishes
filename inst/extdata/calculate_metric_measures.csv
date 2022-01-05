@@ -89,4 +89,8 @@ MnsHab_mesohaline;number_of_species;;mesohaline_habitat_structure_sensitive == 1
 MniInt_mesohaline;number_of_individuals;;mesohaline_intolerant_for_polution == 1;;;;;
 MniInd_mesohaline;number_of_individuals;;mesohaline == 1;;;;;
 MnsMms_mesohaline;number_of_species;;oligohaline_mms == 1;;;;;
+ManTol_bron;sum_values_column;WF_Tolerantie;bron == 1;;;;;
+MniSpa_bron;number_of_individuals;;bron == 1 & Spec_Paaier == 1;;;;;
+MniInd_bron;number_of_individuals;;bron == 1;;;;;
+MniRhe_bron;number_of_individuals;;bron == 1 & Rheofiel == 1;;;;;
 no_metric;no_metric;;;;;;;

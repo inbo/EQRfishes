@@ -69,4 +69,8 @@ estuarien_Schelde_brak;MpiSme;F;MpiSme_brak;;SMpiSme_brak
 estuarien_Schelde_brak;MpiMjm;F;MpiMjm_brak;;SMpiMjm_brak
 estuarien_Schelde_brak;MpiOmn;F;MpiOmn_brak;;SMpiOmn_brak
 estuarien_Schelde_brak;MpiPis;F;MpiPis_brak;;SMpiPis_brak
+bron;ManTol;;;ManTol_bron;SManTol_bron
+bron;ManSha;;;ManSha;SManSha_bron
+bron;MpiSpa;;MpiSpa_bron;;SMpiSpa_bron
+bron;MpiRhe;;MpiRhe_bron;;SMpiRhe_bron
 (undetermined);;;;no_metric;
