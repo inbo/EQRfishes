@@ -86,10 +86,10 @@ MpiMjm_brak;ifelse(is.na(Mni_brak) | Mni_brak == 0, 0, MniMjm_brak * 100 / Mni_b
 MpiMjm_brak;ifelse(is.na(Mni_brak) | Mni_brak == 0, 0, MniMjm_brak * 100 / Mni_brak);;Mni_brak;;
 MpiDia_freshwater;ifelse(!is.na(MniInd_freshwater) & MniInd_freshwater != 0, MniDia_freshwater / MniInd_freshwater, 0);;MniDia_freshwater;;
 MpiDia_freshwater;ifelse(!is.na(MniInd_freshwater) & MniInd_freshwater != 0, MniDia_freshwater / MniInd_freshwater, 0);;MniInd_freshwater;;
-MpiTol_brabeel;ifelse(MniInd_brabeel != 0, MniTol / MniInd_brabeel, 0);;MniTol_brabeel;;
-MpiTol_brabeel;ifelse(MniInd_brabeel != 0, MniTol / MniInd_brabeel, 0);;MniInd_brabeel;;
-MpiInv_brabeel;ifelse(MniInd_brabeel != 0, MniInv / MniInd_brabeel, 0);;MniInv_brabeel;;
-MpiInv_brabeel;ifelse(MniInd_brabeel != 0, MniInv / MniInd_brabeel, 0);;MniInd_brabeel;;
+MpiTol_brabeel;ifelse(MniInd_brabeel != 0, MniTol_brabeel / MniInd_brabeel, 0);;MniTol_brabeel;;
+MpiTol_brabeel;ifelse(MniInd_brabeel != 0, MniTol_brabeel / MniInd_brabeel, 0);;MniInd_brabeel;;
+MpiInv_brabeel;ifelse(MniInd_brabeel != 0, MniInv_brabeel / MniInd_brabeel, 0);;MniInv_brabeel;;
+MpiInv_brabeel;ifelse(MniInd_brabeel != 0, MniInv_brabeel / MniInd_brabeel, 0);;MniInd_brabeel;;
 MpsRec;ifelse(MnsTot_brabeel == 0, 0, MniRec_brabeel * 100 / MnsTot_brabeel);;MniRec_brabeel;;
 MpsRec;ifelse(MnsTot_brabeel == 0, 0, MniRec_brabeel * 100 / MnsTot_brabeel);;MnsTot_brabeel;;
 MpiSpa_lakes;ifelse(MniInd_lakes != 0, MniSpa_lakes / MniInd_lakes, 0);;MniSpa_lakes;;
