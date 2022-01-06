@@ -93,4 +93,8 @@ ManTol_bron;sum_values_column;WF_Tolerantie;bron == 1;;;;;
 MniSpa_bron;number_of_individuals;;bron == 1 & Spec_Paaier == 1;;;;;
 MniInd_bron;number_of_individuals;;bron == 1;;;;;
 MniRhe_bron;number_of_individuals;;bron == 1 & Rheofiel == 1;;;;;
+MniInv_est_zijriv;number_of_individuals;;inv_est_zijriv == 1;;;;;
+MniInd_est_zijriv;number_of_individuals;;est_zijriv == 1;;;;;
+MniSpa_est_zijriv;number_of_individuals;;Spec_Paaier est_zijriv == 1;;;;;
+MnsPis_est_zijriv;number_of_species;;est_zijriv == 1 & Piscivoor == 1;;;;;
 no_metric;no_metric;;;;;;;

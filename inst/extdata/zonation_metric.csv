@@ -73,4 +73,8 @@ bron;ManTol;;;ManTol_bron;SManTol_bron
 bron;ManSha;;;ManSha;SManSha_bron
 bron;MpiSpa;;MpiSpa_bron;;SMpiSpa_bron
 bron;MpiRhe;;MpiRhe_bron;;SMpiRhe_bron
+estuarien_zijrivieren_zoet;ManSha;;;ManSha;SManSha_est_zijriv
+estuarien_zijrivieren_zoet;MpiInv;;MpiInv_est_zijriv;;SMpiInv_est_zijriv
+estuarien_zijrivieren_zoet;MpiSpa;;MpiSpa_est_zijriv;;SMpiSpa_est_zijriv
+estuarien_zijrivieren_zoet;MnsPis;;;MnsPis_est_zijriv;SMnsPis_est_zijriv
 (undetermined);;;;no_metric;
