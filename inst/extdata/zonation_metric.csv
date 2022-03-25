@@ -29,7 +29,7 @@ upstream;Manswi;;;Manswi;SManswi
 upstream;Mangkw;;Mangkw;;SMangkw
 upstream;Manmigw;;;Manmigw;SManmigw
 upstream;Mpigesp;;Mpigesp;;SMpigesp
-upstream;MnsInd;;;MnsInd;
+upstream;MniInd;;;MniInd_upstream;
 forel;MnsTot;;;MnsTot;SMnsTot_forel
 forel;MnsBen;;;MnsBen;SMnsBen
 forel;MpiInvt;;MpiInvt;;SMpiInvt_upstream
@@ -44,7 +44,7 @@ vlagzalm;Mangkw;;Mangkw;;SMangkw
 vlagzalm;Manmigw;;;Manmigw;SManmigw
 lakes;BenWei;F;BenWei_lakes;;SBenWei_lakes_fyke
 lakes;MpiOmn;F;MpiOmn_lakes;;SMpiOmn_lakes
-lakes;MnsPis;F;;MnsPis_lakes;SMnsPis_lakes
+lakes;MniPis;F;;MniPis_lakes;SMniPis_lakes
 lakes;ManTol;F;;ManTol_lakes;SManTol_lakes
 lakes;MpiInv;E;MpiInvt_lakes;;SMpiInv_lakes
 lakes;MpiSpa;E;MpiSpa_lakes;;SMpiSpa_lakes
