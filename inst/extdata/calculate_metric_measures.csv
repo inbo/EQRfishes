@@ -88,7 +88,7 @@ MnsMms_mesohaline;number_of_species;;MnsMms_zeeschelde_mesohalien == 1;;;;;;;;
 ManTol_bron;sum_values_column;WF_Tolerantie;ManTol_soortenlijst_brongebied == 1;;;;;;;;
 MniSpa_bron;number_of_individuals;;MniSpa_brongebied == 1;;;;;;;;
 MniInd_bron;number_of_individuals;;;;;;;;;;
-MniRhe_bron;number_of_individuals;;MpiRhe_brongebied == 1;;;;;;;;
+MniRhe_bron;number_of_individuals;;MniRhe_brongebied == 1;;;;;;;;
 MniInv_est_zijriv;number_of_individuals;;MniInv_Getijde_rivieren_zoet == 1;;;;;;;;
 MniInd_est_zijriv;number_of_individuals;;MniInd_Getijde_rivieren_zoet == 1;;;;;;;;
 MniSpa_est_zijriv;number_of_individuals;;MniSpa_Getijde_rivieren_zoet == 1;;;;;;;;
