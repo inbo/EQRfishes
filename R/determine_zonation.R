@@ -39,8 +39,9 @@
 determine_zonation <-
   function(dataset, version = c("new", "old")) {
 
+    match.arg(version)
     if (!has_name(dataset, "version")) {
-      dataset$version <- version
+      dataset$version <- version[1]
     }
     dataset %<>%
       mutate(
