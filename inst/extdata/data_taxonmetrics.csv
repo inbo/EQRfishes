@@ -1,140 +1,188 @@
-taxonname;taxoncode;Totaal;Exoot;WF_Tolerantie;WF_Type_Brasem;WF_Type_Barbeel;WF_Type_Upstream;Grootte_Klasse_zoetwater;Grootte_Klasse_upstream;Shannon_Weaner;Migratie;Spec_Paaier;Bentisch;Invertivoor;Omnivoor;Piscivoor;Piscivoor_Opm;Invertivoor_Opm;Invertivoor_upstream;Water_Brak;Water_Zoet;Nat_Recrutering;Recr_Grensw1;Recr_Grensw2;Recr_Grensw3;Recr_Grensw4;Recr_Grensw5;Gkla_Grenswa1;Gkla_Grenswa3;Gkla_Grenswa5;Canals;Lakes;BenWei;Obligatory_species;mesohaline;oligohaline;freshwater;brak;brak_estuarien;brak_marine_juvenile_migrating;estuarien_Yzer;diadrome;marien_juveniele_soorten;typisch_Yzer
-Lampetra fluviatilis L.;LAM.FLU.; 1; 0; 3; 1; 1; 3; 0; 0; 1; 2; 1; 1; 0; 0; 1;NA;NA; 0; 1; 1; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;1;1;1;0;0;0;0; 1;0;0
-Lampetra planeri Bloch;LAM.PLA.; 1; 0; 3; 1; 2; 4; 0; 0; 1; 0; 1; 1; 0; 0; 0;NA;NA; 0; 0; 1; 1; 9,9000;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;0;0; 0;0;0
-Petromyzon marinus L.;PET.MAR.; 1; 0; 5; 1; 0; 1; 1; 0; 1; 2; 1;NA; 0; 0; 0;NA;NA; 0; 1; 1; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;1;1;1;1;0;0;0; 1;0;0
-Acipenser sturio L.;ACI.STU.; 1; 0; 5; 1; 3; 0; 0; 0; 1; 1; 1;NA; 0; 0; 0;NA;NA; 0; 1; 1; 1;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 1;0;0
-Anguilla anguilla L.;ANG.ANG.; 1; 0; 2; 4; 3; 2; 0; 1; 1; 2; 0; 1; 0; 1; 0;NA;NA; 0; 1; 1; 1; 9,3900;15,5000;NA;NA;NA; 2; 3; 7;1;1;0;0;1;1;1;1;0;0;0; 1;0;0
-Alosa alosa L.;ALO.ALO.; 1; 0; 5; 0; 1; 1; 1; 0; 1; 1; 1;NA; 0; 0; 1;NA;NA; 0; 1; 1; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;0;0; 1;0;0
-Alosa fallax;ALO.FAL.; 1; 0; 5; 1; 1; 1; 0; 0; 1; 0; 1;NA; 0; 0; 1;NA;NA; 0; 1; 1; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;1;1;1;1;0;0;0; 1;0;0
-Abramis brama L.;ABR.BRA.; 1; 0; 1; 5; 2; 1; 0; 0; 1; 0; 0;NA; 0; 1; 0;NA;NA; 0; 0; 1; 1; 7,0001;14,0000;NA;NA;NA;NA;NA;NA;1;1;1;1;0;1;1;1;0;0;0; 0;0;0
-Alburnoides bipunctatus Bloch;ALB.BIP.; 1; 0; 5; 1; 3; 4; 1; 1; 1; 0; 1;NA; 1; 0; 0;NA;NA; 1; 0; 1; 1; 4,8000;NA;NA;NA;NA; 2; 7;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Alburnus alburnus;ALB.ALB.; 1; 0; 2; 3; 3; 2; 0; 0; 1; 0; 0;NA; 1; 0; 0;NA;NA; 1; 0; 1; 1; 5,6001;10,0000;NA;NA;NA;NA;NA;NA;1;0;0;0;0;0;0;1;0;0;0; 0;0;0
-Barbus barbus L;BAR.BAR.; 1; 0; 4; 1; 5; 4; 1; 1; 1; 1; 1; 1; 0; 1; 0;NA;NA; 0; 0; 1; 1; 4,0000;10,0000;NA;NA;NA;NA; 2; 7;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Blicca bjoerkna L.;BLI.BJO.; 1; 0; 2; 5; 2; 1; 1; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 1; 1; 6,0000;11,0000;NA;NA;NA;NA;NA;NA;1;1;1;1;0;1;1;1;0;0;0; 0;0;0
-Carassius carassius L.;CAR.CAR.; 1; 0; 3; 2; 1; 1; 1; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 1; 1; 4,0000; 8,0000;14,5000;NA;NA;NA;NA;NA;1;1;0;0;0;0;1;1;0;0;0; 0;0;0
-Carassius gibelio L.;CAR.AUG.; 1; 1; 0; 2; 1; 0; 1; 0; 1; 0; 0;NA; 0; 1; 0;NA;NA; 0; 0; 1; 1; 7,3900;17,0000;NA;NA;NA;NA;NA;NA;1;1;0;0;0;0;0;0;0;0;0; 0;0;0
-Chondrostoma nasus L.;CHO.NAS.; 1; 0; 4; 1; 4; 4; 1; 1; 1; 1; 1; 1; 0; 1; 0;NA;NA; 0; 0; 1; 1; 8,0000;20,0000;NA;NA;NA;NA; 2; 7;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Ctenopharyngodon idella Valenciennes;CTE.IDE.; 1; 1; 0; 0; 0; 0; 1; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 1; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Cyprinus carpio L.;CYP.CAR.; 1; 0; 2; 3; 1; 1; 1; 0; 1; 0; 0;NA; 0; 1; 0;NA;NA; 0; 0; 1; 1;13,0000;25,5000;NA;NA;NA;NA;NA;NA;1;1;1;0;0;0;0;1;0;0;0; 0;0;0
-Gobio gobio L.;GOB.GOB.; 1; 0; 3; 1; 5; 4; 1; 1; 1; 0; 1;NA; 1; 0; 0;NA;NA; 1; 0; 1; 1; 6,9999;10,0001;NA;NA;NA; 2; 3;NA;1;1;0;0;0;0;0;0;0;0;0; 0;0;0
-Leuciscus cephalus L.;LEU.CEP.; 1; 0; 3; 3; 5; 4; 1; 1; 1; 1; 1;NA; 0; 1; 0;NA;NA; 0; 0; 1; 1; 7,0001;10,0000;15,9999;NA;NA; 3; 4; 7;1;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Leucaspius delineatus L.;LEU.DEL.; 1; 0; 4; 2; 1; 1; 1; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 1; 1; 3,0000;NA;NA;NA;NA;NA;NA;NA;1;1;0;0;0;0;0;1;0;0;0; 0;0;0
-Leuciscus idus L.;LEU.IDE.; 1; 0; 4; 4; 4; 2; 0; 0; 1; 0; 0;NA; 0; 1; 0;NA;NA; 0; 0; 1; 1;10,0000;17,0000;25,0000;NA;NA;NA;NA;NA;1;1;0;0;0;1;1;1;0;0;0; 0;0;0
-Leuciscus leuciscus L.;LEU.LEU.; 1; 0; 4; 1; 5; 5; 1; 1; 1; 0; 1;NA; 1; 0; 0;NA;NA; 1; 0; 1; 1;12,3000;17,0000;NA;NA;NA; 2; 3; 7;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Phoxinus phoxinus L.;PHO.PHO.; 1; 0; 5; 1; 3; 4; 1; 1; 1; 0; 1;NA; 0; 1; 0;NA;NA; 0; 0; 1; 1; 4,4000; 6,7000;NA;NA;NA;NA; 2; 7;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Pimephales promelas;PIM.PRO.; 1; 1; 0; 0; 0; 0; 1; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 1; 1; 5,0000;10,0000;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Pseudorasbora parva Schlegel;PSE.PAR.; 1; 1; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 1; 0;NA;NA; 0; 0; 1; 1; 4,0000;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;0;0; 0;0;0
-Rhodeus amarus;RHO.AMA.; 1; 0; 3; 5; 3; 1; 1; 0; 1; 0; 1;NA; 0; 0; 0;NA;NA; 0; 0; 1; 1; 6,0000; 9,0000;NA;NA;NA;NA;NA;NA;1;1;0;0;0;1;1;1;0;0;0; 0;0;0
-Rutilus rutilus L.;RUT.RUT.; 1; 0; 1; 5; 3; 1; 1; 0; 1; 0; 0;NA; 0; 1; 0;NA;NA; 0; 1; 1; 1; 6,0000;11,0000;15,0000;18;NA;NA;NA;NA;1;1;0;1;1;1;1;1;0;0;0; 0;0;0
-Scardinius erythrophtalmus L;SCA.ERY.; 1; 0; 3; 5; 3; 1; 1; 0; 1; 0; 1;NA; 0; 1; 0;NA;NA; 0; 0; 1; 1; 6,0000;11,0000;15,0000;19;NA;NA;NA;NA;1;1;0;1;0;1;1;1;0;0;0; 0;0;0
-Tinca tinca L.;TIN.TIN.; 1; 0; 3; 5; 2; 1; 1; 0; 1; 0; 1; 1; 0; 1; 0;NA;NA; 0; 0; 1; 1; 6,3000;15,8000;21,5000;NA;NA;NA;NA;NA;1;1;1;0;0;0;0;0;0;0;0; 0;0;0
-Cobitis taenia L.;COB.TAE.; 1; 0; 4; 3; 3; 1; 1; 0; 1; 0; 1; 1; 1; 0; 0;NA;NA; 1; 0; 1; 1; 5,0000;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Misgurnus fossilis L.;MIS.FOS.; 1; 0; 3; 3; 1; 1; 1; 0; 1; 0; 1; 1; 1; 0; 0;NA;NA; 1; 0; 1; 1; 7,5000;15,0000;NA;NA;NA;NA;NA;NA;0;0;0;0;0;1;1;1;0;0;0; 0;0;0
-Barbatula barbatula L.;BAR.BUS.; 1; 0; 3; 1; 3; 5; 1; 1; 1; 0; 1; 1; 1; 0; 0;NA;NA; 1; 0; 1; 1; 4,9000;NA;NA;NA;NA;NA; 2; 7;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Lota lota L.;LOT.LOT.; 1; 0; 4; 3; 3; 3; 1; 0; 1; 1; 1; 1; 0; 0; 1;NA;NA; 0; 0; 1; 1;15,0000;22,0000;NA;NA;NA;NA;NA;NA;0;1;0;0;0;0;0;0;0;0;0; 0;0;0
-Ameiurus nebulosus Le Sueur;AME.NEB.; 1; 1; 0; 0; 0; 0; 1; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 1; 1; 7,0000;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Ameiurus melas Rafinesque L.;AME.MEL.; 1; 1; 0; 0; 0; 0; 1; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 1; 1; 7,0000;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Ictalurus punctatus rafinesque;ICT.PUN.; 1; 1; 0; 3; 0; 0; 1; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 1; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Silurus glanis L.;SIL.GLA.; 1; 0; 2; 4; 2; 1; 0; 0; 1; 0; 0; 1; 0; 0; 1;NA;NA; 0; 0; 1; 1;15,0000;40,0000;NA;NA;NA;NA;NA;NA;1;1;0;0;0;1;1;0;0;0;0; 0;0;0
-Esox lucius L.;ESO.LUC.; 1; 0; 4; 5; 4; 2; 1; 0; 1; 0; 1;NA; 0; 0; 1;NA;NA; 0; 0; 1; 1;15,0000;30,0000;60,0000;NA;NA;NA;NA;NA;1;1;0;1;0;1;1;1;0;0;0; 0;0;0
-Umbra pygmaea ;UMB.PYG.; 1; 1; 0; 0; 0; 0; 1; 0; 1; 0; 0;NA; 1; 0; 0;NA;NA; 1; 0; 1; 1; 5,0000;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Osmerus eperlanus L.;OSM.EPE.; 1; 0; 4; 1; 1; 2; 1; 0; 1; 0; 1;NA; 1; 0; 1;10,0000;10,0000; 1; 1; 1; 1; 6,0000;10,0000;NA;NA;NA;NA;NA;NA;0;0;0;0;1;1;1;1;0;0;0; 1;0;0
-Oncorhyncus mykiss Walbaum;ONC.MYK.; 1; 1; 0; 0; 0; 0; 1; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 1; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Salvenius fontinalis Mitchill;SAL.FON.; 1; 0; 0; 0; 0; 0; 1; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 1; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Salmo trutta fario L.;SAL.FAR.; 1; 0; 5; 1; 3; 5; 1; 1; 1; 1; 1;NA; 1; 0; 1;24,9000;24,9000; 0; 1; 1; 1;10,0000;14,0000;18,0000;NA;NA; 2; 3; 7;0;0;0;0;0;0;0;0;0;0;0; 1;0;0
-Salmo trutta trutta L.;SAL.TRU.; 1; 0; 5; 1; 1; 1; 1; 0; 1; 2; 1;NA; 1; 0; 1;24,9000;24,9000; 0; 1; 1; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;1;1;1;1;0;0;0; 1;0;0
-Coregonus lavaretus L.;COR.LAV.; 1; 1; 0; 1; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 1; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 1;0;0
-Coregonus oxyrhynchus L.;COR.OXY.; 1; 0; 5; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 1; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 1;0;0
-Thymallus thymallus L.;THY.THY.; 1; 0; 5; 1; 3; 5; 0; 1; 1; 1; 1;NA; 1; 0; 0;NA;NA; 1; 1; 1; 1;14,0000;24,0000;NA;NA;NA;NA; 2; 7;0;0;0;0;0;0;0;0;0;0;0; 1;0;0
-Gasterosteus aculeatus L.;GAS.ACU.; 1; 0; 1; 3; 3; 2; 1; 0; 1; 0; 0;NA; 0; 1; 0;NA;NA; 0; 1; 1; 1; 4,0000;NA;NA;NA;NA;NA;NA;NA;1;1;0;0;1;1;1;1;0;0;0; 1;0;0
-Pungitius pungitius L.;PUN.PUN.; 1; 0; 1; 3; 3; 1; 1; 0; 1; 0; 0;NA; 0; 1; 0;NA;NA; 0; 0; 1; 1; 4,0000;NA;NA;NA;NA;NA;NA;NA;1;1;0;0;0;1;1;1;0;0;0; 0;0;0
-Cottus perifretum;COT.PER.; 1; 0; 5; 1; 3; 4; 1; 1; 1; 0; 1; 1; 1; 0; 0;NA;NA; 1; 0; 1; 1; 4,9900; 8,0000;NA;NA;NA; 2; 3; 7;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Lepomis gibbosus L.;LEP.GIB.; 1; 1; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 1; 1; 4,6000; 8,0000;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Gymnocephalus cernua L.;GYM.CER.; 1; 0; 2; 5; 3; 1; 1; 0; 1; 0; 0; 1; 1; 0; 0;NA;NA; 1; 1; 1; 1; 5,0000; 7,0000;11,0000;NA;NA;NA;NA;NA;1;1;1;1;1;1;1;1;0;0;0; 0;0;0
-Perca fluviatilis L.;PER.FLU.; 1; 0; 2; 5; 3; 2; 1; 0; 1; 0; 0;NA; 1; 0; 1;13,0001;13,0001; 1; 1; 1; 1; 7,0000;13,0000;20,0000;NA;NA;NA;NA;NA;1;1;0;1;1;1;1;1;0;0;0; 0;0;0
-Sander lucioperca L.;SAN.LUC.; 1; 1; 3; 5; 3; 0; 1; 0; 1; 0; 0;NA; 0; 0; 1;NA;NA; 0; 1; 1; 1;12,0000;29,2000;40,0000;NA;NA;NA;NA;NA;1;1;0;0;1;1;1;1;0;0;0; 0;0;0
-Chelon ramada;CHE.RAM.; 1; 0; 0; 0; 0; 0; 1; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 1; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;1;1;1;1;0;0;0; 1;0;1
-Chelon labrosus Risso;CHE.LAB.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;1;0
-Platichtys flesus L.;PLA.FLE.; 1; 0; 2; 1; 1; 1; 0; 0; 1; 0; 0; 1; 1; 0; 0;NA;NA; 1; 1; 1; 0;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;1;1;1;1;1;0;0; 1;0;1
-Hypophtalmichthys molitrix Valenciennes L.;HYP.MOL.; 1; 1; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 1; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Pomatoschistus microps Kroyer;POM.MIC.; 1; 0; 0; 0; 0; 0; 1; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 1; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;1;1;0;1;1;0;1; 0;0;0
-Sprattus sprattus L.;SPR.SPR.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;1;1;0;1;0;0;0; 0;1;0
-Pleuronectes platessa L.;PLE.PLA.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;1;0;0;1;0;1;0; 0;1;0
-Pomatoschistus minutus Pallas;POM.MIN.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 1; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;1;1;0;1;1;0;1; 0;0;0
-Trisopterus luscus L.;TRI.LUS.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;1;1;0;0;0;0;0; 0;1;0
-Dicentrarchus labrax L.;DIC.LAB.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 1; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;1;1;0;1;0;1;0; 0;1;1
-Aspius aspius;ASP.ASP.; 1; 1; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 1; 1;14,9900;35,0000;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Carassius auratus;CAR.AUR.; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;0;0; 0;0;0
-Chalcalburnus chalcoides;CHA.CHA.; 0; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 1; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-NA;HYB.HYB.; 0; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Salmo salar;SAL.SAL.; 1; 0; 5; 1; 1; 5; 0; 0; 1; 2; 1;NA; 1; 0; 0;NA;NA; 1; 1; 1; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;0;0; 1;0;0
-Vimba vimba;VIM.VIM.; 1; 1; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Acipenser baeri;ACI.BAE.; 1; 1; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;0;0; 0;0;0
-Engraulis encrasicolus;ENG.ENC.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;1;0;0;1;0;0;0; 0;1;0
-Argyrosomus regius;ARG.REG.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Pholis gunnellus;PHO.GUN.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;1; 0;0;0
-Conger conger;CON.CON.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;0;0; 0;0;0
-Squalus acanthias;SQU.ACA.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;0;0; 0;0;0
-Belone belone;BEL.BEL.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;0;0; 0;1;0
-Pomatoschistus pictus;POM.PIC.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Aphia minuta;APH.MIN.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;1;0;0;1;1;0;1; 0;0;0
-Eutrigla gurnardus;EUT.GUR.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Scophthalmus rhombus;SCO.RHO.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;1;0; 0;1;0
-NA;POM.XXX.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 1; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Syngnathus acus;SYN.ACU.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;1;1;0;1;1;0;1; 0;0;0
-Clupea harengus;CLU.HAR.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;1;1;0;1;0;1;0; 0;1;0
-Agonus cataphractus;AGO.CAT.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;1;0;1; 0;0;1
-Trachurus trachurus;TRA.TRA.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;0;0; 0;0;0
-Gadus morhua;GAD.MOR.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;1;0; 0;1;0
-Hippocampus ramulosus;HIP.RAM.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;1;0;0; 0;0;0
-Echeiichthys vipera;ECH.VIP.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;0;0; 0;0;0
-Syngnathus rostellatus;SYN.ROS.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;1;1;0;1;1;0;1; 0;0;0
-Pollachius virens;POL.VIR.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Atherina presbyter;ATH.PRE.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;1;0; 0;0;0
-Hippocampus hippocampus;HIP.HIP.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Pomatoschistus lozanoi;POM.LOZ.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;0;0; 0;0;0
-Scomber scombrus;SCO.SCO.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Scomberesox saurus;SCO.SAU1; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;0;0; 0;0;0
-Mullus surmuletus;MUL.SUR.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;0;0; 0;0;0
-Callionymus lyra;CAL.LYR.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;0;0; 0;0;0
-Pollachius pollachius;POL.POL.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Zoarces viviparus;ZOA.VIV.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;1;1;0;1;1;0;1; 0;0;1
-Chelidonichthys lucernus;CHE.LUC.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;1;0;0;1;0;1;0; 0;1;0
-Limanda limanda;MIM.LIM.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;1;0; 0;1;0
-Arnoglossus laterna;ARN.LAT.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;0;0; 0;0;0
-Liparis liparis;LIP.LIP.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;1;0;0;1;1;0;1; 0;0;0
-Hyperoplus lanceolatus;HYP.LAN.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;0;0; 0;0;0
-Cyclopterus lumpus;CYC.LUM.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;0;0; 0;1;0
-Raja clavata;RAJ.CLA.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;0;0; 0;0;0
-Scophthalmus maximus;SCO.MAX.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;1;0; 0;1;0
-Solea solea;SOL.SOL.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;1;1;0;1;0;1;0; 0;1;1
-Ciliata mustela;CIL.MUS.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;0;0; 0;1;1
-Raniceps raninus;RAN.RAN.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Merlangius merlangus;MER.MER.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;1;0;0;1;0;1;0; 0;1;0
-Ammodytes tobianus;AMM.TOB.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;1;0;0; 0;0;1
-Myoxocephalus scorpius;MYO.SCO.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;1;1;0;1;1;0;1; 0;0;1
-Squatina squatina;SQU.SQU.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;0;0; 0;0;0
-Spinachia spinachia;SPI.SPI.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Acipenser ruthenus;ACI.RUT.; 1; 1; 0; 0; 0; 0; 0; 0; 0; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Gobius niger;GOB.NIG1.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;1; 0;0;0
-Clarias gariepinus;CLA.GAR.; 0; 1; 0; 0; 0; 0; 0; 0; 0; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Sabanejewia aurata;SAB.AUR.; 0; 1; 4; 3; 0; 0; 0; 0; 0; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Cottus poecilopus;COT.POE.; 0; 1; 0; 0; 0; 0; 0; 0; 0; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Lampetra sp.;LAM.SPE.; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-NA;KAR.KAR.; 0; 0; 2; 0; 0; 0; 0; 0; 0; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Telestes souffia ;TEL.SOE.; 0; 1; 0; 0; 0; 0; 0; 0; 0; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Lipophrys pholis;LIP.PHO.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Proterorhinus semilunaris;PRO.SEM.; 1; 1; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 1; 1; 5,0000;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Micropterus salmoides;MIC.SAL.; 0; 1; 0; 0; 0; 0; 0; 0; 0; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Entelurus aequoreus;ENT.AEQ.; 1; 0; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Neogobius melanostomus;NEO.MEL.; 1; 1; 0; 0; 0; 0; 0; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-NA;NA; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-NA;NA; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-NA;NA; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-NA;NA; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-NA;NA; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Parachondrostoma toxostoma;PAR.TOX.; 0; 1; 0; 0; 0; 0; 0; 0; 0; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Barbus meridionalis;BAR.MER.; 0; 1; 0; 0; 0; 0; 0; 0; 0; 0; 0;NA; 0; 0; 0;NA;NA; 0; 0; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Buglossidium luteum;BUG.LUT.; 1; 0; 0; 0; 0; 0; 1; 0; 1; 0; 0;NA; 0; 0; 0;NA;NA; 0; 1; 0; 0;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0; 0;0;0
-Cottus gobio L.;COT.GRP.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;1;0;0;0;NA;0;0
-Dasyatis pastinaca;DAS.PAS.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;0;0;0;0;0;0;0;NA;0;0
+taxonname;taxoncode;Exoot;WF_Tolerantie;WF_Type_Brasem;WF_Type_Barbeel;WF_Type_Upstream;Grootte_Klasse_upstream;Migratie;Spec_Paaier;Bentisch;Invertivoor;Omnivoor;Piscivoor_brak;Piscivoor_zoet;MniZoet;Nat_Recrutering_brasem_en_barbeel;Canals;Lakes;BenWei;brak_marine_juvenile_migrating;opmerking.x;MnsTot_en_MniInd_brabeel;MniTol_brabeel;MniInv_brabeel;MpsRec_brabeel;MniSpa_brongebied;MniRhe_brongebied;ManTol_soortenlijst_brongebied;MniInd_Getijde_rivieren_zoet;MniSpa_Getijde_rivieren_zoet;MniInv_Getijde_rivieren_zoet;MnsPis_Getijde_rivieren_zoet;MnsEst_Ijzerestuariumindex;Dia_ijzerestuariumindex;MnsMjs_Ijzerestuariumindex;MnsTyp_Ijzerestuariumindex;opmerking.y;MnsTot_en_MnsInd_Zeeschelde_mesohalien;MnsDia_Zeeschelde_mesohalien;MnsSpa_Zeeschelde_mesohalien;MnsHab_Zeeschelde_mesohalien;MniInt_Zeeschelde_mesohalien;MnsMms_Zeeschelde_mesohalien;opmerkingen;MniInd_Zeeschelde_oligohalien;MnsPis_Zeeschelde_oligohalien;MnsInt_Zeeschelde_oligohalien;MnsDia_Zeeschelde_oligohalien;MnsMms_Zeeschelde_oligohalien;MnsErs_Zeeschelde_olgohaliensmallint;MniInd_en_MnsTot_Zeeschelde_zoet;MniSpa_Zeeschelde_zoet;MniPis_Zeeschelde_zoet;MniBen_Zeeschelde_zoet;MniDia_Zeeschelde_zoet;opmerking
+Entelurus aequoreus;ENT.AEQ.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Clarias gariepinus;CLA.GAR.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Alburnus alburnus;ALB.ALB.;0;2;3;3;2;0;0;0;0;1;0;0;0;1;1;1;0;0;0;NA;1;1;1;1;0;0;1;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;0;enkel in macro in MnsTot niet in MniInd (aangepast)
+Umbra pygmaea ;UMB.PYG.;1;0;0;0;0;0;0;0;0;1;0;0;0;1;1;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Engraulis encrasicolus;ENG.ENC.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;1;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Argyrosomus regius;ARG.REG.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Salmo salar;SAL.SAL.;0;5;1;1;5;0;2;1;0;1;0;1;0;1;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;1;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Perca fluviatilis L.;PER.FLU.;0;2;5;3;2;0;0;0;0;1;0;1;1;1;1;1;1;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;1;0;0;0;0;0;NA;1;1;0;0;0;0;1;0;1;0;0;NA
+Barbus barbus L;BAR.BAR.;0;4;1;5;4;1;1;1;1;0;1;0;0;1;1;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Cottus rhenanus;COT.RHE.;0;5;1;3;4;1;0;1;1;1;0;0;0;1;1;0;0;0;0;toegevoegd;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Salmo trutta fario L.;SAL.FAR.;0;5;1;3;5;1;1;1;0;1;0;1;1;1;1;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;1;0;0;NA;1;1;0;0;1;0;NA;1;1;1;1;0;0;1;0;1;0;1;NA
+Lampetra planeri Bloch;LAM.PLA.;0;3;1;2;4;0;0;1;1;0;0;0;0;1;1;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Barbatula barbatula L.;BAR.BUS.;0;3;1;3;5;1;0;1;1;1;0;0;0;1;1;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Rhodeus amarus;RHO.AMA.;0;3;5;3;1;0;0;1;0;0;0;0;0;1;1;1;1;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;0;0;1;0;0;1;0;NA
+Rutilus rutilus L.;RUT.RUT.;0;1;5;3;1;0;0;0;0;0;1;0;0;1;1;1;1;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;1;0;0;0;0;0;NA;1;0;0;0;0;0;1;0;0;0;0;NA
+Pseudorasbora parva Schlegel;PSE.PAR.;1;0;0;0;0;0;0;0;0;0;1;0;0;1;1;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Vimba vimba;VIM.VIM.;1;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Platichtys flesus L.;PLA.FLE.;0;2;1;1;1;0;0;0;1;1;0;1;0;1;0;1;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;1;0;1;NA;1;1;0;1;0;0;NA;1;1;0;1;0;0;1;0;1;1;1;NA
+Pholis gunnellus;PHO.GUN.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;NA;1;0;0;0;0;0;staat niet in de MACRO maar jan in mail dat mocht worden toegevoegd;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Pomatoschistus microps Kroyer;POM.MIC.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;NA;1;0;1;1;0;0;NA;1;0;0;0;0;1;1;0;0;0;0;enkel in macro in MnsTot niet in MniInd (aangepast)
+Abramis brama L.;ABR.BRA.;0;1;5;2;1;0;0;0;0;0;1;0;0;1;1;1;1;1;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;0;0;1;0;0;0;0;NA
+Salvenius fontinalis Mitchill;SAL.FON.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Ameiurus nebulosus Le Sueur;AME.NEB.;1;0;0;0;0;0;0;0;0;0;0;0;0;1;1;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Conger conger;CON.CON.;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Pimephales promelas;PIM.PRO.;1;0;0;0;0;0;0;0;0;0;0;0;0;1;1;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Pomatoschistus minutus Pallas;POM.MIN.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;NA;1;0;1;1;0;0;NA;1;0;0;0;0;1;NA;NA;NA;NA;NA;NA
+Chelon labrosus Risso;CHE.LAB.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;1;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Cottus gobio L.;COT.GRP.;0;5;1;3;4;1;0;1;1;1;0;0;0;1;1;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Squalus acanthias;SQU.ACA.;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Gasterosteus aculeatus L.;GAS.ACU.;0;1;3;3;2;0;0;0;0;0;1;0;0;1;1;1;1;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;1;0;0;NA;1;1;0;1;0;0;NA;1;0;0;1;0;0;1;1;0;0;1;NA
+Chelon ramada;CHE.RAM.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;1;0;1;0;0;1;0;1;NA;1;1;0;0;1;0;NA;1;0;1;1;0;0;NA;NA;NA;NA;NA;NA
+Buglossidium luteum;BUG.LUT.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Alosa alosa L.;ALO.ALO.;0;5;1;1;1;0;1;1;0;0;0;1;1;1;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;1;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Phoxinus phoxinus L.;PHO.PHO.;0;5;1;3;4;1;0;1;0;0;1;0;0;1;1;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Silurus glanis L.;SIL.GLA.;0;2;4;2;1;0;0;0;1;0;0;1;1;1;1;1;1;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;1;1;0;0;0;0;1;1;1;1;0;NA
+Acipenser sturio L.;ACI.STU.;0;5;1;3;0;0;1;1;0;0;0;0;0;1;1;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;1;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Alosa fallax;ALO.FAL.;0;5;1;1;1;0;0;1;0;0;0;1;1;1;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;1;0;1;0;0;NA;1;1;0;0;1;0;NA;1;1;1;1;0;0;1;1;1;0;1;NA
+Parachondrostoma toxostoma;PAR.TOX.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Belone belone;BEL.BEL.;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;1;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Alburnoides bipunctatus Bloch;ALB.BIP.;0;5;1;3;4;1;0;1;0;1;0;0;0;1;1;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Pomatoschistus pictus;POM.PIC.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;1;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Dasyatis pastinaca;DAS.PAS.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;niet in VIS2;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Carassius gibelio L.;CAR.AUG.;1;0;2;1;0;0;0;0;0;0;1;0;0;1;1;1;1;1;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Aphia minuta;APH.MIN.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;NA;1;0;0;0;0;0;staat in MnsTot en niet in MnsInd in Macro;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Sabanejewia aurata;SAB.AUR.;1;4;3;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Carassius auratus;CAR.AUR.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Ctenopharyngodon idella Valenciennes;CTE.IDE.;1;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Eutrigla gurnardus;EUT.GUR.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;1;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Scophthalmus rhombus;SCO.RHO.;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;1;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Taurulus bubalis;TAU.BUB.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;POM.XXX.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;1;0;1;1;0;0;NA;1;0;0;0;0;1;NA;NA;NA;NA;NA;NA
+Micropterus salmoides;MIC.SAL.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Atherina presbyter;ATH.PRE.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Coregonus lavaretus L.;COR.LAV.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;1;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Misgurnus fossilis L.;MIS.FOS.;0;3;3;1;1;0;0;1;1;1;0;0;0;1;1;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;1;0;NA
+Syngnathus acus;SYN.ACU.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;NA;1;0;1;1;1;0;NA;1;1;1;0;0;1;NA;NA;NA;NA;NA;NA
+Clupea harengus;CLU.HAR.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;1;0;NA;1;0;0;0;0;1;NA;1;0;0;0;1;0;NA;NA;NA;NA;NA;NA
+Agonus cataphractus;AGO.CAT.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Trachurus trachurus;TRA.TRA.;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;HYB.HYB.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Gadus morhua;GAD.MOR.;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;1;0;NA;1;0;0;0;1;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Ictalurus punctatus rafinesque;ICT.PUN.;1;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;Amerikaanse meerval;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Cyprinus carpio L.;CYP.CAR.;0;2;3;1;1;0;0;0;0;0;1;0;0;1;1;1;1;1;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;KAR.KAR.;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Hippocampus ramulosus;HIP.RAM.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Atherina boyeri;ATH.BOY.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;1;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Cobitis taenia L.;COB.TAE.;0;4;3;3;1;0;0;1;1;1;0;0;0;1;1;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Echeiichthys vipera;ECH.VIP.;0;0;0;0;0;0;0;0;0;0;1;1;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Syngnathus rostellatus;SYN.ROS.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;NA;1;0;1;1;1;0;NA;1;0;1;0;0;1;NA;NA;NA;NA;NA;NA
+Blicca bjoerkna L.;BLI.BJO.;0;2;5;2;1;0;0;0;0;0;1;0;0;1;1;1;1;1;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;0;0;1;0;0;0;0;NA
+Pollachius virens;POL.VIR.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Leuciscus cephalus L.;LEU.CEP.;0;3;3;5;4;1;1;1;0;0;1;0;0;1;1;1;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Hippocampus hippocampus;HIP.HIP.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Carassius carassius L.;CAR.CAR.;0;3;2;1;1;0;0;0;0;0;1;0;0;1;1;1;1;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;0;NA
+Lota lota L.;LOT.LOT.;0;4;3;3;3;0;1;1;1;0;0;1;1;1;1;0;1;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Pomatoschistus lozanoi;POM.LOZ.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Scomber scombrus;SCO.SCO.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Scomberesox saurus;SCO.SAU1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Proterorhinus semilunaris;PRO.SEM.;1;0;0;0;0;0;0;0;0;0;0;0;0;1;1;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Barbus meridionalis;BAR.MER.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Mullus surmuletus;MUL.SUR.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Coregonus oxyrhynchus L.;COR.OXY.;0;5;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;1;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Anguilla anguilla L.;ANG.ANG.;0;2;4;3;2;1;2;0;1;0;1;0;0;1;1;1;1;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;1;0;0;NA;1;1;0;0;0;0;NA;1;0;0;1;0;0;1;0;0;1;1;NA
+Callionymus lyra;CAL.LYR.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Pollachius pollachius;POL.POL.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Gymnocephalus cernua L.;GYM.CER.;0;2;5;3;1;0;0;0;1;1;0;0;0;1;1;1;1;1;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;1;0;0;1;0;0;NA;1;0;0;0;0;0;1;0;0;1;0;NA
+Lampetra sp.;LAM.SPE.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Zoarces viviparus;ZOA.VIV.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;1;NA;1;0;1;1;0;0;NA;1;0;0;0;0;1;NA;NA;NA;NA;NA;NA
+Oncorhyncus mykiss Walbaum;ONC.MYK.;1;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Scardinius erythrophtalmus L;SCA.ERY.;0;3;5;3;1;0;0;1;0;0;1;0;0;1;1;1;1;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;0;0;1;0;0;0;0;NA
+Cottus perifretum;COT.PER.;0;5;1;3;4;1;0;1;1;1;0;0;0;1;1;0;0;0;0;NA;1;0;1;1;1;1;1;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Gobio gobio L.;GOB.GOB.;0;3;1;5;4;1;0;1;0;1;0;0;0;1;1;1;1;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Lampetra fluviatilis L.;LAM.FLU.;0;3;1;1;3;0;2;1;1;0;0;1;1;1;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;1;0;0;NA;1;1;0;1;1;0;NA;1;1;1;1;0;0;1;1;1;1;1;NA
+Chelidonichthys lucernus;CHE.LUC.;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;1;0;NA;1;0;0;1;0;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Aspius aspius;ASP.ASP.;1;0;0;0;0;0;0;0;0;0;0;0;0;1;1;0;0;0;0;Leuciscus aspius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;Leuciscus aspius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Limanda limanda;MIM.LIM.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Pleuronectes platessa L.;PLE.PLA.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;1;0;NA;1;0;0;1;0;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Arnoglossus laterna;ARN.LAT.;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Leuciscus leuciscus L.;LEU.LEU.;0;4;1;5;5;1;0;1;0;1;0;0;0;1;1;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Cottus poecilopus;COT.POE.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Acipenser baeri;ACI.BAE.;1;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Liparis liparis;LIP.LIP.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;NA;1;0;0;1;1;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Lipophrys pholis;LIP.PHO.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Hyperoplus lanceolatus;HYP.LAN.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Chondrostoma nasus L.;CHO.NAS.;0;4;1;4;4;1;1;1;1;0;1;0;0;1;1;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Esox lucius L.;ESO.LUC.;0;4;5;4;2;0;0;1;0;0;0;1;1;1;1;1;1;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;1;1;1;0;0;0;1;1;1;0;0;NA
+Sander lucioperca L.;SAN.LUC.;1;3;5;3;0;0;0;0;0;0;0;1;1;1;1;1;1;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;1;0;0;0;0;0;NA;1;1;0;0;0;0;1;0;1;0;0;NA
+Cyclopterus lumpus;CYC.LUM.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;1;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Telestes souffia ;TEL.SOE.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Osmerus eperlanus L.;OSM.EPE.;0;4;1;1;2;0;0;1;0;1;0;1;1;1;1;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;1;0;0;NA;1;1;0;0;1;0;NA;1;1;1;1;0;0;1;1;1;0;1;NA
+Sprattus sprattus L.;SPR.SPR.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;1;0;0;0;0;1;NA;1;0;0;0;1;0;NA;NA;NA;NA;NA;NA
+Trisopterus luscus L.;TRI.LUS.;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;1;0;NA;1;0;0;0;0;1;NA;1;1;0;0;1;0;NA;NA;NA;NA;NA;NA
+Raja clavata;RAJ.CLA.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Acipenser ruthenus;ACI.RUT.;1;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Scophthalmus maximus;SCO.MAX.;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;1;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Pungitius pungitius L.;PUN.PUN.;0;1;3;3;1;0;0;0;0;0;1;0;0;1;1;1;1;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;0;0;1;1;0;0;0;NA
+Solea solea;SOL.SOL.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;1;1;NA;1;0;0;1;1;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Leucaspius delineatus L.;LEU.DEL.;0;4;2;1;1;0;0;0;0;0;0;0;0;1;1;1;1;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;0;enkel in macro in MnsTot niet in MniInd (aangepast)
+Ciliata mustela;CIL.MUS.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;1;NA;1;0;0;1;0;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Thymallus thymallus L.;THY.THY.;0;5;1;3;5;1;1;1;0;1;0;0;0;1;1;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Raniceps raninus;RAN.RAN.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Merlangius merlangus;MER.MER.;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;1;0;NA;1;0;0;1;0;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Leuciscus idus L.;LEU.IDE.;0;4;4;4;2;0;0;0;0;0;1;0;0;1;1;1;1;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;1;1;1;0;0;0;1;0;1;0;0;NA
+Ammodytes tobianus;AMM.TOB.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;in de macro staat dit soms als kleine zandspiering;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;1;NA;1;0;0;0;0;0;staat in MnsTot niet in MnsInd in Macro;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Ammodytes tobianus;AMM.TOB.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;in de macro staat dit soms als kleine zandspiering;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;in de macro staat dit als kleine zandspiering;1;0;0;0;0;0;staat in MnsTot niet in MnsInd in Macro;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Squatina squatina;SQU.SQU.;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Dicentrarchus labrax L.;DIC.LAB.;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;1;1;NA;1;0;0;0;0;1;NA;1;1;0;0;1;0;NA;NA;NA;NA;NA;NA
+Myoxocephalus scorpius;MYO.SCO.;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;1;NA;1;0;0;0;0;0;NA;1;1;0;0;0;1;NA;NA;NA;NA;NA;NA
+Salmo trutta trutta L.;SAL.TRU.;0;5;1;1;1;0;2;1;0;1;0;1;1;1;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;1;0;0;NA;1;1;0;0;1;0;NA;1;1;1;1;0;0;1;0;1;0;1;niet in MniInd wel MnsTot (aangepast)
+Tinca tinca L.;TIN.TIN.;0;3;5;2;1;0;0;1;1;0;1;0;0;1;1;1;1;1;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Petromyzon marinus L.;PET.MAR.;0;5;1;0;1;0;1;1;0;0;0;0;0;1;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;1;0;0;NA;1;1;1;1;1;0;NA;1;1;1;1;0;0;1;1;1;0;1;NA
+Spinachia spinachia;SPI.SPI.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Hypophtalmichthys molitrix Valenciennes L.;HYP.MOL.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Lepomis gibbosus L.;LEP.GIB.;1;0;0;0;0;0;0;0;0;0;0;0;0;1;1;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Neogobius melanostomus;NEO.MEL.;1;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Ameiurus melas Rafinesque L.;AME.MEL.;1;0;0;0;0;0;0;0;0;0;0;0;0;1;1;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Gobius niger;GOB.NIG1.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Chalcalburnus chalcoides;CHA.CHA.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Ponticola Kessleri;NEO.KES.;1;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;toegevoegd;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Ballerus sapa;BAL.SAP.;1;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;toegevoegd;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Misgurnus anguillicaudatis;MIS.ANG.;1;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;toegevoegd;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Neogobius fluviatilis;NEO.FLU.;1;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;toegevoegd;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Salmo trutta;SAL.TRT.;0;5;1;3;5;1;1;0;0;1;0;1;1;1;1;0;0;0;0;toegevoegd;1;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Abramis brama;ABR.BRA.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;0;1;0;0;1;1;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;0;0;NA;NA;NA;NA;NA;NA
+Alburnoides bipunctatus (Bloch, 1782);ALB.BIP.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;1;1;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Anguilla anguilla;ANG.ANG.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;1;0;0;1;1;0;0;0;0;1;0;0;NA;1;1;0;0;0;0;NA;1;0;0;1;0;0;NA;NA;NA;NA;NA;NA
+Barbatula barbatula;BAR.BUS.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;1;1;1;1;1;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Barbus barbus;BAR.BAR.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;1;1;1;1;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Blicca bjoerkna;BLI.BJO.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;0;1;0;0;1;1;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;0;0;NA;NA;NA;NA;NA;NA
+Carassius carassius;CAR.CAR.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;1;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Chondrostoma nasus;CHO.NAS.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;1;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Cobitis taenia ;COB.TAE.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;1;1;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Cyprinus carpio;CYP.CAR.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;1;0;0;1;1;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Esox lucius;ESO.LUC.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;1;1;0;1;1;1;0;1;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;1;1;1;0;0;0;NA;NA;NA;NA;NA;NA
+Gasterosteus aculeatus;GAS.ACU.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;0;1;0;0;1;1;1;0;0;0;1;0;0;NA;1;1;0;1;0;0;NA;1;0;0;1;0;0;NA;NA;NA;NA;NA;NA
+Gobio perifretum;GOB.GOB.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;1;1;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Gymnocephalus cernua;GYM.CER.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;1;1;0;0;1;1;0;1;0;0;0;0;0;NA;1;0;0;1;0;0;NA;1;0;0;0;0;0;NA;NA;NA;NA;NA;NA
+Lampetra fluviatilis;LAM.FLU.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;NA;NA;NA;1;1;0;0;0;1;0;0;NA;1;1;0;1;1;0;NA;1;1;1;1;0;0;NA;NA;NA;NA;NA;NA
+Lampetra planeri;LAM.PLA.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;1;1;1;1;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Leucaspius delineatus ;LEU.DEL.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;1;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Leuciscus idus;LEU.IDE.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;1;0;1;1;1;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;1;1;1;0;0;0;NA;NA;NA;NA;NA;NA
+Leuciscus leuciscus;LEU.LEU.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;1;1;1;1;1;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Lota lota;LOT.LOT.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;1;1;0;1;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Misgurnus fossilis;MIS.FOS.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;1;1;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Perca fluviatilis;PER.FLU.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;0;1;0;0;1;1;0;1;1;0;0;0;0;NA;1;0;0;0;0;0;NA;1;1;0;0;0;0;NA;NA;NA;NA;NA;NA
+Phoxinus phoxinus;PHO.PHO.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;1;NA;NA;NA;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Platichthys flesus;PLA.FLE.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;1;0;NA;NA;NA;1;0;1;0;0;1;0;1;NA;1;1;0;1;0;0;NA;1;1;0;1;0;0;NA;NA;NA;NA;NA;NA
+Pungitius pungitius;PUN.PUN.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;0;1;0;0;1;1;1;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;0;0;NA;NA;NA;NA;NA;NA
+Rhodeus sericeus;RHO.AMA.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;1;1;0;1;1;1;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;0;0;NA;NA;NA;NA;NA;NA
+Rutilus rutilus;RUT.RUT.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;0;1;0;0;1;1;0;0;0;0;0;0;0;NA;1;0;0;0;0;0;NA;1;0;0;0;0;0;NA;NA;NA;NA;NA;NA
+Salmo salar	Atlantische;SAL.SAL.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;NA;NA;NA;NA;NA;NA;NA;0;1;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Salmo trutta fario;SAL.FAR.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;1;NA;NA;NA;NA;NA;NA;NA;0;1;0;0;NA;1;1;0;0;1;0;NA;1;1;1;1;0;0;NA;NA;NA;NA;NA;NA
+Sander lucioperca;SAN.LUC.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;1;NA;NA;NA;1;0;0;1;0;0;0;0;NA;1;0;0;0;0;0;NA;1;1;0;0;0;0;NA;NA;NA;NA;NA;NA
+Scardinius erythrophthalmus;SCA.ERY.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;1;1;0;1;1;1;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;0;0;NA;NA;NA;NA;NA;NA
+Silurus glanis;SIL.GLA.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;1;NA;NA;NA;1;0;0;1;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;1;1;0;0;0;0;NA;NA;NA;NA;NA;NA
+Squalius cephalus;LEU.CEP.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;1;0;1;1;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Tinca tinca;TIN.TIN.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;0;1;1;0;1;1;1;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Cottus gobio;COT.GRP.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;1;1;1;1;1;NA;NA;NA;NA;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Cottues rhenanus;COT.RHE.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;1;1;1;1;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Salmo trutta;SAL.FAR.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;1;NA;NA;NA;NA;0;1;0;0;NA;1;1;0;0;1;0;NA;1;1;1;1;0;0;NA;NA;NA;NA;NA;NA
+Gobio gobio;GOB.GOB.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;1;1;1;1;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Leucaspius delineatus;LEU.DEL.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;1;1;0;0;0;0;0;0;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Osmerus eperlanus;OSM.EPE.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;1;0;1;0;0;NA;1;1;0;0;1;0;NA;1;1;1;1;0;0;NA;NA;NA;NA;NA;NA
+Pomatoschistus microps;POM.MIC.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;1;0;1;0;0;0;NA;1;0;1;1;0;0;NA;1;0;0;0;0;1;NA;NA;NA;NA;NA;NA
+Pomatoschistus minutus;POM.MIN.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;1;0;1;0;0;0;NA;1;0;1;1;0;0;NA;1;0;0;0;0;1;NA;NA;NA;NA;NA;NA
+NA;LIM.LIM.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;0;0;1;0;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Chelon ramada	;CHE.RAM.;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;0;0;0;1;NA
