@@ -24,6 +24,7 @@ library(ggplot2)
 library(readr)
 library(EQRfishes)
 library(knitr)
+library(tidyr)
 
 options(knitr.kable.NA = "")
 ```
@@ -106,7 +107,7 @@ suppressMessages(
 
 Old huetzonation for indextypecode ZTWA:
 
-```{r zonation-ZTWA}
+```{r zonation-ZTWA-old}
 suppressMessages(
   read_csv2(system.file("extdata/data_zonation.csv", package = "EQRfishes"))
 ) %>%
