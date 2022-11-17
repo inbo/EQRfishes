@@ -39,13 +39,13 @@ MmksRec_canals;sum_of_scored_length_classes;multiple;Canals == 1;;;1;;;;;
 GewBen;total_weight;;BenWei == 1;;1;;;;;;
 TotWeight_canals;total_weight;;Canals == 1;;;;;;;;
 ManSha;shannon_wiener_index;;;;;;;;;;
-TotWeight_lakes;total_weight;;Lakes == 1;;;;;;;;checken of dit echt totweight (= ManBio / surface) moet zijn, of ManBio, zie formules! -> idem kanalen?
+TotWeight_lakes;total_weight;;Lakes == 1;;;;;;;;
 MniInd_lakes;number_of_individuals;;Lakes == 1;;;;;;;;
 MniOmn_lakes;number_of_individuals;;Lakes == 1 & Omnivoor == 1;;;;;;;;
 MniPis_lakes;number_of_individuals;;Lakes == 1 & Piscivoor_zoet == 1;;;;;;;;
 MniInvt_lakes;number_of_individuals;;Lakes == 1 & Invertivoor == 1;;;;;;;;
-MnsTot_lakes;number_of_species;;Lakes == 1;;;;;;;;check
-MnsRec_lakes;sum_of_scored_length_classes;multiple;Lakes == 1;;;1;;;;;check
+MnsTot_lakes;number_of_species;;Lakes == 1;;;;;;;;
+MnsRec_lakes;sum_of_scored_length_classes;multiple;Lakes == 1;;;1;;;;;
 MniInd_freshwater;number_of_individuals;;MniInd_en_MnsTot_Zeeschelde_zoet == 1;;;;;;;;
 MniPis_freshwater;number_of_individuals;;MniPis_Zeeschelde_zoet == 1;;;;;;;;
 MniInd_brak;number_of_individuals;;;;;;;;;;
@@ -62,7 +62,7 @@ MnsMjs;number_of_species;;MnsMjs_Ijzerestuariumindex == 1;;;;;;;;
 MnsTyp;number_of_species;;MnsTyp_Ijzerestuariumindex == 1;;;;;;;;
 MnsDia_oligohaline;number_of_species;;MnsDia_Zeeschelde_oligohalien == 1;;;;;;;;
 MnsDia_mesohaline;number_of_species;;MnsDia_Zeeschelde_mesohalien == 1;;;;;;;;
-MniSme_brak;number_of_individuals;;"taxoncode == ""OSM.EPE.""";;;;;;;;check
+MniSme_brak;number_of_individuals;;"taxoncode == ""OSM.EPE.""";;;;;;;;
 MniMjm_brak;number_of_individuals;;brak_marine_juvenile_migrating == 1;;;;;;;;
 MniDia_freshwater;number_of_individuals;;MniDia_Zeeschelde_zoet == 1;;;;;;;;
 MnsPis_oligohaline;number_of_species;;MnsPis_Zeeschelde_oligohalien == 1;;;;;;;;
@@ -73,7 +73,7 @@ MniInv_brabeel;number_of_individuals;;MniInv_brabeel == 1;;;;;;;;
 MnsTot_brabeel;number_of_species;;MnsTot_en_MniInd_brabeel == 1;;;;;;;;
 MmksRec_brabeel;sum_of_scored_length_classes;multiple;MpsRec_brabeel == 1;;;1;;;;;
 MniSpa_lakes;number_of_individuals;;Lakes == 1 & Spec_Paaier == 1;;;;;;;;
-MnsPis_lakes;number_of_species;;Lakes == 1 & Piscivoor == 1;taxoncode == 'PER.FLU.' & length <= 13.0;;;;;;;check
+MnsPis_lakes;number_of_species;;Lakes == 1 & Piscivoor == 1;taxoncode == 'PER.FLU.' & length <= 13.0;;;;;;;
 ManTol_lakes;sum_values_column;WF_Tolerantie;Lakes == 1;;;;;;;;
 MniSpa_freshwater;number_of_individuals;;MniSpa_Zeeschelde_zoet == 1;;;;;;;;
 MniBen_freshwater;number_of_individuals;;MniBen_Zeeschelde_zoet == 1;;;;;;;;
