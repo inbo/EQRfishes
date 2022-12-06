@@ -99,12 +99,6 @@ shannon_wiener_index <- function(data, specieslist) {
     return(0)
   }
   data %<>%
-    left_join(
-      specieslist %>%
-        select(.data$taxoncode, .data$Shannon_Weaner),
-      by = "taxoncode"
-    ) %>%
-    filter(.data$Shannon_Weaner == 1) %>%
     group_by(.data$taxoncode) %>%
     summarise(
       number = sum(.data$number)
