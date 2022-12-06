@@ -358,7 +358,10 @@ describe("intervals are correct", {
     )
     wrong_interval <- calculate_metric_score %>%
       select(.data$value_add_category) %>%
-      filter(!is.na(.data$value_add_category)) %>%
+      filter(
+        !is.na(.data$value_add_category),
+        !.data$value_add_category %in% c("spring", "summer", "autumn")
+      ) %>%
       distinct() %>%
       mutate(
         operator_min =
