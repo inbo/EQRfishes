@@ -70,7 +70,11 @@ calculate_eqr <-
     ) %>%
     nest(sampledata = c(.data$name, .data$value))
 
+  if (any(is.na(data_fish$taxoncode))) {
+    warning("For some records of data_fish, no taxoncode is given (value is NA). These will be excluded from the analysis.")
+  }
   data_fish %<>%
+    filter(!is.na(.data$taxoncode)) %>%
     mutate(sample_key = as.character(.data$sample_key)) %>%
     nest(
       fishdata =
