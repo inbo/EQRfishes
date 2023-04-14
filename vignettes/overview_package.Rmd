@@ -98,7 +98,7 @@ suppressMessages(
   read_csv2(system.file("extdata/data_zonation.csv", package = "EQRfishes"))
 ) %>%
   filter(.data$indextypecode == "ZTWA") %>%
-  select(-.data$tidal, -.data$indextypecode, -.data$zonation_old) %>%
+  select(-"tidal", -"indextypecode", -"zonation_old") %>%
   #mutate()
   pivot_wider(names_from = "width", values_from = "zonation") %>%
   arrange(.data$slope) %>%
@@ -112,7 +112,7 @@ suppressMessages(
   read_csv2(system.file("extdata/data_zonation.csv", package = "EQRfishes"))
 ) %>%
   filter(.data$indextypecode == "ZTWA") %>%
-  select(-.data$tidal, -.data$indextypecode, -.data$zonation) %>%
+  select(-"tidal", -"indextypecode", -"zonation") %>%
   #mutate()
   pivot_wider(names_from = "width", values_from = "zonation_old") %>%
   arrange(.data$slope) %>%
@@ -199,7 +199,7 @@ suppressMessages(
 )
 
 taxonlist %>%
-  select(.data$taxonname, .data$taxoncode, starts_with("WF_")) %>%
+  select("taxonname", "taxoncode", starts_with("WF_")) %>%
   kable()
 ```
 
@@ -209,7 +209,7 @@ Other columns only give presence/absence.  We here list for each column the spec
 out = NULL
 columns_relevant <- taxonlist %>%
   select(
-    -.data$taxonname, -.data$taxoncode, -starts_with("WF_"),
+    -"taxonname", -"taxoncode", -starts_with("WF_"),
     -starts_with("Recr_"), -starts_with("Gkla_"), -ends_with("_Opm")
   ) %>%
   colnames() %>%

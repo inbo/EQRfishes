@@ -13,7 +13,7 @@ number_of_individuals <- function(data) {
 
 number_of_species <- function(data) {
   data %<>%
-    select(.data$taxoncode) %>%
+    select("taxoncode") %>%
     mutate(
       taxoncode =
         ifelse(.data$taxoncode == "SAL.FAR.", "SAL.TRU.", .data$taxoncode)
@@ -35,7 +35,7 @@ number_of_length_classes <- function(data) {
       by = "taxoncode"
     ) %>%
     filter(var_in_interval(.data$length, .data$interval)) %>%
-    select(.data$taxoncode, .data$class) %>%
+    select("taxoncode", "class") %>%
     distinct() %>%
     count()
   return(data$n)
@@ -52,7 +52,7 @@ sum_of_scored_length_classes <- function(data, var) {
   if (all(is.na(scores$taxoncode))) {
     scores <-
       merge(
-        scores %>% select(-.data$taxoncode),
+        scores %>% select(-"taxoncode"),
         data.frame(taxoncode = unique(data$taxoncode), stringsAsFactors = FALSE)
       )
   }
@@ -67,7 +67,7 @@ sum_of_scored_length_classes <- function(data, var) {
       by = "taxoncode"
     ) %>%
     filter(var_in_interval(.data$length, .data$interval)) %>%
-    select(.data$taxoncode, .data$class) %>%
+    select("taxoncode", "class") %>%
     distinct() %>%
     group_by(.data$taxoncode) %>%
     summarise(nclass = n()) %>%
@@ -86,7 +86,7 @@ total_weight <- function(data) {
 
 sum_values_column <- function(data, specieslist, variable) {
   data %<>%
-    select(.data$taxoncode) %>%
+    select("taxoncode") %>%
     distinct() %>%
     left_join(specieslist, by = "taxoncode") %>%
     summarise(value = sum(get(variable)))

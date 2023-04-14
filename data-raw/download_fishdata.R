@@ -89,8 +89,8 @@ data_sample <- data_sample %>%
       )
   ) %>%
   select(
-    -.data$year_begin, -.data$year_end, -.data$season_begin, -.data$season_end,
-    -.data$Begindatum, -.data$Einddatum
+    -"year_begin", -"year_end", -"season_begin", -"season_end",
+    -"Begindatum", -"Einddatum"
   )
 
 data_sample_new <- data_sample %>%
@@ -114,7 +114,7 @@ data_sample_new <- data_sample %>%
   )
 
 key_translation <- data_sample %>%
-  select(.data$sample_key, .data$sample_key_new) %>%
+  select("sample_key", "sample_key_new") %>%
   distinct()
 
 data_fish <- data_fish %>%

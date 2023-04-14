@@ -66,9 +66,9 @@ calculate_eqr <-
     ) %>%
     gather(
       key = "name", value = "value",
-      -.data$sample_key, -.data$zonation, -.data$LocationID, -.data$method
+      -"sample_key", -"zonation", -"LocationID", -"method"
     ) %>%
-    nest(sampledata = c(.data$name, .data$value))
+    nest(sampledata = c("name", "value"))
 
   if (any(is.na(data_fish$taxoncode))) {
     warning("For some records of data_fish, no taxoncode is given (value is NA). These will be excluded from the analysis.")
@@ -78,8 +78,8 @@ calculate_eqr <-
     mutate(sample_key = as.character(.data$sample_key)) %>%
     nest(
       fishdata =
-        c(.data$record_id, .data$taxoncode, .data$number, .data$length,
-          .data$weight)
+        c("record_id", "taxoncode", "number", "length",
+          "weight")
     )
 
   result <- data_sample %>%
@@ -91,7 +91,7 @@ calculate_eqr <-
       ) %>%
         nest(
           metric_name_group =
-            c(.data$metric_formula_name, .data$metric_measures_name)
+            c("metric_formula_name", "metric_measures_name")
         ),
       by = "zonation",
       suffix = c("", "_for_metric")
@@ -114,18 +114,18 @@ calculate_eqr <-
 
   result_details <- result %>%
     select(
-      .data$sample_key, .data$zonation, .data$LocationID, .data$sampledata
+      "sample_key", "zonation", "LocationID", "sampledata"
     ) %>%
-    unnest(cols = c(.data$sampledata)) %>%
+    unnest(cols = c("sampledata")) %>%
     distinct()
 
   result_metrics <- result %>%
     select(
-      .data$sample_key, .data$zonation, .data$LocationID,
-      .data$sampledata, .data$metric_name, .data$metric_score_name,
-      .data$method_for_metric
+      "sample_key", "zonation", "LocationID",
+      "sampledata", "metric_name", "metric_score_name",
+      "method_for_metric"
     ) %>%
-    unnest(cols = c(.data$sampledata)) %>%
+    unnest(cols = c("sampledata")) %>%
     mutate(
       metric_name_ext =
         ifelse(
@@ -213,8 +213,8 @@ calculate_eqr <-
     mutate() %>%
     nest(
       metrics =
-        c(.data$metric_name, .data$metric_score_name, .data$method_for_metric,
-          .data$metric_name_ext, .data$metric_value, .data$metric_score)
+        c("metric_name", "metric_score_name", "method_for_metric",
+          "metric_name_ext", "metric_value", "metric_score")
     ) %>%
     mutate(
       ibi =
@@ -234,7 +234,7 @@ calculate_eqr <-
           )
         )
     ) %>%
-    select(-.data$metrics) %>%
+    select(-"metrics") %>%
     mutate(
       eqr_class =
         cut(
@@ -321,12 +321,12 @@ calculate_eqr <-
         (.data$nclass * (.data$ibi_classmax - .data$ibi_classmin))
     ) %>%
     select(
-      .data$sample_key, .data$zonation, .data$LocationID, .data$calc_method_old,
-      .data$ibi, .data$eqr_class, .data$eqr
+      "sample_key", "zonation", "LocationID", "calc_method_old",
+      "ibi", "eqr_class", "eqr"
     ) %>%
     left_join(
       eqr_scores %>%
-        select(-.data$std_ibi_old, -.data$std_ibi_new),
+        select(-"std_ibi_old", -"std_ibi_new"),
       by = c("eqr_class" = "EQR_class")
     )
 

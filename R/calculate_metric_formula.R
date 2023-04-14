@@ -30,12 +30,12 @@ calculate_metric_formula <- function(data_sample_fish) {
             "extdata/calculate_metric_formula.csv", package = "EQRfishes"
           )
         ) %>%
-          select(-.data$opmerking)  # tijdelijk zolang in deze csv een opmerking staat
+          select(-"opmerking")  # tijdelijk zolang in deze csv een opmerking staat
       ) %>%
         filter(!is.na(.data$submetric_score_name)) %>%
         nest(
           submetric_name_group =
-            c(.data$submetric_formula_name, .data$submetric_measures_name)
+            c("submetric_formula_name", "submetric_measures_name")
         ) %>%
         bind_rows(
           suppressMessages(
@@ -44,15 +44,15 @@ calculate_metric_formula <- function(data_sample_fish) {
                 "extdata/calculate_metric_formula.csv", package = "EQRfishes"
               )
             ) %>%
-              select(-.data$opmerking)  # tijdelijk zolang in deze csv een opmerking staat
+              select(-"opmerking")  # tijdelijk zolang in deze csv een opmerking staat
           ) %>%
             filter(is.na(.data$submetric_score_name)) %>%
             mutate(temp_row_nr = 1:length(.data$metric_formula_name)) %>%
             nest(
               submetric_name_group =
-                c(.data$submetric_formula_name, .data$submetric_measures_name)
+                c("submetric_formula_name", "submetric_measures_name")
             ) %>%
-            select(-.data$temp_row_nr)
+            select(-"temp_row_nr")
         ),
       by = "metric_formula_name", suffix = c("", "_")
     ) %>%
@@ -71,13 +71,13 @@ calculate_metric_formula <- function(data_sample_fish) {
             )
         )
     ) %>%
-    unnest(cols = .data$sampledata) %>%
+    unnest(cols = "sampledata") %>%
     select(
-      .data$sample_key, .data$metric_name, .data$metric_formula_name,
-      .data$formula, .data$metric_measures_name, .data$metric_score_name,
-      .data$row_id, .data$name, .data$value
+      "sample_key", "metric_name", "metric_formula_name",
+      "formula", "metric_measures_name", "metric_score_name",
+      "row_id", "name", "value"
     ) %>%
-    nest(sampledata = c(.data$name, .data$value)) %>%
+    nest(sampledata = c("name", "value")) %>%
     mutate(
       sampledata =
         pmap(

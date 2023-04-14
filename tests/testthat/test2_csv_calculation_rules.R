@@ -175,11 +175,11 @@ describe("variables exist in dependent tables", {
   })
   it("calculate_metric_score.metric -> ...", {
     lacking_vars <- calculate_metric_score %>%
-      select(.data$metric_score, .data$metric, .data$add_category) %>%
+      select("metric_score", "metric", "add_category") %>%
       gather(
-        key = "magweg", value = "metric", -.data$metric_score, na.rm = TRUE
+        key = "magweg", value = "metric", -"metric_score", na.rm = TRUE
       ) %>%
-      select(-.data$magweg) %>%
+      select(-"magweg") %>%
       distinct() %>%
       left_join(
         zonation_metric %>%
@@ -238,12 +238,12 @@ describe("variables exist in dependent tables", {
   })
   it("calculate_IBI_EQR.calculated -> zonation_metric.metric_name", {
     lacking_vars <- calculate_IBI_EQR %>%
-      select(.data$zonation, .data$to_calculate, .data$calculated) %>%
+      select("zonation", "to_calculate", "calculated") %>%
       filter(!(.data$to_calculate == "EQR" & .data$calculated == "IBI")) %>%
       distinct() %>%
       left_join(
         zonation_metric %>%
-          select(.data$zonation, .data$metric_name, .data$metric_score_name) %>%
+          select("zonation", "metric_name", "metric_score_name") %>%
           distinct(),
         by = c("zonation", "calculated" = "metric_name")
       ) %>%
@@ -311,7 +311,7 @@ describe("items in calculate_metric_measures.csv have valable names", {
 describe("intervals are correct", {
   it("string is correctly noted", {
     wrong_interval <- calculate_metric_score %>%
-      select(.data$value_metric) %>%
+      select("value_metric") %>%
       distinct() %>%
       mutate(
         operator_min =
@@ -357,7 +357,7 @@ describe("intervals are correct", {
         )
     )
     wrong_interval <- calculate_metric_score %>%
-      select(.data$value_add_category) %>%
+      select("value_add_category") %>%
       filter(
         !is.na(.data$value_add_category),
         !.data$value_add_category %in% c("spring", "summer", "autumn")
@@ -407,7 +407,7 @@ describe("intervals are correct", {
         )
     )
     wrong_interval <- calculate_IBI_EQR %>%
-      select(.data$interval) %>%
+      select("interval") %>%
       distinct() %>%
       filter(!is.na(.data$interval) & !.data$interval %in% c("-1")) %>%
       mutate(

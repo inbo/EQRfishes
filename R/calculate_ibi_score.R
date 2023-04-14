@@ -52,7 +52,7 @@ calculate_ibi_score <-
 
   if (nrow(IBI_exceptions) > 0) {
     IBI <- IBI_exceptions %>%
-      select(.data$result) %>%
+      select("result") %>%
       distinct()
   } else {
     IBI <- metrics %>%

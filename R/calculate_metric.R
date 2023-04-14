@@ -30,8 +30,8 @@ calculate_metric <-
   if (has_name(data_sample_fish, "formula")) {
     data_sample_fish %<>%
       select(
-        -.data$formula, -.data$metric_formula_name, -.data$metric_measures_name,
-        -.data$metric_score_name, -.data$row_id
+        -"formula", -"metric_formula_name", -"metric_measures_name",
+        -"metric_score_name", -"row_id"
       )
   }
 
@@ -42,7 +42,7 @@ calculate_metric <-
       row_id = aberant_column_names[5]
     ) %>%
     unnest(
-      cols = .data$metric_name_group
+      cols = "metric_name_group"
     ) %>%
     rename(
       metric_formula_name = aberant_column_names[2],
@@ -56,7 +56,7 @@ calculate_metric <-
       sampledata = calculate_metric_formula(.),
       metric_name_calc = .data$metric_formula_name
     ) %>%
-    select(-.data$metric_formula_name, -.data$metric_measures_name)
+    select(-"metric_formula_name", -"metric_measures_name")
 
   result_measures <- data_sample_fish %>%
     filter(!is.na(.data$metric_measures_name)) %>%
@@ -69,7 +69,7 @@ calculate_metric <-
           )
         )
       ) %>%
-        select(-.data$opmerking),  # tijdelijk zolang in deze csv een opmerking staat
+        select(-"opmerking"),  # tijdelijk zolang in deze csv een opmerking staat
       by = "metric_measures_name", suffix = c("", "_info_measures")
     ) %>%
     mutate(
@@ -91,10 +91,10 @@ calculate_metric <-
       metric_name_calc = .data$metric_measures_name
     ) %>%
     select(
-      -.data$metric_formula_name, -.data$metric_measures_name,
-      -.data$metric_type, -.data$speciesfilter, -.data$exclude_species_length,
-      -.data$only_individual_measures, -.data$NULL_to_0,  #de laatste 3 voorwaarden nog inwerken in script!
-      -.data$method #, -.data$opmerking
+      -"metric_formula_name", -"metric_measures_name",
+      -"metric_type", -"speciesfilter", -"exclude_species_length",
+      -"only_individual_measures", -"NULL_to_0",  #de laatste 3 voorwaarden nog inwerken in script!
+      -"method" #, -"opmerking"
     )
 
   if (nrow(result_formula) > 0) {
@@ -105,13 +105,13 @@ calculate_metric <-
   }
   result %<>%
     arrange(.data$row_id) %>%
-    unnest(cols = .data$sampledata) %>%
+    unnest(cols = "sampledata") %>%
     distinct() %>%
     select(
-      .data$sample_key, .data$zonation, .data$metric_name, .data$metric_score_name,
-      .data$row_id, .data$name, .data$value
+      "sample_key", "zonation", "metric_name", "metric_score_name",
+      "row_id", "name", "value"
     ) %>%
-    nest(sampledata = c(.data$name, .data$value)) %>%
+    nest(sampledata = c("name", "value")) %>%
     left_join(
       suppressMessages(
         read_csv2(
@@ -119,12 +119,12 @@ calculate_metric <-
             "extdata/calculate_metric_score.csv", package = "EQRfishes"
           )
         ) %>%
-          select(-.data$opmerkingen)  # tijdelijk zolang in deze csv een opmerking staat
+          select("opmerkingen")  # tijdelijk zolang in deze csv een opmerking staat
       ) %>%
         nest(
           indices =
-            c(.data$metric, .data$value_metric, .data$add_category,
-              .data$value_add_category, .data$score_id)
+            c("metric", "value_metric", "add_category",
+              "value_add_category", "score_id")
         ),
       by = c("metric_score_name" = "metric_score")
     ) %>%

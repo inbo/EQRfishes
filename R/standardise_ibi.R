@@ -21,7 +21,7 @@ standardise_ibi <-
 
   c <- 5  #this is now always 5, but it would be better to derive this from score.csv!!!!!!!!!!
   metrics2 <- metrics %>%
-    select(.data$metric_score_name, .data$method_for_metric) %>%
+    select("metric_score_name", "method_for_metric") %>%
     distinct() %>%
     left_join(
       suppressMessages(
