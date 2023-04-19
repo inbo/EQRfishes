@@ -31,7 +31,7 @@ query_fish <-
   FROM FactMeting FM
     INNER JOIN DimVariabele dV
       ON FM.VariabeleKey = dV.VariabeleKey
-    LEFT JOIN DimVisindexTaxon dT
+    LEFT JOIN DimTaxon dT
       ON FM.TaxonKey = dT.TaxonKey
   WHERE FM.IsCurrent = 1 AND dV.IsCurrent = 1
     AND dV.Variabelegroep LIKE 'Hugo%';"
