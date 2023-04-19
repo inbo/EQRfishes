@@ -11,227 +11,100 @@ connection_vis <-
   )
 
 query_taxonmetrics <-
-  "SELECT t.WetenschappelijkeNaam AS taxonname, vit.Taxoncode AS taxoncode,
-    vit.Totaal, vit.Exoot, vit.WF_Tolerantie,
-    vit.WF_Type_Brasem, vit.WF_Type_Barbeel, vit.WF_Type_Upstream,
-    vit.Grootte_Klasse_zoetwater, vit.Grootte_Klasse_upstream,
-    vit.Shannon_Weaner, vit.Migratie, vit.Spec_Paaier, vit.Bentisch,
-    vit.Invertivoor, vit.Omnivoor, vit.Piscivoor, vit.Piscivoor_Opm,
-    vit.Invertivoor_Opm, vit.Invertivoor_upstream, vit.Water_Anadroom,
-    vit.Water_Brak, vit.Water_Zoet, vit.Nat_Recrutering, vit.Recr_Grensw1,
-    vit.Recr_Grensw2, vit.Recr_Grensw3, vit.Recr_Grensw4, vit.Recr_Grensw5,
-    vit.Gkla_Grenswa1, Gkla_Grenswa3, Gkla_Grenswa5
-  FROM DimVisindexTaxon vit
-    LEFT JOIN DimTaxon t ON vit.TaxonKey = t.TaxonKey;"
+  "SELECT *
+  FROM visindex.data_taxonmetrics;"
 
 data_taxonmetrics <-
-  sqlQuery(connection_vis, query_taxonmetrics, stringsAsFactors = FALSE)
+  sqlQuery(connection_vis, query_taxonmetrics, stringsAsFactors = FALSE) %>%
+  select(-data_taxonmetricsKey, -TaxonKey, -Soort) %>%
+  rename(taxonname = WetenschappelijkeNaam)
+
+query_brabeel <-
+  "SELECT *
+  FROM visindex.brabeel_metrieken;"
+
+data_brabeel <-
+  sqlQuery(connection_vis, query_brabeel, stringsAsFactors = FALSE) %>%
+  select(-brabeel_metriekenKey, -TaxonKey, -Soortenlijst_brabeel) %>%
+  rename(taxonname = Wetenschappelijke_naam_brabeel, taxoncode = TaxonCode)
+
+query_brongebied <-
+  "SELECT *
+  FROM visindex.brongebied_metrieken;"
+
+data_brongebied <-
+  sqlQuery(connection_vis, query_brongebied, stringsAsFactors = FALSE) %>%
+  select(-brongebied_metriekenKey, -TaxonKey, -Soortenlijst_brongebied) %>%
+  rename(taxonname = Wetenschappelijke_naam_brongebied, taxoncode = TaxonCode)
+
+query_getijde_zijrivieren_zoet <-
+  "SELECT *
+  FROM visindex.getijde_zijrivieren_zoet;"
+
+data_getijde_zijrivieren_zoet <-
+  sqlQuery(connection_vis, query_getijde_zijrivieren_zoet, stringsAsFactors = FALSE) %>%
+  select(-getijde_zijrivieren_zoetKey, -TaxonKey, -Soortenlijst_Getijde_rivieren_zoet) %>%
+  rename(taxonname = Wetenschappelijke_naam_Getijde_zijrivieren_zoet, taxoncode = TaxonCode)
+
+query_ijzer <-
+  "SELECT *
+  FROM visindex.ijzerestuarium_metrieken;"
+
+data_ijzer <-
+  sqlQuery(connection_vis, query_ijzer, stringsAsFactors = FALSE) %>%
+  select(-ijzerestuarium_metriekenKey, -TaxonKey)
+
+query_mesohalien <-
+  "SELECT *
+  FROM visindex.zeeschelde_mesohalien_metrieken;"
+
+data_mesohalien <-
+  sqlQuery(connection_vis, query_mesohalien, stringsAsFactors = FALSE) %>%
+  select(-zeeschelde_mesohalien_metriekenKey, -TaxonKey, -Soort)
+
+query_oligohalien <-
+  "SELECT *
+  FROM visindex.zeeschelde_oligohalien_metrieken;"
+
+data_oligohalien <-
+  sqlQuery(connection_vis, query_oligohalien, stringsAsFactors = FALSE) %>%
+  select(-zeeschelde_oligohalien_metriekenKey, -TaxonKey)
+
+query_zeeschelde_zoet <-
+  "SELECT *
+  FROM visindex.zeeschelde_zoet_metrieken;"
+
+data_zeeschelde_zoet <-
+  sqlQuery(connection_vis, query_zeeschelde_zoet, stringsAsFactors = FALSE) %>%
+  select(-zeeschelde_zoet_metriekenKey, -TaxonKey, -Nederlandse_naam) %>%
+  rename(taxonname = Wetenschappelijke_Naam_Zeeschelde_zoet, taxoncode = TaxonCode)
 
 odbcClose(connection_vis)
 
-# data_taxonmetrics %<>%
-#   mutate(
-#     Totaal = ifelse(.data$Totaal == 0, NA, .data$Totaal),
-#     Exoot = ifelse(.data$Exoot == 0, NA, .data$Exoot),
-#     Grootte_Klasse_zoetwater =
-#       ifelse(
-#         .data$Grootte_Klasse_zoetwater == 0, NA, .data$Grootte_Klasse_zoetwater
-#       ),
-#     Grootte_Klasse_upstream =
-#       ifelse(
-#         .data$Grootte_Klasse_upstream == 0, NA, .data$Grootte_Klasse_upstream
-#       ),
-#     Spec_Paaier = ifelse(.data$Spec_Paaier == 0, NA, .data$Spec_Paaier),
-#     Invertivoor = ifelse(.data$Invertivoor == 0, NA, .data$Invertivoor),
-#     Omnivoor = ifelse(.data$Omnivoor == 0, NA, .data$Omnivoor),
-#     Piscivoor = ifelse(.data$Piscivoor == 0, NA, .data$Piscivoor),
-#     Invertivoor_upstream =
-#       ifelse(.data$Invertivoor_upstream == 0, NA, .data$Invertivoor_upstream),
-#     Water_Anadroom =
-#       ifelse(.data$Water_Anadroom == 0, NA, .data$Water_Anadroom),
-#     Water_Brak = ifelse(.data$Water_Brak == 0, NA, .data$Water_Brak),
-#     Water_Zoet = ifelse(.data$Water_Zoet == 0, NA, .data$Water_Zoet),
-#     Nat_Recrutering =
-#       ifelse(.data$Nat_Recrutering == 0, NA, .data$Nat_Recrutering)
-#   ) %>%
-#   gather(key = listname, value = value, -taxoncode, na.rm = TRUE) %>%
-#   bind_rows(
-#     data.frame(
-#       taxoncode = c("LEU.CEP.", "BAR.BUS.", "GAS.ACU."),
-#       listname = c("LeuCep", "BarBus", "GasAcu"),
-#       value = 1,
-#       stringsAsFactors = FALSE
-#     )
-#   )
-
 data_taxonmetrics %<>%
-  bind_rows(
-    data.frame(
-      taxonname = c("Cottus gobio L.", "Dasyatis pastinaca"),
-      taxoncode = c("COT.GRP.", "DAS.PAS."),  #mim.lim bij gelegenheid aanpassen naar lim.lim.
-      stringsAsFactors = FALSE
-    )
+  full_join(
+    data_brabeel %>%
+      select(-"taxonname"),
+    by = c("taxoncode")
   ) %>%
-  mutate(
-    # LeuCep = ifelse(.data$taxoncode == "LEU.CEP.", 1, 0),
-    # BarBus = ifelse(.data$taxoncode == "BAR.BUS.", 1, 0),
-    # GasAcu = ifelse(.data$taxoncode == "GAS.ACU", 1, 0),
-    Canals =
-      ifelse(
-        .data$taxoncode %in%
-          c("ABR.BRA.", "ALB.ALB.", "ANG.ANG.", "BLI.BJO.", "CAR.CAR.",
-            "CAR.AUG.", "CYP.CAR.", "ESO.LUC.", "GAS.ACU.", "GOB.GOB.",
-            "GYM.CER.", "LEU.DEL.", "LEU.IDE.", "PER.FLU.", "PLA.FLE.",
-            "PUN.PUN.", "RHO.AMA.", "RUT.RUT.", "SAN.LUC.", "SCA.ERY.",
-            "SIL.GLA.", "LEU.CEP.", "TIN.TIN."),
-        1, 0
-      ),
-    Lakes =
-      ifelse(
-        .data$taxoncode %in%
-          c("ABR.BRA.", "ANG.ANG.", "BLI.BJO.", "CAR.CAR.", "CAR.AUG.",
-            "CYP.CAR.", "ESO.LUC.", "GAS.ACU.", "GOB.GOB.", "GYM.CER.",
-            "LEU.DEL.", "LEU.IDE.", "LOT.LOT.", "PER.FLU.", "PUN.PUN.",
-            "RHO.AMA.", "RUT.RUT.", "SAN.LUC.", "SCA.ERY.", "SIL.GLA.",
-            "TIN.TIN."),
-        1, 0
-      ),
-    BenWei =
-      ifelse(
-        .data$taxoncode %in%
-          c("ABR.BRA.", "BLI.BJO.", "CYP.CAR.", "GYM.CER.", "TIN.TIN."),
-        1, 0
-      ),
-    Obligatory_species =
-      ifelse(
-        .data$taxoncode %in%
-          c("ABR.BRA.", "BLI.BJO.", "ESO.LUC.", "GYM.CER.", "PER.FLU.",
-            "RUT.RUT.", "SCA.ERY."),
-        1, 0
-      ),
-    mesohaline =
-      ifelse(
-        .data$taxoncode %in%
-          c("ALO.FAL.", "ANG.ANG.", "APH.MIN.", "CHE.LUC.", "CLU.HAR.",
-            "DIC.LAB.", "ENG.ENC.", "GAS.ACU.", "GYM.CER.", "LAM.FLU.",
-            "LIP.LIP.", "CHE.RAM.", "MER.MER.", "MYO.SCO.", "OSM.EPE.",
-            "PER.FLU.", "PET.MAR.", "PLA.FLE.", "PLE.PLA.", "POM.MIC.",
-            "POM.MIN.", "RUT.RUT.", "SAL.TRU.", "SAN.LUC.", "SOL.SOL.",
-            "SPR.SPR.", "SYN.ACU.", "SYN.ROS.", "TRI.LUS.", "ZOA.VIV."),
-        1, 0
-      ),
-    oligohaline =
-      ifelse(
-        .data$taxoncode %in%
-          c("ABR.BRA.", "ALO.FAL.", "ANG.ANG.", "BLI.BJO.", "CLU.HAR.",
-            "DIC.LAB.", "ESO.LUC.", "GAS.ACU.", "GYM.CER.", "LAM.FLU.",
-            "LEU.IDE.", "CHE.RAM.", "MIS.FOS.", "MYO.SCO.", "OSM.EPE.",
-            "PER.FLU.", "PET.MAR.", "PLA.FLE.", "POM.MIC.", "POM.MIN.",
-            "PUN.PUN.", "RHO.AMA.", "RUT.RUT.", "SAL.TRU.", "SAN.LUC.",
-            "SCA.ERY.", "SIL.GLA.", "SOL.SOL.", "SPR.SPR.", "SYN.ACU.",
-            "SYN.ROS.", "TRI.LUS.", "ZOA.VIV."),
-        1, 0
-      ),
-    freshwater =
-      ifelse(
-        .data$taxoncode %in%
-          c("ABR.BRA.", "ALO.FAL.", "ANG.ANG.", "BLI.BJO.", "CAR.CAR.",
-            "ESO.LUC.", "GAS.ACU.", "GYM.CER.", "LAM.FLU.", "LEU.IDE.",
-            "CHE.RAM.", "MIS.FOS.", "OSM.EPE.", "PER.FLU.", "PET.MAR.",
-            "PLA.FLE.", "PUN.PUN.", "RHO.AMA.", "RUT.RUT.", "SAL.TRU.",
-            "SAN.LUC.", "SCA.ERY.", "SIL.GLA."),
-        1, 0
-      ),
-    brak =  #nog aanpassen!
-      ifelse(
-        .data$taxoncode %in%
-          c("ABR.BRA.", "ACI.BAE.", "AGO.CAT.", "ALB.ALB.", "ALO.ALO.",
-            "ALO.FAL.", "AMM.TOB.", "ANG.ANG.", "APH.MIN.", "ARN.LAT.",
-            "ATH.PRE.", "BEL.BEL.", "BLI.BJO.", "CAL.LYR.", "CAR.AUR.",
-            "CAR.CAR.", "CIL.MUS.", "CLU.HAR.", "CON.CON.", "COT.GRP.",
-            "CYC.LUM.", "CYP.CAR.", "DIC.LAB.", "ENG.ENC.", "ECH.VIP.",
-            "ESO.LUC.", "GAD.MOR.", "GAS.ACU.", "GYM.CER.", "HIP.RAM.",
-            "HYP.LAN.", "LAM.PLA.", "LEU.DEL.", "LEU.IDE.", "MIM.LIM.",
-            "LIP.LIP.", "CHE.RAM.", "MER.MER.", "MIS.FOS.", "MUL.SUR.",
-            "MYO.SCO.", "OSM.EPE.", "PER.FLU.", "PET.MAR.", "PLA.FLE.",
-            "PLE.PLA.", "POM.LOZ.", "POM.MIC.", "POM.MIN.", "SCO.MAX.",
-            "PSE.PAR.", "PUN.PUN.", "RAJ.CLA.", "RHO.AMA.", "RUT.RUT.",
-            "SAL.SAL.", "SAL.TRU.", "SCA.ERY.", "SCO.SAU1", "SCO.RHO.",
-            "SOL.SOL.", "SPR.SPR.", "SQU.ACA.", "SQU.SQU.", "SAN.LUC.",
-            "SYN.ACU.", "SYN.ROS.", "TRA.TRA.", "CHE.LUC.", "TRI.LUs.",
-            "ZOA.VIV."),
-        1, 0
-      ),
-    brak_estuarien =
-      ifelse(
-        .data$taxoncode %in%
-          c("AGO.CAT.", "AMM.TOB.", "APH.MIN.", "HIP.RAM.", "LIP.LIP.",
-            "MYO.SCO.", "PLA.FLE.", "POM.MIC.", "POM.MIN.", "SYN.ACU.",
-            "SYN.ROS.", "ZOA.VIV."),
-        1, 0
-      ),
-    brak_marine_juvenile_migrating =
-      ifelse(
-        .data$taxoncode %in%
-          c("ATH.PRE.", "CLU.HAR.", "DIC.LAB.", "GAD.MOR.", "MIM.LIM.",
-            "MER.MER.", "PLE.PLA.", "SCO.MAX.", "SCO.RHO.", "SOL.SOL.",
-            "CHE.LUC.", "TRI.LUs."),
-        1, 0
-      ),
-    # ref_Yzer =
-    #   ifelse(
-    #     .data$taxoncode %in%
-    #       c("AGO.CAT.", "ALO.FAL.", "ANG.ANG.", "APH.MIN.", "BEL.BEL.",
-    #         "CHE.LAB.", "CHE.LUC.", "CHE.RAM.", "CIL.MUS.", "CLU.HAR.",
-    #         "CYC.LUM.", "DAS.PAS.", "DIC.LAB.", "ENG.ENC.", "GAD.MOR.",
-    #         "GAS.ACU.", "GOB.NIG1.", "LAM.FLU", "LIZ.AUR.", "MIM.LIM.",
-    #         "LIP.LIP.", "MER.MER.", "MYO.SCO.", "OSM.EPE.", "PET.MAR.",
-    #         "PHO.GUN.", "PLA.FLE.", "PLE.PLA.", "POM.MIC.", "POM.MIN.",
-    #         "SCO.MAX.", "SAL.TRU.", "SCO.RHO.", "SOL.SOL.", "SPR.SPR.",
-    #         "SYN.ACU.", "SYN.ROS.", "TRI.LUS.", "ZOA.VIV.",
-    #         "SAL.FAR.", "SAL.SAL.", "COR.OXY.", "LAM.FLU.", "ALO.ALO.",
-    #         "COR.LAV."),
-    #     1, 0
-    #   ),
-    estuarien_Yzer =
-      ifelse(
-        .data$taxoncode %in%
-          c("AGO.CAT.", "APH.MIN.", "GOB.NIG1.", "LIP.LIP.", "MYO.SCO.",
-            "PHO.GUN.", "POM.MIC.", "POM.MIN.", "SYN.ACU.", "SYN.ROS.",
-            "TAU.BUB.", "ZOA.VIV."),
-        1, 0
-      ),
-    # diadrome_Yzer =
-    #   ifelse(
-    #     .data$taxoncode %in%
-    #       c("ALO.ALO.", "ALO.FAL.", "ANG.ANG.", "CHE.RAM.", "COR.LAV.",
-    #         "COR.OXY.", "LAM.FLU.", "OSM.EPE.", "PET.MAR.", "PLA.FLE.",
-    #         "SAL.FAR.", "SAL.SAL.", "SAL.TRU.", "LAM.PLA."),
-    #     1, 0
-    #   ),
-    diadrome =
-      ifelse(
-        .data$taxoncode %in%
-          c("COR.OXY.", "SAL.FAR."),
-        1, .data$Water_Anadroom
-      ),
-    Water_Anadroom = NULL,
-    marien_juveniele_soorten =
-      ifelse(
-        .data$taxoncode %in%
-          c("BEL.BEL.", "CHE.LAB.", "CHE.LUC.", "CIL.MUS.", "CLU.HAR.",
-            "CYC.LUM.", "DIC.LAB.", "ENG.ENC.", "GAD.MOR.", "MIM.LIM.",
-            "MER.MER.", "PLE.PLA.", "SCO.MAX.", "SCO.RHO.", "SOL.SOL.",
-            "SPR.SPR.", "TRI.LUS."),
-        1, 0
-      ),
-    typisch_Yzer =
-      ifelse(
-        .data$taxoncode %in%
-          c("AGO.CAT.", "AMM.TOB.", "CHE.RAM.", "CIL.MUS.", "DIC.LAB.",
-            "MYO.SCO.", "PLA.FLE.", "SOL.SOL.", "ZOA.VIV."),
-        1, 0
-      )
-  )
+  full_join(
+    data_brongebied %>%
+      select(-"taxonname"),
+    by = c("taxoncode")
+  ) %>%
+  full_join(
+    data_getijde_zijrivieren_zoet %>%
+      select(-"taxonname"),
+    by = c("taxoncode")
+  ) %>%
+  full_join(data_ijzer, by = c("taxoncode")) %>%
+  full_join(data_mesohalien, by = c("taxoncode")) %>%
+  full_join(data_oligohalien, by = c("taxoncode")) %>%
+  full_join(
+    data_zeeschelde_zoet %>%
+      select(-"taxonname"),
+    by = c("taxoncode")
+  ) %>%
+  mutate_if(is.numeric, coalesce, 0)
 
 write_csv2(data_taxonmetrics, "inst/extdata/data_taxonmetrics.csv")
