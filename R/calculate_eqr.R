@@ -73,14 +73,36 @@ calculate_eqr <-
   if (any(is.na(data_fish$taxoncode))) {
     warning("For some records of data_fish, no taxoncode is given (value is NA). These will be excluded from the analysis.")
   }
+  data_taxonmetrics <-
+    suppressMessages(
+      read_csv2(
+        system.file("extdata/data_taxonmetrics.csv", package = "EQRfishes")
+      )
+    )
+  no_fish <- data_fish %>%
+    filter(!taxoncode %in% data_taxonmetrics$taxoncode) %>%
+    distinct(taxoncode)
+  if (nrow(no_fish) > 0) {
+    warning(
+      paste(
+        "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis: ",
+        paste(no_fish$taxoncode, collapse = ", ")
+      )
+    )
+  }
+  rm(data_taxonmetrics)
   data_fish %<>%
-    filter(!is.na(.data$taxoncode)) %>%
+    filter(
+      !is.na(.data$taxoncode),
+      !.data$taxoncode %in% no_fish$taxoncode
+    ) %>%
     mutate(sample_key = as.character(.data$sample_key)) %>%
     nest(
       fishdata =
         c("record_id", "taxoncode", "number", "length",
           "weight")
     )
+  rm(no_fish)
 
   result <- data_sample %>%
     left_join(
