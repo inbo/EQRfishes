@@ -202,7 +202,7 @@ calculate_eqr <-
     ) %>%
     group_by(
       .data$sample_key, .data$zonation, .data$LocationID,
-      .data$metric_name, .data$metric_score_name
+      .data$metric_name, .data$metric_score_name, .data$method_for_metric
     ) %>%
     summarise(
       metric_value =
