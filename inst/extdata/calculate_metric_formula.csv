@@ -60,8 +60,6 @@ BenWei_lakes;ifelse(ManBio_lakes == 0, 0, GewBen * 100 / ManBio_lakes);ManBio_la
 ManBio_lakes;TotWeight_lakes / surface;;TotWeight_lakes;;
 MpiOmn_lakes;ifelse(MniInd_lakes != 0, MniOmn_lakes / MniInd_lakes, 0);;MniOmn_lakes;;
 MpiOmn_lakes;ifelse(MniInd_lakes != 0, MniOmn_lakes / MniInd_lakes, 0);;MniInd_lakes;;
-MpiPis_lakes;ifelse(MniInd_lakes != 0, MniPis_lakes / MniInd_lakes, 0);;MniPis_lakes;;
-MpiPis_lakes;ifelse(MniInd_lakes != 0, MniPis_lakes / MniInd_lakes, 0);;MniInd_lakes;;
 MpiInvt_lakes;ifelse(MniInd_lakes != 0, MniInvt_lakes / MniInd_lakes, 0);;MniInvt_lakes;;
 MpiInvt_lakes;ifelse(MniInd_lakes != 0, MniInvt_lakes / MniInd_lakes, 0);;MniInd_lakes;;
 ManRec_lakes;ifelse(is.na(MnsTot_lakes) | Mnstot_lakes == 0, 0, MnsRec_lakes * 100 / MnsTot_lakes);;MnsTot_lakes;;
