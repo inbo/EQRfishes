@@ -27,7 +27,7 @@ GewScaEry;total_weight;;taxoncode == 'SCA.ERY.';;;;;;;;
 GewRutRut;total_weight;;taxoncode == 'RUT.RUT.';;;;;;;;
 MniInd_upstream;number_of_individuals;;;;;;;;;;
 MnsBen;number_of_species;;Bentisch == 1;;;1;;;;;
-MnsGespa;number_of_species;;Spec_Paaier == 1;;1;;;;;;
+MnsGespa;number_of_individuals;;Spec_Paaier == 1;;1;;;;;;
 TypeWaardeUpstream;sum_values_column;WF_Type_Upstream;!is.na(WF_Type_Upstream) & WF_Type_Upstream != 0;;1;;;;;;
 AantalSoortenMantyp;number_of_species;;!is.na(WF_Type_Upstream) & WF_Type_Upstream != 0;;1;;;;;;
 Manswi;shannon_wiener_index;;;;1;;;;;;
