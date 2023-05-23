@@ -12,6 +12,7 @@ TypeWaardeBarbeel;sum_values_column;WF_Type_Barbeel;MniZoet == 1;;;;;;;;
 Mantypzoetsoorten_barbeel;number_of_species;;WF_Type_Barbeel > 0;;;;;;;;
 GewLeuCep;total_weight;;taxoncode == 'LEU.CEP.';;1;;;;;;
 AantalGrootteKlassenLeuCep;number_of_length_classes;;taxoncode == 'LEU.CEP.';;;1;;;;;
+AantalGrootteKlassenTinTin;number_of_length_classes;;taxoncode == 'TIN.TIN.';;;1;;;;;
 GewBarBus;total_weight;;taxoncode == 'BAR.BUS.';;1;;;;;;
 GewGasAcu;total_weight;;taxoncode == 'GAS.ACU.';;1;;;;;;
 GewExoten;total_weight;;MniZoet == 1 & Exoot == 1;;1;;;;;;
