@@ -205,7 +205,8 @@ describe("variables exist in dependent tables", {
               )
           ) %>%
           distinct(),
-        by = c("metric_score")
+        by = c("metric_score"),
+        relationship = "many-to-many"
       ) %>%
       filter(is.na(.data$metric_source)) %>%
       transmute(
