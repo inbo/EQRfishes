@@ -4,7 +4,7 @@ MniZoet;number_of_individuals;;MniZoet == 1;;;;;;;;
 MnsTot;number_of_species;;;;;;;;;;
 MnsZoet;number_of_species;;MniZoet == 1;;;;;;;;
 TotWeight;total_weight;;;;;0;;;;;
-TotGewZoet;total_weight;;MniZoet == 1 & (Omnivoor == 1 | Piscivoor_zoet == 1 | Invertivoor == 1);;;0;;;;;
+TotGewZoet;total_weight;;MniZoet == 1;;;0;;;;;
 TotGew;total_weight;;;;;0;;;;;
 Tolerance;sum_values_column;WF_Tolerantie;MniZoet == 1;;;;;;;;
 Mantolzoetsoorten;number_of_species;;MniZoet == 1 & WF_Tolerantie > 0;;;;;;;;
