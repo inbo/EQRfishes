@@ -5,6 +5,16 @@ library(dplyr)
 library(tidyr)
 
 load(system.file("extrafiles/visdata.Rdata", package = "EQRfishes"))
+data_sample <- data_sample %>%
+  mutate(
+    IndexTypeCode =
+      ifelse(
+        IndexTypeCode %in% c("brabeel", "brasem", "barbeel", "forel",
+                             "vlagzalm", "upstream", "bron"),
+        "ZTWA",
+        IndexTypeCode
+      )
+  )
 
 describe("zonation is determined correctly", {
 
