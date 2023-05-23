@@ -16,7 +16,10 @@ number_of_species <- function(data) {
     select("taxoncode") %>%
     mutate(
       taxoncode =
-        ifelse(.data$taxoncode == "SAL.FAR.", "SAL.TRU.", .data$taxoncode)
+        ifelse(.data$taxoncode == "SAL.FAR.", "SAL.TRU.", .data$taxoncode),
+      taxoncode =
+        ifelse(.data$taxoncode %in% c("COT.RHE.", "COT.PER."), "COT.GRP.",
+               .data$taxoncode)
     ) %>%
     distinct() %>%
     count()
