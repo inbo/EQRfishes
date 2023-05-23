@@ -137,12 +137,12 @@ GAS.ACU.;Recr;[0,4];0;;4;NA;NA;NA;NA;NA;NA;NA
 GAS.ACU.;Recr;[4, [;1;;;;;;;;;
 PUN.PUN.;Recr;[0,4];0;;4;NA;NA;NA;NA;NA;NA;NA
 PUN.PUN.;Recr;[4, [;1;;;;;;;;;
-COT.GOB.;Recr;[0,4.99];0;;4,99;8;NA;NA;NA;2;3;7
-COT.GOB.;Recr;]4.99,8];1;;;;;;;;;
-COT.GOB.;Recr;]8, [;2;;;;;;;;;
-COT.GOB.;Gkla;] ,2[;;1;;;;;;;;
-COT.GOB.;Gkla;[2,3[;;3;;;;;;;;
-COT.GOB.;Gkla;[3,7];;5;;;;;;;;
+COT.GRP.;Recr;[0,4.99];0;;4,99;8;NA;NA;NA;2;3;7
+COT.GRP.;Recr;]4.99,8];1;;;;;;;;;
+COT.GRP.;Recr;]8, [;2;;;;;;;;;
+COT.GRP.;Gkla;] ,2[;;1;;;;;;;;
+COT.GRP.;Gkla;[2,3[;;3;;;;;;;;
+COT.GRP.;Gkla;[3,7];;5;;;;;;;;
 LEP.GIB.;Recr;[0,4.6];0;;4,6;8;NA;NA;NA;NA;NA;NA
 LEP.GIB.;Recr;]4.6,8];1;;;;;;;;;
 LEP.GIB.;Recr;]8, [;2;;;;;;;;;
