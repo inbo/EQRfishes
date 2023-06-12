@@ -145,19 +145,21 @@ calculate_eqr <-
     select(
       "sample_key", "zonation", "LocationID",
       "sampledata", "metric_name", "metric_score_name",
-      "method_for_metric"
+      "method_for_metric", "metric_name_group"
+    ) %>%
+    unnest(cols = c("metric_name_group")) %>%
+    mutate(
+      metric_name_ext =
+        ifelse(is.na(.data$metric_formula_name), .data$metric_measures_name,
+               .data$metric_formula_name),
+      metric_formula_name = NULL,
+      metric_measures_name = NULL
     ) %>%
     unnest(cols = c("sampledata")) %>%
     mutate(
-      metric_name_ext =
-        ifelse(
-          str_detect(.data$name, paste0("^", .data$metric_name)),
-          .data$name,
-          NA
-        ),
       metric_value =
         ifelse(
-          str_detect(.data$name, paste0("^", .data$metric_name)),
+          .data$name == .data$metric_name_ext,
           .data$value,
           NA
         ),
@@ -194,34 +196,6 @@ calculate_eqr <-
     ) %>%
     ungroup()
 
-  #for the new method (estuaries, lakes and canals), results are aggregated
-  result_metrics_aggregated <- result_metrics %>%
-    filter(!is.na(.data$method_for_metric)) %>%
-    mutate(
-      sample_key = substr(.data$sample_key, 1, nchar(.data$sample_key) - 10)
-    ) %>%
-    group_by(
-      .data$sample_key, .data$zonation, .data$LocationID,
-      .data$metric_name, .data$metric_score_name, .data$method_for_metric
-    ) %>%
-    summarise(
-      metric_value =
-        ifelse(
-          all(is.na(.data$metric_value)),
-          as.character(NA),
-          max(.data$metric_value, na.rm = TRUE)
-        ),
-      metric_score =
-        ifelse(
-          all(is.na(.data$metric_score)),
-          as.character(NA),
-          max(.data$metric_score, na.rm = TRUE)
-        )
-    )
-
-  result_metrics %<>%
-    filter(is.na(.data$method_for_metric)) %>%
-    bind_rows(result_metrics_aggregated)
 
   eqr_scores <-
     suppressMessages(
