@@ -66,7 +66,7 @@ calculate_metric_measures <-
         total_weight = total_weight(fishdata),
         sum_values_column =
           sum_values_column(fishdata, specieslist, values_column),
-        shannon_wiener_index = shannon_wiener_index(fishdata, specieslist),
+        shannon_wiener_index = shannon_wiener_index(fishdata),
         no_metric = NA
       )
     )

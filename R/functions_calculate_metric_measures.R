@@ -96,7 +96,7 @@ sum_values_column <- function(data, specieslist, variable) {
   return(data$value)
 }
 
-shannon_wiener_index <- function(data, specieslist) {
+shannon_wiener_index <- function(data) {
   MniTot <- number_of_individuals(data)
   if (!is.numeric(MniTot) | MniTot == 0) {
     return(0)
