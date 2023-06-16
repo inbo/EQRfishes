@@ -4,8 +4,13 @@ library(dplyr)
 library(tidyr)
 library(readr)
 
-data_sample <- read_csv2("kallemoeie_sample.csv")
-data_fish <- read_csv2("kallemoeie_fish_data.csv") %>%
+data_sample <-
+  read_csv2(
+    system.file("testdata/kallemoeie_sample.csv", package = "EQRfishes"))
+data_fish <-
+  read_csv2(
+    system.file("testdata/kallemoeie_fish_data.csv",
+                package = "EQRfishes")) %>%
   mutate(
     record_id = 1:n()
   )
