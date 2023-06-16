@@ -65,7 +65,7 @@ MnsMjs;number_of_species;;MnsMjs_Ijzerestuariumindex == 1;;;;;;;;
 MnsTyp;number_of_species;;MnsTyp_Ijzerestuariumindex == 1;;;;;;;;
 MnsDia_oligohaline;number_of_species;;MnsDia_Zeeschelde_oligohalien == 1;;;;;;;;
 MnsDia_mesohaline;number_of_species;;MnsDia_Zeeschelde_mesohalien == 1;;;;;;;;
-MniSme_brak;number_of_individuals;;"taxoncode == ""OSM.EPE.""";;;;;;;;
+MniSme_brak;number_of_individuals;;taxoncode == 'OSM.EPE.';;;;;;;;
 MniMjm_brak;number_of_individuals;;brak_marine_juvenile_migrating == 1;;;;;;;;
 MniDia_freshwater;number_of_individuals;;MniDia_Zeeschelde_zoet == 1;;;;;;;;
 MnsPis_oligohaline;number_of_species;;MnsPis_Zeeschelde_oligohalien == 1;;;;;;;;
