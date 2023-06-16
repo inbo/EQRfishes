@@ -1,0 +1,56 @@
+
+`r paste(paste0(rep("#", level), collapse = ""), var_metric)`
+
+```{r include=FALSE, results='asis'}
+output_metric[[level]] <- ""
+if (is.na(metric_item[[level]]$metric_measures_name)) {
+  formula[[level]] <- calculate_metric_formula %>%
+    filter(.data$metric_formula_name %in% metric_item[[level]]$metric_formula_name) %>%
+    mutate(
+      submetric_name =
+        ifelse(is.na(.data$submetric_formula_name),
+               .data$submetric_measures_name, .data$submetric_formula_name)
+    )
+  output_metric[[level]] <-
+    c(output_metric[[level]], sprintf("Formula to calculate %s:", var_metric))
+  output_metric[[level]] <-
+    c(output_metric[[level]], unique(formula[[level]]$formula))
+  
+  for (var_metric in unique(formula[[level]]$submetric_name)) {
+    level <- level + 1
+    metric_item[[level]] <- formula[[level - 1]] %>%
+      filter(.data$submetric_name == var_metric) %>%
+      transmute(
+        metric_name = .data$submetric_name,
+        metric_formula_name = .data$submetric_formula_name,
+        metric_measures_name = .data$submetric_measures_name,
+        metric_score_name = .data$submetric_score_name
+      ) %>%
+      distinct()
+    output_metric[[level - 1]] <-
+      c(output_metric[[level - 1]], knit_child("fiche_metric.Rmd"))
+    level <- level - 1
+  }
+}
+if (is.na(metric_item[[level]]$metric_formula_name)) {
+  output_metric[[level]] <-
+    c(output_metric[[level]], knit_child("fiche_metric_measure.Rmd"))
+}
+```
+
+```{r include=FALSE, results='asis'}
+if (!is.na(metric_item[[level]]$metric_score_name)) {
+  var_metric_ms <-
+    ifelse(is.na(metric_item[[level]]$metric_measures_name),
+           metric_item[[level]]$metric_formula_name,
+           metric_item[[level]]$metric_measures_name)
+  var_metric_score <- metric_item[[level]]$metric_score_name
+  output_metric[[level]] <-
+    c(output_metric[[level]], knit_child("fiche_metric_score.Rmd"))
+}
+```
+
+
+```{r results='asis'}
+cat(output_metric[[level]], sep = "\n\n")
+```

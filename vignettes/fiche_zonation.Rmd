@@ -1,0 +1,21 @@
+
+# `r var_zonation`
+
+```{r echo=FALSE, include=FALSE, results='asis'}
+output_zonation <- NULL
+metric_item <- list()
+output_metric <- list()
+formula <- list("")
+metric_list <- zonation_metric %>%
+  filter(.data$zonation == var_zonation)
+for (var_metric in metric_list$metric_name) {
+  level <- 2
+  metric_item[[level]] <- metric_list %>%
+    filter(.data$metric_name == var_metric)
+  output_zonation <- c(output_zonation, knit_child("fiche_metric.Rmd"))
+}
+```
+
+```{r results='asis'}
+cat(output_zonation, sep = "\n")
+```

@@ -1,0 +1,56 @@
+
+```{r}
+measure_rules <- calculate_metric_measures %>%
+  filter(.data$metric_measures_name %in% unique(metric_item[[level]]$metric_measures_name)) %>%
+  distinct()
+if (nrow(measure_rules) != 1) {
+  measure_rules %>%
+    kable()
+}
+```
+
+Calculation type: `r measure_rules$metric_type`
+
+```{r results='asis'}
+if (any(!is.na(measure_rules$method))) {
+  cat(sprintf(
+    "This calculation should only be done of data collected by the method: %s.\n\n"),
+    measure_rules$method)
+}
+select_columns <- c("NederLandseNaam", "taxoncode")
+if (any(!is.na(measure_rules$values_column) & measure_rules$metric_type == "sum_values_column")) {
+  select_columns <- c(select_columns, measure_rules$values_column)
+}
+if (any(!is.na(measure_rules$speciesfilter))) {
+  taxonlist <- data_taxonmetrics %>%
+    filter(eval(parse(text = (measure_rules$speciesfilter))))
+}
+if (is.na(measure_rules$speciesfilter) && length(select_columns) > 2) {
+  taxonlist <- data_taxonmetrics
+}
+if (exists("taxonlist")) {
+  cat("The species that are used for this calculation, are:\n\n")
+}
+```
+
+```{r }
+if (exists("taxonlist")) {
+  taxonlist %>%
+    select(all_of(select_columns)) %>%
+    kable()
+}
+```
+
+```{r results='asis'}
+if (!is.na(measure_rules$exclude_species_length)) {
+  cat("Exception: individuals should be excluded from the calculation if they meet this rule:\n\n")
+  cat(measure_rules$exclude_species_length)
+}
+if (!is.na(measure_rules$only_individual_measures) & measure_rules$only_individual_measures == 1) {
+  cat("For this calculation, only individual measures should be used.\n\n")
+}
+if (!is.na(measure_rules$NULL_to_0)) {
+  cat("If the result of this calculation is `NULL`, it should be replaced by `0`.\n\n")
+}
+```
+

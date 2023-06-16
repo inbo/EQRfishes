@@ -1,0 +1,47 @@
+
+`r paste(paste0(rep("#", level + 1), collapse = ""), var_metric_score)`
+
+```{r}
+table_metric_score <- calculate_metric_score %>%
+  filter(.data$metric_score == var_metric_score, .data$metric == var_metric_ms)
+if (nrow(table_metric_score) < 1) {
+  # print("ERROR!!!")
+  # print(paste("var_metric_score = ", var_metric_score))
+  # print(paste("var_metric_ms = ", var_metric_ms))
+  # cat(kable(metric_item[[level]]))
+  table_metric_score <- calculate_metric_score %>%
+    filter(.data$metric_score == var_metric_score,
+           .data$add_category == var_metric_ms)
+}
+if (nrow(table_metric_score) < 1) {
+  stop("ERROR in fiche_metric_score.Rmd: score table will not be printed correctly")
+}
+```
+
+```{r}
+if (all(is.na(table_metric_score$add_category))) {
+  var_metrics_ms <- unique(table_metric_score$metric)
+  table_metric_score %>%
+    mutate(
+      {{var_metrics_ms}} := .data$value_metric,
+      score = .data$score_id,
+      .keep = "none"
+    ) %>%
+    kable()
+}
+```
+
+```{r}
+if (any(!is.na(table_metric_score$add_category))) {
+  var_metrics_ms <- unique(table_metric_score$metric)
+  var_add_metrics_ms <- unique(table_metric_score$add_category)
+  table_metric_score %>%
+    mutate(
+      {{var_metrics_ms}} := .data$value_metric,
+      {{var_add_metrics_ms}} := .data$value_add_category,
+      score = .data$score_id,
+      .keep = "none"
+    ) %>%
+    kable()
+}
+```
