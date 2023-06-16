@@ -36,8 +36,12 @@ AantalSoortengkw;number_of_species;;Grootte_Klasse_upstream == 1;;1;;;;;;
 Gkla;sum_of_scored_length_classes;Gkla;Grootte_Klasse_upstream == 1;;;1;;;;;
 Manmigw;sum_values_column;Migratie;;;1;;;;;;
 MnsTot_canals;number_of_species;;Canals == 1;;;;;;;;
-MmksRec_canals;sum_of_scored_length_classes;multiple;Canals == 1;;;1;;;;;
-GewBen;total_weight;;BenWei == 1;;1;;;;;;
+MnsRec_canals;number_of_species;;Canals_rec == 1;;;;;;;;
+MnsTot_lakes;number_of_species;;Lakes == 1;;;;;;;;
+MnsRec_lakes;number_of_species;;Lakes_rec == 1;;;;;;;;
+MmksRec_canals;sum_of_scored_length_classes;multiple;Canals_rec == 1;;;1;;;;;
+GewBen_lakes;total_weight;;BenWei_lakes == 1;;1;;;;;;
+GewBen_canals;total_weight;;BenWei_canals == 1;;1;;;;;;
 TotWeight_canals;total_weight;;Canals == 1;;;;;;;;
 ManSha;shannon_wiener_index;;;;;;;;;;
 TotWeight_lakes;total_weight;;Lakes == 1;;;;;;;;
@@ -45,8 +49,6 @@ MniInd_lakes;number_of_individuals;;Lakes == 1;;;;;;;;
 MniOmn_lakes;number_of_individuals;;Lakes == 1 & Omnivoor == 1;;;;;;;;
 MnsPis_lakes;number_of_species;;Lakes == 1 & Piscivoor_zoet == 1;;;;;;;;
 MniInvt_lakes;number_of_individuals;;Lakes == 1 & Invertivoor == 1;;;;;;;;
-MnsTot_lakes;number_of_species;;Lakes == 1;;;;;;;;check
-MnsRec_lakes;sum_of_scored_length_classes;multiple;Lakes == 1;;;1;;;;;check
 MniInd_freshwater;number_of_individuals;;MniInd_en_MnsTot_Zeeschelde_zoet == 1;;;;;;;;
 MniPis_freshwater;number_of_individuals;;MniPis_Zeeschelde_zoet == 1;;;;;;;;
 MniInd_brak;number_of_individuals;;;;;;;;;;
