@@ -20,7 +20,7 @@ zonation_info <-
 data_sample <- data_sample %>%
   inner_join(zonation_info, by = "sample_key") %>%
   mutate(
-    sample_key_grouped = paste(.data$location, .data$method, sep = "_"),
+    sample_key_grouped = paste(.data$location, substr(.data$method, 1, 2), sep = "_"),
     LocationID = location
   )
 data_fish <- data_fish %>%
@@ -73,20 +73,24 @@ describe("IBI is calculated correctly", {
           data_fish
         ),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ORC.LIM., ERI.SIN., ATY.DES."
-    ) #verschillende samples van locatie moeten samengenomen worden!
+    )
 
-    # expect_equal(
-    #   results_eqr$ibi,
-    #   3
-    # )
-    # expect_equal(
-    #   results_eqr$eqr,
-    #   0.45
-    # )
-    # expect_equal(
-    #   results_eqr$beoordeling,
-    #   "ontoereikend"
-    # )
+    expect_equal(
+      results_eqr$ibi,
+      c(3.2, 2.6)
+    )
+    expect_equal(
+      results_eqr$eqr,
+      c(0.77941177, 0.5882353)
+    )
+    expect_equal(
+      results_eqr$score_cat,
+      c("GEP", "moderate")
+    )
+    expect_equal(
+      results_eqr$beoordeling,
+      c("goed", "matig")
+    )
   })
 })
 
