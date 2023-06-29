@@ -24,18 +24,18 @@ describe("IBI is calculated correctly", {
         )
     ) #verschillende samples van locatie moeten samengenomen worden!
 
-    # expect_equal(
-    #   results_eqr$ibi,
-    #   3
-    # )
-    # expect_equal(
-    #   results_eqr$eqr,
-    #   0.45
-    # )
-    # expect_equal(
-    #   results_eqr$beoordeling,
-    #   "ontoereikend"
-    # )
+    expect_equal(
+      results_eqr$ibi,
+      3
+    )
+    expect_equal(
+      results_eqr$eqr,
+      0.45
+    )
+    expect_equal(
+      results_eqr$beoordeling,
+      "ontoereikend"
+    )
   })
 })
 

@@ -281,6 +281,18 @@ calculate_eqr <-
           ),
           .data$eqr_class
         ),
+      eqr_class =
+        ifelse(
+          .data$zonation %in% c("lakes", "brabeel"),
+          cut(
+            .data$std_ibi,
+            breaks =
+              c(0, eqr_scores$std_ibi_newst[!is.na(eqr_scores$std_ibi_newst)]),
+            labels = eqr_scores$EQR_class[!is.na(eqr_scores$std_ibi_newst)],
+            right = FALSE
+          ),
+          .data$eqr_class
+        ),
       eqr_class = as.numeric(as.character(.data$eqr_class)),
       ibi_classmin =
         cut(
@@ -344,7 +356,9 @@ calculate_eqr <-
       eqr =
         (.data$eqr_class - 1) / .data$nclass +
         (.data$std_ibi - .data$ibi_classmin) /
-        (.data$nclass * (.data$ibi_classmax - .data$ibi_classmin))
+        (.data$nclass * (.data$ibi_classmax - .data$ibi_classmin)),
+      eqr =
+        ifelse(.data$zonation %in% c("lakes", "brabeel", "bron"), .data$std_ibi, .data$eqr)
     ) %>%
     select(
       "sample_key", "zonation", "LocationID", "calc_method_old",
@@ -352,7 +366,7 @@ calculate_eqr <-
     ) %>%
     left_join(
       eqr_scores %>%
-        select(-"std_ibi_old", -"std_ibi_new"),
+        select(-"std_ibi_old", -"std_ibi_new", -"std_ibi_newst"),
       by = c("eqr_class" = "EQR_class")
     )
 
