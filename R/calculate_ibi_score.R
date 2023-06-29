@@ -59,7 +59,8 @@ calculate_ibi_score <-
       filter(!is.na(.data$metric_score_name)) %>%
       summarise(
         result = sum(as.numeric(.data$metric_score)),
-        result = ifelse(calc_method_old, .data$result / n(), .data$result)
+        result =
+          ifelse(calc_method_old, .data$result / n(), .data$result)
       )
   }
 

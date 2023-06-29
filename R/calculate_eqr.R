@@ -232,7 +232,9 @@ calculate_eqr <-
 
   result_eqr <- result_metrics %>%
     group_by(.data$zonation, .data$LocationID) %>%
-    mutate(calc_method_old = all(is.na(.data$method_for_metric))) %>%
+    mutate(
+      calc_method_old = all(is.na(.data$method_for_metric))
+    ) %>%
     ungroup() %>%
     mutate() %>%
     nest(
