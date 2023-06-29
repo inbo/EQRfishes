@@ -116,7 +116,7 @@ calculate_eqr <-
             c("metric_formula_name", "metric_measures_name")
         ),
       by = "zonation",
-      suffix = c("", "_for_metric")
+      suffix = c("", "_for_metric"), relationship = "many-to-many"
     ) %>%
     filter(
       is.na(.data$method_for_metric) |
