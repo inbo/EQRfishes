@@ -56,17 +56,17 @@ describe("IBI is calculated correctly", {
       results_eqr$ibi,
       c(NA, 9, 20, 11, NA, 12, 12, NA)
     )
-    # expect_equal(
-    #   results_eqr$eqr,
-    #   c(NA, 0.33333333333333, 0.7916666666666666667, 0.4166666666666667, NA,
-    #     0.45833333333333333333, 0.45833333333333333333, NA)
-    # )
-    # expect_equal(
-    #   results_eqr$beoordeling,
-    #   c("niet genoeg individuen", "ontoereikend", "GEP", "ontoereikend",
-    #     "niet genoeg individuen", "ontoereikend", "ontoereikend",
-    #     "niet genoeg individuen")
-    # )
+    expect_equal(
+      results_eqr$eqr,
+      c(NA, 0.33333333333333, 0.7916666666666666667, 0.4166666666666667, NA,
+        0.45833333333333333333, 0.45833333333333333333, NA)
+    )
+    expect_equal(
+      results_eqr$beoordeling,
+      c("niet genoeg individuen", "ontoereikend", "goed", "ontoereikend",
+        "niet genoeg individuen", "ontoereikend", "ontoereikend",
+        "niet genoeg individuen")
+    )
   })
   it("upstream", {
     expect_warning(
@@ -74,79 +74,61 @@ describe("IBI is calculated correctly", {
           data_sample %>%
             filter(zonation == "bron" & version == "new"),
           data_fish
-        ) %>%
-          left_join(
-            order_location %>%
-              filter(version == "new"),
-            by = "LocationID"
-          ) %>%
-          arrange(order_id),
+        ),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN."
     )
-    # expect_equal(
-    #   results_eqr$ibi,
-    #   1.6666666666666666666666666667
-    # )
-    # expect_equal(
-    #   results_eqr$eqr,
-    #   3
-    # )
-    # expect_equal(
-    #   results_eqr$beoordeling,
-    #   "ontoereikend"
-    # )
+    expect_equal(
+      results_eqr$ibi,
+      7
+    )
+    expect_equal(
+      results_eqr$eqr,
+      0.25
+    )
+    expect_equal(
+      results_eqr$beoordeling,
+      "ontoereikend"
+    )
     expect_warning(
       results_eqr <- calculate_eqr(
           data_sample %>%
             filter(zonation == "upstream" & version == "new"),
           data_fish
-        ) %>%
-          left_join(
-            order_location %>%
-              filter(version == "new"),
-            by = "LocationID"
-          ) %>%
-          arrange(order_id),
+        ),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN."
     )
-    # expect_equal(
-    #   results_eqr$ibi,
-    #   3
-    # )
-    # expect_equal(
-    #   results_eqr$eqr,
-    #   0.5
-    # )
-    # expect_equal(
-    #   results_eqr$beoordeling,
-    #   "matig"
-    # )
+    expect_equal(
+      results_eqr$ibi,
+      3.44444444444444444
+    )
+    expect_equal(
+      results_eqr$eqr,
+      0.58888888888888889
+    )
+    expect_equal(
+      results_eqr$beoordeling,
+      "matig"
+    )
     expect_warning(
       results_eqr <- calculate_eqr(
           data_sample %>%
             filter(zonation == "vlagzalm" & version == "new"),
           data_fish
-        ) %>%
-          left_join(
-            order_location %>%
-              filter(version == "new"),
-            by = "LocationID"
-          ) %>%
-          arrange(order_id),
+        ),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN."
     )
-    # expect_equal(
-    #   results_eqr$ibi,
-    #   3.6666666666666666666666667
-    # )
-    # expect_equal(
-    #   results_eqr$eqr,
-    #   7
-    # )
-    # expect_equal(
-    #   results_eqr$beoordeling,
-    #   "goed"
-    # )
+    expect_equal(
+      results_eqr$ibi,
+      4.333333333333333333
+    )
+    expect_equal(
+      results_eqr$eqr,
+      0.58333333333333333
+    )
+    expect_equal(
+      results_eqr$beoordeling,
+      "goed"
+    )
   })
   it("brasem en barbeel old", {
     expect_warning(
@@ -172,16 +154,25 @@ describe("IBI is calculated correctly", {
       results_eqr$eqr,
       c(0.2, 0.475, 0.475, 0.3)
     )
-    # expect_equal(
-    #   results_eqr$beoordeling,
-    #   c("slecht", "matig", "matig", "ontoereikend")
-    # )
+    expect_equal(
+      results_eqr$beoordeling,
+      c("slecht", "matig", "matig", "ontoereikend")
+    )
 
     expect_warning(
       results_eqr <- calculate_eqr(
         data_sample %>%
-          filter(zonation == "barbeel" & version == "old"),
-        data_fish
+          filter(zonation == "barbeel" & version == "old") %>%
+          mutate(
+            width_transect =
+              ifelse(.data$width_transect == 3.7, 3.725, .data$width_transect)
+          ),
+        data_fish %>%
+          filter(!is.na(taxoncode)) %>%
+          mutate(
+            weight =
+              ifelse(is.na(.data$weight), 0, .data$weight)
+          )
       ) %>%
         left_join(
           order_location %>%
@@ -192,18 +183,18 @@ describe("IBI is calculated correctly", {
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN."
     )
 
-    # expect_equal(
-    #   results_eqr$ibi,
-    #   c(3.625, 3.25, 2.875, 2.5)
-    # )
-    # expect_equal(
-    #   results_eqr$eqr,
-    #   c(0.625, 0.55, 0.475, 0.4)
-    # )
-    # expect_equal(
-    #   results_eqr$beoordeling,
-    #   c("goed", "matig", "matig", "ontoereikend")
-    # )
+    expect_equal(
+      results_eqr$ibi,
+      c(3.625, 3.25, 2.875, 2.5)
+    )
+    expect_equal(
+      results_eqr$eqr,
+      c(0.625, 0.55, 0.475, 0.4)
+    )
+    expect_equal(
+      results_eqr$beoordeling,
+      c("goed", "matig", "matig", "ontoereikend")
+    )
   })
 })
 

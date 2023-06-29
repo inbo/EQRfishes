@@ -236,7 +236,10 @@ calculate_eqr <-
       calc_method_old = all(is.na(.data$method_for_metric))
     ) %>%
     ungroup() %>%
-    mutate() %>%
+    mutate(
+      calc_method_old =
+        ifelse(.data$zonation == "bron", FALSE, .data$calc_method_old)
+    ) %>%
     nest(
       metrics =
         c("metric_name", "metric_score_name", "method_for_metric",

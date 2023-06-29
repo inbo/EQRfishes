@@ -8,7 +8,7 @@
 #' @return single value being the result of the calculation
 #'
 #' @importFrom magrittr %>%
-#' @importFrom dplyr distinct group_by left_join select summarise
+#' @importFrom dplyr distinct group_by inner_join select summarise
 #' @importFrom readr read_csv2
 #'
 #' @export
@@ -19,11 +19,12 @@ standardise_ibi <-
     IBI, metrics, calc_method_old
   ) {
 
-  c <- 5  #this is now always 5, but it would be better to derive this from score.csv!!!!!!!!!!
+  c <- ifelse(zonation %in% c("bron", "forel", "vlagzalm"), 1, 5)
+  #this is now always 5, but it would be better to derive this from score.csv!!!!!!!!!!
   metrics2 <- metrics %>%
     select("metric_score_name", "method_for_metric") %>%
     distinct() %>%
-    left_join(
+    inner_join(
       suppressMessages(
         read_csv2(
           system.file(
