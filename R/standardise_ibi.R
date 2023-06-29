@@ -16,7 +16,7 @@
 #'
 standardise_ibi <-
   function(
-    IBI, metrics, calc_method_old
+    IBI, metrics, calc_method_old, zonation
   ) {
 
   c <- ifelse(zonation %in% c("bron", "forel", "vlagzalm"), 1, 5)

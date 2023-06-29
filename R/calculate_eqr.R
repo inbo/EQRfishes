@@ -258,7 +258,7 @@ calculate_eqr <-
       std_ibi =
         unlist(
           pmap(
-            list(.data$ibi, .data$metrics, .data$calc_method_old),
+            list(.data$ibi, .data$metrics, .data$calc_method_old, .data$zonation),
             standardise_ibi
           )
         )
