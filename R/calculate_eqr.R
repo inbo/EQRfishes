@@ -362,6 +362,12 @@ calculate_eqr <-
         (.data$nclass * (.data$ibi_classmax - .data$ibi_classmin)),
       eqr =
         ifelse(.data$zonation %in% c("lakes", "brabeel", "bron"), .data$std_ibi, .data$eqr)
+      eqr =
+        ifelse(
+          .data$zonation == "bron" & .data$ibi == 4,
+          0.2,
+          .data$eqr
+        )
     ) %>%
     select(
       "sample_key", "zonation", "LocationID", "calc_method_old",
