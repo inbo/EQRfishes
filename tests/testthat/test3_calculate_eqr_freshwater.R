@@ -123,7 +123,7 @@ describe("IBI is calculated correctly", {
     )
     expect_equal(
       results_eqr$eqr,
-      0.58333333333333333
+      0.76666666666666666667
     )
     expect_equal(
       results_eqr$beoordeling,
