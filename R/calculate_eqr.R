@@ -361,7 +361,9 @@ calculate_eqr <-
         (.data$std_ibi - .data$ibi_classmin) /
         (.data$nclass * (.data$ibi_classmax - .data$ibi_classmin)),
       eqr =
-        ifelse(.data$zonation %in% c("lakes", "brabeel", "bron"), .data$std_ibi, .data$eqr)
+        ifelse(
+          !.data$calc_method_old & .data$zonation != "canals",
+          .data$std_ibi, .data$eqr),
       eqr =
         ifelse(
           .data$zonation == "bron" & .data$ibi == 4,

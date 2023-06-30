@@ -94,18 +94,18 @@ describe("IBI is calculated correctly", {
         ),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  CRA.CRA., PAL.FFF., ERI.SIN., CAR.MAE., HEM.TAK."
     )
-    # expect_equal(
-    #   results_eqr$ibi,
-    #   c(4.2, 4.6, 4.6)
-    # ) #staat in de macro telkens NVT
-    # expect_equal(
-    #   results_eqr$eqr,
-    #   c(0.625, 0.708333, 0.708333)
-    # )
-    # expect_equal(
-    #   results_eqr$beoordeling,
-    #   c("moderate", "moderate", "moderate")
-    # )
+    expect_equal(
+      results_eqr$ibi,
+      c(3.2, 2.8, 3.2)
+    )
+    expect_equal(
+      results_eqr$eqr,
+      c(0.4166666666667, 0.333333333, 0.41666666667)
+    )
+    expect_equal(
+      results_eqr$score_cat,
+      c("poor", "poor", "poor")
+    )
   })
   it("estuarien mesohaline", {
     expect_warning(
@@ -116,18 +116,18 @@ describe("IBI is calculated correctly", {
       ),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  CRA.CRA., PAL.FFF., ERI.SIN., CAR.MAE., HEM.TAK."
     )
-    # expect_equal(
-    #   results_eqr$ibi,
-    #   c(3.6, 3.6)
-    # )
-    # expect_equal(
-    #   results_eqr$eqr,
-    #   c(0.5, 0.5)
-    # )
-    # expect_equal(
-    #   results_eqr$beoordeling,
-    #   c("moderate", "moderate")
-    # )
+    expect_equal(
+      results_eqr$ibi,
+      c(3.6, 3.6)
+    )
+    expect_equal(
+      results_eqr$eqr,
+      c(0.5, 0.5)
+    )
+    expect_equal(
+      results_eqr$score_cat,
+      c("moderate", "moderate")
+    )
   })
   it("estuarien oligohaline", {
     expect_warning(
@@ -139,18 +139,18 @@ describe("IBI is calculated correctly", {
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  CRA.CRA., PAL.FFF., ERI.SIN., CAR.MAE., HEM.TAK."
     )
 
-    # expect_equal(
-    #   results_eqr$ibi,
-    #   c(2.4, 3.8, 2.8)
-    # ) #staat in de macro telkens NVT
-    # expect_equal(
-    #   results_eqr$eqr,
-    #   c(0.25, 0.541667, 0.333333)
-    # )
-    # expect_equal(
-    #   results_eqr$beoordeling,
-    #   c("poor", "moderate", "poor")
-    # )
+    expect_equal(
+      results_eqr$ibi,
+      c(2.4, 2.4, 2.8)
+    )
+    expect_equal(
+      results_eqr$eqr,
+      c(0.25, 0.25, 0.33333333)
+    )
+    expect_equal(
+      results_eqr$score_cat,
+      c("poor", "moderate", "poor")
+    )
   })
 })
 
