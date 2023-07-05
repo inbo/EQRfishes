@@ -7,19 +7,20 @@ load(system.file("extrafiles/visdata.Rdata", package = "EQRfishes"))
 
 zonation_info <-
   data.frame(
-    order_id = 1:22,
+    order_id = 1:24,
     sample_key =
       rep(
         c(11652, 13384, 8681, 13282, 13561, 8434, 4550, 11611, 13534, 13512,
-          8507),
+          8507, 2258),
         2
       ),
-    version = c(rep("new", 11), rep("old", 11)),
+    version = c(rep("new", 12), rep("old", 12)),
     zonation =
       c(
         rep("brabeel", 6), "bron", "upstream", "vlagzalm", rep("brabeel", 2),
+        "forel",
         rep("brasem", 2), rep("barbeel", 4), rep("upstream", 2), "vlagzalm",
-        rep("brasem", 2)
+        rep("brasem", 2), "forel"
       )
   )
 
@@ -128,6 +129,26 @@ describe("IBI is calculated correctly", {
     expect_equal(
       results_eqr$beoordeling,
       "goed"
+    )
+    expect_warning(
+      results_eqr <- calculate_eqr(
+        data_sample %>%
+          filter(zonation == "forel" & version == "old"),
+        data_fish
+      ),
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN."
+    )
+    expect_equal(
+      results_eqr$ibi,
+      2.6666666666666666667
+    )
+    expect_equal(
+      results_eqr$eqr,
+      0.433333333333333333
+    )
+    expect_equal(
+      results_eqr$beoordeling,
+      "matig"
     )
   })
   it("brasem en barbeel old", {
@@ -515,6 +536,82 @@ describe("metrics are calculated correctly", {
       (result_metrics %>%
          filter(metric_name == "Manmigw"))$metric_value,
       "5"
+    )
+    expect_warning(
+      result_metrics <- calculate_eqr(
+        data_sample %>%
+          filter(zonation == "forel" & version == "old"),
+        data_fish,
+        output = "metric"
+      )[["metric"]] %>%
+        left_join(
+          order_location %>%
+            filter(version == "new"),
+          by = "LocationID"
+        ) %>%
+        arrange(order_id) %>%
+        mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN."
+    )
+    expect_equal(
+      (result_metrics %>%
+         filter(metric_name == "MnsTot"))$metric_score,
+      "3"
+    )
+    expect_equal(
+      (result_metrics %>%
+         filter(metric_name == "MnsTot"))$metric_value,
+      "7"
+    )
+    expect_equal(
+      (result_metrics %>%
+         filter(metric_name == "MnsBen"))$metric_score,
+      "3"
+    )
+    expect_equal(
+      (result_metrics %>%
+         filter(metric_name == "MnsBen"))$metric_value,
+      "3"
+    )
+    expect_equal(
+      (result_metrics %>%
+         filter(metric_name == "MpiInvt"))$metric_score,
+      "1"
+    )
+    expect_equal(
+      (result_metrics %>%
+         filter(metric_name == "MpiInvt"))$metric_value,
+      "12.5"
+    )
+    expect_equal(
+      (result_metrics %>%
+         filter(metric_name == "Manswi"))$metric_score,
+      "3"
+    )
+    expect_equal(
+      (result_metrics %>%
+         filter(metric_name == "Manswi"))$metric_value,
+      "1.218"
+    )
+    expect_equal(
+      (result_metrics %>%
+         filter(metric_name == "Mangkw"))$metric_score,
+      "3"
+    )
+    expect_equal(
+      (result_metrics %>%
+         filter(metric_name == "Mangkw"))$metric_value,
+      "2"
+    )
+    expect_equal(
+      (result_metrics %>%
+         filter(metric_name == "Manmigw"))$metric_score,
+      "3"
+    )
+    expect_equal(
+      (result_metrics %>%
+         filter(metric_name == "Manmigw"))$metric_value,
+      "2"
     )
   })
   it("brasem old", {
