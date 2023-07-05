@@ -91,6 +91,14 @@ calculate_eqr <-
     )
   }
   rm(data_taxonmetrics)
+
+  fish_not_measured <- data_fish %>%
+    filter(is.na(.data$number) & is.na(.data$length) & is.na(.data$weight))
+  if (nrow(fish_not_measured) > 0) {
+    stop("Some fishes don't have any data (no number of fishes, no fish length and no weight). Please indicate at least the number of fishes or remove the record(s).")
+  }
+  rm(fish_not_measured)
+
   data_fish %<>%
     filter(
       !is.na(.data$taxoncode),
