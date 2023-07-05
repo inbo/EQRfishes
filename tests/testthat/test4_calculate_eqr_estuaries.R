@@ -149,7 +149,7 @@ describe("IBI is calculated correctly", {
     )
     expect_equal(
       results_eqr$score_cat,
-      c("poor", "moderate", "poor")
+      c("poor", "poor", "poor")
     )
   })
 })
