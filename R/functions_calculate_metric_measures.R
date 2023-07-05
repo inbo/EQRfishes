@@ -97,6 +97,18 @@ sum_values_column <- function(data, specieslist, variable) {
 }
 
 shannon_wiener_index <- function(data) {
+  number_na <- data %>%
+    filter(is.na(.data$number))
+  if (nrow(number_na) > 0) {
+    warning(
+      sprintf(
+        "Records %s are removed for calculating the Shannon Wiener index.",
+        paste(number_na$record_id, collapse = ", ")
+      )
+    )
+    data %<>%
+      filter(!is.na(.data$number))
+  }
   MniTot <- number_of_individuals(data)
   if (!is.numeric(MniTot) | MniTot == 0) {
     return(0)
