@@ -9,8 +9,8 @@ ANG.ANG.;Recr;]15.5, [;2;;;;;;;;;
 ANG.ANG.;Gkla;] ,2[;;1;;;;;;;;
 ANG.ANG.;Gkla;[2,3[;;3;;;;;;;;
 ANG.ANG.;Gkla;[3,7];;5;;;;;;;;
-ABR.BRA.;Recr;[0,7.0001];0;;7,0001;14;NA;NA;NA;NA;NA;NA
-ABR.BRA.;Recr;]7.0001,14];1;;;;;;;;;
+ABR.BRA.;Recr;[0,7[;0;;7,0001;14;NA;NA;NA;NA;NA;NA
+ABR.BRA.;Recr;[7,14];1;;;;;;;;;
 ABR.BRA.;Recr;]14, [;2;;;;;;;;;
 ALB.BIP.;Recr;[0,4.8];0;;4,8;NA;NA;NA;NA;2;7;NA
 ALB.BIP.;Recr;[4.8, [;1;;;;;;;;;
@@ -42,9 +42,9 @@ CHO.NAS.;Gkla;[2,7];;5;;;;;;;;
 CYP.CAR.;Recr;[0,13];0;;13;25,5;NA;NA;NA;NA;NA;NA
 CYP.CAR.;Recr;]13,25.5];1;;;;;;;;;
 CYP.CAR.;Recr;]25.5, [;2;;;;;;;;;
-GOB.GOB.;Recr;[0,6.9999];0;;6,9999;10,0001;NA;NA;NA;2;3;NA
-GOB.GOB.;Recr;]6.9999,10.0001];1;;;;;;;;;
-GOB.GOB.;Recr;]10.0001, [;2;;;;;;;;;
+GOB.GOB.;Recr;[0,7[;0;;6,9999;10,0001;NA;NA;NA;2;3;NA
+GOB.GOB.;Recr;[7,10];1;;;;;;;;;
+GOB.GOB.;Recr;]10, [;2;;;;;;;;;
 GOB.GOB.;Gkla;] ,2[;;1;;;;;;;;
 GOB.GOB.;Gkla;[2,3[;;3;;;;;;;;
 GOB.GOB.;Gkla;[3, [;;5;;;;;;;;
@@ -159,8 +159,8 @@ STI.LUC.;Recr;[0,12];0;;12;29,2;40;NA;NA;NA;NA;NA
 STI.LUC.;Recr;]12,29.2];1;;;;;;;;;
 STI.LUC.;Recr;]29.2,40];2;;;;;;;;;
 STI.LUC.;Recr;]40, [;3;;;;;;;;;
-ASP.ASP.;Recr;[0,14.99];0;;14,99;35;NA;NA;NA;NA;NA;NA
-ASP.ASP.;Recr;]14.99,35];1;;;;;;;;;
+ASP.ASP.;Recr;[0,15[;0;;14,99;35;NA;NA;NA;NA;NA;NA
+ASP.ASP.;Recr;[15,35];1;;;;;;;;;
 ASP.ASP.;Recr;]35, [;2;;;;;;;;;
 PRO.SEM.;Recr;[0,5];0;;5;NA;NA;NA;NA;NA;NA;NA
 PRO.SEM.;Recr;[5, [;1;;;;;;;;;
