@@ -34,7 +34,8 @@ query_fish <-
     LEFT JOIN DimTaxon dT
       ON FM.TaxonKey = dT.TaxonKey
   WHERE FM.IsCurrent = 1 AND dV.IsCurrent = 1
-    AND dV.Variabelegroep LIKE 'Hugo%';"
+    AND dV.Variabelegroep LIKE 'Hugo%'
+    AND (FM.AfvisBeurtNrKey <= 1 OR FM.AfVisBeurtNrKey IS NULL);"
 
 data_fish <-
   sqlQuery(connection_VIS, query_fish, stringsAsFactors = FALSE)
