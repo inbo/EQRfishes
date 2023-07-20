@@ -59,6 +59,9 @@ sum_of_scored_length_classes <- function(data, var) {
         data.frame(taxoncode = unique(data$taxoncode), stringsAsFactors = FALSE)
       )
   }
+  if (any(is.na(data$length))) {
+    warning("Some measures are ignored while taking the sum of the scored length classes because they had NA values for the length")
+  }
   data %<>%
     inner_join(
       suppressMessages(
@@ -69,6 +72,7 @@ sum_of_scored_length_classes <- function(data, var) {
         filter(.data$variable == "Recr"),
       by = "taxoncode"
     ) %>%
+    filter(!is.na(.data$length)) %>%
     filter(var_in_interval(.data$length, .data$interval)) %>%
     select("taxoncode", "class") %>%
     distinct() %>%
