@@ -16,8 +16,8 @@ ALB.BIP.;Recr;[0,4.8];0;;4,8;NA;NA;NA;NA;2;7;NA
 ALB.BIP.;Recr;[4.8, [;1;;;;;;;;;
 ALB.BIP.;Gkla;] ,2[;;1;;;;;;;;
 ALB.BIP.;Gkla;[2,7[;;3;;;;;;;;
-ALB.ALB.;Recr;[0,5.6001];0;;5,6001;10;NA;NA;NA;NA;NA;NA
-ALB.ALB.;Recr;]5.6001,10];1;;;;;;;;;
+ALB.ALB.;Recr;[0,5.6[;0;;5,6001;10;NA;NA;NA;NA;NA;NA
+ALB.ALB.;Recr;[5.6,10];1;;;;;;;;;
 ALB.ALB.;Recr;]10, [;2;;;;;;;;;
 BAR.BAR.;Recr;[0,4];0;;4;10;NA;NA;NA;NA;2;7
 BAR.BAR.;Recr;]4,10];1;;;;;;;;;
@@ -31,8 +31,8 @@ CAR.CAR.;Recr;[0,4];0;;4;8;14,5;NA;NA;NA;NA;NA
 CAR.CAR.;Recr;]4,8];1;;;;;;;;;
 CAR.CAR.;Recr;]8,14.5];2;;;;;;;;;
 CAR.CAR.;Recr;]14.5, [;3;;;;;;;;;
-CAR.AUG.;Recr;[0,7.39];0;;7,39;17;NA;NA;NA;NA;NA;NA
-CAR.AUG.;Recr;]7.39,17];1;;;;;;;;;
+CAR.AUG.;Recr;[0,7.4[;0;;7,39;17;NA;NA;NA;NA;NA;NA
+CAR.AUG.;Recr;[7.4,17];1;;;;;;;;;
 CAR.AUG.;Recr;]17, [;2;;;;;;;;;
 CHO.NAS.;Recr;[0,8];0;;8;20;NA;NA;NA;NA;2;7
 CHO.NAS.;Recr;]8,20];1;;;;;;;;;
