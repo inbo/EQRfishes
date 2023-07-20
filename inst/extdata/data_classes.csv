@@ -80,6 +80,9 @@ PSE.PAR.;Recr;]4, [;1;;;;;;;;;
 RHO.SER.;Recr;[0,6];0;;6;9;NA;NA;NA;NA;NA;NA
 RHO.SER.;Recr;]6,9];1;;;;;;;;;
 RHO.SER.;Recr;]9, [;2;;;;;;;;;
+RHO.AMA.;Recr;[0,6];0;;6;9;NA;NA;NA;NA;NA;NA
+RHO.AMA.;Recr;]6,9];1;;;;;;;;;
+RHO.AMA.;Recr;]9, [;2;;;;;;;;;
 RUT.RUT.;Recr;[0,6];0;;6;11;15;18;NA;NA;NA;NA
 RUT.RUT.;Recr;]6,11];1;;;;;;;;;
 RUT.RUT.;Recr;]11,15];2;;;;;;;;;
