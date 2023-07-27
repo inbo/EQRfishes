@@ -21,6 +21,7 @@ number_of_species <- function(data) {
         ifelse(.data$taxoncode %in% c("COT.RHE.", "COT.PER."), "COT.GRP.",
                .data$taxoncode)
     ) %>%
+    filter(.data$taxoncode != "HYB.HYB.") %>%
     distinct() %>%
     count()
   return(data$n)
