@@ -206,7 +206,7 @@ calculate_eqr <-
 
   #for the new method (estuaries, lakes and canals), results are aggregated
   result_metrics_aggregated <- result_metrics %>%
-    filter(!is.na(.data$method_for_metric)) %>%
+    filter(str_detect(.data$zonation, "estuarien|lakes|canals")) %>%
     mutate(
       sample_key = substr(.data$sample_key, 1, nchar(.data$sample_key) - 10)
     ) %>%
@@ -230,7 +230,7 @@ calculate_eqr <-
     )
 
   result_metrics %<>%
-    filter(is.na(.data$method_for_metric)) %>%
+    filter(!str_detect(.data$zonation, "estuarien|lakes|canals")) %>%
     bind_rows(result_metrics_aggregated)
 
   eqr_scores <-
@@ -239,14 +239,10 @@ calculate_eqr <-
     )
 
   result_eqr <- result_metrics %>%
-    group_by(.data$zonation, .data$LocationID) %>%
-    mutate(
-      calc_method_old = all(is.na(.data$method_for_metric))
-    ) %>%
-    ungroup() %>%
     mutate(
       calc_method_old =
-        ifelse(.data$zonation == "bron", FALSE, .data$calc_method_old)
+        .data$zonation %in% c("brasem", "barbeel", "upstream", "forel",
+                              "vlagzalm", "estuarien_zijrivieren_zoet")
     ) %>%
     nest(
       metrics =
@@ -294,7 +290,9 @@ calculate_eqr <-
         ),
       eqr_class =
         ifelse(
-          .data$zonation %in% c("lakes", "brabeel"),
+          .data$zonation %in%
+            c("lakes", "brabeel", "estuarien_Schelde_freshwater",
+              "estuarien_Schelde_oligohaline", "estuarien_Schelde_mesohaline"),
           cut(
             .data$std_ibi,
             breaks =
