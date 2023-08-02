@@ -99,6 +99,13 @@ calculate_eqr <-
   }
   rm(fish_not_measured)
 
+  fish_zero_number <- data_fish %>%
+    filter(.data$number <= 0)
+  if (nrow(fish_zero_number) > 0) {
+    stop("For some fishdata, the number of fishes is zero or below. Please give a positive integer for the number of fishes (or remove the record(s)).")
+  }
+  rm(fish_zero_number)
+
   data_fish %<>%
     filter(
       !is.na(.data$taxoncode),
