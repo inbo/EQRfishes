@@ -6,7 +6,11 @@
 #' @importFrom readr read_csv2
 
 number_of_individuals <- function(data) {
+  if (any(is.na(data$number))) {
+    warning("Some measures are ignored while counting the number of individuals because they had NA values for the number")
+  }
   data %<>%
+    filter(!is.na(.data$number)) %>%
     summarise(n_ind = sum(.data$number))
   return(data$n_ind)
 }
@@ -87,7 +91,11 @@ sum_of_scored_length_classes <- function(data, var) {
 }
 
 total_weight <- function(data) {
+  if (any(is.na(data$weight))) {
+    warning("Some measures are ignored while taking the total weight because they had NA values for the weight")
+  }
   data %<>%
+    filter(!is.na(.data$weight)) %>%
     summarise(weight = sum(.data$weight))
   return(data$weight)
 }
