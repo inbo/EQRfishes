@@ -37,6 +37,7 @@ Trofcomp;(SMpiinvt_river + SMpipisc + SMpiomni) / 3;PercPisci;;SMpipisc;
 Trofcomp;(SMpiinvt_river + SMpipisc + SMpiomni) / 3;PercOmni;;SMpiomni;
 MpiInvt;ifelse(!is.numeric(MniZoet) | MniZoet == 0, 0, InvertZoet * 100 / MniZoet);;InvertZoet;;
 MpiInvt;ifelse(!is.numeric(MniZoet) | MniZoet == 0, 0, InvertZoet * 100 / MniZoet);;MniZoet;;
+MpiInvt;ifelse(!is.numeric(MniZoet) | MniZoet == 0, 0, InvertZoet * 100 / MniZoet);;MnsTot;;
 MpsRekr;ifelse(MnsRekr == 0, 0, TotaleRecrutering * 100 / MnsRekr);;TotaleRecrutering;;
 MpsRekr;ifelse(MnsRekr == 0, 0, TotaleRecrutering * 100 / MnsRekr);;MnsRekr;;
 Mpigesp;ifelse(MnsGespa == 0 | MniZoet == 0, 0, MnsGespa * 100 / MniZoet);;MnsGespa;;
