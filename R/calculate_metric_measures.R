@@ -27,6 +27,19 @@ calculate_metric_measures <-
     exclude_species_length, only_individual_measures, NULL_to_0, sampledata
   ) {
 
+  if (is.null(fishdata)) {
+    warning("No fishdata for one of the records, metric gets value 0")
+    return(
+      sampledata %<>%
+        bind_rows(
+          data.frame(
+            name = metric_name,
+            value = "0",
+            stringsAsFactors = FALSE
+          )
+        )
+    )
+  }
   specieslist <-
     suppressMessages(
       read_csv2(
