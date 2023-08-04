@@ -121,7 +121,7 @@ describe("zonation is determined correctly", {
       (determine_zonation(
         data_sample[data_sample$sample_key == 4550, ]
       ))$zonation,
-      "bron"
+      "upstream"
     )
     expect_equal(
       (determine_zonation(
@@ -145,13 +145,13 @@ describe("zonation is determined correctly", {
       (determine_zonation(
         data_sample[data_sample$sample_key == 13534, ]
       ))$zonation,
-      "(undetermined)"
+      "vlagzalm"
     )
     expect_equal(
       (determine_zonation(
         data_sample[data_sample$sample_key == 13534, ], version = "old"
       ))$zonation,
-      "(undetermined)"
+      "vlagzalm"
     )
   })
 })
