@@ -12,7 +12,7 @@ query_sample <-
   "SELECT dw.Begindatum, dw.Einddatum, dw.WaarnemingKey as sample_key,
     dw.GebiedID AS LocationID,
     dw.BreedteTransect AS width_transect, dw.LengteTraject AS length_trajectory,
-    dw.BreedteRivier AS width_river, dG.Helling AS slope,
+    dG.Breedte AS width_river, dG.Helling AS slope,
     dW.AantalFuiken AS n_fyke_nets, dW.AantalDagen AS n_days,
     dM.Methodecode AS method, dG.Stilstaand, dG.Getijdewater AS tidal,
     dG.Bekken, dG.Brak, dW.IndexTypeCode
