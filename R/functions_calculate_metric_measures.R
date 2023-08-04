@@ -95,6 +95,11 @@ total_weight <- function(data) {
 sum_values_column <- function(data, specieslist, variable) {
   data %<>%
     select("taxoncode") %>%
+    mutate(
+      taxoncode =
+        ifelse(.data$taxoncode %in% c("COT.RHE.", "COT.PER."), "COT.GRP.",
+               .data$taxoncode)
+    ) %>%
     distinct() %>%
     left_join(specieslist, by = "taxoncode") %>%
     summarise(value = sum(get(variable)))
