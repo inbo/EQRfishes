@@ -18,7 +18,7 @@
 #' @importFrom dplyr arrange distinct filter group_by left_join mutate n select summarise ungroup
 #' @importFrom plyr .
 #' @importFrom magrittr %<>% %>%
-#' @importFrom rlang .data
+#' @importFrom rlang .data has_name
 #' @importFrom tidyr gather nest unnest
 #' @importFrom readr read_csv2
 #' @importFrom purrr pmap
@@ -28,6 +28,63 @@
 #'
 calculate_eqr <-
   function(data_sample, data_fish, output = c("EQR", "metric", "detail")) {
+
+  join_data_fish <- "sample_key"
+  if (has_name(data_sample, "sample_key_grouped")) {
+    data_sample <- data_sample %>%
+      mutate(
+        method =
+          ifelse(str_detect(.data$method, "^E"), "E", .data$method)
+      )
+    data_fish <- data_fish %>%
+      inner_join(
+        data_sample %>%
+          select(
+            "sample_key_grouped", "method", "sample_key"
+          ),
+        by = "sample_key"
+      ) %>%
+      mutate(
+        sample_key = .data$sample_key_grouped,
+        sample_key_grouped = NULL
+      )
+    join_data_fish <- c("sample_key", "method")
+    data_sample <- data_sample %>%
+      mutate(
+        sample_key = .data$sample_key_grouped
+      ) %>%
+      group_by(
+        .data$sample_key, .data$LocationID, .data$method,
+        .data$Stilstaand, .data$tidal, .data$Brak, .data$IndexTypeCode,
+        .data$year, .data$zonation, .data$location, .data$season
+      ) %>%
+      summarise(
+        surface = sum(.data$width_transect * .data$length_trajectory),
+        length_trajectory = sum(.data$length_trajectory),
+        n_fyke_nets = sum(.data$n_fyke_nets),
+        n_days = mean(.data$n_days),
+        width_river = mean(.data$width_river),
+        slope = mean(.data$slope)
+      ) %>%
+      ungroup() %>%
+      group_by(
+        .data$sample_key, .data$LocationID, .data$method,
+        .data$Stilstaand, .data$tidal, .data$Brak, .data$IndexTypeCode,
+        .data$year, .data$zonation, .data$location) %>%  #group by year
+      summarise(
+        surface = sum(.data$surface),
+        length_trajectory = sum(.data$length_trajectory),
+        n_fyke_nets = mean(.data$n_fyke_nets),
+        n_days = sum(.data$n_days),
+        width_river = mean(.data$width_river),
+        slope = mean(.data$slope)
+      ) %>%
+      ungroup() %>%
+      mutate(
+        width_transect = .data$surface / .data$length_trajectory,
+        surface = NULL
+      )
+  }
 
   zero_width <- data_sample %>%
     filter(
@@ -148,7 +205,7 @@ calculate_eqr <-
     ) %>%
     left_join(
       data_fish,
-      by = "sample_key"
+      by = join_data_fish
     ) %>%
     mutate(
       row_id = 1:length(.data$sample_key)
