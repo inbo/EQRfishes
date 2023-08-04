@@ -105,6 +105,7 @@ data_taxonmetrics %<>%
       select(-"taxonname"),
     by = c("taxoncode")
   ) %>%
-  mutate_if(is.numeric, coalesce, 0)
+  mutate_if(is.numeric, coalesce, 0) %>%
+  filter(.data$taxoncode != "HYB.HYB.")
 
 write_csv2(data_taxonmetrics, "inst/extdata/data_taxonmetrics.csv")
