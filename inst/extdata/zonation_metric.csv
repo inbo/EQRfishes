@@ -50,7 +50,7 @@ lakes;ManTol;SF;;ManTol_lakes;SManTol_lakes
 lakes;MpiInv;E;MpiInvt_lakes;;SMpiInv_lakes
 lakes;MpiSpa;E;MpiSpa_lakes;;SMpiSpa_lakes
 canals;MnsTot;E;;MnsTot_canals;SMnsTot_canals
-canals;ManBio;E;ManBio_canals;;SManbio_canals
+canals;ManBio;E;ManBio_canals;;SManBio_canals
 canals;ManSha;E;;ManSha;SManSha_canals
 canals;ManRec;SF;ManRec_canals;;SManRec_canals
 canals;BenWei;SF;BenWei_canals;;SBenWei_canals
