@@ -46,7 +46,7 @@ TotWeight_canals;total_weight;;Canals == 1;;;;;;;;
 ManSha;shannon_wiener_index;;;;;;;;;;
 TotWeight_lakes;total_weight;;Lakes == 1;;;;;;;;
 MniInd_lakes;number_of_individuals;;Lakes == 1;;;;;;;;
-MniOmn_lakes;number_of_individuals;;Lakes == 1 & Omnivoor == 1;;;;;;;;
+MniOmn_lakes;number_of_individuals;;Omnivoor_lakes == 1;;;;;;;;
 MnsPis_lakes;number_of_species;;Lakes == 1 & Piscivoor_zoet == 1;;;;;;;;
 MniInvt_lakes;number_of_individuals;;Lakes == 1 & Invertivoor == 1;;;;;;;;
 MniInd_freshwater;number_of_individuals;;MniInd_en_MnsTot_Zeeschelde_zoet == 1;;;;;;;;
