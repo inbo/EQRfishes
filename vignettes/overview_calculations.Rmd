@@ -48,7 +48,7 @@ For the second item, 7 types of calculations are added in the package:
 - `total_weight`: : total weight of the fishes that are captured and of which the species name occurs in the given list
 - `sum_values_column`: each species gets a value (e.g. tolerance value or typical species value), and the result is the sum of the values given for each of the captured species
 - `number_of_length_classes`: sum of the number of length classes that is captured for each of the listed species (length classes are species dependent and are given in the overview)
-- `sum_of_scored_length_classes`: similar as the previous calculation, but here, every length class gets a score and the result is the sum of these scores
+- `sum_of_scored_length_classes`: after counting the number of length classes for the listed species, the number of length classes gets a species dependent score and the result is the sum of these scores (if values_column = 'Gkla') or the result is the number of species with > 1 length class (if values_column = 'multiple')
 - `shannon_wiener_index`: calculation of the Shannon Wiener index using all species <!-- later berekening nog toevoegen, of referentie niernaar -->
 
 After calculations are done, the metric score (named as metric name preceded by an `S`) is calculated by looking up in which interval the result is situated.
