@@ -54,7 +54,7 @@ data_sample <- data_sample %>%
           month(.data$Begindatum) %in% 6:8,
           "summer",
           ifelse(
-            month(.data$Begindatum) %in% 9:77,
+            month(.data$Begindatum) %in% 9:11,
             "autumn",
             NA
           )
