@@ -61,8 +61,9 @@ calculate_eqr <-
       summarise(
         surface = sum(.data$width_transect * .data$length_trajectory),
         length_trajectory = sum(.data$length_trajectory),
+        n_fyke_days = sum(.data$n_fyke_nets * .data$n_days),
+        #calculate n_fyke_days on original n_fyke_nets before aggregating n_fyke_nets
         n_fyke_nets = sum(.data$n_fyke_nets),
-        n_days = mean(.data$n_days),
         width_river = mean(.data$width_river),
         slope = mean(.data$slope)
       ) %>%
@@ -75,14 +76,16 @@ calculate_eqr <-
         surface = sum(.data$surface),
         length_trajectory = sum(.data$length_trajectory),
         n_fyke_nets = mean(.data$n_fyke_nets),
-        n_days = sum(.data$n_days),
+        n_fyke_days = sum(.data$n_fyke_days),
         width_river = mean(.data$width_river),
         slope = mean(.data$slope)
       ) %>%
       ungroup() %>%
       mutate(
         width_transect = .data$surface / .data$length_trajectory,
-        surface = NULL
+        surface = NULL,
+        n_days = .data$n_fyke_days / .data$n_fyke_nets,
+        n_fyke_days = NULL
       )
   }
 
