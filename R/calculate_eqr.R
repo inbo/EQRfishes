@@ -318,7 +318,7 @@ calculate_eqr <-
     mutate(
       calc_method_old =
         .data$zonation %in% c("brasem", "barbeel", "upstream", "forel",
-                              "vlagzalm", "estuarien_zijrivieren_zoet")
+                              "vlagzalm")
     ) %>%
     nest(
       metrics =
