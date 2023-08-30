@@ -8,5 +8,6 @@ brabeel;IBI;MniInd;]0,30];;;
 upstream;IBI;MnsTot;[0,0];;;0
 upstream;IBI;MnsTot;]0,1];MniInd;] ,10[;1
 upstream;IBI;MnsTot;]0,2];MniInd;] ,15[;1
+bron;IBI;MnsTot;]0,1];MnsInd;[0,0];4
 (undetermined);IBI;metric_score;;;;-1
 (undetermined);EQR;IBI;-1;;;-1

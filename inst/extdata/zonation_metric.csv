@@ -86,6 +86,8 @@ bron;ManTol;E;;ManTol_bron;SManTol_bron
 bron;ManSha;E;;ManSha;SManSha_bron
 bron;MpiSpa;E;MpiSpa_bron;;SMpiSpa_bron
 bron;MpiRhe;E;MpiRhe_bron;;SMpiRhe_bron
+bron;MnsInd;E;;MnsInd_bron;
+bron;MnsTot;E;;MnsTot;
 estuarien_zijrivieren_zoet;ManSha;SF;;ManSha;SManSha_est_zijriv
 estuarien_zijrivieren_zoet;MpiInv;SF;MpiInv_est_zijriv;;SMpiInv_est_zijriv
 estuarien_zijrivieren_zoet;MpiSpa;SF;MpiSpa_est_zijriv;;SMpiSpa_est_zijriv
