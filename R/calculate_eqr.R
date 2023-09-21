@@ -450,6 +450,11 @@ calculate_eqr <-
         ifelse(
           .data$zonation == "bron" & .data$ibi == 4,
           0.2,
+          .data$eqr),
+      eqr =
+        ifelse(
+          .data$zonation == "estuarien_zijrivieren_zoet" & .data$ibi == 0.8,
+          0.05,
           .data$eqr
         )
     ) %>%

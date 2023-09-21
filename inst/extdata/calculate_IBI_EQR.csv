@@ -8,6 +8,15 @@ brabeel;IBI;MniInd;]0,30];;;
 upstream;IBI;MnsTot;[0,0];;;0
 upstream;IBI;MnsTot;]0,1];MniInd;] ,10[;1
 upstream;IBI;MnsTot;]0,2];MniInd;] ,15[;1
+bron;IBI;MnsTot;[0,0];;;0
 bron;IBI;MnsTot;]0,1];MnsInd;[0,0];4
+estuarien_Schelde_freshwater;IBI;MnsTot;[0,0];;;0
+estuarien_Schelde_freshwater;IBI;MnsTot;]0,5.2[;;;1.68
+estuarien_Schelde_oligohaline;IBI;MnsTot;[0,0];;;0
+estuarien_Schelde_oligohaline;IBI;MnsTot;]0,7[;;;1.68
+estuarien_Schelde_mesohaline;IBI;MnsTot;[0,0];;;0
+estuarien_Schelde_mesohaline;IBI;MnsTot;]0,6.8[;;;1.68
+estuarien_zijrivieren_zoet;IBI;MnsTot;[0,0];;;0
+estuarien_zijrivieren_zoet;IBI;MnsTot;]0,2];;;0,832
 (undetermined);IBI;metric_score;;;;-1
 (undetermined);EQR;IBI;-1;;;-1

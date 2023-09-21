@@ -71,6 +71,7 @@ estuarien_Schelde_oligohaline;MnsDia;SF;;MnsDia_oligohaline;SMnsDia_oligohaline
 estuarien_Schelde_oligohaline;MniInd;SF;MniInd_f_oligohaline;;SMniInd_oligohaline
 estuarien_Schelde_oligohaline;MnsMms;SF;;MnsMms_oligohaline;SMnsMms_oligohaline
 estuarien_Schelde_oligohaline;MnsErs;SF;;MnsErs_oligohaline;SMnsErs_oligohaline
+estuarien_Schelde_oligohaline;MnsTot;SF;;MnsTot_oligohaline;
 estuarien_Schelde_mesohaline;MnsTot;SF;;MnsTot_mesohaline;SMnsTot_mesohaline
 estuarien_Schelde_mesohaline;MnsDia;SF;;MnsDia_mesohaline;SMnsDia_mesohaline
 estuarien_Schelde_mesohaline;MnsSpa;SF;;MnsSpa_mesohaline;SMnsSpa_mesohaline
@@ -92,4 +93,5 @@ estuarien_zijrivieren_zoet;ManSha;SF;;ManSha;SManSha_est_zijriv
 estuarien_zijrivieren_zoet;MpiInv;SF;MpiInv_est_zijriv;;SMpiInv_est_zijriv
 estuarien_zijrivieren_zoet;MpiSpa;SF;MpiSpa_est_zijriv;;SMpiSpa_est_zijriv
 estuarien_zijrivieren_zoet;MnsPis;SF;;MnsPis_est_zijriv;SMnsPis_est_zijriv
+estuarien_zijrivieren_zoet;MnsTot;SF;;MnsTot_est_zijriv;
 (undetermined);;;;no_metric;
