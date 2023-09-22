@@ -30,6 +30,8 @@ if (is.na(measure_rules$speciesfilter) && length(select_columns) > 2) {
 }
 if (exists("taxonlist")) {
   cat("The species that are used for this calculation, are:\n\n")
+} else {
+  cat("All observed fish species are used for this calculation.")
 }
 ```
 
@@ -38,6 +40,9 @@ if (exists("taxonlist")) {
   taxonlist %>%
     select(all_of(select_columns)) %>%
     kable()
+}
+if (exists("taxonlist")) {
+  rm(taxonlist)
 }
 ```
 
