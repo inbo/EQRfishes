@@ -54,6 +54,9 @@ For the second item, 7 types of calculations are added in the package:
 After calculations are done, the metric score (named as metric name preceded by an `S`) is calculated by looking up in which interval the result is situated.
 Intervals are presented as `[min, max]`, `]min, max[`, `[min, max[`, `]min, max]`, `] , max]` or `[min, [`, where `[]` presents a closed interval (`min` and `max` included), `][` an open interval (`min` and `max` excluded) and the absence of `min` or `max` means everything lower resp higher than `max` resp `min`.
 
+The below overview presents all these calculations, with main titles indicating the zonations, 2nd level titles the metrics that are needed to calculate the IBI and EQR, and the lower levels the calculations of the variables that are needed to calculate the higher level metric.
+The last subtitle always present how to derive the score starting from the calculated value.
+
 ```{r load-sheets}
 zonation_metric <-
   suppressMessages(
