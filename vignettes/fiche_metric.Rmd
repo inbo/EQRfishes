@@ -5,7 +5,7 @@
 output_metric[[level]] <- ""
 if (level == 2 && !is.na(metric_item[[2]]$method)) {
   output_metric[[level]] <- sprintf(
-    "This metric should only be calculated from data collected by the method(s): %s.\n\n",
+    "_This metric should only be calculated from data collected by the method(s): %s._\n\n",
     metric_item[[2]]$method)
 }
 if (is.na(metric_item[[level]]$metric_measures_name)) {
@@ -17,9 +17,9 @@ if (is.na(metric_item[[level]]$metric_measures_name)) {
                .data$submetric_measures_name, .data$submetric_formula_name)
     )
   output_metric[[level]] <-
-    c(output_metric[[level]], sprintf("Formula to calculate %s:", var_metric))
+    c(output_metric[[level]], sprintf("Formula to calculate __%s__:", var_metric))
   output_metric[[level]] <-
-    c(output_metric[[level]], unique(formula[[level]]$formula))
+    c(output_metric[[level]], paste0("__", unique(formula[[level]]$formula), "__"))
   
   for (var_metric in unique(formula[[level]]$submetric_name)) {
     level <- level + 1
