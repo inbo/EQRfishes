@@ -12,11 +12,6 @@ if (nrow(measure_rules) != 1) {
 Calculation type: `r measure_rules$metric_type`
 
 ```{r results='asis'}
-if (any(!is.na(measure_rules$method))) {
-  cat(sprintf(
-    "This calculation should only be done of data collected by the method: %s.\n\n"),
-    measure_rules$method)
-}
 select_columns <- c("NederLandseNaam", "taxoncode")
 if (any(!is.na(measure_rules$values_column) & measure_rules$metric_type == "sum_values_column")) {
   select_columns <- c(select_columns, measure_rules$values_column)

@@ -3,6 +3,11 @@
 
 ```{r include=FALSE, results='asis'}
 output_metric[[level]] <- ""
+if (level == 2 && !is.na(metric_item[[2]]$method)) {
+  output_metric[[level]] <- sprintf(
+    "This metric should only be calculated from data collected by the method(s): %s.\n\n",
+    metric_item[[2]]$method)
+}
 if (is.na(metric_item[[level]]$metric_measures_name)) {
   formula[[level]] <- calculate_metric_formula %>%
     filter(.data$metric_formula_name %in% metric_item[[level]]$metric_formula_name) %>%
