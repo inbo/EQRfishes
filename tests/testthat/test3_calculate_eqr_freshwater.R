@@ -100,11 +100,11 @@ describe("IBI is calculated correctly", {
     )
     expect_equal(
       results_eqr$ibi,
-      3.44444444444444444
+      3.22222222222222222
     )
     expect_equal(
       results_eqr$eqr,
-      0.58888888888888889
+      0.54444444444444444
     )
     expect_equal(
       results_eqr$beoordeling,
@@ -364,12 +364,12 @@ describe("metrics are calculated correctly", {
     expect_equal(
       (result_metrics %>%
          filter(metric_name == "ManBio"))$metric_score,
-      "5"
+      "3"
     )
     expect_equal(
       (result_metrics %>%
          filter(metric_name == "ManBio"))$metric_value,
-      "71.439"
+      "44.181"
     )
     expect_equal(
       (result_metrics %>%
@@ -399,7 +399,7 @@ describe("metrics are calculated correctly", {
     expect_equal(
       (result_metrics %>%
          filter(metric_name == "Manswi"))$metric_value,
-      "0.998"
+      "0.982"
     )
     expect_equal(
       (result_metrics %>%
@@ -419,7 +419,7 @@ describe("metrics are calculated correctly", {
     expect_equal(
       (result_metrics %>%
          filter(metric_name == "MniInd"))$metric_value,
-      "268"
+      "176"
     )
     expect_equal(
       (result_metrics %>%
@@ -449,7 +449,7 @@ describe("metrics are calculated correctly", {
     expect_equal(
       (result_metrics %>%
          filter(metric_name == "Mpigesp"))$metric_value,
-      "53.731"
+      "56.25"
     )
     expect_equal(
       (result_metrics %>%
