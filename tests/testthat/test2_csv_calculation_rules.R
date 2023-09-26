@@ -245,12 +245,12 @@ describe("variables exist in dependent tables", {
       distinct() %>%
       left_join(
         zonation_metric %>%
-          select("zonation", "metric_name", "metric_score_name") %>%
+          select("zonation", "metric_name", "metric_measures_name") %>%
           distinct(),
         by = c("zonation", "calculated" = "metric_name")
       ) %>%
       filter(
-        is.na(.data$metric_score_name) & .data$zonation != "(undetermined)"
+        is.na(.data$metric_measures_name) & .data$zonation != "(undetermined)"
       )
     expect_equal(
       nrow(lacking_vars), 0,
