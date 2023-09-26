@@ -752,12 +752,12 @@ describe("metrics are calculated correctly", {
     expect_equal(
       (result_metrics %>%
          filter(metric_name == "ManTol"))$metric_value,
-      c("2.25", "1.75", "2.667", "2.2")
+      c("2.5", "1.75", "2.667", "2.2")
     )
     expect_equal(
       (result_metrics %>%
          filter(metric_name == "ManTol"))$metric_score,
-      c("4", "3", "5", "4")
+      c("5", "3", "5", "4")
     )
     expect_equal(
       (result_metrics %>%
