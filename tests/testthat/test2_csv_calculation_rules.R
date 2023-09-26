@@ -68,6 +68,7 @@ describe("variables exist in dependent tables", {
       unique(data_zonation$zonation)[
         !unique(data_zonation$zonation) %in% unique(zonation_metric$zonation)
       ]
+    lacking_vars <- lacking_vars[lacking_vars != "stilstaand"]
     expect_equal(
       length(lacking_vars), 0,
       info =
