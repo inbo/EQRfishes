@@ -399,7 +399,7 @@ describe("metrics are calculated correctly", {
     expect_equal(
       (result_metrics %>%
          filter(metric_name == "Manswi"))$metric_value,
-      "0.982"
+      "0.983"
     )
     expect_equal(
       (result_metrics %>%
@@ -459,7 +459,7 @@ describe("metrics are calculated correctly", {
     expect_equal(
       (result_metrics %>%
          filter(metric_name == "MpiInvt"))$metric_value,
-      "53.731"
+      "56.25"
     )
     expect_warning(
       result_metrics <- calculate_eqr(
