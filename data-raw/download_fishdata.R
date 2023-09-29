@@ -15,7 +15,7 @@ query_sample <-
     dG.Breedte AS width_river, dG.Helling AS slope,
     dW.AantalFuiken AS n_fyke_nets, dW.AantalDagen AS n_days,
     dM.Methodecode AS method, dG.Stilstaand, dG.Getijdewater AS tidal,
-    dG.Bekken, dG.Brak, dW.IndexTypeCode
+    dG.Bekken, dG.Brak, dW.IndexTypeCode, dW.Projectcode
   FROM DimWaarneming dW
     LEFT JOIN DimGebied dG
       ON dW.GebiedKey = dG.GebiedKey
