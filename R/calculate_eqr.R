@@ -26,6 +26,16 @@
 #'
 #' @export
 #'
+#' @example
+#' library(EQRfishes)
+#' data_sample <-
+#'   read.csv2(system.file("testdata/kallemoeie_sample.csv", package = "EQRfishes"))
+#' data_fish <-
+#'   read.csv2(system.file("testdata/kallemoeie_fish_data.csv", package = "EQRfishes"))
+#'
+#' calculate_eqr(data_sample, data_fish)
+#' calculate_eqr(data_sample, data_fish, output = "metric")
+#'
 calculate_eqr <-
   function(data_sample, data_fish, output = c("EQR", "metric", "detail")) {
 
