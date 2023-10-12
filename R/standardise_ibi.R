@@ -19,7 +19,7 @@ standardise_ibi <-
     IBI, metrics, calc_method_old, zonation
   ) {
 
-  c <- ifelse(zonation %in% c("bron"), 1, 5)
+  c <- ifelse(zonation %in% c("bron", "estuarien_IJzer"), 1, 5)
   #this is now always 5, but it would be better to derive this from score.csv!!!!!!!!!!
   metrics2 <- metrics %>%
     select("metric_score_name", "method_for_metric") %>%

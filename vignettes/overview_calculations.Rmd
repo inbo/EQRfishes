@@ -86,12 +86,14 @@ For the older indexes, this is $IBI / 5$.
 For the newer indexes, this is
  $(IBI - n_{metrics} / c) / (IBI_{max} - n_{metrics} / c)$
 with c = 1 for zonation bron and c = 5 for all other zonations.
+For zonation estuarien_IJzer, no standardisation is done.
  
 This standardised IBI is used to determine the EQR class, using the below table, where the upper limit
 
 - std_ibi_old is used for the older indexes
 - std_ibi_new is used for the newer indexes, and
 - std_ibi_newst is used for the zonations lakes, brabeel, estuarien_Schelde_freshwater, estuarien_Schelde_oligohaline, estuarien_Schelde_mesohaline
+- ibi_ijzer gives the class borders of the non-standardised classes for zonation estuarien_IJzer
 
 
 ```{r}
@@ -101,7 +103,7 @@ suppressMessages(
   kable()
 ```
 
-Finally the EQR is calculated for the older indexes and the canals as
+Finally the EQR is calculated for the older indexes and the canals and IJzer estuaria as
 
 $(EQR_{class} - 1) / nclass + (IBI_{std} - ibi_{classmin}) / (nclass * (IBI_{classmax} - IBI_{classmin}))$
 

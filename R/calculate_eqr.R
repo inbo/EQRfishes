@@ -345,13 +345,17 @@ calculate_eqr <-
             )
           )
         ),
+      calc_method_old =
+        ifelse(.data$zonation == "estuarien_IJzer", TRUE, .data$calc_method_old),
       std_ibi =
         unlist(
           pmap(
             list(.data$ibi, .data$metrics, .data$calc_method_old, .data$zonation),
             standardise_ibi
           )
-        )
+        ),
+      calc_method_old =
+        ifelse(.data$zonation == "estuarien_IJzer", FALSE, .data$calc_method_old)
     ) %>%
     select(-"metrics") %>%
     mutate(
@@ -388,6 +392,18 @@ calculate_eqr <-
           ),
           .data$eqr_class
         ),
+      eqr_class =
+        ifelse(
+          .data$zonation == "estuarien_IJzer",
+          cut(
+            .data$std_ibi,
+            breaks =
+              c(0, eqr_scores$ibi_ijzer[!is.na(eqr_scores$ibi_ijzer)]),
+            labels = eqr_scores$ibi_ijzer[!is.na(eqr_scores$ibi_ijzer)],
+            right = FALSE
+          ),
+          .data$eqr_class
+        ),
       eqr_class = as.numeric(as.character(.data$eqr_class)),
       ibi_classmin =
         cut(
@@ -419,6 +435,24 @@ calculate_eqr <-
           ),
           .data$ibi_classmin
         ),
+      ibi_classmin =
+        ifelse(
+          .data$zonation == "estuarien_IJzer",
+          as.numeric(as.character(
+            cut(
+              .data$std_ibi,
+              breaks =
+                c(0, eqr_scores$ibi_ijzer[!is.na(eqr_scores$ibi_ijzer)]),
+              labels =
+                c(0,
+                  eqr_scores$ibi_ijzer[
+                    !is.na(eqr_scores$ibi_ijzer)
+                  ][1:(sum(!is.na(eqr_scores$ibi_ijzer)) - 1)]),
+              right = FALSE
+            ))
+          ),
+          .data$ibi_classmin
+        ),
       ibi_classmax =
         cut(
           .data$std_ibi,
@@ -441,6 +475,20 @@ calculate_eqr <-
           ),
           .data$ibi_classmax
         ),
+      ibi_classmax =
+        ifelse(
+          .data$zonation == "estuarien_IJzer",
+          as.numeric(as.character(
+            cut(
+              .data$ibi,
+              breaks =
+                c(0, eqr_scores$ibi_ijzer[!is.na(eqr_scores$ibi_ijzer)]),
+              labels = eqr_scores$ibi_ijzer[!is.na(eqr_scores$ibi_ijzer)],
+              right = FALSE
+            ))
+          ),
+          .data$ibi_classmax
+        ),
       nclass = sum(!is.na(eqr_scores$std_ibi_new)),
       nclass =
         ifelse(
@@ -454,7 +502,8 @@ calculate_eqr <-
         (.data$nclass * (.data$ibi_classmax - .data$ibi_classmin)),
       eqr =
         ifelse(
-          !.data$calc_method_old & .data$zonation != "canals",
+          !.data$calc_method_old &
+            !.data$zonation %in% c("canals", "estuarien_IJzer"),
           .data$std_ibi, .data$eqr),
       eqr =
         ifelse(
