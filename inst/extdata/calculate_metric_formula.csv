@@ -65,6 +65,7 @@ MpiInvt_lakes;ifelse(MniInd_lakes != 0, MniInvt_lakes * 100 / MniInd_lakes, 0);;
 ManRec_lakes;ifelse(is.na(MnsTot_lakes) | MnsTot_lakes == 0, 0, MnsRec_lakes * 100 / MnsTot_lakes);;MnsTot_lakes;;
 ManRec_lakes;ifelse(is.na(MnsTot_lakes) | MnsTot_lakes == 0, 0, MnsRec_lakes * 100 / MnsTot_lakes);;MnsRec_lakes;;
 MniInd_f_oligohaline;MniInd_oligohaline / n_fyke_days;;MniInd_oligohaline;;
+MniInd_f_oligohaline;MniInd_oligohaline / n_fyke_days;;MnsTot_oligohaline;;
 MniInd_f_freshwater;MniInd_freshwater / n_fyke_days;;MniInd_freshwater;;
 MpiSpa_freshwater;ifelse(MniInd_freshwater != 0, MniSpa_freshwater * 100 / MniInd_freshwater, 0);;MniSpa_freshwater;;
 MpiSpa_freshwater;ifelse(MniInd_freshwater != 0, MniSpa_freshwater * 100 / MniInd_freshwater, 0);;MniInd_freshwater;;
