@@ -1,6 +1,6 @@
-EQR_class;std_ibi_old;std_ibi_new;std_ibi_newst;ibi_ijzer;score_cat;beoordeling;IC5
-1;0,2;0,2;0,25;1,3;bad;slecht;1
-2;0,5;0,4;0,5;2,6;poor;ontoereikend;2
-3;0,7;0,6;0,75;4;moderate;matig;3
-4;0,9;1;1;5;GEP;goed;4
-5;1;;1,1;;MEP;uitstekend;5
+EQR_class;std_ibi_old;std_ibi_new;std_ibi_newst;ibi_ijzer;ibi_estuarien;score_cat;beoordeling;IC5
+1;0,2;0,2;0,25;1,3;2,4;bad;slecht;1
+2;0,5;0,4;0,5;2,6;3,6;poor;ontoereikend;2
+3;0,7;0,6;0,75;4;4,8;moderate;matig;3
+4;0,9;1;1;5;6;GEP;goed;4
+5;1;;1,1;;;MEP;uitstekend;5

@@ -369,7 +369,11 @@ calculate_eqr <-
           )
         ),
       calc_method_old =
-        ifelse(.data$zonation == "estuarien_IJzer", TRUE, .data$calc_method_old),
+        ifelse(
+          grepl("estuarien", .data$zonation) &
+            !.data$zonation == "estuarien_zijrivieren_zoet",
+          TRUE,
+          .data$calc_method_old),
       std_ibi =
         unlist(
           pmap(
@@ -378,7 +382,11 @@ calculate_eqr <-
           )
         ),
       calc_method_old =
-        ifelse(.data$zonation == "estuarien_IJzer", FALSE, .data$calc_method_old)
+        ifelse(
+          grepl("estuarien", .data$zonation) &
+            !.data$zonation == "estuarien_zijrivieren",
+          FALSE,
+          .data$calc_method_old)
     ) %>%
     select(-"metrics") %>%
     mutate(
@@ -403,9 +411,7 @@ calculate_eqr <-
         ),
       eqr_class =
         ifelse(
-          .data$zonation %in%
-            c("lakes", "brabeel", "estuarien_Schelde_freshwater",
-              "estuarien_Schelde_oligohaline", "estuarien_Schelde_mesohaline"),
+          .data$zonation %in% c("lakes", "brabeel"),
           cut(
             .data$std_ibi,
             breaks =
@@ -417,12 +423,26 @@ calculate_eqr <-
         ),
       eqr_class =
         ifelse(
+          .data$zonation %in%
+            c("estuarien_Schelde_freshwater", "estuarien_Schelde_oligohaline",
+              "estuarien_Schelde_mesohaline"),
+          cut(
+            .data$std_ibi,
+            breaks =
+              c(0, eqr_scores$ibi_estuarien[!is.na(eqr_scores$ibi_estuarien)]),
+            labels = eqr_scores$EQR_class[!is.na(eqr_scores$ibi_estuarien)],
+            right = FALSE
+          ),
+          .data$eqr_class
+        ),
+      eqr_class =
+        ifelse(
           .data$zonation == "estuarien_IJzer",
           cut(
             .data$std_ibi,
             breaks =
               c(0, eqr_scores$ibi_ijzer[!is.na(eqr_scores$ibi_ijzer)]),
-            labels = eqr_scores$ibi_ijzer[!is.na(eqr_scores$ibi_ijzer)],
+            labels = eqr_scores$EQR_class[!is.na(eqr_scores$ibi_ijzer)],
             right = FALSE
           ),
           .data$eqr_class
@@ -453,6 +473,24 @@ calculate_eqr <-
                   eqr_scores$std_ibi_old[
                     !is.na(eqr_scores$std_ibi_old)
                   ][1:(sum(!is.na(eqr_scores$std_ibi_old)) - 1)]),
+              right = FALSE
+            ))
+          ),
+          .data$ibi_classmin
+        ),
+      ibi_classmin =
+        ifelse(
+          grepl("estuarien_Schelde", .data$zonation),
+          as.numeric(as.character(
+            cut(
+              .data$std_ibi,
+              breaks =
+                c(0, eqr_scores$ibi_estuarien[!is.na(eqr_scores$ibi_estuarien)]),
+              labels =
+                c(0,
+                  eqr_scores$ibi_estuarien[
+                    !is.na(eqr_scores$ibi_estuarien)
+                  ][1:(sum(!is.na(eqr_scores$ibi_estuarien)) - 1)]),
               right = FALSE
             ))
           ),
@@ -500,6 +538,20 @@ calculate_eqr <-
         ),
       ibi_classmax =
         ifelse(
+          grepl("estuarien_Schelde", .data$zonation),
+          as.numeric(as.character(
+            cut(
+              .data$ibi,
+              breaks =
+                c(0, eqr_scores$ibi_estuarien[!is.na(eqr_scores$ibi_estuarien)]),
+              labels = eqr_scores$ibi_estuarien[!is.na(eqr_scores$ibi_estuarien)],
+              right = FALSE
+            ))
+          ),
+          .data$ibi_classmax
+        ),
+      ibi_classmax =
+        ifelse(
           .data$zonation == "estuarien_IJzer",
           as.numeric(as.character(
             cut(
@@ -525,8 +577,8 @@ calculate_eqr <-
         (.data$nclass * (.data$ibi_classmax - .data$ibi_classmin)),
       eqr =
         ifelse(
-          !.data$calc_method_old &
-            !.data$zonation %in% c("canals", "estuarien_IJzer"),
+          .data$zonation %in%
+            c("brabeel", "lakes", "bron", "estuarien_zijrivieren_zoet"),
           .data$std_ibi, .data$eqr),
       eqr =
         ifelse(
@@ -546,7 +598,10 @@ calculate_eqr <-
     ) %>%
     left_join(
       eqr_scores %>%
-        select(-"std_ibi_old", -"std_ibi_new", -"std_ibi_newst"),
+        select(
+          -"std_ibi_old", -"std_ibi_new", -"std_ibi_newst", -"ibi_ijzer",
+          -"ibi_estuarien"
+        ),
       by = c("eqr_class" = "EQR_class")
     )
 

@@ -51,10 +51,11 @@ For the second item, 7 types of calculations are added in the package:
 - `sum_values_column`: each species gets a value (e.g. tolerance value or typical species value), and the result is the sum of the values given for each of the captured species
 - `number_of_length_classes`: sum of the number of length classes that is captured for each of the listed species (length classes are species dependent and are given in the overview)
 - `sum_of_scored_length_classes`: after counting the number of length classes for the listed species, the number of length classes gets a species dependent score and the result is the sum of these scores (if values_column = 'Gkla') or the result is the number of species with > 1 length class (if values_column = 'multiple')
-- `shannon_wiener_index`: calculation of the Shannon Wiener index using all species <!-- later berekening nog toevoegen, of referentie niernaar -->
+- `shannon_wiener_index`: calculation of the Shannon Wiener index using all species <!-- later berekening nog toevoegen, of referentie hiernaar -->
 
 After calculations are done, the metric score (named as metric name preceded by an `S`) is calculated by looking up in which interval the result is situated.
 Intervals are presented as `[min, max]`, `]min, max[`, `[min, max[`, `]min, max]`, `] , max]` or `[min, [`, where `[]` presents a closed interval (`min` and `max` included), `][` an open interval (`min` and `max` excluded) and the absence of `min` or `max` means everything lower resp higher than `max` resp `min`.
+For the Scheldt estuarium, the calculation of all scores have an additional precondition: if MnsTot is 0, so if no typical species are caught, the metric score is set 0.  This condition is not added to the tables with the calculations, because due to the technical workflow of the package, this would mean that MnsTot would be calculated together with every metric, most likely slowing down the calculation a lot.
 
 The overview in the different chapters of this report presents all these calculations, with chapter titles indicating the zonations, 2nd level titles the metrics that are needed to calculate the IBI and EQR, and the lower levels the calculations of the variables that are needed to calculate the higher level metric.
 The last subtitle always present how to derive the score starting from the calculated value.
@@ -86,7 +87,7 @@ For the older indexes, this is $IBI / 5$.
 For the newer indexes, this is
  $(IBI - n_{metrics} / c) / (IBI_{max} - n_{metrics} / c)$
 with c = 1 for zonation bron and c = 5 for all other zonations.
-For zonation estuarien_IJzer, no standardisation is done.
+For the estuarien zonations of IJzer and Schelde, no standardisation is done.
  
 This standardised IBI is used to determine the EQR class, using the below table, where the upper limit
 
@@ -94,6 +95,7 @@ This standardised IBI is used to determine the EQR class, using the below table,
 - std_ibi_new is used for the newer indexes, and
 - std_ibi_newst is used for the zonations lakes, brabeel, estuarien_Schelde_freshwater, estuarien_Schelde_oligohaline, estuarien_Schelde_mesohaline
 - ibi_ijzer gives the class borders of the non-standardised classes for zonation estuarien_IJzer
+- ibi_estuarien gives the class borders of the non-standardised classes for zonations estuarien_Schelde (freshwater, oligohaline and mesohaline)
 
 
 ```{r}
@@ -103,11 +105,11 @@ suppressMessages(
   kable()
 ```
 
-Finally the EQR is calculated for the older indexes and the canals and IJzer estuaria as
+Finally the EQR is calculated for most indexes (the older indexes, the canals index and the IJzer and Schelde estuaria indexes) as
 
 $(EQR_{class} - 1) / nclass + (IBI_{std} - ibi_{classmin}) / (nclass * (IBI_{classmax} - IBI_{classmin}))$
 
-and the EQR is the same as the standardised IBI for the newer indexes except for the canals.
+For the indexes brabeel, lakes, bron and estuarien_zijrivieren_zoet, the standardised IBI is used as EQR.
 
 Exceptions are:
 
