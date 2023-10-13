@@ -313,6 +313,29 @@ calculate_eqr <-
           as.character(NA),
           max(.data$metric_score, na.rm = TRUE)
         )
+    ) %>%
+    ungroup()
+
+  # for some (/Schelde) estuariene indices, the metric scores should be 0 if MnsTot = 0
+  # calculate MnsTot 6 times to accomplish this using the tables, would probably make the calculations too slow
+  result_metrics_aggregated <- result_metrics_aggregated %>%
+    left_join(
+      result_metrics_aggregated %>%
+        filter(
+          .data$zonation %in%
+            c("estuarien_Schelde_oligohaline", "estuarien_Schelde_mesohaline",
+              "estuarien_Schelde_freshwater"),
+          .data$metric_name == "MnsTot"
+        ) %>%
+        select(
+          "sample_key", "zonation", "LocationID", "MnsTot" = .data$metric_value
+        ),
+      by = c("sample_key", "zonation", "LocationID")
+    ) %>%
+    mutate(
+      metric_score =
+        ifelse(!is.na(.data$MnsTot) & .data$MnsTot == 0, 0, .data$metric_score),
+      MnsTot = NULL
     )
 
   result_metrics %<>%
