@@ -334,13 +334,15 @@ calculate_eqr <-
     ) %>%
     mutate(
       metric_score =
-        ifelse(!is.na(.data$MnsTot) & .data$MnsTot == 0, 0, .data$metric_score),
+        ifelse(!is.na(.data$MnsTot) & .data$MnsTot == 0, "0", .data$metric_score),
       MnsTot = NULL
     )
 
-  result_metrics %<>%
-    filter(!str_detect(.data$zonation, "estuarien|lakes|canals")) %>%
-    bind_rows(result_metrics_aggregated)
+  if (nrow(result_metrics_aggregated) > 0) {
+    result_metrics %<>%
+      filter(!str_detect(.data$zonation, "estuarien|lakes|canals")) %>%
+      bind_rows(result_metrics_aggregated)
+  }
 
   eqr_scores <-
     suppressMessages(
