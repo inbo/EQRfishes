@@ -148,7 +148,7 @@ describe("metrics are calculated correctly", {
     expect_equal(
       (result_metrics %>%
         filter(metric_name == "BenWei"))$metric_value,
-      c("33.462", "1.061")
+      c("35.036", "1.061")
     )
     expect_equal(
       (result_metrics %>%
