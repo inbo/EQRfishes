@@ -20,7 +20,7 @@ number_of_species <- function(data) {
     select("taxoncode") %>%
     mutate(
       taxoncode =
-        ifelse(.data$taxoncode == "SAL.FAR.", "SAL.TRU.", .data$taxoncode),
+        ifelse(.data$taxoncode == "SAL.TRU.", "SAL.FAR.", .data$taxoncode),
       taxoncode =
         ifelse(.data$taxoncode %in% c("COT.RHE.", "COT.PER."), "COT.GRP.",
                .data$taxoncode)
@@ -33,6 +33,13 @@ number_of_species <- function(data) {
 
 number_of_length_classes <- function(data) {
   data %<>%
+    mutate(
+      taxoncode =
+        ifelse(.data$taxoncode == "SAL.TRU.", "SAL.FAR.", .data$taxoncode),
+      taxoncode =
+        ifelse(.data$taxoncode %in% c("COT.RHE.", "COT.PER."), "COT.GRP.",
+               .data$taxoncode)
+    ) %>%
     left_join(
       suppressMessages(
         read_csv2(
@@ -68,6 +75,13 @@ sum_of_scored_length_classes <- function(data, var) {
     warning("Some measures are ignored while taking the sum of the scored length classes because they had NA values for the length")
   }
   data %<>%
+    mutate(
+      taxoncode =
+        ifelse(.data$taxoncode == "SAL.TRU.", "SAL.FAR.", .data$taxoncode),
+      taxoncode =
+        ifelse(.data$taxoncode %in% c("COT.RHE.", "COT.PER."), "COT.GRP.",
+               .data$taxoncode)
+    ) %>%
     inner_join(
       suppressMessages(
         read_csv2(
@@ -105,6 +119,8 @@ sum_values_column <- function(data, specieslist, variable) {
     select("taxoncode") %>%
     mutate(
       taxoncode =
+        ifelse(.data$taxoncode == "SAL.TRU.", "SAL.FAR.", .data$taxoncode),
+      taxoncode =
         ifelse(.data$taxoncode %in% c("COT.RHE.", "COT.PER."), "COT.GRP.",
                .data$taxoncode)
     ) %>%
@@ -132,6 +148,13 @@ shannon_wiener_index <- function(data) {
     return(0)
   }
   data %<>%
+    mutate(
+      taxoncode =
+        ifelse(.data$taxoncode == "SAL.TRU.", "SAL.FAR.", .data$taxoncode),
+      taxoncode =
+        ifelse(.data$taxoncode %in% c("COT.RHE.", "COT.PER."), "COT.GRP.",
+               .data$taxoncode)
+    ) %>%
     group_by(.data$taxoncode) %>%
     summarise(
       number = sum(.data$number)
