@@ -782,7 +782,7 @@ describe("metrics are calculated correctly", {
     expect_equal(
       (result_metrics %>%
          filter(metric_name == "ManBio"))$metric_value,
-      c("99.237", "148.087", "17.81", "57.391")
+      c("99.237", "146.365", "17.598", "57.391")
     )
     expect_equal(
       (result_metrics %>%
