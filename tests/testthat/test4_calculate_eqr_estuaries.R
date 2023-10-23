@@ -92,7 +92,7 @@ describe("IBI is calculated correctly", {
             filter(zonation == "estuarien_Schelde_freshwater"),
           data_fish
         ),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  CRA.CRA., PAL.FFF., ERI.SIN., CAR.MAE., HEM.TAK."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., CRA.CRA., PAL.FFF., CAR.MAE., HEM.TAK."
     )
     expect_equal(
       results_eqr$ibi,
@@ -114,7 +114,7 @@ describe("IBI is calculated correctly", {
           filter(zonation == "estuarien_Schelde_mesohaline"),
         data_fish
       ),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  CRA.CRA., PAL.FFF., ERI.SIN., CAR.MAE., HEM.TAK."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., CRA.CRA., PAL.FFF., CAR.MAE., HEM.TAK."
     )
     expect_equal(
       results_eqr$ibi,
@@ -136,7 +136,7 @@ describe("IBI is calculated correctly", {
           filter(zonation == "estuarien_Schelde_oligohaline"),
         data_fish
       ),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  CRA.CRA., PAL.FFF., ERI.SIN., CAR.MAE., HEM.TAK."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., CRA.CRA., PAL.FFF., CAR.MAE., HEM.TAK."
     )
 
     expect_equal(
@@ -164,7 +164,7 @@ describe("metrics are calculated correctly", {
           data_fish, output = "metric"
         )[["metric"]] %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  CRA.CRA., PAL.FFF., ERI.SIN., CAR.MAE., HEM.TAK."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., CRA.CRA., PAL.FFF., CAR.MAE., HEM.TAK."
     )
     expect_equal(
       (result_metrics %>%
@@ -236,7 +236,7 @@ describe("metrics are calculated correctly", {
           data_fish, output = "metric"
         )[["metric"]] %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  CRA.CRA., PAL.FFF., ERI.SIN., CAR.MAE., HEM.TAK."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., CRA.CRA., PAL.FFF., CAR.MAE., HEM.TAK."
     )
     expect_equal(
       (result_metrics %>%
@@ -308,7 +308,7 @@ describe("metrics are calculated correctly", {
           data_fish, output = "metric"
         )[["metric"]] %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  CRA.CRA., PAL.FFF., ERI.SIN., CAR.MAE., HEM.TAK."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., CRA.CRA., PAL.FFF., CAR.MAE., HEM.TAK."
     )
     expect_equal(
       (result_metrics %>%

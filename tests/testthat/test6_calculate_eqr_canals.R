@@ -72,7 +72,7 @@ describe("IBI is calculated correctly", {
           data_sample,
           data_fish
         ),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ORC.LIM., ERI.SIN., ATY.DES."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ORC.LIM., HYB.HYB., ERI.SIN., ATY.DES."
     )
 
     expect_equal(
@@ -103,7 +103,7 @@ describe("metrics are calculated correctly", {
           data_fish, output = "metric"
         )[["metric"]] %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ORC.LIM., ERI.SIN., ATY.DES."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ORC.LIM., HYB.HYB., ERI.SIN., ATY.DES."
     )
     expect_equal(
       (result_metrics %>%
