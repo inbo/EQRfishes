@@ -55,11 +55,11 @@ describe("IBI is calculated correctly", {
 
     expect_equal(
       results_eqr$ibi,
-      c(NA, 9, 20, 11, NA, 12, 12, NA)
+      c(NA, 8, 20, 9, NA, 12, 12, NA)
     )
     expect_equal(
       results_eqr$eqr,
-      c(NA, 0.33333333333333, 0.7916666666666666667, 0.4166666666666667, NA,
+      c(NA, 0.291666666666667, 0.7916666666666666667, 0.3333333333333333, NA,
         0.45833333333333333333, 0.45833333333333333333, NA)
     )
     expect_equal(
@@ -169,11 +169,11 @@ describe("IBI is calculated correctly", {
 
     expect_equal(
       results_eqr$ibi,
-      c(1, 2.875, 2.875, 1.75)
+      c(1, 3, 2.875, 1.875)
     )
     expect_equal(
       results_eqr$eqr,
-      c(0.2, 0.475, 0.475, 0.3)
+      c(0.2, 0.5, 0.475, 0.31666667)
     )
     expect_equal(
       results_eqr$beoordeling,
@@ -206,11 +206,11 @@ describe("IBI is calculated correctly", {
 
     expect_equal(
       results_eqr$ibi,
-      c(3.625, 3.25, 2.875, 2.5)
+      c(3.75, 3.25, 2.875, 2.5)
     )
     expect_equal(
       results_eqr$eqr,
-      c(0.625, 0.55, 0.475, 0.4)
+      c(0.65, 0.55, 0.475, 0.4)
     )
     expect_equal(
       results_eqr$beoordeling,
@@ -279,12 +279,12 @@ describe("metrics are calculated correctly", {
     )
     expect_equal(
       (result_metrics %>%
-        filter(metric_name == "MpsRec"))$metric_value,
+        filter(metric_name == "MpsRekr"))$metric_value,
       c("0", "42.857", "37.5", "50", "33.333", "40", "20", "50")
     )
     expect_equal(
       (result_metrics %>%
-        filter(metric_name == "MpsRec"))$metric_score,
+        filter(metric_name == "MpsRekr"))$metric_score,
       c("0", "3", "3", "4", "2", "3", "1", "4")
     )
   })
@@ -704,12 +704,12 @@ describe("metrics are calculated correctly", {
     expect_equal(
       (result_metrics %>%
          filter(metric_name == "MpsRekr"))$metric_value,
-      c("0", "37.5", "23.077", "33.333")
+      c("0", "42.857", "20", "50")
     )
     expect_equal(
       (result_metrics %>%
          filter(metric_name == "MpsRekr"))$metric_score,
-      c("1", "1", "1", "1")
+      c("1", "2", "1", "2")
     )
   })
   it("barbeel old", {
@@ -812,7 +812,7 @@ describe("metrics are calculated correctly", {
     expect_equal(
       (result_metrics %>%
          filter(metric_name == "MpsRekr"))$metric_value,
-      c("33.333", "50", "33.333", "40")
+      c("37.5", "50", "33.333", "40")
     )
     expect_equal(
       (result_metrics %>%
