@@ -57,6 +57,14 @@ number_of_length_classes <- function(data) {
 }
 
 sum_of_scored_length_classes <- function(data, var) {
+  data %<>%
+    mutate(
+      taxoncode =
+        ifelse(.data$taxoncode == "SAL.TRU.", "SAL.FAR.", .data$taxoncode),
+      taxoncode =
+        ifelse(.data$taxoncode %in% c("COT.RHE.", "COT.PER."), "COT.GRP.",
+               .data$taxoncode)
+    )
   scores <-
     suppressMessages(
       read_csv2(
@@ -75,13 +83,6 @@ sum_of_scored_length_classes <- function(data, var) {
     warning("Some measures are ignored while taking the sum of the scored length classes because they had NA values for the length")
   }
   data %<>%
-    mutate(
-      taxoncode =
-        ifelse(.data$taxoncode == "SAL.TRU.", "SAL.FAR.", .data$taxoncode),
-      taxoncode =
-        ifelse(.data$taxoncode %in% c("COT.RHE.", "COT.PER."), "COT.GRP.",
-               .data$taxoncode)
-    ) %>%
     inner_join(
       suppressMessages(
         read_csv2(
