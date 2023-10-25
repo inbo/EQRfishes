@@ -24,7 +24,8 @@
 calculate_metric_measures <-
   function(
     fishdata, metric_name, metric_type, values_column, speciesfilter,
-    exclude_species_length, only_individual_measures, NULL_to_0, sampledata
+    exclude_species_length, only_individual_measures, NULL_to_0,
+    SalTru_to_SalFar, sampledata
   ) {
 
   if (is.null(fishdata)) {
@@ -63,6 +64,14 @@ calculate_metric_measures <-
       fishdata %<>%
         filter(.data$number == 1)
     }
+  }
+
+  if (is.na(SalTru_to_SalFar) | SalTru_to_SalFar) {
+    fishdata %<>%
+      mutate(
+        taxoncode =
+          ifelse(.data$taxoncode == "SAL.TRU.", "SAL.FAR.", .data$taxoncode)
+      )
   }
 
   result <-

@@ -20,8 +20,6 @@ number_of_species <- function(data) {
     select("taxoncode") %>%
     mutate(
       taxoncode =
-        ifelse(.data$taxoncode == "SAL.TRU.", "SAL.FAR.", .data$taxoncode),
-      taxoncode =
         ifelse(.data$taxoncode %in% c("COT.RHE.", "COT.PER."), "COT.GRP.",
                .data$taxoncode)
     ) %>%
@@ -34,8 +32,6 @@ number_of_species <- function(data) {
 number_of_length_classes <- function(data) {
   data %<>%
     mutate(
-      taxoncode =
-        ifelse(.data$taxoncode == "SAL.TRU.", "SAL.FAR.", .data$taxoncode),
       taxoncode =
         ifelse(.data$taxoncode %in% c("COT.RHE.", "COT.PER."), "COT.GRP.",
                .data$taxoncode)
@@ -59,8 +55,6 @@ number_of_length_classes <- function(data) {
 sum_of_scored_length_classes <- function(data, var) {
   data %<>%
     mutate(
-      taxoncode =
-        ifelse(.data$taxoncode == "SAL.TRU.", "SAL.FAR.", .data$taxoncode),
       taxoncode =
         ifelse(.data$taxoncode %in% c("COT.RHE.", "COT.PER."), "COT.GRP.",
                .data$taxoncode)
@@ -120,8 +114,6 @@ sum_values_column <- function(data, specieslist, variable) {
     select("taxoncode") %>%
     mutate(
       taxoncode =
-        ifelse(.data$taxoncode == "SAL.TRU.", "SAL.FAR.", .data$taxoncode),
-      taxoncode =
         ifelse(.data$taxoncode %in% c("COT.RHE.", "COT.PER."), "COT.GRP.",
                .data$taxoncode)
     ) %>%
@@ -150,8 +142,6 @@ shannon_wiener_index <- function(data) {
   }
   data %<>%
     mutate(
-      taxoncode =
-        ifelse(.data$taxoncode == "SAL.TRU.", "SAL.FAR.", .data$taxoncode),
       taxoncode =
         ifelse(.data$taxoncode %in% c("COT.RHE.", "COT.PER."), "COT.GRP.",
                .data$taxoncode)

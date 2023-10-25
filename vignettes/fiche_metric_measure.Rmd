@@ -25,8 +25,10 @@ if (is.na(measure_rules$speciesfilter) && length(select_columns) > 2) {
 }
 if (exists("taxonlist")) {
   cat("The species that are used for this calculation, are:\n\n")
+  sal_present <- any("SAL.FAR." %in% taxonlist$taxoncode)
 } else {
   cat("All observed fish species are used for this calculation.")
+  sal_present <- TRUE
 }
 ```
 
@@ -51,6 +53,13 @@ if (!is.na(measure_rules$only_individual_measures) & measure_rules$only_individu
 }
 if (!is.na(measure_rules$NULL_to_0)) {
   cat("If the result of this calculation is `NULL`, it should be replaced by `0`.\n\n")
+}
+if (!is.na(measure_rules$SalTru_to_SalFar) & !measure_rules$SalTru_to_SalFar) {
+  cat("SAL.FAR. and SAL.TRU. are treated as separate species/variants to calculate this metric.\n\n")
+} else {
+  if (sal_present) {
+    cat("SAL.FAR. and SAL.TRU. are treated as one species (and values of SAL.FAR. are used).\n\n")
+  }
 }
 ```
 

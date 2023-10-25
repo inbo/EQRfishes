@@ -84,6 +84,7 @@ calculate_metric <-
             exclude_species_length = .data$exclude_species_length,
             only_individual_measures = .data$only_individual_measures,
             NULL_to_0 = .data$NULL_to_0,
+            SalTru_to_SalFar = .data$SalTru_to_SalFar,
             sampledata = .data$sampledata
           ),
           calculate_metric_measures
