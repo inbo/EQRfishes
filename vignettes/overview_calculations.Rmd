@@ -137,8 +137,7 @@ calculate_metric_measures <-
   )
 data_taxonmetrics <-
   suppressMessages(
-    taxonlist <-
-      read_csv2(system.file("extdata/data_taxonmetrics.csv", package = "EQRfishes")) %>%
+    read_csv2(system.file("extdata/data_taxonmetrics.csv", package = "EQRfishes")) %>%
       arrange(.data$taxonname)
   )
 calculate_metric_score <-
