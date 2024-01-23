@@ -4,7 +4,7 @@
 \alias{standardise_ibi}
 \title{calculate a standardised IBI based on given parameters}
 \usage{
-standardise_ibi(IBI, metrics, calc_method_old)
+standardise_ibi(IBI, metrics, calc_method_old, zonation)
 }
 \arguments{
 \item{IBI}{IBI-score, result of the function calculate_ibi_score}

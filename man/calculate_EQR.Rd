@@ -26,3 +26,14 @@ Dataframe with calculated EQR for each sample, or list of dataframes if paramete
 \description{
 Main function of this package, which calculates the EQR based on 2 tables of data.  Each table must contain a sample_key!
 }
+\examples{
+library(EQRfishes)
+data_sample <-
+  read.csv2(system.file("testdata/kallemoeie_sample.csv", package = "EQRfishes"))
+data_fish <-
+  read.csv2(system.file("testdata/kallemoeie_fish_data.csv", package = "EQRfishes"))
+
+calculate_eqr(data_sample, data_fish)
+calculate_eqr(data_sample, data_fish, output = "metric")
+
+}

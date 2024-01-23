@@ -13,6 +13,7 @@ calculate_metric_measures(
   exclude_species_length,
   only_individual_measures,
   NULL_to_0,
+  SalTru_to_SalFar,
   sampledata
 )
 }

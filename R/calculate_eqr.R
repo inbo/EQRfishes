@@ -26,7 +26,7 @@
 #'
 #' @export
 #'
-#' @example
+#' @examples
 #' library(EQRfishes)
 #' data_sample <-
 #'   read.csv2(system.file("testdata/kallemoeie_sample.csv", package = "EQRfishes"))
