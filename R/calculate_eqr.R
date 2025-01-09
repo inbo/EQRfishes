@@ -145,7 +145,7 @@ calculate_eqr <-
     ) %>%
     gather(
       key = "name", value = "value",
-      -"sample_key", -"zonation", -"LocationID", -"method"
+      -"sample_key", -"zonation", -"LocationID", -"method", -"year"
     ) %>%
     nest(sampledata = c("name", "value"))
 
@@ -230,14 +230,14 @@ calculate_eqr <-
 
   result_details <- result %>%
     select(
-      "sample_key", "zonation", "LocationID", "sampledata"
+      "sample_key", "zonation", "LocationID", "year", "sampledata"
     ) %>%
     unnest(cols = c("sampledata")) %>%
     distinct()
 
   result_metrics <- result %>%
     select(
-      "sample_key", "zonation", "LocationID",
+      "sample_key", "zonation", "LocationID", "year",
       "sampledata", "metric_name", "metric_score_name",
       "method_for_metric", "metric_name_group"
     ) %>%
@@ -265,7 +265,7 @@ calculate_eqr <-
         )
     ) %>%
     group_by(
-      .data$sample_key, .data$zonation, .data$LocationID,
+      .data$sample_key, .data$zonation, .data$LocationID, .data$year,
       .data$metric_name, .data$metric_score_name, .data$method_for_metric
     ) %>%
     summarise(
@@ -297,7 +297,7 @@ calculate_eqr <-
       sample_key = substr(.data$sample_key, 1, nchar(.data$sample_key) - 10)
     ) %>%
     group_by(
-      .data$sample_key, .data$zonation, .data$LocationID,
+      .data$sample_key, .data$zonation, .data$LocationID, .data$year,
       .data$metric_name, .data$metric_score_name, .data$method_for_metric
     ) %>%
     summarise(
@@ -328,9 +328,10 @@ calculate_eqr <-
           .data$metric_name == "MnsTot"
         ) %>%
         select(
-          "sample_key", "zonation", "LocationID", "MnsTot" = .data$metric_value
+          "sample_key", "zonation", "LocationID", "year",
+          "MnsTot" = .data$metric_value
         ),
-      by = c("sample_key", "zonation", "LocationID")
+      by = c("sample_key", "zonation", "LocationID", "year")
     ) %>%
     mutate(
       metric_score =
@@ -595,7 +596,7 @@ calculate_eqr <-
         )
     ) %>%
     select(
-      "sample_key", "zonation", "LocationID", "calc_method_old",
+      "sample_key", "zonation", "LocationID", "year", "calc_method_old",
       "ibi", "eqr_class", "eqr"
     ) %>%
     left_join(
