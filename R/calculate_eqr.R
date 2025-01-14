@@ -212,8 +212,8 @@ calculate_eqr <-
       )
     )
   no_fish <- data_fish %>%
-    filter(!taxoncode %in% data_taxonmetrics$taxoncode) %>%
-    distinct(taxoncode)
+    filter(!.data$taxoncode %in% data_taxonmetrics$taxoncode) %>%
+    distinct(.data$taxoncode)
   if (nrow(no_fish) > 0) {
     warning(
       paste(
