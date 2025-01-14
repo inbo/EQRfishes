@@ -49,9 +49,6 @@ data_sample <- data_sample %>%
       select("sample_key", "version", "zonation") %>%
       distinct(),
     by = "sample_key"
-  ) %>%
-  mutate(
-    LocationID = "Schelde"
   )
 data_fish <- data_fish %>%
   mutate(

@@ -18,15 +18,14 @@ zonation_info <-
         rep("Kanaal Roeselare-Leie", 12))
   )
 data_sample <- data_sample %>%
-  inner_join(zonation_info, by = "sample_key") %>%
-  mutate(
-    LocationID = .data$index_cluster,
-    index_cluster = NULL
+  inner_join(
+    zonation_info %>%
+      select("sample_key", "zonation"),
+    by = "sample_key"
   )
 data_fish <- data_fish %>%
   select(-"sample_key_new") %>%
   filter(!is.na(sample_key))
-
 
 describe("IBI is calculated correctly", {
   it("canals", {

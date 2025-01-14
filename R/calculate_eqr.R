@@ -108,7 +108,13 @@ calculate_eqr <-
     select_keys <- c("sample_key", "index_cluster")
     data_sample <- data_sample %>%
       mutate(
-        sample_key = .data$sample_key_replace
+        sample_key = .data$sample_key_replace,
+        LocationID =
+          ifelse(
+            is.na(.data$index_cluster),
+            .data$LocationID,
+            NA
+          )
       ) %>%
       group_by(
         .data$sample_key, .data$LocationID, .data$method,
