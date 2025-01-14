@@ -28,7 +28,7 @@ zonation_info <-
           rep("estuarien_Schelde_freshwater", 1)),
         2
       ),
-    location =
+    index_cluster =
       c(rep("moneos_meso", 2), rep("moneos_zoet", 6), rep("moneos_oligo", 4),
         rep("moneos_zoet", 5), rep("moneos_meso", 2), rep("moneos_zoet", 6),
         rep("moneos_oligo", 4), rep("moneos_meso", 2), rep("moneos_oligo", 4),
@@ -44,43 +44,21 @@ zonation_info <-
   )
 
 data_sample <- data_sample %>%
-  inner_join(zonation_info, by = "sample_key") %>%
+  inner_join(
+    zonation_info %>%
+      select("sample_key", "version", "zonation") %>%
+      distinct(),
+    by = "sample_key"
+  ) %>%
   mutate(
-    LocationID = .data$location,
-    sample_key = .data$location
-  ) %>%
-  group_by(sample_key, LocationID, method, Stilstaand, tidal, Bekken, Brak, IndexTypeCode, year, version, zonation, location, sample_key_new) %>%
-  summarise(
-    surface = sum(.data$width_transect * .data$length_trajectory),
-    length_trajectory = sum(.data$length_trajectory),
-    n_fyke_nets = sum(.data$n_fyke_nets),
-    n_days = mean(.data$n_days),
-    width_river = mean(.data$width_river),
-    slope = mean(.data$slope)
-  ) %>%
-  ungroup() %>%
-  group_by(sample_key, LocationID, method, Stilstaand, tidal, Bekken, Brak, IndexTypeCode, year, version, zonation, location) %>%  #group by year
-  summarise(
-    surface = sum(.data$surface),
-    length_trajectory = sum(.data$length_trajectory),
-    n_fyke_nets = mean(.data$n_fyke_nets),
-    n_days = sum(.data$n_days),
-    width_river = mean(.data$width_river),
-    slope = mean(.data$slope)
-  ) %>%
-  ungroup() %>%
-  mutate(
-    width_transect = .data$surface / .data$length_trajectory,
-    surface = NULL
+    LocationID = "Schelde"
   )
 data_fish <- data_fish %>%
-  left_join(zonation_info, by = "sample_key", relationship = "many-to-many") %>%
   mutate(
-    sample_key = .data$location,
     number =
       ifelse(is.na(.data$number) & .data$taxoncode %in% c("POM.MIC.", "POM.MIN."), 0, .data$number)
   ) %>%
-  select(-"version", -"zonation", -"location", -"sample_key_new") %>%
+  select(-"sample_key_new") %>%
   filter(!is.na(sample_key), number > 0)
 
 # Metrieken aangepast van 0-5 naar 0-1, dus waarschijnlijk moet EQR-berekening hier ook aan aangepast worden
@@ -90,9 +68,11 @@ describe("IBI is calculated correctly", {
       results_eqr <- calculate_eqr(
           data_sample %>%
             filter(zonation == "estuarien_Schelde_freshwater"),
-          data_fish
+          data_fish,
+          cluster = zonation_info %>%
+            select("sample_key", "index_cluster")
         ),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., CRA.CRA., PAL.FFF., CAR.MAE., HEM.TAK."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., PAL.FFF., CRA.CRA."
     )
     expect_equal(
       results_eqr$ibi,
@@ -112,9 +92,11 @@ describe("IBI is calculated correctly", {
       results_eqr <- calculate_eqr(
         data_sample %>%
           filter(zonation == "estuarien_Schelde_mesohaline"),
-        data_fish
+        data_fish,
+        cluster = zonation_info %>%
+          select("sample_key", "index_cluster")
       ),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., CRA.CRA., PAL.FFF., CAR.MAE., HEM.TAK."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., PAL.FFF., CRA.CRA., CAR.MAE., HEM.TAK."
     )
     expect_equal(
       results_eqr$ibi,
@@ -134,9 +116,11 @@ describe("IBI is calculated correctly", {
       results_eqr <- calculate_eqr(
         data_sample %>%
           filter(zonation == "estuarien_Schelde_oligohaline"),
-        data_fish
+        data_fish,
+        cluster = zonation_info %>%
+          select("sample_key", "index_cluster")
       ),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., CRA.CRA., PAL.FFF., CAR.MAE., HEM.TAK."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., CRA.CRA., PAL.FFF."
     )
 
     expect_equal(
@@ -161,10 +145,12 @@ describe("metrics are calculated correctly", {
         calculate_eqr(
           data_sample %>%
             filter(zonation == "estuarien_Schelde_freshwater"),
-          data_fish, output = "metric"
+          data_fish, output = "metric",
+          cluster = zonation_info %>%
+            select("sample_key", "index_cluster")
         )[["metric"]] %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., CRA.CRA., PAL.FFF., CAR.MAE., HEM.TAK."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., PAL.FFF., CRA.CRA."
     )
     expect_equal(
       (result_metrics %>%
@@ -233,10 +219,12 @@ describe("metrics are calculated correctly", {
         calculate_eqr(
           data_sample %>%
             filter(zonation == "estuarien_Schelde_mesohaline"),
-          data_fish, output = "metric"
+          data_fish, output = "metric",
+          cluster = zonation_info %>%
+            select("sample_key", "index_cluster")
         )[["metric"]] %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., CRA.CRA., PAL.FFF., CAR.MAE., HEM.TAK."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., PAL.FFF., CRA.CRA., CAR.MAE., HEM.TAK."
     )
     expect_equal(
       (result_metrics %>%
@@ -305,10 +293,12 @@ describe("metrics are calculated correctly", {
         calculate_eqr(
           data_sample %>%
             filter(zonation == "estuarien_Schelde_oligohaline"),
-          data_fish, output = "metric"
+          data_fish, output = "metric",
+          cluster = zonation_info %>%
+            select("sample_key", "index_cluster")
         )[["metric"]] %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., CRA.CRA., PAL.FFF., CAR.MAE., HEM.TAK."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., CRA.CRA., PAL.FFF."
     )
     expect_equal(
       (result_metrics %>%

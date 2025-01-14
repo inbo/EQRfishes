@@ -12,13 +12,18 @@
 #'     \item \strong{metric} gives a list of 2 dataframes: one with the IBI and EQR, and one with the results for each metric,
 #'     \item \strong{detail} gives a list of 3 dataframes: one with the IBI and EQR, a second with the results for each metric and a third with all calculated values
 #'   }
+#' @param cluster Table with columns `sample_key` and `index_cluster`
+#' that indicates how samples should be clustered into a 'waterbody'
+#' in case of the indextypologies lakes, canals and estuarine zonations.
+#' Defaults to NA, because it is not needed in case of freshwater rivers.
 #'
 #' @return Dataframe with calculated EQR for each sample, or list of dataframes if parameter output is specified
 #'
+#' @importFrom assertthat assert_that has_name
 #' @importFrom dplyr arrange distinct filter group_by left_join mutate n select summarise ungroup
 #' @importFrom plyr .
 #' @importFrom magrittr %<>% %>%
-#' @importFrom rlang .data has_name
+#' @importFrom rlang .data
 #' @importFrom tidyr gather nest unnest
 #' @importFrom readr read_csv2
 #' @importFrom purrr pmap
@@ -32,41 +37,83 @@
 #'   read.csv2(system.file("testdata/kallemoeie_sample.csv", package = "EQRfishes"))
 #' data_fish <-
 #'   read.csv2(system.file("testdata/kallemoeie_fish_data.csv", package = "EQRfishes"))
+#' cluster <-
+#'   data.frame(
+#'     sample_key = c("Kallemoeie_e", "Kallemoeie_f"),
+#'     index_cluster = "Kallemoeie"
+#'   )
 #'
-#' calculate_eqr(data_sample, data_fish)
-#' calculate_eqr(data_sample, data_fish, output = "metric")
+#' calculate_eqr(data_sample, data_fish, cluster = cluster)
+#' calculate_eqr(data_sample, data_fish, output = "metric", cluster = cluster)
 #'
 calculate_eqr <-
-  function(data_sample, data_fish, output = c("EQR", "metric", "detail")) {
+  function(
+    data_sample, data_fish, output = c("EQR", "metric", "detail"), cluster = NA
+  ) {
 
   join_data_fish <- "sample_key"
-  if (has_name(data_sample, "sample_key_grouped")) {
+  select_keys <- "sample_key"
+  if (any(str_detect(data_sample$zonation, "estuarien|lakes|canals"))) {
+    if (length(cluster) == 1 && is.na(cluster)) {
+      stop("Argument cluster must be provided for indextypologies lakes, canals or estuarien") #nolint: line_length_linter
+    }
+    assert_that(has_name(cluster, c("sample_key", "index_cluster")))
     data_sample <- data_sample %>%
+      left_join(
+        cluster,
+        by = "sample_key"
+      ) %>%
       mutate(
+        sample_key_replace =
+          ifelse(
+            is.na(.data$index_cluster),
+            .data$sample_key,
+            paste(
+              .data$index_cluster,
+              #paste method 2 times to end with at least 2 characters
+              substr(paste0(.data$method, .data$method), 1, 2),
+              sep = "_"
+            )
+          ),
         method =
           ifelse(str_detect(.data$method, "^E"), "E", .data$method)
       )
+    test_index_cluster <- data_sample %>%
+      filter(
+        is.na(.data$index_cluster),
+        str_detect(.data$zonation, "estuarien|lakes|canals")
+      )
+    if (nrow(test_index_cluster) > 0) {
+      stop(
+        sprintf(
+          "Argument cluster must contain all sample keys with indextypologies lakes, canals or estuarien (not provided for sample_key %s)",
+          paste(unique(test_index_cluster$sample_key), collapse = ", ")
+        )
+      )
+    }
     data_fish <- data_fish %>%
       inner_join(
         data_sample %>%
           select(
-            "sample_key_grouped", "method", "sample_key"
-          ),
+            "sample_key_replace", "method", "sample_key"
+          ) %>%
+          distinct(),
         by = "sample_key"
       ) %>%
       mutate(
-        sample_key = .data$sample_key_grouped,
-        sample_key_grouped = NULL
+        sample_key = .data$sample_key_replace,
+        sample_key_replace = NULL
       )
     join_data_fish <- c("sample_key", "method")
+    select_keys <- c("sample_key", "index_cluster")
     data_sample <- data_sample %>%
       mutate(
-        sample_key = .data$sample_key_grouped
+        sample_key = .data$sample_key_replace
       ) %>%
       group_by(
         .data$sample_key, .data$LocationID, .data$method,
         .data$Stilstaand, .data$tidal, .data$Brak, .data$IndexTypeCode,
-        .data$year, .data$zonation, .data$location, .data$season
+        .data$year, .data$zonation
       ) %>%
       summarise(
         surface = sum(.data$width_transect * .data$length_trajectory),
@@ -81,7 +128,7 @@ calculate_eqr <-
       group_by(
         .data$sample_key, .data$LocationID, .data$method,
         .data$Stilstaand, .data$tidal, .data$Brak, .data$IndexTypeCode,
-        .data$year, .data$zonation, .data$location) %>%  #group by year
+        .data$year, .data$zonation) %>%  #group by year
       summarise(
         surface = sum(.data$surface),
         length_trajectory = sum(.data$length_trajectory),
@@ -294,7 +341,7 @@ calculate_eqr <-
   result_metrics_aggregated <- result_metrics %>%
     filter(str_detect(.data$zonation, "estuarien|lakes|canals")) %>%
     mutate(
-      sample_key = substr(.data$sample_key, 1, nchar(.data$sample_key) - 10)
+      sample_key = substr(.data$sample_key, 1, nchar(.data$sample_key) - 3)
     ) %>%
     group_by(
       .data$sample_key, .data$zonation, .data$LocationID, .data$year,
@@ -336,7 +383,9 @@ calculate_eqr <-
     mutate(
       metric_score =
         ifelse(!is.na(.data$MnsTot) & .data$MnsTot == 0, "0", .data$metric_score),
-      MnsTot = NULL
+      MnsTot = NULL,
+      index_cluster = .data$sample_key,
+      sample_key = NULL
     )
 
   if (nrow(result_metrics_aggregated) > 0) {
@@ -596,7 +645,7 @@ calculate_eqr <-
         )
     ) %>%
     select(
-      "sample_key", "zonation", "LocationID", "year", "calc_method_old",
+      select_keys, "zonation", "LocationID", "year", "calc_method_old",
       "ibi", "eqr_class", "eqr"
     ) %>%
     left_join(

@@ -4,7 +4,12 @@
 \alias{calculate_eqr}
 \title{calculate the ecological quality ratio}
 \usage{
-calculate_eqr(data_sample, data_fish, output = c("EQR", "metric", "detail"))
+calculate_eqr(
+  data_sample,
+  data_fish,
+  output = c("EQR", "metric", "detail"),
+  cluster = NA
+)
 }
 \arguments{
 \item{data_sample}{Data on the sample: date, method, location and location
@@ -19,6 +24,11 @@ characteristics including zonation (which can be calculated using function
   \item \strong{metric} gives a list of 2 dataframes: one with the IBI and EQR, and one with the results for each metric,
   \item \strong{detail} gives a list of 3 dataframes: one with the IBI and EQR, a second with the results for each metric and a third with all calculated values
 }}
+
+\item{cluster}{Table with columns `sample_key` and `index_cluster`
+that indicates how samples should be clustered into a 'waterbody'
+in case of the indextypologies lakes, canals and estuarine zonations.
+Defaults to NA, because it is not needed in case of freshwater rivers.}
 }
 \value{
 Dataframe with calculated EQR for each sample, or list of dataframes if parameter output is specified
@@ -32,8 +42,13 @@ data_sample <-
   read.csv2(system.file("testdata/kallemoeie_sample.csv", package = "EQRfishes"))
 data_fish <-
   read.csv2(system.file("testdata/kallemoeie_fish_data.csv", package = "EQRfishes"))
+cluster <-
+  data.frame(
+    sample_key = c("Kallemoeie_e", "Kallemoeie_f"),
+    index_cluster = "Kallemoeie"
+  )
 
-calculate_eqr(data_sample, data_fish)
-calculate_eqr(data_sample, data_fish, output = "metric")
+calculate_eqr(data_sample, data_fish, cluster = cluster)
+calculate_eqr(data_sample, data_fish, output = "metric", cluster = cluster)
 
 }

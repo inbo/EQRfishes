@@ -13,64 +13,29 @@ zonation_info <-
         13207:13217, 13387
       ),
     zonation = "canals",
-    location =
+    index_cluster =
       c(rep("Kanaal van Bocholt naar Herentals", 13),
         rep("Kanaal Roeselare-Leie", 12))
   )
 data_sample <- data_sample %>%
   inner_join(zonation_info, by = "sample_key") %>%
   mutate(
-    sample_key_grouped = paste(.data$location, substr(.data$method, 1, 2), sep = "_"),
-    LocationID = location
+    LocationID = .data$index_cluster,
+    index_cluster = NULL
   )
 data_fish <- data_fish %>%
-  left_join(
-    data_sample %>%
-      select("sample_key", "sample_key_grouped"),
-    by = "sample_key") %>%
-  mutate(
-    sample_key = .data$sample_key_grouped #,
-    # number =
-    #   ifelse(is.na(.data$number) & .data$taxoncode %in% c("POM.MIC.", "POM.MIN."), 0, .data$number)
-  ) %>%
-  select(-"sample_key_grouped", -"sample_key_new") %>%
+  select(-"sample_key_new") %>%
   filter(!is.na(sample_key))
 
-data_sample <- data_sample %>%
-  mutate(
-    sample_key = sample_key_grouped
-  ) %>%
-  group_by(sample_key, LocationID, method, Stilstaand, tidal, Brak, IndexTypeCode, year, zonation, location, sample_key_new) %>%
-  summarise(
-    surface = sum(.data$width_transect * .data$length_trajectory),
-    length_trajectory = sum(.data$length_trajectory),
-    n_fyke_nets = sum(.data$n_fyke_nets),
-    n_days = mean(.data$n_days),
-    width_river = mean(.data$width_river),
-    slope = mean(.data$slope)
-  ) %>%
-  ungroup() %>%
-  group_by(sample_key, LocationID, method, Stilstaand, tidal, Brak, IndexTypeCode, year, zonation, location) %>%  #group by year
-  summarise(
-    surface = sum(.data$surface),
-    length_trajectory = sum(.data$length_trajectory),
-    n_fyke_nets = mean(.data$n_fyke_nets),
-    n_days = sum(.data$n_days),
-    width_river = mean(.data$width_river),
-    slope = mean(.data$slope)
-  ) %>%
-  ungroup() %>%
-  mutate(
-    width_transect = .data$surface / .data$length_trajectory,
-    surface = NULL
-  )
 
 describe("IBI is calculated correctly", {
   it("canals", {
     expect_warning(
       results_eqr <- calculate_eqr(
           data_sample,
-          data_fish
+          data_fish,
+          cluster = zonation_info %>%
+            select("sample_key", "index_cluster")
         ),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ORC.LIM., HYB.HYB., ERI.SIN., ATY.DES."
     )
@@ -100,7 +65,9 @@ describe("metrics are calculated correctly", {
       result_metrics <-
         calculate_eqr(
           data_sample,
-          data_fish, output = "metric"
+          data_fish, output = "metric",
+          cluster = zonation_info %>%
+            select("sample_key", "index_cluster")
         )[["metric"]] %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ORC.LIM., HYB.HYB., ERI.SIN., ATY.DES."

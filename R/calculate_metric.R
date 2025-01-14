@@ -8,10 +8,11 @@
 #' @return Dataset with calculated EQR for each sample
 #'
 #' @importFrom magrittr %>% %<>%
+#' @importFrom assertthat has_name
 #' @importFrom dplyr arrange bind_rows distinct filter left_join mutate rename select
 #' @importFrom plyr .
 #' @importFrom readr read_csv2
-#' @importFrom rlang .data has_name
+#' @importFrom rlang .data
 #' @importFrom tidyr nest unnest
 #' @importFrom purrr pmap
 #'

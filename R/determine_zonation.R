@@ -30,8 +30,9 @@
 #'
 #' @return input dataset with additional column 'zonation'
 #'
+#' @importFrom assertthat has_name
 #' @importFrom dplyr mutate rowwise ungroup
-#' @importFrom rlang .data has_name
+#' @importFrom rlang .data
 #' @importFrom magrittr %<>%
 #'
 #' @export

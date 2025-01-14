@@ -14,13 +14,19 @@ data_fish <-
   mutate(
     record_id = 1:n()
   )
+cluster <-
+  data.frame(
+    sample_key = c("Kallemoeie_e", "Kallemoeie_f"),
+    index_cluster = "Kallemoeie"
+  )
 
 describe("IBI is calculated correctly", {
   it("lakes", {
     expect_no_warning(
       results_eqr <- calculate_eqr(
           data_sample,
-          data_fish
+          data_fish,
+          cluster = cluster
         )
     ) #verschillende samples van locatie moeten samengenomen worden!
 
@@ -45,7 +51,7 @@ describe("metrics are calculated correctly", {
       result_metrics <-
         calculate_eqr(
           data_sample,
-          data_fish, output = "metric"
+          data_fish, output = "metric", cluster = cluster
         )[["metric"]] %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3)))
     )
