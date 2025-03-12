@@ -19,6 +19,10 @@ data_taxonmetrics <-
   select(-data_taxonmetricsKey, -TaxonKey, -Soort) %>%
   rename(taxonname = WetenschappelijkeNaam)
 
+data_taxonmetrics %>%
+  count(taxoncode) %>%
+  filter(n > 1)
+
 query_brabeel <-
   "SELECT *
   FROM visindex.brabeel_metrieken;"
@@ -27,6 +31,10 @@ data_brabeel <-
   sqlQuery(connection_vis, query_brabeel, stringsAsFactors = FALSE) %>%
   select(-brabeel_metriekenKey, -TaxonKey, -Soortenlijst_brabeel) %>%
   rename(taxonname = Wetenschappelijke_naam_brabeel, taxoncode = TaxonCode)
+
+data_brabeel %>%
+  count(taxoncode) %>%
+  filter(n > 1)
 
 query_brongebied <-
   "SELECT *
@@ -37,6 +45,10 @@ data_brongebied <-
   select(-brongebied_metriekenKey, -TaxonKey, -Soortenlijst_brongebied) %>%
   rename(taxonname = Wetenschappelijke_naam_brongebied, taxoncode = TaxonCode)
 
+data_brongebied %>%
+  count(taxoncode) %>%
+  filter(n > 1)
+
 query_getijde_zijrivieren_zoet <-
   "SELECT *
   FROM visindex.getijde_zijrivieren_zoet;"
@@ -46,6 +58,10 @@ data_getijde_zijrivieren_zoet <-
   select(-getijde_zijrivieren_zoetKey, -TaxonKey, -Soortenlijst_Getijde_rivieren_zoet) %>%
   rename(taxonname = Wetenschappelijke_naam_Getijde_zijrivieren_zoet, taxoncode = TaxonCode)
 
+data_getijde_zijrivieren_zoet %>%
+  count(taxoncode) %>%
+  filter(n > 1)
+
 query_ijzer <-
   "SELECT *
   FROM visindex.ijzerestuarium_metrieken;"
@@ -53,6 +69,10 @@ query_ijzer <-
 data_ijzer <-
   sqlQuery(connection_vis, query_ijzer, stringsAsFactors = FALSE) %>%
   select(-ijzerestuarium_metriekenKey, -TaxonKey)
+
+data_ijzer %>%
+  count(taxoncode) %>%
+  filter(n > 1)
 
 query_mesohalien <-
   "SELECT *
@@ -62,6 +82,10 @@ data_mesohalien <-
   sqlQuery(connection_vis, query_mesohalien, stringsAsFactors = FALSE) %>%
   select(-zeeschelde_mesohalien_metriekenKey, -TaxonKey, -Soort)
 
+data_mesohalien %>%
+  count(taxoncode) %>%
+  filter(n > 1)
+
 query_oligohalien <-
   "SELECT *
   FROM visindex.zeeschelde_oligohalien_metrieken;"
@@ -69,6 +93,10 @@ query_oligohalien <-
 data_oligohalien <-
   sqlQuery(connection_vis, query_oligohalien, stringsAsFactors = FALSE) %>%
   select(-zeeschelde_oligohalien_metriekenKey, -TaxonKey)
+
+data_oligohalien %>%
+  count(taxoncode) %>%
+  filter(n > 1)
 
 query_zeeschelde_zoet <-
   "SELECT *
@@ -78,6 +106,10 @@ data_zeeschelde_zoet <-
   sqlQuery(connection_vis, query_zeeschelde_zoet, stringsAsFactors = FALSE) %>%
   select(-zeeschelde_zoet_metriekenKey, -TaxonKey, -Nederlandse_naam) %>%
   rename(taxonname = Wetenschappelijke_Naam_Zeeschelde_zoet, taxoncode = TaxonCode)
+
+data_zeeschelde_zoet %>%
+  count(taxoncode) %>%
+  filter(n > 1)
 
 odbcClose(connection_vis)
 
