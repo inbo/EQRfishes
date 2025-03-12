@@ -70,7 +70,16 @@ calculate_metric_measures <-
     fishdata %<>%
       mutate(
         taxoncode =
-          ifelse(.data$taxoncode == "SAL.TRU.", "SAL.FAR.", .data$taxoncode)
+          ifelse(
+            .data$taxoncode %in% c("SAL.TRU.", "SAL.TRT."),
+            "SAL.FAR.", .data$taxoncode
+          )
+      )
+  } else {
+    fishdata %<>%
+      mutate(
+        taxoncode =
+          ifelse(.data$taxoncode == "SAL.TRT.", "SAL.FAR.", .data$taxoncode)
       )
   }
 
