@@ -76,7 +76,9 @@ calculate_eqr <-
             )
           ),
         method =
-          ifelse(str_detect(.data$method, "^E"), "E", .data$method)
+          ifelse(str_detect(.data$method, "^E"), "E", .data$method),
+        method =
+          ifelse(str_detect(.data$method, "^SF"), "SF", .data$method)
       )
     test_index_cluster <- data_sample %>%
       filter(
