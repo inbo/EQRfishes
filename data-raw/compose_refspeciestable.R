@@ -16,8 +16,8 @@ query_taxonmetrics <-
 
 data_taxonmetrics <-
   sqlQuery(connection_vis, query_taxonmetrics, stringsAsFactors = FALSE) %>%
-  select(-data_taxonmetricsKey, -TaxonKey, -Soort) %>%
-  rename(taxonname = WetenschappelijkeNaam)
+  select(-data_taxonmetricsKey, -taxonKey, -soort) %>%
+  rename(taxonname = wetenschappelijke_naam)
 
 data_taxonmetrics %>%
   count(taxoncode) %>%
@@ -68,7 +68,11 @@ query_ijzer <-
 
 data_ijzer <-
   sqlQuery(connection_vis, query_ijzer, stringsAsFactors = FALSE) %>%
-  select(-ijzerestuarium_metriekenKey, -TaxonKey)
+  select(-ijzerestuarium_metriekenKey, -TaxonKey) %>%
+  mutate(
+    WetenschappelijkeNaam = trimws(WetenschappelijkeNaam),
+    opmerking = trimws(opmerking)
+  )
 
 data_ijzer %>%
   count(taxoncode) %>%
@@ -80,7 +84,7 @@ query_mesohalien <-
 
 data_mesohalien <-
   sqlQuery(connection_vis, query_mesohalien, stringsAsFactors = FALSE) %>%
-  select(-zeeschelde_mesohalien_metriekenKey, -TaxonKey, -Soort)
+  select(-zeeschelde_mesohalien_metriekenKey, -TaxonKey, -NederlandseNaam, -WetenschappelijkeNaam)
 
 data_mesohalien %>%
   count(taxoncode) %>%
@@ -92,7 +96,7 @@ query_oligohalien <-
 
 data_oligohalien <-
   sqlQuery(connection_vis, query_oligohalien, stringsAsFactors = FALSE) %>%
-  select(-zeeschelde_oligohalien_metriekenKey, -TaxonKey)
+  select(-zeeschelde_oligohalien_metriekenKey, -TaxonKey, -NederlandseNaam, -WetenschappelijkeNaam)
 
 data_oligohalien %>%
   count(taxoncode) %>%
@@ -138,6 +142,7 @@ data_taxonmetrics %<>%
     by = c("taxoncode")
   ) %>%
   mutate_if(is.numeric, coalesce, 0) %>%
-  filter(.data$taxoncode != "HYB.HYB.")
+  filter(.data$taxoncode != "HYB.HYB.") %>%
+  arrange(taxoncode)
 
 write_csv2(data_taxonmetrics, "inst/extdata/data_taxonmetrics.csv")
