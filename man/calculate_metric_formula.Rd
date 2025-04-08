@@ -4,10 +4,20 @@
 \alias{calculate_metric_formula}
 \title{calculate the metrics of the EQR based on a formula}
 \usage{
-calculate_metric_formula(data_sample_fish)
+calculate_metric_formula(
+  data_sample_fish,
+  specieslist = suppressMessages(read_csv2(system.file("extdata/data_taxonmetrics.csv",
+    package = "EQRfishes")))
+)
 }
 \arguments{
 \item{data_sample_fish}{Data on the sample with additional paramaters zonation (calculated by calculate_zonation) and surface and fishdata included}
+
+\item{specieslist}{dataframe with all fish species and data on species level
+that are needed to calculate the metrics (e.g. tolerance or typical value,
+or 0/1 to indicate if the species should be included).
+Defaults to the table in
+`system.file("extdata/data_taxonmetrics.csv", package = "EQRfishes")`.}
 }
 \value{
 Dataset with calculated metric for each record

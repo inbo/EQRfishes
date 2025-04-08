@@ -16,7 +16,14 @@
 #'
 #' @export
 #'
-calculate_metric_formula <- function(data_sample_fish) {
+calculate_metric_formula <- function(
+    data_sample_fish,
+    specieslist = suppressMessages(
+      read_csv2(
+        system.file("extdata/data_taxonmetrics.csv", package = "EQRfishes")
+      )
+    )
+) {
 
   if (nrow(data_sample_fish) == 0) {
     return(NA)
@@ -68,7 +75,8 @@ calculate_metric_formula <- function(data_sample_fish) {
             c(
               "submetric_name_group", "submetric_formula_name",
               "submetric_measures_name", "submetric_score_name", "new_row_id"
-            )
+            ),
+          specieslist = specieslist
         )
     ) %>%
     unnest(cols = "sampledata") %>%

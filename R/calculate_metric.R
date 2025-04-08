@@ -4,6 +4,11 @@
 #'
 #' @param data_sample_fish Data on the sample with additional paramaters zonation (calculated by calculate_zonation) and surface and fishdata included
 #' @param aberant_column_names default column names to refer to the metric names are metric_formula_name, metric_measures_name and metric_score_name. To recall this function in subfunctions, it could be necessary to rename column names to these standard names in this funtion.
+#' @param specieslist dataframe with all fish species and data on species level
+#' that are needed to calculate the metrics (e.g. tolerance or typical value,
+#' or 0/1 to indicate if the species should be included).
+#' Defaults to the table in
+#' `system.file("extdata/data_taxonmetrics.csv", package = "EQRfishes")`.
 #'
 #' @return Dataset with calculated EQR for each sample
 #'
@@ -25,7 +30,12 @@ calculate_metric <-
       c(
         "metric_name_group", "metric_formula_name", "metric_measures_name",
         "metric_score_name", "row_id"
+      ),
+    specieslist = suppressMessages(
+      read_csv2(
+        system.file("extdata/data_taxonmetrics.csv", package = "EQRfishes")
       )
+    )
   ) {
 
   if (has_name(data_sample_fish, "formula")) {
@@ -54,7 +64,7 @@ calculate_metric <-
     filter(!is.na(.data$metric_formula_name)) %>%
     arrange(.data$row_id) %>%
     mutate(
-      sampledata = calculate_metric_formula(.),
+      sampledata = calculate_metric_formula(., specieslist = specieslist),
       metric_name_calc = .data$metric_formula_name
     ) %>%
     select(-"metric_formula_name", -"metric_measures_name")
@@ -88,7 +98,8 @@ calculate_metric <-
             SalTru_to_SalFar = .data$SalTru_to_SalFar,
             sampledata = .data$sampledata
           ),
-          calculate_metric_measures
+          calculate_metric_measures,
+          specieslist = specieslist
         ),
       metric_name_calc = .data$metric_measures_name
     ) %>%

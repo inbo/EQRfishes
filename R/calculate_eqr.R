@@ -243,7 +243,6 @@ calculate_eqr <-
       )
     )
   }
-  rm(data_taxonmetrics)
 
   fish_not_measured <- data_fish %>%
     filter(is.na(.data$number) & is.na(.data$length) & is.na(.data$weight))
@@ -299,8 +298,9 @@ calculate_eqr <-
     ) %>%
     arrange(.data$row_id) %>%
     mutate(
-      sampledata = calculate_metric(.)
+      sampledata = calculate_metric(., specieslist = data_taxonmetrics)
     )
+  rm(data_taxonmetrics)
 
   result_details <- result %>%
     select(

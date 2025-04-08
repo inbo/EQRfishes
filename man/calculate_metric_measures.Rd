@@ -14,7 +14,9 @@ calculate_metric_measures(
   only_individual_measures,
   NULL_to_0,
   SalTru_to_SalFar,
-  sampledata
+  sampledata,
+  specieslist = suppressMessages(read_csv2(system.file("extdata/data_taxonmetrics.csv",
+    package = "EQRfishes")))
 )
 }
 \arguments{
@@ -35,6 +37,12 @@ calculate_metric_measures(
 \item{NULL_to_0}{value 1 indicates that result NULL should be replaced by 0}
 
 \item{sampledata}{table with earlier calculated variables to which the newly calculated variable should be added}
+
+\item{specieslist}{dataframe with all fish species and data on species level
+that are needed to calculate the metrics (e.g. tolerance or typical value,
+or 0/1 to indicate if the species should be included).
+Defaults to the table in
+`system.file("extdata/data_taxonmetrics.csv", package = "EQRfishes")`.}
 }
 \value{
 table sampledata in which the newly calculated metric is added

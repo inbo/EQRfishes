@@ -7,13 +7,21 @@
 calculate_metric(
   data_sample_fish,
   aberant_column_names = c("metric_name_group", "metric_formula_name",
-    "metric_measures_name", "metric_score_name", "row_id")
+    "metric_measures_name", "metric_score_name", "row_id"),
+  specieslist = suppressMessages(read_csv2(system.file("extdata/data_taxonmetrics.csv",
+    package = "EQRfishes")))
 )
 }
 \arguments{
 \item{data_sample_fish}{Data on the sample with additional paramaters zonation (calculated by calculate_zonation) and surface and fishdata included}
 
 \item{aberant_column_names}{default column names to refer to the metric names are metric_formula_name, metric_measures_name and metric_score_name. To recall this function in subfunctions, it could be necessary to rename column names to these standard names in this funtion.}
+
+\item{specieslist}{dataframe with all fish species and data on species level
+that are needed to calculate the metrics (e.g. tolerance or typical value,
+or 0/1 to indicate if the species should be included).
+Defaults to the table in
+`system.file("extdata/data_taxonmetrics.csv", package = "EQRfishes")`.}
 }
 \value{
 Dataset with calculated EQR for each sample

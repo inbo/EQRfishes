@@ -12,6 +12,8 @@
 #' @param NULL_to_0 value 1 indicates that result NULL should be replaced by 0
 #' @param sampledata table with earlier calculated variables to which the newly calculated variable should be added
 #'
+#' @inheritParams calculate_metric
+#'
 #' @return table sampledata in which the newly calculated metric is added
 #'
 #' @importFrom readr read_csv2
@@ -25,7 +27,12 @@ calculate_metric_measures <-
   function(
     fishdata, metric_name, metric_type, values_column, speciesfilter,
     exclude_species_length, only_individual_measures, NULL_to_0,
-    SalTru_to_SalFar, sampledata
+    SalTru_to_SalFar, sampledata,
+    specieslist = suppressMessages(
+      read_csv2(
+        system.file("extdata/data_taxonmetrics.csv", package = "EQRfishes")
+      )
+    )
   ) {
 
   if (is.null(fishdata)) {
@@ -41,12 +48,7 @@ calculate_metric_measures <-
         )
     )
   }
-  specieslist <-
-    suppressMessages(
-      read_csv2(
-        system.file("extdata/data_taxonmetrics.csv", package = "EQRfishes")
-      )
-    )
+
   if (!is.na(speciesfilter)) {
     specieslist %<>%
       filter(eval(parse(text = speciesfilter)))
