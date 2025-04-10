@@ -27,7 +27,6 @@ data_sample <- data_sample %>%
     by = "sample_key"
   )
 data_fish <- data_fish %>%
-  select(-"sample_key_new") %>%
   filter(!is.na(sample_key))
 
 describe("IBI is calculated correctly", {

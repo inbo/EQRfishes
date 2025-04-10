@@ -60,7 +60,6 @@ data_fish <- data_fish %>%
     number =
       ifelse(is.na(.data$number) & .data$taxoncode %in% c("POM.MIC.", "POM.MIN."), 0, .data$number)
   ) %>%
-  select(-"sample_key_new") %>%
   filter(!is.na(sample_key), number > 0)
 
 # Metrieken aangepast van 0-5 naar 0-1, dus waarschijnlijk moet EQR-berekening hier ook aan aangepast worden

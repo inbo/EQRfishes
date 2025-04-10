@@ -82,41 +82,12 @@ data_sample <- data_sample %>%
   ) %>%
   mutate(
     year = .data$year_begin,
-    season = .data$season_begin,
-    sample_key_new =
-      paste(
-        .data$season, .data$year, "loc", .data$LocationID, "method",
-        .data$method, sep = "_"
-      )
+    season = .data$season_begin
   ) %>%
   select(
     -"year_begin", -"year_end", -"season_begin", -"season_end",
     -"Begindatum", -"Einddatum"
   )
-
-data_sample_new <- data_sample %>%
-  group_by(
-    .data$sample_key_new, .data$LocationID, .data$width_river, .data$slope,
-    .data$method, .data$Stilstaand, .data$tidal, .data$Bekken, .data$Brak,
-    .data$IndexTypeCode
-  ) %>%
-  summarise(
-    surface = sum(.data$width_transect * .data$length_trajectory),
-    length_trajectory = sum(.data$length_trajectory),
-    n_fyke_nets = sum(.data$n_fyke_nets),
-    n_days = sum(.data$n_days)
-  ) %>%
-  ungroup() %>%
-  mutate(
-    width_transect = .data$surface / .data$length_trajectory,
-    surface = NULL,
-    sample_key = .data$sample_key_new,
-    sample_key_new = NULL
-  )
-
-key_translation <- data_sample %>%
-  select("sample_key", "sample_key_new") %>%
-  distinct()
 
 data_fish <- data_fish %>%
   spread(key = .data$Variabelecode, value = .data$Waarde) %>%
@@ -126,10 +97,8 @@ data_fish <- data_fish %>%
     number = .data$TAXONAANTAL,
     length = .data$TAXONLEN,
     weight = ifelse(!is.na(.data$TAXONGEW), .data$TAXONGEW, .data$TAXONTOTGEW)
-  ) %>%
-  left_join(key_translation, by = "sample_key")
-save(data_sample, data_fish, data_sample_new,
-     file = "inst/extrafiles/visdata.Rdata")
+  )
+save(data_sample, data_fish, file = "inst/extrafiles/visdata.Rdata")
 
 data_sample_freshwater <- data_sample %>%
   filter(
