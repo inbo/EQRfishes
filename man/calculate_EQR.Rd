@@ -16,7 +16,13 @@ calculate_eqr(
 characteristics including zonation (which can be calculated using function
 `determine_zonation()`)}
 
-\item{data_fish}{Measurements on fish: taxon, length, weight, number of individuals}
+\item{data_fish}{Measurements on fish: dataframe with columns
+- `sample_key` (reference to `data_sample`),
+- `record_id`: unique id for each row,
+- `taxoncode`: abbreviation of scientific fish name,
+- `number` of individuals for this record (1 if each separate fish is measured),
+- `length` of the fish in cm (NA if `number` > 1),
+- `weight` of the fish in g (total weight if `number` > 1)}
 
 \item{output}{Which output do you wish?
 \itemize{

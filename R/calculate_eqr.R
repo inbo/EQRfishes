@@ -5,7 +5,13 @@
 #' @param data_sample Data on the sample: date, method, location and location
 #' characteristics including zonation (which can be calculated using function
 #' `determine_zonation()`)
-#' @param data_fish Measurements on fish: taxon, length, weight, number of individuals
+#' @param data_fish Measurements on fish: dataframe with columns
+#'   - `sample_key` (reference to `data_sample`),
+#'   - `record_id`: unique id for each row,
+#'   - `taxoncode`: abbreviation of scientific fish name,
+#'   - `number` of individuals for this record (1 if each separate fish is measured),
+#'   - `length` of the fish in cm (NA if `number` > 1),
+#'   - `weight` of the fish in g (total weight if `number` > 1)
 #' @param output Which output do you wish?
 #'   \itemize{
 #'     \item \strong{EQR} (default) only gives the main result: a dataframe with calculated IBI and EQR for each sample (location),
@@ -50,6 +56,17 @@ calculate_eqr <-
   function(
     data_sample, data_fish, output = c("EQR", "metric", "detail"), cluster = NA
   ) {
+
+  # make sure data_fish has all columns present, and remove additional columns
+  # (these can cause problems if fish data are nested)
+  assert_that(has_name(data_fish, "sample_key"))
+  assert_that(has_name(data_fish, "record_id"))
+  assert_that(has_name(data_fish, "taxoncode"))
+  assert_that(has_name(data_fish, "number"))
+  assert_that(has_name(data_fish, "length"))
+  assert_that(has_name(data_fish, "weight"))
+  data_fish <- data_fish %>%
+    select("sample_key", "record_id", "taxoncode", "number", "length", "weight")
 
   join_data_fish <- "sample_key"
   select_keys <- "sample_key"
