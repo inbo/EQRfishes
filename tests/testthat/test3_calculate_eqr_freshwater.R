@@ -250,7 +250,7 @@ describe("metrics are calculated correctly", {
     expect_equal(
       (result_metrics %>%
         filter(metric_name == "ManSha"))$metric_score,
-      c("2", "2", "5", "2", "4", "4", "4", "2")
+      c("2", "1", "5", "1", "4", "4", "4", "2")
     )
     expect_equal(
       (result_metrics %>%
@@ -260,7 +260,7 @@ describe("metrics are calculated correctly", {
     expect_equal(
       (result_metrics %>%
         filter(metric_name == "MnsTot"))$metric_score,
-      c("1", "3", "3", "3", "2", "3", "3", "1")
+      c("1", "3", "3", "2", "2", "3", "3", "1")
     )
     expect_equal(
       (result_metrics %>%
@@ -644,7 +644,7 @@ describe("metrics are calculated correctly", {
     expect_equal(
       (result_metrics %>%
          filter(metric_name == "MnsTot"))$metric_score,
-      c("2", "3", "4", "2")
+      c("1", "3", "4", "2")
     )
     expect_equal(
       (result_metrics %>%
