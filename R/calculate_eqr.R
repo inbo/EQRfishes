@@ -68,6 +68,8 @@ calculate_eqr <-
   data_fish <- data_fish %>%
     select("sample_key", "record_id", "taxoncode", "number", "length", "weight")
 
+  match.arg(output)
+
   join_data_fish <- "sample_key"
   select_keys <- "sample_key"
   if (any(str_detect(data_sample$zonation, "estuarien|lakes|canals"))) {
