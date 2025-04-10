@@ -3,7 +3,12 @@ context("test calculate_eqr freshwater")
 library(dplyr)
 library(tidyr)
 
-load(system.file("extrafiles/visdata.Rdata", package = "EQRfishes"))
+data_sample <- read.csv2(
+  system.file("testdata/freshwater_sample.csv", package = "EQRfishes")
+)
+data_fish <- read.csv2(
+  system.file("testdata/freshwater_fish_data.csv", package = "EQRfishes")
+)
 
 zonation_info <-
   data.frame(

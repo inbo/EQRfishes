@@ -4,8 +4,9 @@ library(readr)
 library(dplyr)
 library(tidyr)
 
-load(system.file("extrafiles/visdata.Rdata", package = "EQRfishes"))
-data_sample <- data_sample %>%
+data_sample <- read.csv2(
+  system.file("testdata/freshwater_sample.csv", package = "EQRfishes")
+) %>%
   mutate(
     IndexTypeCode =
       ifelse(

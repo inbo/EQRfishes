@@ -3,7 +3,12 @@ context("test calculate_eqr estuaries")
 library(dplyr)
 library(tidyr)
 
-load(system.file("extrafiles/visdata.Rdata", package = "EQRfishes"))
+data_sample <- read.csv2(
+  system.file("testdata/estuaries_sample.csv", package = "EQRfishes")
+)
+data_fish <- read.csv2(
+  system.file("testdata/estuaries_fish_data.csv", package = "EQRfishes")
+)
 
 zonation_info <-
   data.frame(
@@ -69,7 +74,7 @@ describe("IBI is calculated correctly", {
           cluster = zonation_info %>%
             select("sample_key", "index_cluster")
         ),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., PAL.FFF., CRA.CRA."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., ERI.SIN., CRA.CRA."
     )
     expect_equal(
       results_eqr$ibi,
@@ -93,7 +98,7 @@ describe("IBI is calculated correctly", {
         cluster = zonation_info %>%
           select("sample_key", "index_cluster")
       ),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., PAL.FFF., CRA.CRA., CAR.MAE., HEM.TAK."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., ERI.SIN., CRA.CRA., CAR.MAE., HEM.TAK."
     )
     expect_equal(
       results_eqr$ibi,
@@ -117,7 +122,7 @@ describe("IBI is calculated correctly", {
         cluster = zonation_info %>%
           select("sample_key", "index_cluster")
       ),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., CRA.CRA., PAL.FFF."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., CRA.CRA., ERI.SIN."
     )
 
     expect_equal(
@@ -147,7 +152,7 @@ describe("metrics are calculated correctly", {
             select("sample_key", "index_cluster")
         )[["metric"]] %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., PAL.FFF., CRA.CRA."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., ERI.SIN., CRA.CRA."
     )
     expect_equal(
       (result_metrics %>%
@@ -221,7 +226,7 @@ describe("metrics are calculated correctly", {
             select("sample_key", "index_cluster")
         )[["metric"]] %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., PAL.FFF., CRA.CRA., CAR.MAE., HEM.TAK."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., ERI.SIN., CRA.CRA., CAR.MAE., HEM.TAK."
     )
     expect_equal(
       (result_metrics %>%
@@ -295,7 +300,7 @@ describe("metrics are calculated correctly", {
             select("sample_key", "index_cluster")
         )[["metric"]] %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., CRA.CRA., PAL.FFF."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., CRA.CRA., ERI.SIN."
     )
     expect_equal(
       (result_metrics %>%

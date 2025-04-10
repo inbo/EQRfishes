@@ -130,3 +130,72 @@ data_fish <- data_fish %>%
   left_join(key_translation, by = "sample_key")
 save(data_sample, data_fish, data_sample_new,
      file = "inst/extrafiles/visdata.Rdata")
+
+data_sample_freshwater <- data_sample %>%
+  filter(
+    .data$sample_key %in%
+      c(
+        2258, 4550, 8434, 8507, 8681, 11611, 11652, 13282, 13384, 13512, 13534,
+        13561
+      )
+  )
+write.csv2(
+  data_sample_freshwater, file = "inst/testdata/freshwater_sample.csv",
+  row.names = FALSE
+)
+data_fish_freshwater <- data_fish %>%
+  filter(
+    .data$sample_key %in%
+      c(
+        2258, 4550, 8434, 8507, 8681, 11611, 11652, 13282, 13384, 13512, 13534,
+        13561
+      )
+  )
+write.csv2(
+  data_fish_freshwater, file = "inst/testdata/freshwater_fish_data.csv",
+  row.names = FALSE
+)
+
+data_sample_estuaries <- data_sample %>%
+  filter(
+    .data$sample_key %in%
+      c(
+        9877, 9878, 9900:9903, 9906, 9907, 10260:10266, 10268, 10269, 10276,
+        10277, 10347:10356, 10392, 10393, 10398:10401, 11274
+      )
+  )
+write.csv2(
+  data_sample_estuaries, file = "inst/testdata/estuaries_sample.csv",
+  row.names = FALSE
+)
+data_fish_estuaries <- data_fish %>%
+  filter(
+    .data$sample_key %in%
+      c(
+        9877, 9878, 9900:9903, 9906, 9907, 10260:10266, 10268, 10269, 10276,
+        10277, 10347:10356, 10392, 10393, 10398:10401, 11274
+      )
+  )
+write.csv2(
+  data_fish_estuaries, file = "inst/testdata/estuaries_fish_data.csv",
+  row.names = FALSE
+)
+
+data_sample_canals <- data_sample %>%
+  filter(
+    .data$sample_key %in%
+      c(13207:13217, 13279, 13280, 13285:13292, 13294:13296, 13387)
+  )
+write.csv2(
+  data_sample_canals, file = "inst/testdata/canals_sample.csv",
+  row.names = FALSE
+)
+data_fish_canals <- data_fish %>%
+  filter(
+    .data$sample_key %in%
+      c(13207:13217, 13279, 13280, 13285:13292, 13294:13296, 13387)
+  )
+write.csv2(
+  data_fish_canals, file = "inst/testdata/canals_fish_data.csv",
+  row.names = FALSE
+)

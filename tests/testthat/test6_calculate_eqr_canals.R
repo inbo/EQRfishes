@@ -3,7 +3,10 @@ context("test calculate_eqr canals")
 library(dplyr)
 library(tidyr)
 
-load(system.file("extrafiles/visdata.Rdata", package = "EQRfishes"))
+data_sample <-
+  read.csv2(system.file("testdata/canals_sample.csv", package = "EQRfishes"))
+data_fish <-
+  read.csv2(system.file("testdata/canals_fish_data.csv", package = "EQRfishes"))
 
 zonation_info <-
   data.frame(
@@ -36,7 +39,7 @@ describe("IBI is calculated correctly", {
           cluster = zonation_info %>%
             select("sample_key", "index_cluster")
         ),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ORC.LIM., HYB.HYB., ERI.SIN., ATY.DES."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ORC.LIM., ERI.SIN., ATY.DES., HYB.HYB."
     )
 
     expect_equal(
@@ -69,7 +72,7 @@ describe("metrics are calculated correctly", {
             select("sample_key", "index_cluster")
         )[["metric"]] %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ORC.LIM., HYB.HYB., ERI.SIN., ATY.DES."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ORC.LIM., ERI.SIN., ATY.DES., HYB.HYB."
     )
     expect_equal(
       (result_metrics %>%
