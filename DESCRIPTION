@@ -30,3 +30,4 @@ Suggests:
     testthat,
     tibble
 VignetteBuilder: knitr
+Language: en-GB
