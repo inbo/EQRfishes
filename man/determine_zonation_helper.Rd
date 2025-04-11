@@ -2,7 +2,7 @@
 % Please edit documentation in R/determine_zonation_helper.R
 \name{determine_zonation_helper}
 \alias{determine_zonation_helper}
-\title{determine the zonation of one location}
+\title{determine the indextypology of one location}
 \usage{
 determine_zonation_helper(
   var_width,
@@ -29,8 +29,8 @@ Defaults to 'new'.}
 zonation of the focal location(s)
 }
 \description{
-This helper function determines the zonation based on the given measurements
+This helper function determines the indextypology (`zonation`) based on the given measurements
 for one location.
-To determine the zonation of the whole dataset at once, please use function
+To determine the indextypology of the whole dataset at once, please use function
 `determine_zonation`.
 }

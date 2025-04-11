@@ -3,7 +3,7 @@
 #' Main function of this package, which calculates the EQR based on 2 tables of data.  Each table must contain a sample_key!
 #'
 #' @param data_sample Data on the sample: date, method, location and location
-#' characteristics including zonation (which can be calculated using function
+#' characteristics including zonation (= indextypology, which can be calculated using function
 #' `determine_zonation()`)
 #' @param data_fish Measurements on fish: dataframe with columns
 #'   - `sample_key` (reference to `data_sample`),

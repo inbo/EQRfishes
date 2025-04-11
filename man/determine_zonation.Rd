@@ -2,7 +2,7 @@
 % Please edit documentation in R/determine_zonation.R
 \name{determine_zonation}
 \alias{determine_zonation}
-\title{determine the zonation for records of a dataset}
+\title{determine the indextypology for records of a dataset}
 \usage{
 determine_zonation(dataset, version = c("new", "old"))
 }
@@ -25,9 +25,9 @@ replace NA values in column `version`.}
 input dataset with additional column 'zonation'
 }
 \description{
-This function determines the zonation based on the given dataset with
+This function determines the indextypology (`zonation`) based on the given dataset with
 measurements.
-Recently 2 new zonations were added: 'bron' (replacing 'upstream' in rivers
+Recently 2 new indextypologies were added: 'bron' (replacing 'upstream' in rivers
 up to a width of 2 m) and 'brabeel' (replacing 'brasem' and 'barbeel' in
 rivers up to a width of 30 m), and both versions are available here:
   \itemize{

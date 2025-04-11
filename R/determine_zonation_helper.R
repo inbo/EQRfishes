@@ -1,8 +1,8 @@
-#' determine the zonation of one location
+#' determine the indextypology of one location
 #'
-#' This helper function determines the zonation based on the given measurements
+#' This helper function determines the indextypology (`zonation`) based on the given measurements
 #' for one location.
-#' To determine the zonation of the whole dataset at once, please use function
+#' To determine the indextypology of the whole dataset at once, please use function
 #' `determine_zonation`.
 #'
 #' @param var_width width of the river at the sample location

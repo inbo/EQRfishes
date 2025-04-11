@@ -11,7 +11,7 @@ calculate_metric_formula(
 )
 }
 \arguments{
-\item{data_sample_fish}{Data on the sample with additional paramaters zonation (calculated by calculate_zonation) and surface and fishdata included}
+\item{data_sample_fish}{Data on the sample with additional paramaters zonation (= indextypology, calculated by calculate_zonation) and surface and fishdata included}
 
 \item{specieslist}{dataframe with all fish species and data on species level
 that are needed to calculate the metrics (e.g. tolerance or typical value,

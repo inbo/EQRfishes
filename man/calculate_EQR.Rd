@@ -13,7 +13,7 @@ calculate_eqr(
 }
 \arguments{
 \item{data_sample}{Data on the sample: date, method, location and location
-characteristics including zonation (which can be calculated using function
+characteristics including zonation (= indextypology, which can be calculated using function
 `determine_zonation()`)}
 
 \item{data_fish}{Measurements on fish: dataframe with columns

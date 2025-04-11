@@ -13,7 +13,7 @@ calculate_metric(
 )
 }
 \arguments{
-\item{data_sample_fish}{Data on the sample with additional paramaters zonation (calculated by calculate_zonation) and surface and fishdata included}
+\item{data_sample_fish}{Data on the sample with additional paramaters zonation (= indextypology, calculated by calculate_zonation) and surface and fishdata included}
 
 \item{aberant_column_names}{default column names to refer to the metric names are metric_formula_name, metric_measures_name and metric_score_name. To recall this function in subfunctions, it could be necessary to rename column names to these standard names in this funtion.}
 
