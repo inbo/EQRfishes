@@ -35,8 +35,7 @@ Information <- tribble(
   "calculate_metric_score", 1, -18, 0, 0.5, "calculate_metric_score.csv",
   "var_in_interval", 2, -20, 0, 0.5, "",
   "calculate_ibi_score", 0, -22, 0, 0.5, "",
-  "var_in_interval", 1, -24, 0, 0.5, "",
-  "calculate_eqr_score", 0, -26, 0, 0.5, ""
+  "var_in_interval", 1, -24, 0, 0.5, ""
 )
 
 Information %>%

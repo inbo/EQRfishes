@@ -56,8 +56,7 @@ Information <- tribble(
   "(small subfunctions)", 2, -16, 0, 0.5, "data_classes.csv",
   "calculate_metric_score", 1, -18, 0, 0.5, "calculate_metric_score.csv",
   "var_in_interval", 2, -20, 0, 0.5, "",
-  "calculate_ibi_score", 0, -22, 0, 0.5, "calculate_IBI_EQR.csv",
-  "calculate_eqr_score", 0, -24, 0, 0.5, "calculate_IBI_EQR.csv"
+  "calculate_ibi_score", 0, -22, 0, 0.5, "calculate_ibi_eqr.csv"
 )
 
 Information %>%
