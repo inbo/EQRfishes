@@ -77,7 +77,7 @@ calculate_metric_measures <- function(
     }
   }
 
-  if (is.na(saltru_to_salfar) | saltru_to_salfar) {
+  if (is.na(saltru_to_salfar) || saltru_to_salfar) {
     fishdata <- fishdata %>%
       mutate(
         taxoncode =
@@ -113,7 +113,7 @@ calculate_metric_measures <- function(
       )
     )
 
-  if (!is.na(null_to_0) & is.null(result)) {
+  if (!is.na(null_to_0) && is.null(result)) {
     if (null_to_0 == 1) {
       result <- 0
     }

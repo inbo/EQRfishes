@@ -71,7 +71,7 @@ var_in_interval <- function(variable, interval) {
       )
     )
 
-  if (max(is.na(result_min)) | max(is.na(result_max))) {
+  if (max(is.na(result_min)) || max(is.na(result_max))) {
     return((is.na(variable) & is.na(interval)) | (variable == interval))
     warning("At least one interval is not recognised")
   }

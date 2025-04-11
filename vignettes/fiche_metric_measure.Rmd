@@ -59,7 +59,7 @@ if (!is.na(measure_rules$exclude_species_length)) {
   cat(measure_rules$exclude_species_length)
 }
 if (
-  !is.na(measure_rules$only_individual_measures) &
+  !is.na(measure_rules$only_individual_measures) &&
     measure_rules$only_individual_measures == 1
 ) {
   cat("For this calculation, only individual measures should be used.\n\n")
@@ -69,7 +69,7 @@ if (!is.na(measure_rules$null_to_0)) {
     "If the result of this calculation is `NULL`, it should be replaced by `0`.\n\n" # nolint: line_length_linter
   )
 }
-if (!is.na(measure_rules$saltru_to_salfar) & !measure_rules$saltru_to_salfar) {
+if (!is.na(measure_rules$saltru_to_salfar) && !measure_rules$saltru_to_salfar) {
   cat(
     "SAL.FAR. and SAL.TRU. are treated as separate species/variants to calculate this metric; SAL.TRT. is treated as the same species as SAL.FAR.\n\n" # nolint: line_length_linter
   )

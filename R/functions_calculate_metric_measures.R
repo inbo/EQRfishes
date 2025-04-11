@@ -145,7 +145,7 @@ shannon_wiener_index <- function(data) {
       filter(!is.na(.data$number))
   }
   mni_tot <- number_of_individuals(data)
-  if (!is.numeric(mni_tot) | mni_tot == 0) {
+  if (!is.numeric(mni_tot) || mni_tot == 0) {
     return(0)
   }
   data <- data %>%
