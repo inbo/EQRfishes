@@ -41,7 +41,7 @@ Due to the complex nature of the calculations, it is rather complicated to keep 
 
 ```{r overview, fig.width=7, fig.height=5}
 
-Information <- tribble(
+information <- tribble(
   ~Title, ~X, ~Y, ~Hjust, ~Vjust, ~Tekst,
   "calculate_eqr", -1, 2, 0, 0.5, "score.csv",
   "determine_zonation", 0, 0, 0, 0.5, "data_zonation.csv",
@@ -59,7 +59,7 @@ Information <- tribble(
   "calculate_ibi_score", 0, -22, 0, 0.5, "calculate_ibi_eqr.csv"
 )
 
-Information %>%
+information %>%
   ggplot(
     aes(x = .data$X, y = .data$Y, hjust = .data$Hjust, vjust = .data$Vjust)
   ) +
@@ -241,16 +241,16 @@ suppressMessages(
   kable()
 ```
 
-### calculate_IBI_EQR.csv
+### calculate_ibi_eqr.csv
 
 This datasheet gives the information to calculate the IBI and EQR:
 
 - for IBI, only exceptions to the normal rule of the average of the metric scores are mentioned
 - EQR calculation is based on IBI and is given for each zonation separately
 
-```{r calculate_IBI_EQR}
+```{r calculate_ibi_eqr}
 suppressMessages(
-  read_csv2(system.file("extdata/calculate_IBI_EQR.csv", package = "EQRfishes"))
+  read_csv2(system.file("extdata/calculate_ibi_eqr.csv", package = "EQRfishes"))
 ) %>%
   kable()
 ```

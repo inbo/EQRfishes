@@ -144,8 +144,8 @@ shannon_wiener_index <- function(data) {
     data <- data %>%
       filter(!is.na(.data$number))
   }
-  MniTot <- number_of_individuals(data)
-  if (!is.numeric(MniTot) | MniTot == 0) {
+  mni_tot <- number_of_individuals(data)
+  if (!is.numeric(mni_tot) | mni_tot == 0) {
     return(0)
   }
   data <- data %>%
@@ -161,7 +161,7 @@ shannon_wiener_index <- function(data) {
     ungroup() %>%
     mutate(
       shannon_wiener =
-        -.data$number / MniTot * log(.data$number / MniTot)
+        -.data$number / mni_tot * log(.data$number / mni_tot)
     ) %>%
     summarise(
       shannon_wiener = sum(.data$shannon_wiener)

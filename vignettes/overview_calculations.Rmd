@@ -75,7 +75,7 @@ But there are a few exceptions to deal with a lack of (typical) species:
 
 ```{r}
 suppressMessages(
-  read_csv2(system.file("extdata/calculate_IBI_EQR.csv", package = "EQRfishes"))
+  read_csv2(system.file("extdata/calculate_ibi_eqr.csv", package = "EQRfishes"))
 ) %>%
   kable()
 ```
@@ -152,7 +152,7 @@ calculate_metric_score <- suppressMessages(
   )
 )
 calculate_ibi_eqr <- suppressMessages(
-  read_csv2(system.file("extdata/calculate_IBI_EQR.csv", package = "EQRfishes"))
+  read_csv2(system.file("extdata/calculate_ibi_eqr.csv", package = "EQRfishes"))
 )
 ```
 
@@ -220,7 +220,7 @@ This datasheet contains the species lists where calculate_metric_measures.csv of
 This datasheet mentions the intervals that are used to derive a metric score based on 1 or 2 variables/metrics (the 2nd variable is mentioned in add_category with interval value_add_category), score_id is the class (or score).
 
 
-### calculate_IBI_EQR.csv
+### calculate_ibi_eqr.csv
 
 This datasheet gives the information to calculate the IBI and EQR:
 

@@ -4,10 +4,10 @@
 \alias{standardise_ibi}
 \title{calculate a standardised IBI based on given parameters}
 \usage{
-standardise_ibi(IBI, metrics, calc_method_old, zonation)
+standardise_ibi(ibi, metrics, calc_method_old, zonation)
 }
 \arguments{
-\item{IBI}{IBI-score, result of the function calculate_ibi_score}
+\item{ibi}{IBI-score, result of the function calculate_ibi_score}
 
 \item{metrics}{calculated metrics and metric scores}
 

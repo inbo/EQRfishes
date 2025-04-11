@@ -15,7 +15,7 @@
 #' and c the number of EQR classes
 #' (or 1//the width of an EQR class, which is 0.2).
 #'
-#' @param IBI IBI-score, result of the function calculate_ibi_score
+#' @param ibi IBI-score, result of the function calculate_ibi_score
 #' @inheritParams calculate_ibi_score
 #'
 #' @return single value being the result of the calculation
@@ -27,7 +27,7 @@
 #' @export
 #'
 #'
-standardise_ibi <- function(IBI, metrics, calc_method_old, zonation) {
+standardise_ibi <- function(ibi, metrics, calc_method_old, zonation) {
 
   c <- ifelse(zonation %in% c("bron", "estuarien_IJzer"), 1, 5)
   c <- ifelse(grepl("estuarien_Schelde", zonation), 1, c)
@@ -53,10 +53,10 @@ standardise_ibi <- function(IBI, metrics, calc_method_old, zonation) {
     )
 
   if (calc_method_old) {
-    std_ibi <- IBI / c
+    std_ibi <- ibi / c
   } else {
     std_ibi <-
-      (IBI - metrics2$number_of_metrics / c) /
+      (ibi - metrics2$number_of_metrics / c) /
       (metrics2$max_score - metrics2$number_of_metrics / c)
   }
 

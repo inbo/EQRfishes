@@ -18,7 +18,7 @@
 #' (info from calculate_metric_measures.csv)
 #' @param only_individual_measures value 1 indicates that only individually
 #' measured data should be used (info from calculate_metric_measures.csv)
-#' @param NULL_to_0 value 1 indicates that result NULL should be replaced by 0
+#' @param null_to_0 value 1 indicates that result NULL should be replaced by 0
 #' @param sampledata table with earlier calculated variables to which the newly
 #' calculated variable should be added
 #'
@@ -35,8 +35,8 @@
 #'
 calculate_metric_measures <- function(
   fishdata, metric_name, metric_type, values_column, speciesfilter,
-  exclude_species_length, only_individual_measures, NULL_to_0,
-  SalTru_to_SalFar, sampledata,
+  exclude_species_length, only_individual_measures, null_to_0,
+  saltru_to_salfar, sampledata,
   specieslist = suppressMessages(
     read_csv2(
       system.file("extdata/data_taxonmetrics.csv", package = "EQRfishes")
@@ -77,7 +77,7 @@ calculate_metric_measures <- function(
     }
   }
 
-  if (is.na(SalTru_to_SalFar) | SalTru_to_SalFar) {
+  if (is.na(saltru_to_salfar) | saltru_to_salfar) {
     fishdata <- fishdata %>%
       mutate(
         taxoncode =
@@ -113,8 +113,8 @@ calculate_metric_measures <- function(
       )
     )
 
-  if (!is.na(NULL_to_0) & is.null(result)) {
-    if (NULL_to_0 == 1) {
+  if (!is.na(null_to_0) & is.null(result)) {
+    if (null_to_0 == 1) {
       result <- 0
     }
   }

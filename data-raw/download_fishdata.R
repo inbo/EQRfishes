@@ -3,7 +3,7 @@
 library(RODBC)
 library(tidyverse)
 library(lubridate)
-connection_VIS <-
+connection_vis <-
   odbcDriverConnect(
     "Driver=SQL Server;Server=INBO-SQL08-PRD.inbo.be;Database=W0001_00_Vis;Trusted_Connection=Yes;" # nolint: line_length_linter
   )
@@ -24,7 +24,7 @@ query_sample <-
   WHERE dw.IsCurrent = 1 AND dG.IsCurrent = 1;"
 
 data_sample <-
-  sqlQuery(connection_VIS, query_sample, stringsAsFactors = FALSE)
+  sqlQuery(connection_vis, query_sample, stringsAsFactors = FALSE)
 
 query_fish <-
   "SELECT
@@ -39,9 +39,9 @@ query_fish <-
     AND (FM.AfvisBeurtNrKey <= 1 OR FM.AfVisBeurtNrKey IS NULL);"
 
 data_fish <-
-  sqlQuery(connection_VIS, query_fish, stringsAsFactors = FALSE)
+  sqlQuery(connection_vis, query_fish, stringsAsFactors = FALSE)
 
-odbcClose(connection_VIS)
+odbcClose(connection_vis)
 
 data_sample <- data_sample %>%
   mutate(

@@ -12,8 +12,8 @@ calculate_metric_measures(
   speciesfilter,
   exclude_species_length,
   only_individual_measures,
-  NULL_to_0,
-  SalTru_to_SalFar,
+  null_to_0,
+  saltru_to_salfar,
   sampledata,
   specieslist = suppressMessages(read_csv2(system.file("extdata/data_taxonmetrics.csv",
     package = "EQRfishes")))
@@ -42,7 +42,7 @@ be EXCLUDED based on fish characteristics such as length
 \item{only_individual_measures}{value 1 indicates that only individually
 measured data should be used (info from calculate_metric_measures.csv)}
 
-\item{NULL_to_0}{value 1 indicates that result NULL should be replaced by 0}
+\item{null_to_0}{value 1 indicates that result NULL should be replaced by 0}
 
 \item{sampledata}{table with earlier calculated variables to which the newly
 calculated variable should be added}

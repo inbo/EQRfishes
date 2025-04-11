@@ -1,4 +1,4 @@
-metric_measures_name;metric_type;values_column;speciesfilter;exclude_species_length;NULL_to_0;only_individual_measures;SalTru_to_SalFar;method;opmerking;;
+metric_measures_name;metric_type;values_column;speciesfilter;exclude_species_length;null_to_0;only_individual_measures;saltru_to_salfar;method;opmerking;;
 MnsRekr;number_of_species;;MpsRec_brabeel == 1;;;;FALSE;;;;
 MniZoet;number_of_individuals;;mni_zoet == 1;;;;;;;;
 MnsTot;number_of_species;;;;;;;;;;

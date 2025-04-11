@@ -100,8 +100,8 @@ calculate_metric <- function(
             speciesfilter = .data$speciesfilter,
             exclude_species_length = .data$exclude_species_length,
             only_individual_measures = .data$only_individual_measures,
-            NULL_to_0 = .data$NULL_to_0,
-            SalTru_to_SalFar = .data$SalTru_to_SalFar,
+            null_to_0 = .data$null_to_0,
+            saltru_to_salfar = .data$saltru_to_salfar,
             sampledata = .data$sampledata
           ),
           calculate_metric_measures,
@@ -112,7 +112,7 @@ calculate_metric <- function(
     select(
       -"metric_formula_name", -"metric_measures_name",
       -"metric_type", -"speciesfilter", -"exclude_species_length",
-      -"only_individual_measures", -"NULL_to_0",  #de laatste 3 voorwaarden nog inwerken in script!
+      -"only_individual_measures", -"null_to_0",  #de laatste 3 voorwaarden nog inwerken in script!
       -"method" #, -"opmerking"
     )
 

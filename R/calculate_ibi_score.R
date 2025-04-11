@@ -1,6 +1,6 @@
 #' calculate IBI based on given parameters
 #'
-#' Small function that calculates IBI based on rules in calculate_IBI_EQR.csv
+#' Small function that calculates IBI based on rules in calculate_ibi_eqr.csv
 #' or the formula 'sum of metric scores divided by number of metrics'
 #' (when using the old calculation method)
 #' or the formula 'sum of metric scores'
@@ -24,10 +24,10 @@
 #'
 calculate_ibi_score <- function(zonation_name, metrics, calc_method_old) {
 
-  IBI_exceptions <-
+  ibi_exceptions <-
     suppressMessages(
       read_csv2(
-        system.file("extdata/calculate_IBI_EQR.csv", package = "EQRfishes")
+        system.file("extdata/calculate_ibi_eqr.csv", package = "EQRfishes")
       )
     ) %>%
     filter(
@@ -42,8 +42,8 @@ calculate_ibi_score <- function(zonation_name, metrics, calc_method_old) {
       var_in_interval(.data$metric_value, .data$interval)
     )
 
-  if (!all(is.na(IBI_exceptions$calculated2))) {
-    IBI_exceptions <- IBI_exceptions %>%
+  if (!all(is.na(ibi_exceptions$calculated2))) {
+    ibi_exceptions <- ibi_exceptions %>%
       left_join(
         metrics,
         by = c("calculated2" = "metric_name"),
@@ -54,12 +54,12 @@ calculate_ibi_score <- function(zonation_name, metrics, calc_method_old) {
       )
   }
 
-  if (nrow(IBI_exceptions) > 0) {
-    IBI <- IBI_exceptions %>%
+  if (nrow(ibi_exceptions) > 0) {
+    ibi <- ibi_exceptions %>%
       select("result") %>%
       distinct()
   } else {
-    IBI <- metrics %>%
+    ibi <- metrics %>%
       filter(!is.na(.data$metric_score_name)) %>%
       summarise(
         result = sum(as.numeric(.data$metric_score)),
@@ -68,5 +68,5 @@ calculate_ibi_score <- function(zonation_name, metrics, calc_method_old) {
       )
   }
 
-  return(IBI$result)
+  return(ibi$result)
 }

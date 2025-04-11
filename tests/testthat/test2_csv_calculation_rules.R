@@ -50,10 +50,10 @@ calculate_metric_score <-
 #     read_csv2(system.file("extdata/data_classes.csv", package = "EQRfishes"))
 #   )
 
-calculate_IBI_EQR <-
+calculate_ibi_eqr <-
   suppressMessages(
     read_csv2(
-      system.file("extdata/calculate_IBI_EQR.csv", package = "EQRfishes")
+      system.file("extdata/calculate_ibi_eqr.csv", package = "EQRfishes")
     )
   )
 
@@ -217,23 +217,23 @@ describe("variables exist in dependent tables", {
         )
     )
   })
-  it("calculate_IBI_EQR.zonation <-> zonation_metric.zonation", {
-    lacking_vars <- unique(calculate_IBI_EQR$zonation)[
-      !unique(calculate_IBI_EQR$zonation) %in%
+  it("calculate_ibi_eqr.zonation <-> zonation_metric.zonation", {
+    lacking_vars <- unique(calculate_ibi_eqr$zonation)[
+      !unique(calculate_ibi_eqr$zonation) %in%
         unique(zonation_metric$zonation)
     ]
     expect_equal(
       length(lacking_vars), 0,
       info =
         paste(
-          "calculate_IBI_EQR.csv contains information on zonation(s)",
+          "calculate_ibi_eqr.csv contains information on zonation(s)",
           paste(lacking_vars, collapse = ", "),
           ", but there is no information on how to calculate the zonation(s) in table zonation_metric.csv" # nolint: line_length_linter
         )
     )
   })
-  it("calculate_IBI_EQR.calculated -> zonation_metric.metric_name", {
-    lacking_vars <- calculate_IBI_EQR %>%
+  it("calculate_ibi_eqr.calculated -> zonation_metric.metric_name", {
+    lacking_vars <- calculate_ibi_eqr %>%
       select("zonation", "to_calculate", "calculated") %>%
       filter(!(.data$to_calculate == "EQR" & .data$calculated == "IBI")) %>%
       distinct() %>%
@@ -291,9 +291,9 @@ describe("items in calculate_metric_measures.csv have valable names", {
         )
     )
   })
-  it("NULL_to_0 only contains 0 and 1", {
+  it("null_to_0 only contains 0 and 1", {
     stopifnot(
-      all(calculate_metric_measures$NULL_to_0 %in% c(0, 1, NA))
+      all(calculate_metric_measures$null_to_0 %in% c(0, 1, NA))
     )
   })
   it("only_individual_measures only contains 0 and 1", {
@@ -401,7 +401,7 @@ describe("intervals are correct", {
           paste(wrong_interval$value_add_category, collapse = ", ")
         )
     )
-    wrong_interval <- calculate_IBI_EQR %>%
+    wrong_interval <- calculate_ibi_eqr %>%
       select("interval") %>%
       distinct() %>%
       filter(!is.na(.data$interval) & !.data$interval %in% c("-1")) %>%
@@ -444,7 +444,7 @@ describe("intervals are correct", {
       nrow(wrong_interval), 0,
       info =
         paste(
-          "Column interval from calculate_IBI_EQR.csv has invalable interval(s):", # nolint: line_length_linter
+          "Column interval from calculate_ibi_eqr.csv has invalable interval(s):", # nolint: line_length_linter
           paste(wrong_interval$interval, collapse = ", ")
         )
     )
