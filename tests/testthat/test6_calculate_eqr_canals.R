@@ -38,7 +38,7 @@ describe("IBI is calculated correctly", {
           cluster = zonation_info %>%
             select("sample_key", "index_cluster")
         ),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ORC.LIM., ERI.SIN., ATY.DES., HYB.HYB."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ORC.LIM., HYB.HYB., ERI.SIN., ATY.DES."
     )
 
     expect_equal(
@@ -71,7 +71,7 @@ describe("metrics are calculated correctly", {
             select("sample_key", "index_cluster")
         )[["metric"]] %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ORC.LIM., ERI.SIN., ATY.DES., HYB.HYB."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ORC.LIM., HYB.HYB., ERI.SIN., ATY.DES."
     )
     expect_equal(
       (result_metrics %>%
