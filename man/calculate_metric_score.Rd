@@ -7,15 +7,21 @@
 calculate_metric_score(metric_score_name, indices, sampledata)
 }
 \arguments{
-\item{metric_score_name}{name of metric score to be calculated (NA if no calculation has to be done)}
+\item{metric_score_name}{name of metric score to be calculated
+(NA if no calculation has to be done)}
 
-\item{indices}{dataframe with indices and their tresholds (info from calculate_metric_score.csv)}
+\item{indices}{dataframe with indices and their tresholds
+(info from calculate_metric_score.csv)}
 
-\item{sampledata}{location specific variables (column name) with their values (value)}
+\item{sampledata}{location specific variables (column name) with their values
+(value)}
 }
 \value{
 A calculated metric score for the given values
 }
 \description{
-Calculates the metric score, given a calculated metric value (and some parameters specific to the sampling location), and a table with the indices and their tresholds (info from calculate_metric_score.csv).
+Calculates the metric score, given a calculated metric value
+(and some parameters specific to the sampling location),
+and a table with the indices and their tresholds
+(info from calculate_metric_score.csv).
 }

@@ -5,7 +5,7 @@ library(tidyverse)
 library(lubridate)
 connection_VIS <-
   odbcDriverConnect(
-    "Driver=SQL Server;Server=INBO-SQL08-PRD.inbo.be;Database=W0001_00_Vis;Trusted_Connection=Yes;"
+    "Driver=SQL Server;Server=INBO-SQL08-PRD.inbo.be;Database=W0001_00_Vis;Trusted_Connection=Yes;" # nolint: line_length_linter
   )
 
 query_sample <-
@@ -27,7 +27,8 @@ data_sample <-
   sqlQuery(connection_VIS, query_sample, stringsAsFactors = FALSE)
 
 query_fish <-
-  "SELECT FM.WaarnemingKey, FM.MetingID, dV.Variabelecode, FM.Waarde, dT.Taxoncode
+  "SELECT
+    FM.WaarnemingKey, FM.MetingID, dV.Variabelecode, FM.Waarde, dT.Taxoncode
   FROM FactMeting FM
     INNER JOIN DimVariabele dV
       ON FM.VariabeleKey = dV.VariabeleKey

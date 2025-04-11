@@ -1,6 +1,7 @@
 #' calculate the metrics of the EQR based on a formula
 #'
-#' Calculates the metrics that are based on formulas only, given fish data and other .
+#' Calculates the metrics that are based on formulas only, given fish data and
+#' other .
 #'
 #' @inheritParams calculate_metric
 #'
@@ -17,12 +18,12 @@
 #' @export
 #'
 calculate_metric_formula <- function(
-    data_sample_fish,
-    specieslist = suppressMessages(
-      read_csv2(
-        system.file("extdata/data_taxonmetrics.csv", package = "EQRfishes")
-      )
+  data_sample_fish,
+  specieslist = suppressMessages(
+    read_csv2(
+      system.file("extdata/data_taxonmetrics.csv", package = "EQRfishes")
     )
+  )
 ) {
 
   if (nrow(data_sample_fish) == 0) {
@@ -71,11 +72,10 @@ calculate_metric_formula <- function(
       sampledata =
         calculate_metric(
           .,
-          aberant_column_names =
-            c(
-              "submetric_name_group", "submetric_formula_name",
-              "submetric_measures_name", "submetric_score_name", "new_row_id"
-            ),
+          aberant_column_names = c(
+            "submetric_name_group", "submetric_formula_name",
+            "submetric_measures_name", "submetric_score_name", "new_row_id"
+          ),
           specieslist = specieslist
         )
     ) %>%
@@ -87,15 +87,14 @@ calculate_metric_formula <- function(
     ) %>%
     nest(sampledata = c("name", "value")) %>%
     mutate(
-      sampledata =
-        pmap(
-          list(
-            formula = .data$formula,
-            sampledata = .data$sampledata,
-            metric_name = .data$metric_formula_name
-          ),
-          calculate_formula
-        )
+      sampledata = pmap(
+        list(
+          formula = .data$formula,
+          sampledata = .data$sampledata,
+          metric_name = .data$metric_formula_name
+        ),
+        calculate_formula
+      )
           #formule berekenen (nog uitwerken!), hier overal checken dat noemer niet 0 of NA is
     ) %>%
     arrange(.data$row_id)

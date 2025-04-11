@@ -1,9 +1,9 @@
 #' determine the indextypology of one location
 #'
-#' This helper function determines the indextypology (`zonation`) based on the given measurements
-#' for one location.
-#' To determine the indextypology of the whole dataset at once, please use function
-#' `determine_zonation`.
+#' This helper function determines the indextypology (`zonation`) based on the
+#' given measurements for one location.
+#' To determine the indextypology of the whole dataset at once, please use
+#' function `determine_zonation`.
 #'
 #' @param var_width width of the river at the sample location
 #' @param var_slope slope of the river at the sample location
@@ -22,9 +22,10 @@
 #'
 #' @export
 #'
-determine_zonation_helper <-
-  function(var_width, var_slope, var_tidal, var_indextype,
-           version = c("new", "old")) {
+determine_zonation_helper <- function(
+  var_width, var_slope, var_tidal, var_indextype,
+  version = c("new", "old")
+) {
 
   match.arg(version)
   data_zonation <-

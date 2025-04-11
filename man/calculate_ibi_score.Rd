@@ -11,11 +11,18 @@ calculate_ibi_score(zonation_name, metrics, calc_method_old)
 
 \item{metrics}{calculated metrics and metric scores}
 
-\item{calc_method_old}{does the calculation has to be done using the old method?}
+\item{calc_method_old}{does the calculation has to be done using the old
+method?}
 }
 \value{
 single value being the result of the calculation
 }
 \description{
-Small function that calculates IBI based on rules in calculate_IBI_EQR.csv or the formula 'sum of metric scores divided by number of metrics' (when using the old calculation method) or the formula 'sum of metric scores' (when using the new calculation method). Distinction between old an new method is made by the absence (old method) or presence (new method) of a specified method for the calculated methods.
+Small function that calculates IBI based on rules in calculate_IBI_EQR.csv
+or the formula 'sum of metric scores divided by number of metrics'
+(when using the old calculation method)
+or the formula 'sum of metric scores'
+(when using the new calculation method).
+Distinction between old an new method is made by the absence (old method)
+or presence (new method) of a specified method for the calculated methods.
 }

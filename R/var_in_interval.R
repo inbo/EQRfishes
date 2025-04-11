@@ -1,6 +1,7 @@
 #' is variable present in interval?
 #'
-#' checks if a given variable is present in a given interval and returns TRUE or FALSE
+#' checks if a given variable is present in a given interval and returns TRUE
+#' or FALSE
 #'
 #' @param variable float, often a measurement
 #' @param interval (vector of) string(s) of an interval, e.g. '[1,3['

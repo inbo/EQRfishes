@@ -7,7 +7,7 @@ library(readr)
 
 connection_vis <-
   odbcDriverConnect(
-    "Driver=SQL Server;Server=INBO-SQL08-PRD.inbo.be;Database=W0001_00_Vis;Trusted_Connection=Yes;"
+    "Driver=SQL Server;Server=INBO-SQL08-PRD.inbo.be;Database=W0001_00_Vis;Trusted_Connection=Yes;" # nolint: line_length_linter
   )
 
 query_taxonmetrics <-
@@ -53,10 +53,16 @@ query_getijde_zijrivieren_zoet <-
   "SELECT *
   FROM visindex.getijde_zijrivieren_zoet;"
 
-data_getijde_zijrivieren_zoet <-
-  sqlQuery(connection_vis, query_getijde_zijrivieren_zoet, stringsAsFactors = FALSE) %>%
-  select(-getijde_zijrivieren_zoetKey, -TaxonKey, -Soortenlijst_Getijde_rivieren_zoet) %>%
-  rename(taxonname = Wetenschappelijke_naam_Getijde_zijrivieren_zoet, taxoncode = TaxonCode)
+data_getijde_zijrivieren_zoet <- sqlQuery(
+  connection_vis, query_getijde_zijrivieren_zoet, stringsAsFactors = FALSE
+) %>%
+  select(
+    -getijde_zijrivieren_zoetKey, -TaxonKey, -Soortenlijst_Getijde_rivieren_zoet
+  ) %>%
+  rename(
+    taxonname = Wetenschappelijke_naam_Getijde_zijrivieren_zoet,
+    taxoncode = TaxonCode
+  )
 
 data_getijde_zijrivieren_zoet %>%
   count(taxoncode) %>%
@@ -84,7 +90,10 @@ query_mesohalien <-
 
 data_mesohalien <-
   sqlQuery(connection_vis, query_mesohalien, stringsAsFactors = FALSE) %>%
-  select(-zeeschelde_mesohalien_metriekenKey, -TaxonKey, -NederlandseNaam, -WetenschappelijkeNaam)
+  select(
+    -zeeschelde_mesohalien_metriekenKey, -TaxonKey, -NederlandseNaam,
+    -WetenschappelijkeNaam
+  )
 
 data_mesohalien %>%
   count(taxoncode) %>%
@@ -96,7 +105,10 @@ query_oligohalien <-
 
 data_oligohalien <-
   sqlQuery(connection_vis, query_oligohalien, stringsAsFactors = FALSE) %>%
-  select(-zeeschelde_oligohalien_metriekenKey, -TaxonKey, -NederlandseNaam, -WetenschappelijkeNaam)
+  select(
+    -zeeschelde_oligohalien_metriekenKey, -TaxonKey, -NederlandseNaam,
+    -WetenschappelijkeNaam
+  )
 
 data_oligohalien %>%
   count(taxoncode) %>%
@@ -109,7 +121,9 @@ query_zeeschelde_zoet <-
 data_zeeschelde_zoet <-
   sqlQuery(connection_vis, query_zeeschelde_zoet, stringsAsFactors = FALSE) %>%
   select(-zeeschelde_zoet_metriekenKey, -TaxonKey, -Nederlandse_naam) %>%
-  rename(taxonname = Wetenschappelijke_Naam_Zeeschelde_zoet, taxoncode = TaxonCode)
+  rename(
+    taxonname = Wetenschappelijke_Naam_Zeeschelde_zoet, taxoncode = TaxonCode
+  )
 
 data_zeeschelde_zoet %>%
   count(taxoncode) %>%

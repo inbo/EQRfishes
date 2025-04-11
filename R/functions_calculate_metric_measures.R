@@ -1,13 +1,17 @@
-# this file contains small helper functions that are called in the function calculate_metric_measures
+# this file contains small helper functions that are called in the function
+# calculate_metric_measures
 
 #' @importFrom magrittr %>% %<>%
-#' @importFrom dplyr count distinct filter group_by inner_join left_join mutate select summarise ungroup
+#' @importFrom dplyr count distinct filter group_by inner_join left_join mutate
+#' select summarise ungroup
 #' @importFrom rlang .data
 #' @importFrom readr read_csv2
 
 number_of_individuals <- function(data) {
   if (any(is.na(data$number))) {
-    warning("Some measures are ignored while counting the number of individuals because they had NA values for the number")
+    warning(
+      "Some measures are ignored while counting the number of individuals because they had NA values for the number"  # nolint: line_length_linter
+    )
   }
   data %<>%
     filter(!is.na(.data$number)) %>%
@@ -74,7 +78,9 @@ sum_of_scored_length_classes <- function(data, var) {
       )
   }
   if (any(is.na(data$length))) {
-    warning("Some measures are ignored while taking the sum of the scored length classes because they had NA values for the length")
+    warning(
+      "Some measures are ignored while taking the sum of the scored length classes because they had NA values for the length" # nolint: line_length_linter
+    )
   }
   data %<>%
     inner_join(
@@ -101,7 +107,9 @@ sum_of_scored_length_classes <- function(data, var) {
 
 total_weight <- function(data) {
   if (any(is.na(data$weight))) {
-    warning("Some measures are ignored while taking the total weight because they had NA values for the weight")
+    warning(
+      "Some measures are ignored while taking the total weight because they had NA values for the weight" # nolint: line_length_linter
+    )
   }
   data %<>%
     filter(!is.na(.data$weight)) %>%

@@ -29,8 +29,8 @@ Defaults to 'new'.}
 zonation of the focal location(s)
 }
 \description{
-This helper function determines the indextypology (`zonation`) based on the given measurements
-for one location.
-To determine the indextypology of the whole dataset at once, please use function
-`determine_zonation`.
+This helper function determines the indextypology (`zonation`) based on the
+given measurements for one location.
+To determine the indextypology of the whole dataset at once, please use
+function `determine_zonation`.
 }

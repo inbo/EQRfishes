@@ -1,10 +1,17 @@
 #' calculate IBI based on given parameters
 #'
-#' Small function that calculates IBI based on rules in calculate_IBI_EQR.csv or the formula 'sum of metric scores divided by number of metrics' (when using the old calculation method) or the formula 'sum of metric scores' (when using the new calculation method). Distinction between old an new method is made by the absence (old method) or presence (new method) of a specified method for the calculated methods.
+#' Small function that calculates IBI based on rules in calculate_IBI_EQR.csv
+#' or the formula 'sum of metric scores divided by number of metrics'
+#' (when using the old calculation method)
+#' or the formula 'sum of metric scores'
+#' (when using the new calculation method).
+#' Distinction between old an new method is made by the absence (old method)
+#' or presence (new method) of a specified method for the calculated methods.
 #'
 #' @param zonation_name zonation of the location
 #' @param metrics calculated metrics and metric scores
-#' @param calc_method_old does the calculation has to be done using the old method?
+#' @param calc_method_old does the calculation has to be done using the old
+#' method?
 #'
 #' @return single value being the result of the calculation
 #'
@@ -15,10 +22,7 @@
 #' @export
 #'
 #'
-calculate_ibi_score <-
-  function(
-    zonation_name, metrics, calc_method_old
-  ) {
+calculate_ibi_score <- function(zonation_name, metrics, calc_method_old) {
 
   IBI_exceptions <-
     suppressMessages(

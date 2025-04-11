@@ -14,10 +14,7 @@
 #' @importFrom readr read_csv2
 #'
 #'
-calculate_eqr_score <-
-  function(
-    zonation_name, IBI
-  ) {
+calculate_eqr_score <- function(zonation_name, IBI) {
 
   EQR_formula <-
     suppressMessages(

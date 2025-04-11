@@ -14,7 +14,9 @@ if (nrow(table_metric_score) < 1) {
            .data$add_category == var_metric_ms)
 }
 if (nrow(table_metric_score) < 1) {
-  stop("ERROR in fiche_metric_score.Rmd: score table will not be printed correctly")
+  stop(
+    "ERROR in fiche_metric_score.Rmd: score table will not be printed correctly"
+  )
 }
 ```
 

@@ -13,22 +13,27 @@ calculate_eqr(
 }
 \arguments{
 \item{data_sample}{Data on the sample: date, method, location and location
-characteristics including zonation (= indextypology, which can be calculated using function
-`determine_zonation()`)}
+characteristics including zonation (= indextypology, which can be calculated
+using function `determine_zonation()`)}
 
 \item{data_fish}{Measurements on fish: dataframe with columns
 - `sample_key` (reference to `data_sample`),
 - `record_id`: unique id for each row,
 - `taxoncode`: abbreviation of scientific fish name,
-- `number` of individuals for this record (1 if each separate fish is measured),
+- `number` of individuals for this record (1 if each separate fish is
+  measured),
 - `length` of the fish in cm (NA if `number` > 1),
 - `weight` of the fish in g (total weight if `number` > 1)}
 
 \item{output}{Which output do you wish?
 \itemize{
-  \item \strong{EQR} (default) only gives the main result: a dataframe with calculated IBI and EQR for each sample (location),
-  \item \strong{metric} gives a list of 2 dataframes: one with the IBI and EQR, and one with the results for each metric,
-  \item \strong{detail} gives a list of 3 dataframes: one with the IBI and EQR, a second with the results for each metric and a third with all calculated values
+  \item \strong{EQR} (default) only gives the main result:
+    a dataframe with calculated IBI and EQR for each sample (location),
+  \item \strong{metric} gives a list of 2 dataframes:
+    one with the IBI and EQR, and one with the results for each metric,
+  \item \strong{detail} gives a list of 3 dataframes:
+    one with the IBI and EQR, a second with the results for each metric
+    and a third with all calculated values
 }}
 
 \item{cluster}{Table with columns `sample_key` and `index_cluster`
@@ -37,22 +42,26 @@ in case of the indextypologies lakes, canals and estuarine zonations.
 Defaults to NA, because it is not needed in case of freshwater rivers.}
 }
 \value{
-Dataframe with calculated EQR for each sample, or list of dataframes if parameter output is specified
+Dataframe with calculated EQR for each sample, or list of dataframes
+if parameter output is specified
 }
 \description{
-Main function of this package, which calculates the EQR based on 2 tables of data.  Each table must contain a sample_key!
+Main function of this package, which calculates the EQR based on 2 tables of
+data.
+Each table must contain a sample_key!
 }
 \examples{
 library(EQRfishes)
-data_sample <-
-  read.csv2(system.file("testdata/kallemoeie_sample.csv", package = "EQRfishes"))
-data_fish <-
-  read.csv2(system.file("testdata/kallemoeie_fish_data.csv", package = "EQRfishes"))
-cluster <-
-  data.frame(
-    sample_key = c("Kallemoeie_e", "Kallemoeie_f"),
-    index_cluster = "Kallemoeie"
-  )
+data_sample <- read.csv2(
+  system.file("testdata/kallemoeie_sample.csv", package = "EQRfishes")
+)
+data_fish <- read.csv2(
+  system.file("testdata/kallemoeie_fish_data.csv", package = "EQRfishes")
+)
+cluster <- data.frame(
+  sample_key = c("Kallemoeie_e", "Kallemoeie_f"),
+  index_cluster = "Kallemoeie"
+)
 
 calculate_eqr(data_sample, data_fish, cluster = cluster)
 calculate_eqr(data_sample, data_fish, output = "metric", cluster = cluster)

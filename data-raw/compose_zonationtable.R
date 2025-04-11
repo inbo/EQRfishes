@@ -7,7 +7,7 @@ library(readr)
 
 connection_vis <-
   odbcDriverConnect(
-    "Driver=SQL Server;Server=INBO-SQL08-PRD.inbo.be;Database=W0001_00_Vis;Trusted_Connection=Yes;"
+    "Driver=SQL Server;Server=INBO-SQL08-PRD.inbo.be;Database=W0001_00_Vis;Trusted_Connection=Yes;" # nolint: line_length_linter
   )
 
 query_zonation <-
@@ -26,7 +26,7 @@ data_zonation %<>%
   ) %>%
   bind_rows(
     data.frame(
-      zonation = c(rep("estuarien_Schelde", 3),"estuarien_IJzer"),
+      zonation = c(rep("estuarien_Schelde", 3), "estuarien_IJzer"),
       tidal = TRUE,
       basin =
         c("Benedenscheldebekken", "Netebekken", "Dijlebekken", "IJzerbekken"),

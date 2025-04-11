@@ -117,37 +117,43 @@ Exceptions are:
 - if zonation = estuarien_zijrivieren_zoet and IBI = 0.8, EQR = 0.05
 
 ```{r load-sheets}
-zonation_metric <-
-  suppressMessages(
-    read_csv2(system.file("extdata/zonation_metric.csv", package = "EQRfishes"))
-  ) %>%
+zonation_metric <- suppressMessages(
+  read_csv2(system.file("extdata/zonation_metric.csv", package = "EQRfishes"))
+) %>%
   filter(.data$zonation != "(undetermined)")
-description_metrics <-
-  suppressMessages(
-    read_csv2(system.file("extdata/description_metrics.csv", package = "EQRfishes"))
+description_metrics <- suppressMessages(
+  read_csv2(
+    system.file("extdata/description_metrics.csv", package = "EQRfishes")
   )
-calculate_metric_formula <-
-  suppressMessages(
-    read_csv2(system.file("extdata/calculate_metric_formula.csv", package = "EQRfishes"))
+)
+calculate_metric_formula <- suppressMessages(
+  read_csv2(
+    system.file("extdata/calculate_metric_formula.csv", package = "EQRfishes")
   )
-calculate_metric_measures <-
-  suppressMessages(
-    read_csv2(system.file("extdata/calculate_metric_measures.csv", package = "EQRfishes")) %>%
-      filter(!(!is.na(.data$...12) & .data$...12 == "check" & .data$metric_measures_name == "MnsPis_lakes"))
+)
+calculate_metric_measures <- suppressMessages(
+  read_csv2(
+    system.file("extdata/calculate_metric_measures.csv", package = "EQRfishes")
+  ) %>%
+    filter(
+      !(!is.na(.data$...12) & .data$...12 == "check" &
+          .data$metric_measures_name == "MnsPis_lakes")
+    )
+)
+data_taxonmetrics <- suppressMessages(
+  read_csv2(
+    system.file("extdata/data_taxonmetrics.csv", package = "EQRfishes")
+  ) %>%
+    arrange(.data$taxonname)
+)
+calculate_metric_score <- suppressMessages(
+  read_csv2(
+    system.file("extdata/calculate_metric_score.csv", package = "EQRfishes")
   )
-data_taxonmetrics <-
-  suppressMessages(
-    read_csv2(system.file("extdata/data_taxonmetrics.csv", package = "EQRfishes")) %>%
-      arrange(.data$taxonname)
-  )
-calculate_metric_score <-
-  suppressMessages(
-    read_csv2(system.file("extdata/calculate_metric_score.csv", package = "EQRfishes"))
-  )
-calculate_ibi_eqr <-
-  suppressMessages(
-    read_csv2(system.file("extdata/calculate_IBI_EQR.csv", package = "EQRfishes"))
-  )
+)
+calculate_ibi_eqr <- suppressMessages(
+  read_csv2(system.file("extdata/calculate_IBI_EQR.csv", package = "EQRfishes"))
+)
 ```
 
 ```{r zonations, include=FALSE}

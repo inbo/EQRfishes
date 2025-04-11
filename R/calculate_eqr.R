@@ -1,32 +1,41 @@
 #' calculate the ecological quality ratio
 #'
-#' Main function of this package, which calculates the EQR based on 2 tables of data.  Each table must contain a sample_key!
+#' Main function of this package, which calculates the EQR based on 2 tables of
+#' data.
+#' Each table must contain a sample_key!
 #'
 #' @param data_sample Data on the sample: date, method, location and location
-#' characteristics including zonation (= indextypology, which can be calculated using function
-#' `determine_zonation()`)
+#' characteristics including zonation (= indextypology, which can be calculated
+#' using function `determine_zonation()`)
 #' @param data_fish Measurements on fish: dataframe with columns
 #'   - `sample_key` (reference to `data_sample`),
 #'   - `record_id`: unique id for each row,
 #'   - `taxoncode`: abbreviation of scientific fish name,
-#'   - `number` of individuals for this record (1 if each separate fish is measured),
+#'   - `number` of individuals for this record (1 if each separate fish is
+#'     measured),
 #'   - `length` of the fish in cm (NA if `number` > 1),
 #'   - `weight` of the fish in g (total weight if `number` > 1)
 #' @param output Which output do you wish?
 #'   \itemize{
-#'     \item \strong{EQR} (default) only gives the main result: a dataframe with calculated IBI and EQR for each sample (location),
-#'     \item \strong{metric} gives a list of 2 dataframes: one with the IBI and EQR, and one with the results for each metric,
-#'     \item \strong{detail} gives a list of 3 dataframes: one with the IBI and EQR, a second with the results for each metric and a third with all calculated values
+#'     \item \strong{EQR} (default) only gives the main result:
+#'       a dataframe with calculated IBI and EQR for each sample (location),
+#'     \item \strong{metric} gives a list of 2 dataframes:
+#'       one with the IBI and EQR, and one with the results for each metric,
+#'     \item \strong{detail} gives a list of 3 dataframes:
+#'       one with the IBI and EQR, a second with the results for each metric
+#'       and a third with all calculated values
 #'   }
 #' @param cluster Table with columns `sample_key` and `index_cluster`
 #' that indicates how samples should be clustered into a 'waterbody'
 #' in case of the indextypologies lakes, canals and estuarine zonations.
 #' Defaults to NA, because it is not needed in case of freshwater rivers.
 #'
-#' @return Dataframe with calculated EQR for each sample, or list of dataframes if parameter output is specified
+#' @return Dataframe with calculated EQR for each sample, or list of dataframes
+#' if parameter output is specified
 #'
 #' @importFrom assertthat assert_that has_name
-#' @importFrom dplyr arrange distinct filter group_by left_join mutate n select summarise ungroup
+#' @importFrom dplyr arrange distinct filter group_by left_join mutate n select
+#'   summarise ungroup
 #' @importFrom plyr .
 #' @importFrom magrittr %<>% %>%
 #' @importFrom rlang .data
@@ -39,23 +48,23 @@
 #'
 #' @examples
 #' library(EQRfishes)
-#' data_sample <-
-#'   read.csv2(system.file("testdata/kallemoeie_sample.csv", package = "EQRfishes"))
-#' data_fish <-
-#'   read.csv2(system.file("testdata/kallemoeie_fish_data.csv", package = "EQRfishes"))
-#' cluster <-
-#'   data.frame(
-#'     sample_key = c("Kallemoeie_e", "Kallemoeie_f"),
-#'     index_cluster = "Kallemoeie"
-#'   )
+#' data_sample <- read.csv2(
+#'   system.file("testdata/kallemoeie_sample.csv", package = "EQRfishes")
+#' )
+#' data_fish <- read.csv2(
+#'   system.file("testdata/kallemoeie_fish_data.csv", package = "EQRfishes")
+#' )
+#' cluster <- data.frame(
+#'   sample_key = c("Kallemoeie_e", "Kallemoeie_f"),
+#'   index_cluster = "Kallemoeie"
+#' )
 #'
 #' calculate_eqr(data_sample, data_fish, cluster = cluster)
 #' calculate_eqr(data_sample, data_fish, output = "metric", cluster = cluster)
 #'
-calculate_eqr <-
-  function(
-    data_sample, data_fish, output = c("EQR", "metric", "detail"), cluster = NA
-  ) {
+calculate_eqr <- function(
+  data_sample, data_fish, output = c("EQR", "metric", "detail"), cluster = NA
+) {
 
   # make sure data_fish has all columns present, and remove additional columns
   # (these can cause problems if fish data are nested)
@@ -74,7 +83,7 @@ calculate_eqr <-
   select_keys <- "sample_key"
   if (any(str_detect(data_sample$zonation, "estuarien|lakes|canals"))) {
     if (length(cluster) == 1 && is.na(cluster)) {
-      stop("Argument cluster must be provided for indextypologies lakes, canals or estuarien") #nolint: line_length_linter
+      stop("Argument cluster must be provided for indextypologies lakes, canals or estuarien") # nolint: line_length_linter
     }
     assert_that(has_name(cluster, c("sample_key", "index_cluster")))
     data_sample <- data_sample %>%
@@ -107,7 +116,7 @@ calculate_eqr <-
     if (nrow(test_index_cluster) > 0) {
       stop(
         sprintf(
-          "Argument cluster must contain all sample keys with indextypologies lakes, canals or estuarien (not provided for sample_key %s)",
+          "Argument cluster must contain all sample keys with indextypologies lakes, canals or estuarien (not provided for sample_key %s)", # nolint: line_length_linter
           paste(unique(test_index_cluster$sample_key), collapse = ", ")
         )
       )
@@ -146,7 +155,8 @@ calculate_eqr <-
         surface = sum(.data$width_transect * .data$length_trajectory),
         length_trajectory = sum(.data$length_trajectory),
         n_fyke_days = sum(.data$n_fyke_nets * .data$n_days),
-        #calculate n_fyke_days on original n_fyke_nets before aggregating n_fyke_nets
+        # calculate n_fyke_days on original n_fyke_nets before aggregating
+        # n_fyke_nets
         n_fyke_nets = sum(.data$n_fyke_nets),
         width_river = mean(.data$width_river),
         slope = mean(.data$slope)
@@ -155,7 +165,8 @@ calculate_eqr <-
       group_by(
         .data$sample_key, .data$LocationID, .data$method,
         .data$Stilstaand, .data$tidal, .data$Brak, .data$IndexTypeCode,
-        .data$year, .data$zonation) %>%  #group by year
+        .data$year, .data$zonation  #group by year
+      ) %>%
       summarise(
         surface = sum(.data$surface),
         length_trajectory = sum(.data$length_trajectory),
@@ -179,7 +190,9 @@ calculate_eqr <-
       .data$width_river == 0
     )
   if (nrow(zero_width) > 0) {
-    warning("Some records of data_sample from zonation barbeel, brasem or brabeel have a width_river of 0. Scoring of metrics is done supposing the river width is smaller than 3 meters. Please redo the calculation with a valid river width if the river is 3 meter or wider.")
+    warning(
+      "Some records of data_sample from zonation barbeel, brasem or brabeel have a width_river of 0. Scoring of metrics is done supposing the river width is smaller than 3 meters. Please redo the calculation with a valid river width if the river is 3 meter or wider." # nolint: line_length_linter
+    )
   }
 
   data_sample %<>%
@@ -224,7 +237,9 @@ calculate_eqr <-
     nest(sampledata = c("name", "value"))
 
   if (any(is.na(data_fish$taxoncode))) {
-    warning("For some records of data_fish, no taxoncode is given (value is NA). These will be excluded from the analysis.")
+    warning(
+      "For some records of data_fish, no taxoncode is given (value is NA). These will be excluded from the analysis." # nolint: line_length_linter
+    )
   }
   data_taxonmetrics <-
     suppressMessages(
@@ -238,7 +253,7 @@ calculate_eqr <-
   if (nrow(no_fish) > 0) {
     warning(
       paste(
-        "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis: ",
+        "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis: ", # nolint: line_length_linter
         paste(no_fish$taxoncode, collapse = ", ")
       )
     )
@@ -247,14 +262,18 @@ calculate_eqr <-
   fish_not_measured <- data_fish %>%
     filter(is.na(.data$number) & is.na(.data$length) & is.na(.data$weight))
   if (nrow(fish_not_measured) > 0) {
-    stop("Some fishes don't have any data (no number of fishes, no fish length and no weight). Please indicate at least the number of fishes or remove the record(s).")
+    stop(
+      "Some fishes don't have any data (no number of fishes, no fish length and no weight). Please indicate at least the number of fishes or remove the record(s)." # nolint: line_length_linter
+    )
   }
   rm(fish_not_measured)
 
   fish_zero_number <- data_fish %>%
     filter(.data$number <= 0)
   if (nrow(fish_zero_number) > 0) {
-    stop("For some fishdata, the number of fishes is zero or below. Please give a positive integer for the number of fishes (or remove the record(s)).")
+    stop(
+      "For some fishdata, the number of fishes is zero or below. Please give a positive integer for the number of fishes (or remove the record(s))." # nolint: line_lenght_linter
+    )
   }
   rm(fish_zero_number)
 
@@ -390,7 +409,8 @@ calculate_eqr <-
     ) %>%
     ungroup()
 
-  # for some (/Schelde) estuariene indices, the metric scores should be 0 if MnsTot = 0
+  # for some (/Schelde) estuariene indices, the metric scores should be 0
+  # if MnsTot = 0
   # calculate MnsTot 6 times to accomplish this using the tables, would probably make the calculations too slow
   result_metrics_aggregated <- result_metrics_aggregated %>%
     left_join(
@@ -408,8 +428,9 @@ calculate_eqr <-
       by = c("sample_key", "zonation", "LocationID", "year")
     ) %>%
     mutate(
-      metric_score =
-        ifelse(!is.na(.data$MnsTot) & .data$MnsTot == 0, "0", .data$metric_score),
+      metric_score = ifelse(
+        !is.na(.data$MnsTot) & .data$MnsTot == 0, "0", .data$metric_score
+      ),
       MnsTot = NULL,
       index_cluster = .data$sample_key,
       sample_key = NULL
@@ -452,11 +473,14 @@ calculate_eqr <-
           grepl("estuarien", .data$zonation) &
             !.data$zonation == "estuarien_zijrivieren_zoet",
           TRUE,
-          .data$calc_method_old),
+          .data$calc_method_old
+        ),
       std_ibi =
         unlist(
           pmap(
-            list(.data$ibi, .data$metrics, .data$calc_method_old, .data$zonation),
+            list(
+              .data$ibi, .data$metrics, .data$calc_method_old, .data$zonation
+            ),
             standardise_ibi
           )
         ),
@@ -465,7 +489,8 @@ calculate_eqr <-
           grepl("estuarien", .data$zonation) &
             !.data$zonation == "estuarien_zijrivieren",
           FALSE,
-          .data$calc_method_old)
+          .data$calc_method_old
+        )
     ) %>%
     select(-"metrics") %>%
     mutate(
@@ -531,65 +556,80 @@ calculate_eqr <-
         cut(
           .data$std_ibi,
           breaks = c(0, eqr_scores$std_ibi_new[!is.na(eqr_scores$std_ibi_new)]),
-          labels =
-            c(0,
-              eqr_scores$std_ibi_new[
-                !is.na(eqr_scores$std_ibi_new)
-              ][1:(sum(!is.na(eqr_scores$std_ibi_new)) - 1)]),
+          labels = c(
+            0,
+            eqr_scores$std_ibi_new[
+              !is.na(eqr_scores$std_ibi_new)
+            ][1:(sum(!is.na(eqr_scores$std_ibi_new)) - 1)]
+          ),
           right = FALSE
         ),
       ibi_classmin = as.numeric(as.character(.data$ibi_classmin)),
       ibi_classmin =
         ifelse(
           .data$calc_method_old,
-          as.numeric(as.character(
-            cut(
-              .data$std_ibi,
-              breaks =
-                c(0, eqr_scores$std_ibi_old[!is.na(eqr_scores$std_ibi_old)]),
-              labels =
-                c(0,
-                  eqr_scores$std_ibi_old[
-                    !is.na(eqr_scores$std_ibi_old)
-                  ][1:(sum(!is.na(eqr_scores$std_ibi_old)) - 1)]),
-              right = FALSE
-            ))
+          as.numeric(
+            as.character(
+              cut(
+                .data$std_ibi,
+                breaks =
+                  c(0, eqr_scores$std_ibi_old[!is.na(eqr_scores$std_ibi_old)]),
+                labels =
+                  c(
+                    0,
+                    eqr_scores$std_ibi_old[
+                      !is.na(eqr_scores$std_ibi_old)
+                    ][1:(sum(!is.na(eqr_scores$std_ibi_old)) - 1)]
+                  ),
+                right = FALSE
+              )
+            )
           ),
           .data$ibi_classmin
         ),
       ibi_classmin =
         ifelse(
           grepl("estuarien_Schelde", .data$zonation),
-          as.numeric(as.character(
-            cut(
-              .data$std_ibi,
-              breaks =
-                c(0, eqr_scores$ibi_estuarien[!is.na(eqr_scores$ibi_estuarien)]),
-              labels =
-                c(0,
-                  eqr_scores$ibi_estuarien[
-                    !is.na(eqr_scores$ibi_estuarien)
-                  ][1:(sum(!is.na(eqr_scores$ibi_estuarien)) - 1)]),
-              right = FALSE
-            ))
+          as.numeric(
+            as.character(
+              cut(
+                .data$std_ibi,
+                breaks =
+                  c(
+                    0,
+                    eqr_scores$ibi_estuarien[!is.na(eqr_scores$ibi_estuarien)]
+                  ),
+                labels =
+                  c(
+                    0,
+                    eqr_scores$ibi_estuarien[
+                      !is.na(eqr_scores$ibi_estuarien)
+                    ][1:(sum(!is.na(eqr_scores$ibi_estuarien)) - 1)]
+                  ),
+                right = FALSE
+              )
+            )
           ),
           .data$ibi_classmin
         ),
       ibi_classmin =
         ifelse(
           .data$zonation == "estuarien_IJzer",
-          as.numeric(as.character(
-            cut(
-              .data$std_ibi,
-              breaks =
-                c(0, eqr_scores$ibi_ijzer[!is.na(eqr_scores$ibi_ijzer)]),
-              labels =
-                c(0,
-                  eqr_scores$ibi_ijzer[
-                    !is.na(eqr_scores$ibi_ijzer)
-                  ][1:(sum(!is.na(eqr_scores$ibi_ijzer)) - 1)]),
-              right = FALSE
-            ))
+          as.numeric(
+            as.character(
+              cut(
+                .data$std_ibi,
+                breaks =
+                  c(0, eqr_scores$ibi_ijzer[!is.na(eqr_scores$ibi_ijzer)]),
+                labels =
+                  c(0,
+                    eqr_scores$ibi_ijzer[
+                      !is.na(eqr_scores$ibi_ijzer)
+                    ][1:(sum(!is.na(eqr_scores$ibi_ijzer)) - 1)]
+                  ),
+                right = FALSE
+              )
+            )
           ),
           .data$ibi_classmin
         ),
@@ -604,42 +644,50 @@ calculate_eqr <-
       ibi_classmax =
         ifelse(
           .data$calc_method_old,
-          as.numeric(as.character(
-            cut(
-              .data$std_ibi,
-              breaks =
-                c(0, eqr_scores$std_ibi_old[!is.na(eqr_scores$std_ibi_old)]),
-              labels = eqr_scores$std_ibi_old[!is.na(eqr_scores$std_ibi_old)],
-              right = FALSE
-            ))
+          as.numeric(
+            as.character(
+              cut(
+                .data$std_ibi,
+                breaks =
+                  c(0, eqr_scores$std_ibi_old[!is.na(eqr_scores$std_ibi_old)]),
+                labels = eqr_scores$std_ibi_old[!is.na(eqr_scores$std_ibi_old)],
+                right = FALSE
+              )
+            )
           ),
           .data$ibi_classmax
         ),
       ibi_classmax =
         ifelse(
           grepl("estuarien_Schelde", .data$zonation),
-          as.numeric(as.character(
-            cut(
-              .data$ibi,
-              breaks =
-                c(0, eqr_scores$ibi_estuarien[!is.na(eqr_scores$ibi_estuarien)]),
-              labels = eqr_scores$ibi_estuarien[!is.na(eqr_scores$ibi_estuarien)],
-              right = FALSE
-            ))
+          as.numeric(
+            as.character(
+              cut(
+                .data$ibi,
+                breaks = c(
+                  0, eqr_scores$ibi_estuarien[!is.na(eqr_scores$ibi_estuarien)]
+                ),
+                labels =
+                  eqr_scores$ibi_estuarien[!is.na(eqr_scores$ibi_estuarien)],
+                right = FALSE
+              )
+            )
           ),
           .data$ibi_classmax
         ),
       ibi_classmax =
         ifelse(
           .data$zonation == "estuarien_IJzer",
-          as.numeric(as.character(
-            cut(
-              .data$ibi,
-              breaks =
-                c(0, eqr_scores$ibi_ijzer[!is.na(eqr_scores$ibi_ijzer)]),
-              labels = eqr_scores$ibi_ijzer[!is.na(eqr_scores$ibi_ijzer)],
-              right = FALSE
-            ))
+          as.numeric(
+            as.character(
+              cut(
+                .data$ibi,
+                breaks =
+                  c(0, eqr_scores$ibi_ijzer[!is.na(eqr_scores$ibi_ijzer)]),
+                labels = eqr_scores$ibi_ijzer[!is.na(eqr_scores$ibi_ijzer)],
+                right = FALSE
+              )
+            )
           ),
           .data$ibi_classmax
         ),
@@ -658,12 +706,14 @@ calculate_eqr <-
         ifelse(
           .data$zonation %in%
             c("brabeel", "lakes", "bron", "estuarien_zijrivieren_zoet"),
-          .data$std_ibi, .data$eqr),
+          .data$std_ibi, .data$eqr
+        ),
       eqr =
         ifelse(
           .data$zonation == "bron" & .data$ibi == 4,
           0.2,
-          .data$eqr),
+          .data$eqr
+        ),
       eqr =
         ifelse(
           .data$zonation == "estuarien_zijrivieren_zoet" & .data$ibi == 0.8,

@@ -12,7 +12,8 @@ determine_zonation(dataset, version = c("new", "old"))
     \item \strong{width_river} width of the river at the sample location,
     \item \strong{slope} slope of the river at the sample location,
     \item \strong{tidal} tidal effect present (TRUE) or absent (FALSE)?
-    \item \strong{IndexTypeCode} type based on salinity of the sample location
+    \item \strong{IndexTypeCode} type based on salinity of the sample
+    location
   }}
 
 \item{version}{'new' version with bron and brabeel or 'old' version without
@@ -25,14 +26,16 @@ replace NA values in column `version`.}
 input dataset with additional column 'zonation'
 }
 \description{
-This function determines the indextypology (`zonation`) based on the given dataset with
-measurements.
-Recently 2 new indextypologies were added: 'bron' (replacing 'upstream' in rivers
-up to a width of 2 m) and 'brabeel' (replacing 'brasem' and 'barbeel' in
-rivers up to a width of 30 m), and both versions are available here:
+This function determines the indextypology (`zonation`) based on the given
+dataset with measurements.
+Recently 2 new indextypologies were added: 'bron' (replacing 'upstream' in
+rivers up to a width of 2 m) and 'brabeel' (replacing 'brasem' and 'barbeel'
+in rivers up to a width of 30 m), and both versions are available here:
   \itemize{
-    \item \strong{new} (default) uses the new version with 'bron' and 'brabeel' included,
-    \item \strong{old} uses the version before 'bron' and 'brabeel' were added
+    \item \strong{new} (default) uses the new version with 'bron' and
+    'brabeel' included,
+    \item \strong{old} uses the version before 'bron' and 'brabeel' were
+    added
   }
 This version can be indicated on the level of the individual records in the
 dataset as an additional column or on the level of the whole dataset by using

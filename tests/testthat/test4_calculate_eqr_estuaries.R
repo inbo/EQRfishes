@@ -12,40 +12,43 @@ data_fish <- read.csv2(
 
 zonation_info <-
   data.frame(
-    sample_key =
-      rep(
-        c(9877, 9878, 9900:9903, 9906, 9907, 10260:10266, 10268, 10269,
-          10276, 10277, 10347:10356, 10392, 10393, 10398:10401, 11274),
-        2
+    sample_key = rep(
+      c(
+        9877, 9878, 9900:9903, 9906, 9907, 10260:10266, 10268, 10269,
+        10276, 10277, 10347:10356, 10392, 10393, 10398:10401, 11274
       ),
+      2
+    ),
     version = "new",
-    zonation =
-      rep(
-        c(rep("estuarien_Schelde_mesohaline", 2),
-          rep("estuarien_Schelde_freshwater", 6),
-          rep("estuarien_Schelde_oligohaline", 4),
-          rep("estuarien_Schelde_freshwater", 5),
-          rep("estuarien_Schelde_mesohaline", 2),
-          rep("estuarien_Schelde_freshwater", 6),
-          rep("estuarien_Schelde_oligohaline", 4),
-          rep("estuarien_Schelde_mesohaline", 2),
-          rep("estuarien_Schelde_oligohaline", 4),
-          rep("estuarien_Schelde_freshwater", 1)),
-        2
+    zonation = rep(
+      c(
+        rep("estuarien_Schelde_mesohaline", 2),
+        rep("estuarien_Schelde_freshwater", 6),
+        rep("estuarien_Schelde_oligohaline", 4),
+        rep("estuarien_Schelde_freshwater", 5),
+        rep("estuarien_Schelde_mesohaline", 2),
+        rep("estuarien_Schelde_freshwater", 6),
+        rep("estuarien_Schelde_oligohaline", 4),
+        rep("estuarien_Schelde_mesohaline", 2),
+        rep("estuarien_Schelde_oligohaline", 4),
+        rep("estuarien_Schelde_freshwater", 1)
       ),
-    index_cluster =
-      c(rep("moneos_meso", 2), rep("moneos_zoet", 6), rep("moneos_oligo", 4),
-        rep("moneos_zoet", 5), rep("moneos_meso", 2), rep("moneos_zoet", 6),
-        rep("moneos_oligo", 4), rep("moneos_meso", 2), rep("moneos_oligo", 4),
-        rep("moneos_zoet", 1),
-        rep("SCHELDE IV Paardenschor", 2), rep("SCHELDE II", 2),
-        rep("SCHELDE I", 4), rep("SCHELDE III", 2),
-        rep("SCHELDE IV Antwerpen", 2), rep("SCHELDE II", 2),
-        rep("SCHELDE I", 3), rep("SCHELDE IV Paardenschor", 2),
-        rep("SCHELDE II", 2), rep("SCHELDE I", 4),
-        rep("SCHELDE IV Antwerpen", 2), rep("SCHELDE III", 2),
-        rep("SCHELDE IV Paardenschor", 2), rep("SCHELDE III", 2),
-        rep("SCHELDE IV Antwerpen", 2), rep("SCHELDE I", 1))
+      2
+    ),
+    index_cluster = c(
+      rep("moneos_meso", 2), rep("moneos_zoet", 6), rep("moneos_oligo", 4),
+      rep("moneos_zoet", 5), rep("moneos_meso", 2), rep("moneos_zoet", 6),
+      rep("moneos_oligo", 4), rep("moneos_meso", 2), rep("moneos_oligo", 4),
+      rep("moneos_zoet", 1),
+      rep("SCHELDE IV Paardenschor", 2), rep("SCHELDE II", 2),
+      rep("SCHELDE I", 4), rep("SCHELDE III", 2),
+      rep("SCHELDE IV Antwerpen", 2), rep("SCHELDE II", 2),
+      rep("SCHELDE I", 3), rep("SCHELDE IV Paardenschor", 2),
+      rep("SCHELDE II", 2), rep("SCHELDE I", 4),
+      rep("SCHELDE IV Antwerpen", 2), rep("SCHELDE III", 2),
+      rep("SCHELDE IV Paardenschor", 2), rep("SCHELDE III", 2),
+      rep("SCHELDE IV Antwerpen", 2), rep("SCHELDE I", 1)
+    )
   )
 
 data_sample <- data_sample %>%
@@ -58,7 +61,10 @@ data_sample <- data_sample %>%
 data_fish <- data_fish %>%
   mutate(
     number =
-      ifelse(is.na(.data$number) & .data$taxoncode %in% c("POM.MIC.", "POM.MIN."), 0, .data$number)
+      ifelse(
+        is.na(.data$number) & .data$taxoncode %in% c("POM.MIC.", "POM.MIN."),
+        0, .data$number
+      )
   ) %>%
   filter(!is.na(sample_key), number > 0)
 
@@ -67,13 +73,13 @@ describe("IBI is calculated correctly", {
   it("estuarien freshwater", {
     expect_warning(
       results_eqr <- calculate_eqr(
-          data_sample %>%
-            filter(zonation == "estuarien_Schelde_freshwater"),
-          data_fish,
-          cluster = zonation_info %>%
-            select("sample_key", "index_cluster")
-        ),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., ERI.SIN., CRA.CRA."
+        data_sample %>%
+          filter(zonation == "estuarien_Schelde_freshwater"),
+        data_fish,
+        cluster = zonation_info %>%
+          select("sample_key", "index_cluster")
+      ),
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., ERI.SIN., CRA.CRA." # nolint: line_length_linter
     )
     expect_equal(
       results_eqr$ibi,
@@ -97,7 +103,7 @@ describe("IBI is calculated correctly", {
         cluster = zonation_info %>%
           select("sample_key", "index_cluster")
       ),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., PAL.FFF., CRA.CRA., CAR.MAE., HEM.TAK."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., PAL.FFF., CRA.CRA., CAR.MAE., HEM.TAK." # nolint: line_length_linter
     )
     expect_equal(
       results_eqr$ibi,
@@ -121,7 +127,7 @@ describe("IBI is calculated correctly", {
         cluster = zonation_info %>%
           select("sample_key", "index_cluster")
       ),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., CRA.CRA., ERI.SIN."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., CRA.CRA., ERI.SIN." # nolint: line_length_linter
     )
 
     expect_equal(
@@ -151,36 +157,36 @@ describe("metrics are calculated correctly", {
             select("sample_key", "index_cluster")
         )[["metric"]] %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., ERI.SIN., CRA.CRA."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., ERI.SIN., CRA.CRA." # nolint: line_length_linter
     )
     expect_equal(
       (result_metrics %>%
-        filter(metric_name == "MnsTot"))$metric_value,
+         filter(metric_name == "MnsTot"))$metric_value,
       c("14", "12", "16")
     )
     expect_equal(
       (result_metrics %>%
-        filter(metric_name == "MnsTot"))$metric_score,
+         filter(metric_name == "MnsTot"))$metric_score,
       c("0.6", "0.6", "0.8")
     )
     expect_equal(
       (result_metrics %>%
-        filter(metric_name == "MniInd"))$metric_value,
+         filter(metric_name == "MniInd"))$metric_value,
       c("67.667", "191", "108.778")
     )
     expect_equal(
       (result_metrics %>%
-        filter(metric_name == "MniInd"))$metric_score,
+         filter(metric_name == "MniInd"))$metric_score,
       c("0.4", "1", "0.6")
     )
     expect_equal(
       (result_metrics %>%
-        filter(metric_name == "MpiDia"))$metric_value,
+         filter(metric_name == "MpiDia"))$metric_value,
       c("26.478", "14.398", "19.408")
     )
     expect_equal(
       (result_metrics %>%
-        filter(metric_name == "MpiDia"))$metric_score,
+         filter(metric_name == "MpiDia"))$metric_score,
       c("0.8", "0.4", "0.6")
     )
     expect_equal(
@@ -195,22 +201,22 @@ describe("metrics are calculated correctly", {
     )
     expect_equal(
       (result_metrics %>%
-        filter(metric_name == "MpiPis"))$metric_value,
+         filter(metric_name == "MpiPis"))$metric_value,
       c("15.456", "8.115", "11.159")
     )
     expect_equal(
       (result_metrics %>%
-        filter(metric_name == "MpiPis"))$metric_score,
+         filter(metric_name == "MpiPis"))$metric_score,
       c("0.4", "0.2", "0.4")
     )
     expect_equal(
       (result_metrics %>%
-        filter(metric_name == "MpiBen"))$metric_value,
+         filter(metric_name == "MpiBen"))$metric_value,
       c("23.461", "9.25", "15.143")
     )
     expect_equal(
       (result_metrics %>%
-        filter(metric_name == "MpiBen"))$metric_score,
+         filter(metric_name == "MpiBen"))$metric_score,
       c("0.8", "0.4", "0.6")
     )
   })
@@ -225,7 +231,7 @@ describe("metrics are calculated correctly", {
             select("sample_key", "index_cluster")
         )[["metric"]] %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., PAL.FFF., CRA.CRA., CAR.MAE., HEM.TAK."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., PAL.FFF., CRA.CRA., CAR.MAE., HEM.TAK." # nolint: line_length_linter
     )
     expect_equal(
       (result_metrics %>%
@@ -299,7 +305,7 @@ describe("metrics are calculated correctly", {
             select("sample_key", "index_cluster")
         )[["metric"]] %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., CRA.CRA., ERI.SIN."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., CRA.CRA., ERI.SIN." # nolint: line_length_linter
     )
     expect_equal(
       (result_metrics %>%

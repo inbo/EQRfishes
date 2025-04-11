@@ -11,11 +11,25 @@ standardise_ibi(IBI, metrics, calc_method_old, zonation)
 
 \item{metrics}{calculated metrics and metric scores}
 
-\item{calc_method_old}{does the calculation has to be done using the old method?}
+\item{calc_method_old}{does the calculation has to be done using the old
+method?}
 }
 \value{
 single value being the result of the calculation
 }
 \description{
-Small function that calculates a value to be used to calculate the EQR. This value is derived from the IBI and gives a score between 0 and 1 (and could be seen as a standardisation of the IBI). This calculation differs between the old (no sampling method specified) and new calculation method (metrics only calculated for specific sampling methods).For the old method (where IBI is already corrected for the number of metrics), this is IBI//c with c the number of EQR classes (or 1//the width of an EQR class, which is 0.2). For the new method, this is (IBI - x) // (y - x) with y the sum of the maximal scores of the metrics and x = n//c with n the number of metrics and c the number of EQR classes (or 1//the width of an EQR class, which is 0.2).
+Small function that calculates a value to be used to calculate the EQR.
+This value is derived from the IBI and gives a score between 0 and 1
+(and could be seen as a standardisation of the IBI).
+This calculation differs between the old (no sampling method specified)
+and new calculation method (metrics only calculated for specific sampling
+methods).
+For the old method (where IBI is already corrected for the number of
+metrics),
+this is IBI//c with c the number of EQR classes
+(or 1//the width of an EQR class, which is 0.2).
+For the new method, this is (IBI - x) // (y - x) with y the sum of the
+maximal scores of the metrics and x = n//c with n the number of metrics
+and c the number of EQR classes
+(or 1//the width of an EQR class, which is 0.2).
 }

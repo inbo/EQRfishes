@@ -9,13 +9,16 @@ calculate_formula(formula, sampledata, metric_name)
 \arguments{
 \item{formula}{formula including only given parameters}
 
-\item{sampledata}{location specific variables (column name) with their values (value)}
+\item{sampledata}{location specific variables (column name) with their values
+(value)}
 
 \item{metric_name}{name of the variable to be calculated}
 }
 \value{
-table sampledata with an additional metric which is the result of calculating the formula
+table sampledata with an additional metric which is the result of
+calculating the formula
 }
 \description{
-small function that calculates a formula after replacing the parameter names with their values
+small function that calculates a formula after replacing the parameter names
+with their values
 }

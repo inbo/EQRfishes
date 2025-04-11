@@ -1,12 +1,15 @@
 #' calculate formula based on given parameters
 #'
-#' small function that calculates a formula after replacing the parameter names with their values
+#' small function that calculates a formula after replacing the parameter names
+#' with their values
 #'
 #' @param formula formula including only given parameters
-#' @param sampledata location specific variables (column name) with their values (value)
+#' @param sampledata location specific variables (column name) with their values
+#' (value)
 #' @param metric_name name of the variable to be calculated
 #'
-#' @return table sampledata with an additional metric which is the result of calculating the formula
+#' @return table sampledata with an additional metric which is the result of
+#' calculating the formula
 #'
 #' @importFrom magrittr %>% %<>%
 #' @importFrom dplyr arrange bind_rows desc distinct
@@ -15,10 +18,7 @@
 #' @export
 #'
 #'
-calculate_formula <-
-  function(
-    formula, sampledata, metric_name
-  ) {
+calculate_formula <- function(formula, sampledata, metric_name) {
 
   sampledata %<>%
     distinct() %>%

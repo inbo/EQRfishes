@@ -15,5 +15,6 @@ var_in_interval(variable, interval)
 TRUE or FALSE
 }
 \description{
-checks if a given variable is present in a given interval and returns TRUE or FALSE
+checks if a given variable is present in a given interval and returns TRUE
+or FALSE
 }

@@ -1,4 +1,5 @@
-# this file contains small helper functions that are called in the function calculate_metric_formula
+# this file contains small helper functions that are called in the function
+# calculate_metric_formula
 
 unlist_value <- function(data) {
   return(unlist(data)[[1]])

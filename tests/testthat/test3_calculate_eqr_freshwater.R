@@ -13,20 +13,20 @@ data_fish <- read.csv2(
 zonation_info <-
   data.frame(
     order_id = 1:24,
-    sample_key =
-      rep(
-        c(11652, 13384, 8681, 13282, 13561, 8434, 4550, 11611, 13534, 13512,
-          8507, 2258),
-        2
-      ),
-    version = c(rep("new", 12), rep("old", 12)),
-    zonation =
+    sample_key = rep(
       c(
-        rep("brabeel", 6), "bron", "upstream", "vlagzalm", rep("brabeel", 2),
-        "forel",
-        rep("brasem", 2), rep("barbeel", 4), rep("upstream", 2), "vlagzalm",
-        rep("brasem", 2), "forel"
-      )
+        11652, 13384, 8681, 13282, 13561, 8434, 4550, 11611, 13534, 13512,
+        8507, 2258
+      ),
+      2
+    ),
+    version = c(rep("new", 12), rep("old", 12)),
+    zonation = c(
+      rep("brabeel", 6), "bron", "upstream", "vlagzalm", rep("brabeel", 2),
+      "forel",
+      rep("brasem", 2), rep("barbeel", 4), rep("upstream", 2), "vlagzalm",
+      rep("brasem", 2), "forel"
+    )
   )
 
 data_sample <- data_sample %>%
@@ -45,17 +45,17 @@ describe("IBI is calculated correctly", {
   it("brasem en barbeel", {
     expect_warning(
       results_eqr <- calculate_eqr(
-          data_sample %>%
-            filter(zonation == "brabeel" & version == "new"),
-          data_fish
+        data_sample %>%
+          filter(zonation == "brabeel" & version == "new"),
+        data_fish
+      ) %>%
+        left_join(
+          order_location %>%
+            filter(version == "new"),
+          by = "LocationID"
         ) %>%
-          left_join(
-            order_location %>%
-              filter(version == "new"),
-            by = "LocationID"
-          ) %>%
-          arrange(order_id),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN."
+        arrange(order_id),
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN." # nolint: line_length_linter
     )
 
     expect_equal(
@@ -77,11 +77,11 @@ describe("IBI is calculated correctly", {
   it("upstream", {
     expect_warning(
       results_eqr <- calculate_eqr(
-          data_sample %>%
-            filter(zonation == "bron" & version == "new"),
-          data_fish
-        ),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN."
+        data_sample %>%
+          filter(zonation == "bron" & version == "new"),
+        data_fish
+      ),
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN." # nolint: line_length_linter
     )
     expect_equal(
       results_eqr$ibi,
@@ -97,11 +97,11 @@ describe("IBI is calculated correctly", {
     )
     expect_warning(
       results_eqr <- calculate_eqr(
-          data_sample %>%
-            filter(zonation == "upstream" & version == "new"),
-          data_fish
-        ),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN."
+        data_sample %>%
+          filter(zonation == "upstream" & version == "new"),
+        data_fish
+      ),
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN." # nolint: line_length_linter
     )
     expect_equal(
       results_eqr$ibi,
@@ -117,11 +117,11 @@ describe("IBI is calculated correctly", {
     )
     expect_warning(
       results_eqr <- calculate_eqr(
-          data_sample %>%
-            filter(zonation == "vlagzalm" & version == "new"),
-          data_fish
-        ),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN."
+        data_sample %>%
+          filter(zonation == "vlagzalm" & version == "new"),
+        data_fish
+      ),
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN." # nolint: line_length_linter
     )
     expect_equal(
       results_eqr$ibi,
@@ -141,7 +141,7 @@ describe("IBI is calculated correctly", {
           filter(zonation == "forel" & version == "old"),
         data_fish
       ),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN." # nolint: line_length_linter
     )
     expect_equal(
       results_eqr$ibi,
@@ -169,7 +169,7 @@ describe("IBI is calculated correctly", {
           by = "LocationID"
         ) %>%
         arrange(order_id),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN." # nolint: line_length_linter
     )
 
     expect_equal(
@@ -206,7 +206,7 @@ describe("IBI is calculated correctly", {
           by = "LocationID"
         ) %>%
         arrange(order_id),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN." # nolint: line_length_linter
     )
 
     expect_equal(
@@ -240,56 +240,56 @@ describe("metrics are calculated correctly", {
         ) %>%
         arrange(order_id) %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN." # nolint: line_length_linter
     )
     expect_equal(
       (result_metrics %>%
-        filter(metric_name == "ManSha"))$metric_value,
+         filter(metric_name == "ManSha"))$metric_value,
       c("0.693", "0.534", "1.539", "0.722", "1.061", "1.14", "1.706", "0.6")
     )
     expect_equal(
       (result_metrics %>%
-        filter(metric_name == "ManSha"))$metric_score,
+         filter(metric_name == "ManSha"))$metric_score,
       c("2", "1", "5", "1", "4", "4", "4", "2")
     )
     expect_equal(
       (result_metrics %>%
-        filter(metric_name == "MnsTot"))$metric_value,
+         filter(metric_name == "MnsTot"))$metric_value,
       c("2", "7", "8", "4", "3", "5", "10", "2")
     )
     expect_equal(
       (result_metrics %>%
-        filter(metric_name == "MnsTot"))$metric_score,
+         filter(metric_name == "MnsTot"))$metric_score,
       c("1", "3", "3", "2", "2", "3", "3", "1")
     )
     expect_equal(
       (result_metrics %>%
-        filter(metric_name == "MpiInv"))$metric_value,
+         filter(metric_name == "MpiInv"))$metric_value,
       c("0", "0", "53.017", "77.228", "77.778", "0", "44.595", "0")
     )
     expect_equal(
       (result_metrics %>%
-        filter(metric_name == "MpiInv"))$metric_score,
+         filter(metric_name == "MpiInv"))$metric_score,
       c("0", "0", "5", "1", "1", "0", "3", "0")
     )
     expect_equal(
       (result_metrics %>%
-        filter(metric_name == "MpiTol"))$metric_value,
+         filter(metric_name == "MpiTol"))$metric_value,
       c("50", "94.145", "44.828", "6.931", "0", "72.727", "14.865", "100")
     )
     expect_equal(
       (result_metrics %>%
-        filter(metric_name == "MpiTol"))$metric_score,
+         filter(metric_name == "MpiTol"))$metric_score,
       c("3", "1", "4", "1", "1", "2", "1", "1")
     )
     expect_equal(
       (result_metrics %>%
-        filter(metric_name == "MpsRekr"))$metric_value,
+         filter(metric_name == "MpsRekr"))$metric_value,
       c("0", "42.857", "37.5", "50", "33.333", "40", "20", "50")
     )
     expect_equal(
       (result_metrics %>%
-        filter(metric_name == "MpsRekr"))$metric_score,
+         filter(metric_name == "MpsRekr"))$metric_score,
       c("0", "3", "3", "4", "2", "3", "1", "4")
     )
   })
@@ -308,7 +308,7 @@ describe("metrics are calculated correctly", {
         ) %>%
         arrange(order_id) %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN." # nolint: line_length_linter
     )
     expect_equal(
       (result_metrics %>%
@@ -364,7 +364,7 @@ describe("metrics are calculated correctly", {
         ) %>%
         arrange(order_id) %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN." # nolint: line_length_linter
     )
     expect_equal(
       (result_metrics %>%
@@ -480,7 +480,7 @@ describe("metrics are calculated correctly", {
         ) %>%
         arrange(order_id) %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN." # nolint: line_length_linter
     )
     expect_equal(
       (result_metrics %>%
@@ -556,7 +556,7 @@ describe("metrics are calculated correctly", {
         ) %>%
         arrange(order_id) %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN." # nolint: line_length_linter
     )
     expect_equal(
       (result_metrics %>%
@@ -634,7 +634,7 @@ describe("metrics are calculated correctly", {
         ) %>%
         arrange(order_id) %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN." # nolint: line_length_linter
     )
     expect_equal(
       (result_metrics %>%
@@ -742,7 +742,7 @@ describe("metrics are calculated correctly", {
         ) %>%
         arrange(order_id) %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN."
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN." # nolint: line_length_linter
     )
     expect_equal(
       (result_metrics %>%

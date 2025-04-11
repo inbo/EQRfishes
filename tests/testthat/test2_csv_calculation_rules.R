@@ -74,103 +74,97 @@ describe("variables exist in dependent tables", {
       info =
         paste(
           paste(lacking_vars, collapse = ", "),
-          "should be added to column zonation in table zonation_metric.csv" #nolint
+          "should be added to column zonation in table zonation_metric.csv" # nolint: line_length_linter
         )
     )
   })
-  it("zonation_metric.metric_formula_name -> calculate_metric_formula.metric_formula_name", {#nolint
-    lacking_vars <-
-      unique(zonation_metric$metric_formula_name)[
-        !unique(zonation_metric$metric_formula_name) %in%
-          unique(calculate_metric_formula$metric_formula_name)
-        ]
+  it("zonation_metric.metric_formula_name -> calculate_metric_formula.metric_formula_name", { # nolint: line_length_linter
+    lacking_vars <- unique(zonation_metric$metric_formula_name)[
+      !unique(zonation_metric$metric_formula_name) %in%
+        unique(calculate_metric_formula$metric_formula_name)
+    ]
     lacking_vars <- lacking_vars[!is.na(lacking_vars)]
     expect_equal(
       length(lacking_vars), 0,
       info =
         paste(
           paste(lacking_vars, collapse = ", "),
-          "should be added to column metric_formula_name in table calculate_metric_formula.csv" #nolint
+          "should be added to column metric_formula_name in table calculate_metric_formula.csv" # nolint: line_length_linter
         )
     )
   })
-  it("zonation_metric.metric_measures_name -> calculate_metric_measures.metric_measures_name", {#nolint
-    lacking_vars <-
-      unique(zonation_metric$metric_measures_name)[
-        !unique(zonation_metric$metric_measures_name) %in%
-          unique(calculate_metric_measures$metric_measures_name)
-        ]
+  it("zonation_metric.metric_measures_name -> calculate_metric_measures.metric_measures_name", { # nolint: line_length_linter
+    lacking_vars <- unique(zonation_metric$metric_measures_name)[
+      !unique(zonation_metric$metric_measures_name) %in%
+        unique(calculate_metric_measures$metric_measures_name)
+    ]
     lacking_vars <- lacking_vars[!is.na(lacking_vars)]
     expect_equal(
       length(lacking_vars), 0,
       info =
         paste(
           paste(lacking_vars, collapse = ", "),
-          "should be added to column metric_measures_name in table calculate_metric_measures.csv" #nolint
+          "should be added to column metric_measures_name in table calculate_metric_measures.csv" # nolint: line_length_linter
         )
     )
   })
-  it("zonation_metric.metric_score_name -> calculate_metric_score.metric_score", {
-    lacking_vars <-
-      unique(zonation_metric$metric_score_name)[
-        !unique(zonation_metric$metric_score_name) %in%
-          unique(calculate_metric_score$metric_score)
-        ]
+  it("zonation_metric.metric_score_name -> calculate_metric_score.metric_score", { # nolint: line_length_linter
+    lacking_vars <- unique(zonation_metric$metric_score_name)[
+      !unique(zonation_metric$metric_score_name) %in%
+        unique(calculate_metric_score$metric_score)
+    ]
     lacking_vars <- lacking_vars[!is.na(lacking_vars)]
     expect_equal(
       length(lacking_vars), 0,
       info =
         paste(
           paste(lacking_vars, collapse = ", "),
-          "should be added to column metric_score in table calculate_metric_score.csv" #nolint
+          "should be added to column metric_score in table calculate_metric_score.csv" # nolint: line_length_linter
         )
     )
   })
-  it("calculate_metric_formula.submetric_formula_name -> calculate_metric_formula.metric_formula_name", {#nolint
-    lacking_vars <-
-      unique(calculate_metric_formula$submetric_formula_name)[
-        !unique(calculate_metric_formula$submetric_formula_name) %in%
-          unique(calculate_metric_formula$metric_formula_name)
-        ]
+  it("calculate_metric_formula.submetric_formula_name -> calculate_metric_formula.metric_formula_name", { # nolint: line_length_linter
+    lacking_vars <- unique(calculate_metric_formula$submetric_formula_name)[
+      !unique(calculate_metric_formula$submetric_formula_name) %in%
+        unique(calculate_metric_formula$metric_formula_name)
+    ]
     lacking_vars <- lacking_vars[!is.na(lacking_vars)]
     expect_equal(
       length(lacking_vars), 0,
       info =
         paste(
           paste(lacking_vars, collapse = ", "),
-          "should be added to column metric_formula_name in table calculate_metric_formula.csv" #nolint
+          "should be added to column metric_formula_name in table calculate_metric_formula.csv" # nolint: line_length_linter
         )
     )
   })
-  it("calculate_metric_formula.submetric_measures_name -> calculate_metric_measures.metric_measures_name", {#nolint
-    lacking_vars <-
-      unique(calculate_metric_formula$submetric_measures_name)[
-        !unique(calculate_metric_formula$submetric_measures_name) %in%
-          unique(calculate_metric_measures$metric_measures_name)
-        ]
+  it("calculate_metric_formula.submetric_measures_name -> calculate_metric_measures.metric_measures_name", { # nolint: line_length_linter
+    lacking_vars <- unique(calculate_metric_formula$submetric_measures_name)[
+      !unique(calculate_metric_formula$submetric_measures_name) %in%
+        unique(calculate_metric_measures$metric_measures_name)
+    ]
     lacking_vars <- lacking_vars[!is.na(lacking_vars)]
     expect_equal(
       length(lacking_vars), 0,
       info =
         paste(
           paste(lacking_vars, collapse = ", "),
-          "should be added to column metric_measures_name in table calculate_metric_measures.csv" #nolint
+          "should be added to column metric_measures_name in table calculate_metric_measures.csv" # nolint: line_length_linter
         )
     )
   })
-  it("calculate_metric_formula.submetric_score_name -> calculate_metric_score.metric_score", {#nolint
-    lacking_vars <-
-      unique(calculate_metric_formula$submetric_score_name)[
-        !unique(calculate_metric_formula$submetric_score_name) %in%
-          unique(calculate_metric_score$metric_score)
-        ]
+  it("calculate_metric_formula.submetric_score_name -> calculate_metric_score.metric_score", { # nolint: line_length_linter
+    lacking_vars <- unique(calculate_metric_formula$submetric_score_name)[
+      !unique(calculate_metric_formula$submetric_score_name) %in%
+        unique(calculate_metric_score$metric_score)
+    ]
     lacking_vars <- lacking_vars[!is.na(lacking_vars)]
     expect_equal(
       length(lacking_vars), 0,
       info =
         paste(
           paste(lacking_vars, collapse = ", "),
-          "should be added to column metric_score in table calculate_metric_score.csv" #nolint
+          "should be added to column metric_score in table calculate_metric_score.csv" # nolint: line_length_linter
         )
     )
   })
@@ -218,23 +212,23 @@ describe("variables exist in dependent tables", {
       nrow(lacking_vars), 0,
       info =
         paste(
-          "To calculate the scores in parentheses, the following metrics should be added to columns metric_formula_name or metric_measures_name of table zonation_metric.csv or to columns submetric_formula_name or submetric_measures_name of table calculate_metric_formula.csv: ", #nolint
+          "To calculate the scores in parentheses, the following metrics should be added to columns metric_formula_name or metric_measures_name of table zonation_metric.csv or to columns submetric_formula_name or submetric_measures_name of table calculate_metric_formula.csv: ", # nolint: line_length_linter
           paste(lacking_vars$metric_for_score, collapse = ", ")
         )
     )
   })
   it("calculate_IBI_EQR.zonation <-> zonation_metric.zonation", {
-    lacking_vars <-
-      unique(calculate_IBI_EQR$zonation)[
-        !unique(calculate_IBI_EQR$zonation) %in% unique(zonation_metric$zonation)
-        ]
+    lacking_vars <- unique(calculate_IBI_EQR$zonation)[
+      !unique(calculate_IBI_EQR$zonation) %in%
+        unique(zonation_metric$zonation)
+    ]
     expect_equal(
       length(lacking_vars), 0,
       info =
         paste(
           "calculate_IBI_EQR.csv contains information on zonation(s)",
           paste(lacking_vars, collapse = ", "),
-          ", but there is no information on how to calculate the zonation(s) in table zonation_metric.csv" #nolint
+          ", but there is no information on how to calculate the zonation(s) in table zonation_metric.csv" # nolint: line_length_linter
         )
     )
   })
@@ -260,17 +254,17 @@ describe("variables exist in dependent tables", {
           lacking_vars$zonation,
           ", the metric ",
           lacking_vars$calculated,
-          " should be added to the column metric_name of table zonation_metric.csv (and calculation rules should be provided in other columns)" #nolint
+          " should be added to the column metric_name of table zonation_metric.csv (and calculation rules should be provided in other columns)" # nolint: line_length_linter
         )
     )
   })
 })
 
 describe("all variables in formulas exist in tables", {
-  it("items in formula are added as submetric variable in table calculate_metric_formula.csv", {#nolint
+  it("items in formula are added as submetric variable in table calculate_metric_formula.csv", { # nolint: line_length_linter
 
   })
-  it("items in calculate_metric_measures.csv exists in table data_taxonmetrics.csv", {#nolint
+  it("items in calculate_metric_measures.csv exists in table data_taxonmetrics.csv", { # nolint: line_length_linter
 
   })
 })
@@ -279,14 +273,13 @@ describe("items in calculate_metric_measures.csv have valable names", {
   it("the calculation of metric_type is added to calculate_metric_measures.R", {
     problems <-
       unique(calculate_metric_measures$metric_type)[
-        !unique(calculate_metric_measures$metric_type) %in%
-          c(
-            NA, "number_of_species", "number_of_individuals",
-            "number_of_length_classes",
-            "sum_of_scored_length_classes",
-            "total_weight", "sum_values_column", "shannon_wiener_index",
-            "no_metric"
-          )
+        !unique(calculate_metric_measures$metric_type) %in% c(
+          NA, "number_of_species", "number_of_individuals",
+          "number_of_length_classes",
+          "sum_of_scored_length_classes",
+          "total_weight", "sum_values_column", "shannon_wiener_index",
+          "no_metric"
+        )
       ]
     expect_equal(
       nrow(problems), NULL,
@@ -294,7 +287,7 @@ describe("items in calculate_metric_measures.csv have valable names", {
         paste(
           "No code for calculation is written for:",
           paste(problems, collapse = ", "),
-          "(these names are added to column metric_type in table calculate_metric_score.csv)" #nolint
+          "(these names are added to column metric_type in table calculate_metric_score.csv)" # nolint: line_length_linter
         )
     )
   })
@@ -354,7 +347,7 @@ describe("intervals are correct", {
       nrow(wrong_interval), 0,
       info =
         paste(
-          "Column value_metric from calculate_metric_score.csv has invalable interval(s):", #nolint
+          "Column value_metric from calculate_metric_score.csv has invalable interval(s):", # nolint: line_length_linter
           paste(wrong_interval$value_metric, collapse = ", ")
         )
     )
@@ -404,7 +397,7 @@ describe("intervals are correct", {
       nrow(wrong_interval), 0,
       info =
         paste(
-          "Column value_add_category from calculate_metric_score.csv has invalable interval(s):", #nolint
+          "Column value_add_category from calculate_metric_score.csv has invalable interval(s):", # nolint: line_length_linter
           paste(wrong_interval$value_add_category, collapse = ", ")
         )
     )
@@ -451,7 +444,7 @@ describe("intervals are correct", {
       nrow(wrong_interval), 0,
       info =
         paste(
-          "Column interval from calculate_IBI_EQR.csv has invalable interval(s):", #nolint
+          "Column interval from calculate_IBI_EQR.csv has invalable interval(s):", # nolint: line_length_linter
           paste(wrong_interval$interval, collapse = ", ")
         )
     )

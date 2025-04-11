@@ -51,7 +51,8 @@ Information <- tribble(
   "calculate_metric", 2, -8, 0, 0.5, "",
   "...", 3, -10, 0, 0.5, "",
   "calculate_formula", 2, -12, 0, 0.5, "",
-  "calculate_metric_measures", 1, -14, 0, 0.5, "calculate_metric_measures.csv, data_taxonmetrics.csv",
+  "calculate_metric_measures", 1, -14, 0, 0.5,
+  "calculate_metric_measures.csv, data_taxonmetrics.csv",
   "(small subfunctions)", 2, -16, 0, 0.5, "data_classes.csv",
   "calculate_metric_score", 1, -18, 0, 0.5, "calculate_metric_score.csv",
   "var_in_interval", 2, -20, 0, 0.5, "",
@@ -143,7 +144,9 @@ This datasheet is not used in the calculations, but it gives an overview of all 
 
 ```{r description_metrics}
 suppressMessages(
-  read_csv2(system.file("extdata/description_metrics.csv", package = "EQRfishes"))
+  read_csv2(
+    system.file("extdata/description_metrics.csv", package = "EQRfishes")
+  )
 ) %>%
   kable()
 ```
@@ -161,7 +164,9 @@ This datasheet shows which how to calculate metrics based on other metrics and m
 
 ```{r calculate_metric_formula}
 suppressMessages(
-  read_csv2(system.file("extdata/calculate_metric_formula.csv", package = "EQRfishes"))
+  read_csv2(
+    system.file("extdata/calculate_metric_formula.csv", package = "EQRfishes")
+  )
 ) %>%
   kable()
 ```
@@ -182,7 +187,9 @@ This datasheet shows which how to calculate metrics based on fishdata of one loc
 
 ```{r calculate_metric_measures}
 suppressMessages(
-  read_csv2(system.file("extdata/calculate_metric_measures.csv", package = "EQRfishes"))
+  read_csv2(
+    system.file("extdata/calculate_metric_measures.csv", package = "EQRfishes")
+  )
 ) %>%
   kable()
 ```
@@ -193,8 +200,9 @@ This datasheet contains the species lists where calculate_metric_measures.csv of
 
 ```{r data_taxonmetrics}
 suppressMessages(
-  taxonlist <-
-    read_csv2(system.file("extdata/data_taxonmetrics.csv", package = "EQRfishes")) %>%
+  taxonlist <- read_csv2(
+    system.file("extdata/data_taxonmetrics.csv", package = "EQRfishes")
+  ) %>%
     arrange(.data$taxonname)
 )
 
@@ -227,7 +235,9 @@ This datasheet mentions the intervals that are used to derive a metric score bas
 
 ```{r calculate_metric_score}
 suppressMessages(
-  read_csv2(system.file("extdata/calculate_metric_score.csv", package = "EQRfishes"))
+  read_csv2(
+    system.file("extdata/calculate_metric_score.csv", package = "EQRfishes")
+  )
 ) %>%
   kable()
 ```

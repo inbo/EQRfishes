@@ -24,19 +24,28 @@ calculate_metric_measures(
 
 \item{metric_name}{name of the variable to be calculated}
 
-\item{metric_type}{reflects which information must be calculated: number_of_species, number_of_individuals, total_weight,... (info from calculate_metric_measures.csv)}
+\item{metric_type}{reflects which information must be calculated:
+number_of_species, number_of_individuals, total_weight,...
+(info from calculate_metric_measures.csv)}
 
-\item{values_column}{additional information for column if metric_type refers to colomn from data_taxonmetrics.csv (info from calculate_metric_measures.csv)}
+\item{values_column}{additional information for column if metric_type refers
+to colomn from data_taxonmetrics.csv
+(info from calculate_metric_measures.csv)}
 
-\item{speciesfilter}{formula indicating how to select the required species from data_taxonmetrics.csv (info from calculate_metric_measures.csv)}
+\item{speciesfilter}{formula indicating how to select the required species
+from data_taxonmetrics.csv (info from calculate_metric_measures.csv)}
 
-\item{exclude_species_length}{formula indicating which individuals have to be EXCLUDED based on fish characteristics such as length (info from calculate_metric_measures.csv)}
+\item{exclude_species_length}{formula indicating which individuals have to
+be EXCLUDED based on fish characteristics such as length
+(info from calculate_metric_measures.csv)}
 
-\item{only_individual_measures}{value 1 indicates that only individually measured data should be used (info from calculate_metric_measures.csv)}
+\item{only_individual_measures}{value 1 indicates that only individually
+measured data should be used (info from calculate_metric_measures.csv)}
 
 \item{NULL_to_0}{value 1 indicates that result NULL should be replaced by 0}
 
-\item{sampledata}{table with earlier calculated variables to which the newly calculated variable should be added}
+\item{sampledata}{table with earlier calculated variables to which the newly
+calculated variable should be added}
 
 \item{specieslist}{dataframe with all fish species and data on species level
 that are needed to calculate the metrics (e.g. tolerance or typical value,
@@ -48,5 +57,6 @@ Defaults to the table in
 table sampledata in which the newly calculated metric is added
 }
 \description{
-Calculates the metrics that are based on measures only, given a dataset with the information from calculate_metric_measures.csv and fish data.
+Calculates the metrics that are based on measures only, given a dataset with
+the information from calculate_metric_measures.csv and fish data.
 }
