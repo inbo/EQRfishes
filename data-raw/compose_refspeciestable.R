@@ -131,7 +131,7 @@ data_zeeschelde_zoet %>%
 
 odbcClose(connection_vis)
 
-data_taxonmetrics %<>%
+data_taxonmetrics <- data_taxonmetrics %>%
   full_join(
     data_brabeel %>%
       select(-"taxonname"),

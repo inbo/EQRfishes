@@ -20,7 +20,7 @@ data_zonation <-
 
 odbcClose(connection_vis)
 
-data_zonation %<>%
+data_zonation <- data_zonation %>%
   mutate(
     tidal = FALSE
   ) %>%

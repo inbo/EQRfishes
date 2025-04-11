@@ -13,11 +13,11 @@ unlist_score <- function(data) {
   }
 }
 
-#' @importFrom magrittr %<>%
+#' @importFrom magrittr %>%
 #' @importFrom dplyr transmute
 #' @importFrom utils head
 unlist_name_group <- function(data) {
-  data %<>%
+  data <- data %>%
     transmute(
       submetric_name =
         ifelse(

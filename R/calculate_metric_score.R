@@ -13,7 +13,7 @@
 #'
 #' @return A calculated metric score for the given values
 #'
-#' @importFrom magrittr %>% %<>%
+#' @importFrom magrittr %>%
 #' @importFrom dplyr bind_rows filter
 #' @importFrom rlang .data
 #'
@@ -37,14 +37,14 @@ calculate_metric_score <- function(metric_score_name, indices, sampledata) {
   if (!is.na(unique(indices$add_category))) {
     metric_value_add <- sampledata %>%
       filter(.data$name == unique(indices$add_category))
-    result %<>%
+    result <- result %>%
       filter(
         .data$add_category == unique(indices$add_category),
         var_in_interval(metric_value_add$value, .data$value_add_category)
       )
   }
 
-  sampledata %<>%
+  sampledata <- sampledata %>%
     bind_rows(
       data.frame(
         name = metric_score_name,

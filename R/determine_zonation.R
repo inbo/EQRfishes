@@ -36,7 +36,7 @@
 #' @importFrom assertthat has_name
 #' @importFrom dplyr mutate rowwise ungroup
 #' @importFrom rlang .data
-#' @importFrom magrittr %<>%
+#' @importFrom magrittr %>%
 #'
 #' @export
 #'
@@ -47,7 +47,7 @@ determine_zonation <-
     if (!has_name(dataset, "version")) {
       dataset$version <- version[1]
     }
-    dataset %<>%
+    dataset <- dataset %>%
       mutate(
         version = ifelse(is.na(.data$version), version, .data$version)
       ) %>%

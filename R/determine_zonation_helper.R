@@ -18,7 +18,7 @@
 #' @importFrom readr read_csv2
 #' @importFrom dplyr filter
 #' @importFrom rlang .data
-#' @importFrom magrittr %<>%
+#' @importFrom magrittr %>%
 #'
 #' @export
 #'
@@ -32,12 +32,12 @@ determine_zonation_helper <- function(
     suppressMessages(
       read_csv2(system.file("extdata/data_zonation.csv", package = "EQRfishes"))
     )
-  data_zonation %<>%
+  data_zonation <- data_zonation %>%
     filter(
       .data$indextypecode == var_indextype
     )
   if (var_indextype == "ZTWA") {
-    data_zonation %<>%
+    data_zonation <- data_zonation %>%
       filter(
         var_in_interval(var_width, .data$width),
         var_in_interval(var_slope, .data$slope)

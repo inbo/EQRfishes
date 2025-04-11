@@ -37,7 +37,7 @@
 #' @importFrom dplyr arrange distinct filter group_by left_join mutate n select
 #'   summarise ungroup
 #' @importFrom plyr .
-#' @importFrom magrittr %<>% %>%
+#' @importFrom magrittr %>%
 #' @importFrom rlang .data
 #' @importFrom tidyr gather nest unnest
 #' @importFrom readr read_csv2
@@ -195,7 +195,7 @@ calculate_eqr <- function(
     )
   }
 
-  data_sample %<>%
+  data_sample <- data_sample %>%
     mutate(
       surface =
         ifelse(
@@ -277,7 +277,7 @@ calculate_eqr <- function(
   }
   rm(fish_zero_number)
 
-  data_fish %<>%
+  data_fish <- data_fish %>%
     filter(
       !is.na(.data$taxoncode),
       !.data$taxoncode %in% no_fish$taxoncode
@@ -437,7 +437,7 @@ calculate_eqr <- function(
     )
 
   if (nrow(result_metrics_aggregated) > 0) {
-    result_metrics %<>%
+    result_metrics <- result_metrics %>%
       filter(!str_detect(.data$zonation, "estuarien|lakes|canals")) %>%
       bind_rows(result_metrics_aggregated)
   }

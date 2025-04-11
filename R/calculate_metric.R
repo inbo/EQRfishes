@@ -18,7 +18,7 @@
 #'
 #' @return Dataset with calculated EQR for each sample
 #'
-#' @importFrom magrittr %>% %<>%
+#' @importFrom magrittr %>%
 #' @importFrom assertthat has_name
 #' @importFrom dplyr arrange bind_rows distinct filter left_join mutate rename
 #' select
@@ -45,14 +45,14 @@ calculate_metric <- function(
 ) {
 
   if (has_name(data_sample_fish, "formula")) {
-    data_sample_fish %<>%
+    data_sample_fish <- data_sample_fish %>%
       select(
         -"formula", -"metric_formula_name", -"metric_measures_name",
         -"metric_score_name", -"row_id"
       )
   }
 
-  data_sample_fish %<>%
+  data_sample_fish <- data_sample_fish %>%
     rename(
       metric_name_group = aberant_column_names[1],
       metric_score_name = aberant_column_names[4],
@@ -122,7 +122,7 @@ calculate_metric <- function(
   } else {
     result <- result_measures
   }
-  result %<>%
+  result <- result %>%
     arrange(.data$row_id) %>%
     unnest(cols = "sampledata") %>%
     distinct() %>%

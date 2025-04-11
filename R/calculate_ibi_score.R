@@ -15,7 +15,7 @@
 #'
 #' @return single value being the result of the calculation
 #'
-#' @importFrom magrittr %>% %<>%
+#' @importFrom magrittr %>%
 #' @importFrom dplyr distinct filter left_join summarise
 #' @importFrom readr read_csv2
 #'
@@ -43,7 +43,7 @@ calculate_ibi_score <- function(zonation_name, metrics, calc_method_old) {
     )
 
   if (!all(is.na(IBI_exceptions$calculated2))) {
-    IBI_exceptions %<>%
+    IBI_exceptions <- IBI_exceptions %>%
       left_join(
         metrics,
         by = c("calculated2" = "metric_name"),

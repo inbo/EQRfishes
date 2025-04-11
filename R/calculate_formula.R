@@ -11,7 +11,7 @@
 #' @return table sampledata with an additional metric which is the result of
 #' calculating the formula
 #'
-#' @importFrom magrittr %>% %<>%
+#' @importFrom magrittr %>%
 #' @importFrom dplyr arrange bind_rows desc distinct
 #' @importFrom pander evals
 #'
@@ -20,7 +20,7 @@
 #'
 calculate_formula <- function(formula, sampledata, metric_name) {
 
-  sampledata %<>%
+  sampledata <- sampledata %>%
     distinct() %>%
     arrange(desc(nchar(.data$name)))
 
@@ -34,7 +34,7 @@ calculate_formula <- function(formula, sampledata, metric_name) {
   result <- evals(formula)[[1]]$result
   result <- ifelse(is.null(result), NA, result)
 
-  sampledata %<>%
+  sampledata <- sampledata %>%
     bind_rows(
       data.frame(
         name = metric_name,

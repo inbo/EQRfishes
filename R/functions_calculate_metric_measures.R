@@ -1,7 +1,7 @@
 # this file contains small helper functions that are called in the function
 # calculate_metric_measures
 
-#' @importFrom magrittr %>% %<>%
+#' @importFrom magrittr %>%
 #' @importFrom dplyr count distinct filter group_by inner_join left_join mutate
 #' select summarise ungroup
 #' @importFrom rlang .data
@@ -13,14 +13,14 @@ number_of_individuals <- function(data) {
       "Some measures are ignored while counting the number of individuals because they had NA values for the number"  # nolint: line_length_linter
     )
   }
-  data %<>%
+  data <- data %>%
     filter(!is.na(.data$number)) %>%
     summarise(n_ind = sum(.data$number))
   return(data$n_ind)
 }
 
 number_of_species <- function(data) {
-  data %<>%
+  data <- data %>%
     select("taxoncode") %>%
     mutate(
       taxoncode =
@@ -34,7 +34,7 @@ number_of_species <- function(data) {
 }
 
 number_of_length_classes <- function(data) {
-  data %<>%
+  data <- data %>%
     mutate(
       taxoncode =
         ifelse(.data$taxoncode %in% c("COT.RHE.", "COT.PER."), "COT.GRP.",
@@ -57,7 +57,7 @@ number_of_length_classes <- function(data) {
 }
 
 sum_of_scored_length_classes <- function(data, var) {
-  data %<>%
+  data <- data %>%
     mutate(
       taxoncode =
         ifelse(.data$taxoncode %in% c("COT.RHE.", "COT.PER."), "COT.GRP.",
@@ -82,7 +82,7 @@ sum_of_scored_length_classes <- function(data, var) {
       "Some measures are ignored while taking the sum of the scored length classes because they had NA values for the length" # nolint: line_length_linter
     )
   }
-  data %<>%
+  data <- data %>%
     inner_join(
       suppressMessages(
         read_csv2(
@@ -111,14 +111,14 @@ total_weight <- function(data) {
       "Some measures are ignored while taking the total weight because they had NA values for the weight" # nolint: line_length_linter
     )
   }
-  data %<>%
+  data <- data %>%
     filter(!is.na(.data$weight)) %>%
     summarise(weight = sum(.data$weight))
   return(data$weight)
 }
 
 sum_values_column <- function(data, specieslist, variable) {
-  data %<>%
+  data <- data %>%
     select("taxoncode") %>%
     mutate(
       taxoncode =
@@ -141,14 +141,14 @@ shannon_wiener_index <- function(data) {
         paste(number_na$record_id, collapse = ", ")
       )
     )
-    data %<>%
+    data <- data %>%
       filter(!is.na(.data$number))
   }
   MniTot <- number_of_individuals(data)
   if (!is.numeric(MniTot) | MniTot == 0) {
     return(0)
   }
-  data %<>%
+  data <- data %>%
     mutate(
       taxoncode =
         ifelse(.data$taxoncode %in% c("COT.RHE.", "COT.PER."), "COT.GRP.",

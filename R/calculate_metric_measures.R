@@ -27,7 +27,7 @@
 #' @return table sampledata in which the newly calculated metric is added
 #'
 #' @importFrom readr read_csv2
-#' @importFrom magrittr %>% %<>%
+#' @importFrom magrittr %>%
 #' @importFrom dplyr bind_rows filter
 #' @importFrom rlang .data
 #'
@@ -47,7 +47,7 @@ calculate_metric_measures <- function(
   if (is.null(fishdata)) {
     warning("No fishdata for one of the records, metric gets value 0")
     return(
-      sampledata %<>%
+      sampledata <- sampledata %>%
         bind_rows(
           data.frame(
             name = metric_name,
@@ -59,26 +59,26 @@ calculate_metric_measures <- function(
   }
 
   if (!is.na(speciesfilter)) {
-    specieslist %<>%
+    specieslist <- specieslist %>%
       filter(eval(parse(text = speciesfilter)))
-    fishdata %<>%
+    fishdata <- fishdata %>%
       filter(.data$taxoncode %in% specieslist$taxoncode)
   }
 
   if (!is.na(exclude_species_length)) {
-    fishdata %<>%
+    fishdata <- fishdata %>%
       filter(!eval(parse(text = exclude_species_length)))
   }
 
   if (!is.na(only_individual_measures)) {
     if (only_individual_measures == 1) {
-      fishdata %<>%
+      fishdata <- fishdata %>%
         filter(.data$number == 1)
     }
   }
 
   if (is.na(SalTru_to_SalFar) | SalTru_to_SalFar) {
-    fishdata %<>%
+    fishdata <- fishdata %>%
       mutate(
         taxoncode =
           ifelse(
@@ -87,7 +87,7 @@ calculate_metric_measures <- function(
           )
       )
   } else {
-    fishdata %<>%
+    fishdata <- fishdata %>%
       mutate(
         taxoncode =
           ifelse(.data$taxoncode == "SAL.TRT.", "SAL.FAR.", .data$taxoncode)
@@ -119,7 +119,7 @@ calculate_metric_measures <- function(
     }
   }
 
-  sampledata %<>%
+  sampledata <- sampledata %>%
     bind_rows(
       data.frame(
         name = metric_name,
