@@ -55,7 +55,7 @@ calculate_metric_formula <- function(
               select(-"opmerking")  # tijdelijk zolang in deze csv een opmerking staat
           ) %>%
             filter(is.na(.data$submetric_score_name)) %>%
-            mutate(temp_row_nr = 1:length(.data$metric_formula_name)) %>%
+            mutate(temp_row_nr = seq_along(.data$metric_formula_name)) %>%
             nest(
               submetric_name_group =
                 c("submetric_formula_name", "submetric_measures_name")
@@ -66,7 +66,7 @@ calculate_metric_formula <- function(
     ) %>%
     arrange(.data$row_id) %>%
     mutate(
-      new_row_id = 1:length(.data$row_id)
+      new_row_id = seq_along(.data$row_id)
     ) %>%
     mutate(
       sampledata =

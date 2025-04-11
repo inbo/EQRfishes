@@ -313,7 +313,7 @@ calculate_eqr <- function(
       by = join_data_fish
     ) %>%
     mutate(
-      row_id = 1:length(.data$sample_key)
+      row_id = seq_along(.data$sample_key)
     ) %>%
     arrange(.data$row_id) %>%
     mutate(

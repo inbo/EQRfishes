@@ -14,7 +14,7 @@ data_fish <-
                 package = "EQRfishes")
   ) %>%
   mutate(
-    record_id = 1:n()
+    record_id = seq_len(n())
   )
 cluster <-
   data.frame(
