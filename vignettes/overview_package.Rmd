@@ -213,7 +213,7 @@ taxonlist %>%
 Other columns only give presence/absence.  We here list for each column the species that are present (xxx = 1).
 
 ```{r include=FALSE}
-out = NULL
+out <- NULL
 columns_relevant <- taxonlist %>%
   select(
     -"taxonname", -"taxoncode", -starts_with("WF_"),
@@ -222,7 +222,7 @@ columns_relevant <- taxonlist %>%
   colnames() %>%
   sort()
 for (column in columns_relevant) {
-  out = c(out, knit_expand('taxontable.Rmd'))
+  out <- c(out, knit_expand('taxontable.Rmd'))
 }
 ```
 `r paste(knit(text = out), collapse = '\n')`
