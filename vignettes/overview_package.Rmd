@@ -33,11 +33,11 @@ options(knitr.kable.NA = "")
 
 This vignette gives an overview of the content of the package. It documents how calculations are done and is a manual to make changes in the package.
 
-The EQRfishes-package allows to calculate quality indices on waterbodies, based on fish measurement data. The package is designed in such way that the information on how to calculate the indices (formulas, class intervals,...), is saved in data sheets (in the folder inst/extdata), while the R code itself only contains routines to execute these calculations. This allows users to redefine calculations without digging into the R code.
+The EQRfishes-package allows to calculate quality indices on waterbodies, based on fish measurement data. The package is designed in such way that the information on how to calculate the indices (formulas, class intervals,...), is saved in data sheets (in the folder `inst/extdata`), while the R code itself only contains routines to execute these calculations. This allows users to redefine calculations without digging into the R code.
 
 ## Overview package functions
 
-Due to the complex nature of the calculations, it is rather complicated to keep track on the different functions. This overview shows which functions are called by calculate_eqr (direct and indirect), and which information is used.
+Due to the complex nature of the calculations, it is rather complicated to keep track on the different functions. This overview shows which functions are called by `calculate_eqr()` (direct and indirect), and which information is used.
 
 ```{r overview, fig.width=7, fig.height=5}
 
@@ -80,7 +80,7 @@ information %>%
 
 ## Overview information on calculations
 
-### data_zonation.csv
+### `data_zonation.csv`
 
 This datasheet gives all needed information to determine the zonation of a specific location.
 
@@ -119,13 +119,13 @@ suppressMessages(
   kable()
 ```
 
-### zonation_metric.csv
+### `zonation_metric.csv`
 
 This datasheet shows which metrics and metric scores have to be calculated for each zonation, with additional information on where to find the information for calculation of the metric:
 
-- column metric_formula_name contains metrics for which the formulas for calculation are added to calculate_metric_formula.csv
-- column metric_measures_name contains metrics for which the calculation methods (directly based on measures) are added to calculate_metric_measures.csv
-- column metric_score_name gives the score name, refering to calculate_metric_score.csv, which contains the indices to calculate the metric scores based on metric variables
+- column metric_formula_name contains metrics for which the formulas for calculation are added to `calculate_metric_formula.csv`
+- column metric_measures_name contains metrics for which the calculation methods (directly based on measures) are added to `calculate_metric_measures.csv`
+- column metric_score_name gives the score name, referring to `calculate_metric_score.csv`, which contains the indices to calculate the metric scores based on metric variables
 
 If the metric is only applicable to one method, this method is mentioned (E = electric, F = fyke)
 
@@ -137,7 +137,7 @@ suppressMessages(
 ```
 
 
-### description_metrics.csv
+### `description_metrics.csv`
 
 This datasheet is not used in the calculations, but it gives an overview of all metrics (and variables) with a description
 
@@ -150,16 +150,16 @@ suppressMessages(
   kable()
 ```
 
-### calculate_metric_formula.csv
+### `calculate_metric_formula.csv`
 
 This datasheet shows which how to calculate metrics based on other metrics and metric scores:
 
-- column formula: R-code to calculate the metric based on variables
+- column `formula`: R-code to calculate the metric based on variables
 - all variables from the formula should be mentioned in one of these columns:
-    - column submetric_formula_name: if the variable itself should be calculated using a formula (add variable to calculate_metric_formula.csv)
-    - column submetric_measures_name: if the variable can be calculated directly based on measures (add variable to calculate_metric_measures.csv)
-    - column submetric_score_name: if a score is used in the formula, in this case also the column submetric_formula_name or submetric_measures_name should be filled, with the variables needed in calculate_metric_score.csv
-- columns metric_formula_name and formula should be repeted to allow to add multiple variables for one formula
+    - column `submetric_formula_name`: if the variable itself should be calculated using a formula (add variable to `calculate_metric_formula.csv`)
+    - column `submetric_measures_name`: if the variable can be calculated directly based on measures (add variable to `calculate_metric_measures.csv`)
+    - column `submetric_score_name`: if a score is used in the formula, in this case also the column `submetric_formula_name` or `submetric_measures_name` should be filled, with the variables needed in `calculate_metric_score.csv`
+- columns `metric_formula_name` and `formula` should be repeated to allow to add multiple variables for one formula
 
 ```{r calculate_metric_formula}
 suppressMessages(
@@ -170,18 +170,18 @@ suppressMessages(
   kable()
 ```
 
-### calculate_metric_measures.csv
+### `calculate_metric_measures.csv`
 
-This datasheet shows which how to calculate metrics based on fishdata of one location. Variables in this sheet mostly refer to species specific values that are gathered in data_taxonmetrics.csv (otherwise the origin is mentioned below).
+This datasheet shows which how to calculate metrics based on fishdata of one location. Variables in this sheet mostly refer to species specific values that are gathered in `data_taxonmetrics.csv` (otherwise the origin is mentioned below).
 
-- column metric_type: refers to a specific type of calculation
-- column values_column: extra information needed for calculation of some metric types:
-    - sum_values_column: calculates the sum of the species specific values in the indicated column
-    - sum_of_scored_length_classes: each species get a score dependent on the length class, an this score is:
-        - if value_column mentions multiple: all species with > 1 length class are counted
-        - otherwise value_column refers to variable in data_classes.csv --> species get scores dependent on the number of length classes, and these scores are summed over different species
-- column speciesfilter: R-code indicating which species to add, refering to columns in data_taxonmetrics.csv
-- column exclude_species_length: which species lengths to exclude before doing the calculation?
+- column `metric_type`: refers to a specific type of calculation
+- column `values_column`: extra information needed for calculation of some metric types:
+    - `sum_values_column`: calculates the sum of the species specific values in the indicated column
+    - `sum_of_scored_length_classes`: each species get a score dependent on the length class, an this score is:
+        - if `value_column` mentions multiple: all species with > 1 length class are counted
+        - otherwise `value_column` refers to variable in `data_classes.csv` --> species get scores dependent on the number of length classes, and these scores are summed over different species
+- column `speciesfilter`: R-code indicating which species to add, referring to columns in `data_taxonmetrics.csv`
+- column `exclude_species_length`: which species lengths to exclude before doing the calculation?
 - ...
 
 ```{r calculate_metric_measures}
@@ -193,9 +193,9 @@ suppressMessages(
   kable()
 ```
 
-### data_taxonmetrics.csv
+### `data_taxonmetrics.csv`
 
-This datasheet contains the species lists where calculate_metric_measures.csv often refers to.  As this table is too large to display at once, a first table gives all columns that can contain different values.
+This datasheet contains the species lists where `calculate_metric_measures.csv` often refers to.  As this table is too large to display at once, a first table gives all columns that can contain different values.
 
 ```{r data_taxonmetrics}
 suppressMessages(
@@ -228,9 +228,9 @@ for (column in columns_relevant) {
 `r paste(knit(text = out), collapse = '\n')`
 
 
-### calculate_metric_score.csv
+### `calculate_metric_score.csv`
 
-This datasheet mentions the intervals that are used to derive a metric score based on 1 or 2 variables/metrics (the 2nd variable is mentioned in add_category with interval value_add_category), score_id is the class (or score).
+This datasheet mentions the intervals that are used to derive a metric score based on 1 or 2 variables/metrics (the second variable is mentioned in `add_category` with interval `value_add_category`), score_id is the class (or score).
 
 ```{r calculate_metric_score}
 suppressMessages(
@@ -241,7 +241,7 @@ suppressMessages(
   kable()
 ```
 
-### calculate_ibi_eqr.csv
+### `calculate_ibi_eqr.csv`
 
 This datasheet gives the information to calculate the IBI and EQR:
 

@@ -1,14 +1,14 @@
-#' calculate the metric scores of the EQR
+#' calculate the metric scores of the Ecological Quality Ratio
 #'
 #' Calculates the metric score, given a calculated metric value
 #' (and some parameters specific to the sampling location),
-#' and a table with the indices and their tresholds
-#' (info from calculate_metric_score.csv).
+#' and a table with the indices and their thresholds
+#' (info from `calculate_metric_score.csv`).
 #'
 #' @param metric_score_name name of metric score to be calculated
 #' (NA if no calculation has to be done)
-#' @param indices dataframe with indices and their tresholds
-#' (info from calculate_metric_score.csv)
+#' @param indices dataframe with indices and their thresholds
+#' (info from `calculate_metric_score.csv`)
 #' @inheritParams calculate_formula
 #'
 #' @return A calculated metric score for the given values

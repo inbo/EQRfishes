@@ -1,6 +1,6 @@
 #' calculate IBI based on given parameters
 #'
-#' Small function that calculates IBI based on rules in calculate_ibi_eqr.csv
+#' Small function that calculates IBI based on rules in `calculate_ibi_eqr.csv`
 #' or the formula 'sum of metric scores divided by number of metrics'
 #' (when using the old calculation method)
 #' or the formula 'sum of metric scores'

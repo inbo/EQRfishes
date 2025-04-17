@@ -15,7 +15,7 @@
 #' and c the number of EQR classes
 #' (or 1//the width of an EQR class, which is 0.2).
 #'
-#' @param ibi IBI-score, result of the function calculate_ibi_score
+#' @param ibi IBI-score, result of the function `calculate_ibi_score()`
 #' @inheritParams calculate_ibi_score
 #'
 #' @return single value being the result of the calculation

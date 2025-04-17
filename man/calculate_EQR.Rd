@@ -2,7 +2,7 @@
 % Please edit documentation in R/calculate_eqr.R
 \name{calculate_eqr}
 \alias{calculate_eqr}
-\title{calculate the ecological quality ratio}
+\title{calculate the Ecological Quality Ratio}
 \usage{
 calculate_eqr(
   data_sample,
@@ -13,32 +13,34 @@ calculate_eqr(
 }
 \arguments{
 \item{data_sample}{Data on the sample: date, method, location and location
-characteristics including zonation (= indextypology, which can be calculated
-using function `determine_zonation()`)}
+characteristics including zonation (= index typology, which can be calculated
+using function \code{determine_zonation()})}
 
 \item{data_fish}{Measurements on fish: dataframe with columns
-- `sample_key` (reference to `data_sample`),
-- `record_id`: unique id for each row,
-- `taxoncode`: abbreviation of scientific fish name,
-- `number` of individuals for this record (1 if each separate fish is
-  measured),
-- `length` of the fish in cm (NA if `number` > 1),
-- `weight` of the fish in g (total weight if `number` > 1)}
+\itemize{
+\item \code{sample_key} (reference to \code{data_sample}),
+\item \code{record_id}: unique id for each row,
+\item \code{taxoncode}: abbreviation of scientific fish name,
+\item \code{number} of individuals for this record (1 if each separate fish is
+measured),
+\item \code{length} of the fish in cm (NA if \code{number} > 1),
+\item \code{weight} of the fish in g (total weight if \code{number} > 1)
+}}
 
 \item{output}{Which output do you wish?
 \itemize{
-  \item \strong{EQR} (default) only gives the main result:
-    a dataframe with calculated IBI and EQR for each sample (location),
-  \item \strong{metric} gives a list of 2 dataframes:
-    one with the IBI and EQR, and one with the results for each metric,
-  \item \strong{detail} gives a list of 3 dataframes:
-    one with the IBI and EQR, a second with the results for each metric
-    and a third with all calculated values
+\item \strong{EQR} (default) only gives the main result:
+a dataframe with calculated IBI and EQR for each sample (location),
+\item \strong{metric} gives a list of 2 dataframes:
+one with the IBI and EQR, and one with the results for each metric,
+\item \strong{detail} gives a list of 3 dataframes:
+one with the IBI and EQR, a second with the results for each metric
+and a third with all calculated values
 }}
 
-\item{cluster}{Table with columns `sample_key` and `index_cluster`
+\item{cluster}{Table with columns \code{sample_key} and \code{index_cluster}
 that indicates how samples should be clustered into a 'waterbody'
-in case of the indextypologies lakes, canals and estuarine zonations.
+in case of the index typologies lakes, canals and estuarine zonations.
 Defaults to NA, because it is not needed in case of freshwater rivers.}
 }
 \value{
@@ -46,8 +48,8 @@ Dataframe with calculated EQR for each sample, or list of dataframes
 if parameter output is specified
 }
 \description{
-Main function of this package, which calculates the EQR based on 2 tables of
-data.
+Main function of this package, which calculates the Ecological Quality Ratio
+(EQR) based on 2 tables of data.
 Each table must contain a sample_key!
 }
 \examples{

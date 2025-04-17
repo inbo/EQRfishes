@@ -2,7 +2,7 @@
 % Please edit documentation in R/calculate_metric_score.R
 \name{calculate_metric_score}
 \alias{calculate_metric_score}
-\title{calculate the metric scores of the EQR}
+\title{calculate the metric scores of the Ecological Quality Ratio}
 \usage{
 calculate_metric_score(metric_score_name, indices, sampledata)
 }
@@ -10,8 +10,8 @@ calculate_metric_score(metric_score_name, indices, sampledata)
 \item{metric_score_name}{name of metric score to be calculated
 (NA if no calculation has to be done)}
 
-\item{indices}{dataframe with indices and their tresholds
-(info from calculate_metric_score.csv)}
+\item{indices}{dataframe with indices and their thresholds
+(info from \code{calculate_metric_score.csv})}
 
 \item{sampledata}{location specific variables (column name) with their values
 (value)}
@@ -22,6 +22,6 @@ A calculated metric score for the given values
 \description{
 Calculates the metric score, given a calculated metric value
 (and some parameters specific to the sampling location),
-and a table with the indices and their tresholds
-(info from calculate_metric_score.csv).
+and a table with the indices and their thresholds
+(info from \code{calculate_metric_score.csv}).
 }

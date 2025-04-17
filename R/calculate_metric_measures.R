@@ -1,23 +1,23 @@
-#' calculate the metrics of the EQR based on measures
+#' calculate the metrics of the Ecological Quality Ratio based on measures
 #'
 #' Calculates the metrics that are based on measures only, given a dataset with
-#' the information from calculate_metric_measures.csv and fish data.
+#' the information from `calculate_metric_measures.csv` and fish data.
 #'
-#' @param fishdata dataframe with fishdata
+#' @param fishdata dataframe with fish measurements
 #' @param metric_name name of the variable to be calculated
 #' @param metric_type reflects which information must be calculated:
 #' number_of_species, number_of_individuals, total_weight,...
-#' (info from calculate_metric_measures.csv)
+#' (info from `calculate_metric_measures.csv`)
 #' @param values_column additional information for column if metric_type refers
-#' to colomn from data_taxonmetrics.csv
-#' (info from calculate_metric_measures.csv)
+#' to column from `data_taxonmetrics.csv`
+#' (info from `calculate_metric_measures.csv`)
 #' @param speciesfilter formula indicating how to select the required species
-#' from data_taxonmetrics.csv (info from calculate_metric_measures.csv)
+#' from `data_taxonmetrics.csv` (info from `calculate_metric_measures.csv`)
 #' @param exclude_species_length formula indicating which individuals have to
 #' be EXCLUDED based on fish characteristics such as length
-#' (info from calculate_metric_measures.csv)
+#' (info from `calculate_metric_measures.csv`)
 #' @param only_individual_measures value 1 indicates that only individually
-#' measured data should be used (info from calculate_metric_measures.csv)
+#' measured data should be used (info from `calculate_metric_measures.csv`)
 #' @param null_to_0 value 1 indicates that result NULL should be replaced by 0
 #' @param sampledata table with earlier calculated variables to which the newly
 #' calculated variable should be added

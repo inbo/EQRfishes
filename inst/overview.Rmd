@@ -15,7 +15,7 @@ library(ggplot2)
 
 ### Overview package functions
 
-Due to the complex nature of the calculations, it is rather complicated to keep track on the different functions. This overview shows which functions are called by calculate_eqr (direct and indirect), and which information is used.
+Due to the complex nature of the calculations, it is rather complicated to keep track on the different functions. This overview shows which functions are called by `calculate_eqr()` (direct and indirect), and which information is used.
 
 ```{r overview, echo=FALSE}
 

@@ -1,4 +1,4 @@
-#' calculate the metrics of the EQR based on a formula
+#' calculate the metrics of the Ecological Quality Ratio based on a formula
 #'
 #' Calculates the metrics that are based on formulas only, given fish data and
 #' other .

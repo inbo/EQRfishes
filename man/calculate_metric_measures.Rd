@@ -2,7 +2,7 @@
 % Please edit documentation in R/calculate_metric_measures.R
 \name{calculate_metric_measures}
 \alias{calculate_metric_measures}
-\title{calculate the metrics of the EQR based on measures}
+\title{calculate the metrics of the Ecological Quality Ratio based on measures}
 \usage{
 calculate_metric_measures(
   fishdata,
@@ -20,27 +20,27 @@ calculate_metric_measures(
 )
 }
 \arguments{
-\item{fishdata}{dataframe with fishdata}
+\item{fishdata}{dataframe with fish measurements}
 
 \item{metric_name}{name of the variable to be calculated}
 
 \item{metric_type}{reflects which information must be calculated:
 number_of_species, number_of_individuals, total_weight,...
-(info from calculate_metric_measures.csv)}
+(info from \code{calculate_metric_measures.csv})}
 
 \item{values_column}{additional information for column if metric_type refers
-to colomn from data_taxonmetrics.csv
-(info from calculate_metric_measures.csv)}
+to column from \code{data_taxonmetrics.csv}
+(info from \code{calculate_metric_measures.csv})}
 
 \item{speciesfilter}{formula indicating how to select the required species
-from data_taxonmetrics.csv (info from calculate_metric_measures.csv)}
+from \code{data_taxonmetrics.csv} (info from \code{calculate_metric_measures.csv})}
 
 \item{exclude_species_length}{formula indicating which individuals have to
 be EXCLUDED based on fish characteristics such as length
-(info from calculate_metric_measures.csv)}
+(info from \code{calculate_metric_measures.csv})}
 
 \item{only_individual_measures}{value 1 indicates that only individually
-measured data should be used (info from calculate_metric_measures.csv)}
+measured data should be used (info from \code{calculate_metric_measures.csv})}
 
 \item{null_to_0}{value 1 indicates that result NULL should be replaced by 0}
 
@@ -51,12 +51,12 @@ calculated variable should be added}
 that are needed to calculate the metrics (e.g. tolerance or typical value,
 or 0/1 to indicate if the species should be included).
 Defaults to the table in
-`system.file("extdata/data_taxonmetrics.csv", package = "EQRfishes")`.}
+\code{system.file("extdata/data_taxonmetrics.csv", package = "EQRfishes")}.}
 }
 \value{
 table sampledata in which the newly calculated metric is added
 }
 \description{
 Calculates the metrics that are based on measures only, given a dataset with
-the information from calculate_metric_measures.csv and fish data.
+the information from \code{calculate_metric_measures.csv} and fish data.
 }

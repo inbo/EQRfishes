@@ -1,9 +1,9 @@
-#' determine the indextypology of one location
+#' determine the index typology of one location
 #'
-#' This helper function determines the indextypology (`zonation`) based on the
+#' This helper function determines the index typology (`zonation`) based on the
 #' given measurements for one location.
-#' To determine the indextypology of the whole dataset at once, please use
-#' function `determine_zonation`.
+#' To determine the index typology of the whole dataset at once, please use
+#' function `determine_zonation()`.
 #'
 #' @param var_width width of the river at the sample location
 #' @param var_slope slope of the river at the sample location

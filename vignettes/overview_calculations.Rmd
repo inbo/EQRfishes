@@ -41,7 +41,7 @@ We present here for each of the indices first an overview of the calculation of 
 These calculations can be performed by:
 
 - formulas with other variables and operators
-- some basic calculations based on species measures, such as 'number of species' or 'total weight of bentic species', in which we usually have a list of relevant species (e.g. bentic species, migrating species,...) and a calculation to be performed.
+- some basic calculations based on species measures, such as 'number of species' or 'total weight of benthic species', in which we usually have a list of relevant species (e.g. benthic species, migrating species,...) and a calculation to be performed.
 
 For the second item, 7 types of calculations are added in the package:
 
@@ -50,14 +50,14 @@ For the second item, 7 types of calculations are added in the package:
 - `total_weight`: : total weight of the fishes that are captured and of which the species name occurs in the given list
 - `sum_values_column`: each species gets a value (e.g. tolerance value or typical species value), and the result is the sum of the values given for each of the captured species
 - `number_of_length_classes`: sum of the number of length classes that is captured for each of the listed species (length classes are species dependent and are given in the overview)
-- `sum_of_scored_length_classes`: after counting the number of length classes for the listed species, the number of length classes gets a species dependent score and the result is the sum of these scores (if values_column = 'Gkla') or the result is the number of species with > 1 length class (if values_column = 'multiple')
+- `sum_of_scored_length_classes`: after counting the number of length classes for the listed species, the number of length classes gets a species dependent score and the result is the sum of these scores (if `values_column = "Gkla"`) or the result is the number of species with > 1 length class (if `values_column = "multiple"`)
 - `shannon_wiener_index`: calculation of the Shannon Wiener index using all species <!-- later berekening nog toevoegen, of referentie hiernaar -->
 
 After calculations are done, the metric score (named as metric name preceded by an `S`) is calculated by looking up in which interval the result is situated.
-Intervals are presented as `[min, max]`, `]min, max[`, `[min, max[`, `]min, max]`, `] , max]` or `[min, [`, where `[]` presents a closed interval (`min` and `max` included), `][` an open interval (`min` and `max` excluded) and the absence of `min` or `max` means everything lower resp higher than `max` resp `min`.
+Intervals are presented as `[min, max]`, `]min, max[`, `[min, max[`, `]min, max]`, `] , max]` or `[min, [`, where `[]` presents a closed interval (`min` and `max` included), `][` an open interval (`min` and `max` excluded) and the absence of `min` or `max` means everything lower resp. higher than `max` resp. `min`.
 For the Scheldt estuarium, the calculation of all scores have an additional precondition: if MnsTot is 0, so if no typical species are caught, the metric score is set 0.  This condition is not added to the tables with the calculations, because due to the technical workflow of the package, this would mean that MnsTot would be calculated together with every metric, most likely slowing down the calculation a lot.
 
-The overview in the different chapters of this report presents all these calculations, with chapter titles indicating the indextypologies, 2nd level titles the metrics that are needed to calculate the IBI and EQR, and the lower levels the calculations of the variables that are needed to calculate the higher level metric.
+The overview in the different chapters of this report presents all these calculations, with chapter titles indicating the indextypologies, second level titles the metrics that are needed to calculate the IBI and EQR, and the lower levels the calculations of the variables that are needed to calculate the higher level metric.
 The last subtitle always present how to derive the score starting from the calculated value.
 
 ## Aggregation of data
@@ -87,15 +87,15 @@ For the older indexes, this is $IBI / 5$.
 For the newer indexes, this is
  $(IBI - n_{metrics} / c) / (IBI_{max} - n_{metrics} / c)$
 with c = 1 for zonation bron and c = 5 for all other zonations.
-For the estuarien zonations of IJzer and Schelde, no standardisation is done.
+For the estuarine zonations of IJzer and Schelde, no standardisation is done.
  
 This standardised IBI is used to determine the EQR class, using the below table, where the upper limit
 
-- std_ibi_old is used for the older indexes
-- std_ibi_new is used for the newer indexes, and
-- std_ibi_newst is used for the zonations lakes, brabeel, estuarien_Schelde_freshwater, estuarien_Schelde_oligohaline, estuarien_Schelde_mesohaline
-- ibi_ijzer gives the class borders of the non-standardised classes for zonation estuarien_IJzer
-- ibi_estuarien gives the class borders of the non-standardised classes for zonations estuarien_Schelde (freshwater, oligohaline and mesohaline)
+- `std_ibi_old` is used for the older indexes
+- `std_ibi_new` is used for the newer indexes, and
+- `std_ibi_newst` is used for the zonations lakes, brabeel, estuarien_Schelde_freshwater, estuarien_Schelde_oligohaline, estuarien_Schelde_mesohaline
+- `ibi_ijzer` gives the class borders of the non-standardised classes for zonation estuarien_IJzer
+- `ibi_estuarien` gives the class borders of the non-standardised classes for zonations estuarien_Schelde (freshwater, oligohaline and mesohaline)
 
 
 ```{r}
@@ -170,57 +170,57 @@ cat(output, sep = "\n")
 ## Overview information on calculations
 
 
-### zonation_metric.csv
+### `zonation_metric.csv`
 
 This datasheet shows which metrics and metric scores have to be calculated for each zonation, with additional information on where to find the information for calculation of the metric:
 
-- column metric_formula_name contains metrics for which the formulas for calculation are added to calculate_metric_formula.csv
-- column metric_measures_name contains metrics for which the calculation methods (directly based on measures) are added to calculate_metric_measures.csv
-- column metric_score_name gives the score name, refering to calculate_metric_score.csv, which contains the indices to calculate the metric scores based on metric variables
+- column metric_formula_name contains metrics for which the formulas for calculation are added to `calculate_metric_formula.csv`
+- column metric_measures_name contains metrics for which the calculation methods (directly based on measures) are added to `calculate_metric_measures.csv`
+- column metric_score_name gives the score name, referring to `calculate_metric_score.csv`, which contains the indices to calculate the metric scores based on metric variables
 
 If the metric is only applicable to one method, this method is mentioned (E = electric, F = fyke)
 
 
 
 
-### calculate_metric_formula.csv
+### `calculate_metric_formula.csv`
 
 This datasheet shows which how to calculate metrics based on other metrics and metric scores:
 
 - column formula: R-code to calculate the metric based on variables
 - all variables from the formula should be mentioned in one of these columns:
-    - column submetric_formula_name: if the variable itself should be calculated using a formula (add variable to calculate_metric_formula.csv)
-    - column submetric_measures_name: if the variable can be calculated directly based on measures (add variable to calculate_metric_measures.csv)
-    - column submetric_score_name: if a score is used in the formula, in this case also the column submetric_formula_name or submetric_measures_name should be filled, with the variables needed in calculate_metric_score.csv
-- columns metric_formula_name and formula should be repeted to allow to add multiple variables for one formula
+    - column `submetric_formula_name`: if the variable itself should be calculated using a formula (add variable to `calculate_metric_formula.csv`)
+    - column `submetric_measures_name`: if the variable can be calculated directly based on measures (add variable to `calculate_metric_measures.csv`)
+    - column `submetric_score_name`: if a score is used in the formula, in this case also the column submetric_formula_name or submetric_measures_name should be filled, with the variables needed in `calculate_metric_score.csv`
+- columns metric_formula_name and formula should be repeated to allow to add multiple variables for one formula
 
 
-### calculate_metric_measures.csv
+### `calculate_metric_measures.csv`
 
-This datasheet shows which how to calculate metrics based on fishdata of one location. Variables in this sheet mostly refer to species specific values that are gathered in data_taxonmetrics.csv (otherwise the origin is mentioned below).
+This datasheet shows which how to calculate metrics based on fishdata of one location. Variables in this sheet mostly refer to species specific values that are gathered in `data_taxonmetrics.csv` (otherwise the origin is mentioned below).
 
-- column metric_type: refers to a specific type of calculation
-- column values_column: extra information needed for calculation of some metric types:
-    - sum_values_column: calculates the sum of the species specific values in the indicated column
-    - sum_of_scored_length_classes: each species get a score dependent on the length class, an this score is:
-        - if value_column mentions multiple: all species with > 1 length class are counted
-        - otherwise value_column refers to variable in data_classes.csv -> species get scores dependent on the number of length classes, and these scores are summed over different species
-- column speciesfilter: R-code indicating which species to add, refering to columns in data_taxonmetrics.csv
-- column exclude_species_length: which species lengths to exclude before doing the calculation?
+- column `metric_type`: refers to a specific type of calculation
+- column `values_column`: extra information needed for calculation of some metric types:
+    - `sum_values_column`: calculates the sum of the species specific values in the indicated column
+    - `sum_of_scored_length_classes`: each species get a score dependent on the length class, an this score is:
+        - if `value_column` mentions multiple: all species with > 1 length class are counted
+        - otherwise `value_column` refers to variable in `data_classes.csv` -> species get scores dependent on the number of length classes, and these scores are summed over different species
+- column `speciesfilter`: R-code indicating which species to add, referring to columns in `data_taxonmetrics.csv`
+- column `exclude_species_length`: which species lengths to exclude before doing the calculation?
 - ...
 
-### data_taxonmetrics.csv
+### `data_taxonmetrics.csv`
 
-This datasheet contains the species lists where calculate_metric_measures.csv often refers to.  As this table is too large to display at once, a first table gives all columns that can contain different values.
-
-
-
-### calculate_metric_score.csv
-
-This datasheet mentions the intervals that are used to derive a metric score based on 1 or 2 variables/metrics (the 2nd variable is mentioned in add_category with interval value_add_category), score_id is the class (or score).
+This datasheet contains the species lists where `calculate_metric_measures.csv` often refers to.  As this table is too large to display at once, a first table gives all columns that can contain different values.
 
 
-### calculate_ibi_eqr.csv
+
+### `calculate_metric_score.csv`
+
+This datasheet mentions the intervals that are used to derive a metric score based on 1 or 2 variables/metrics (the second variable is mentioned in `add_category` with interval `value_add_category`), `score_id` is the class (or score).
+
+
+### `calculate_ibi_eqr.csv`
 
 This datasheet gives the information to calculate the IBI and EQR:
 

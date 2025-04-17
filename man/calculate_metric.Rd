@@ -2,7 +2,7 @@
 % Please edit documentation in R/calculate_metric.R
 \name{calculate_metric}
 \alias{calculate_metric}
-\title{calculate the metrics of the EQR}
+\title{calculate the metrics of the Ecological Quality Ratio}
 \usage{
 calculate_metric(
   data_sample_fish,
@@ -13,12 +13,12 @@ calculate_metric(
 )
 }
 \arguments{
-\item{data_sample_fish}{Data on the sample with additional paramaters
-zonation (= indextypology, calculated by calculate_zonation) and surface
-and fishdata included}
+\item{data_sample_fish}{Data on the sample with additional parameters
+zonation (= index typology, calculated by calculate_zonation) and surface
+and \code{fishdata} included}
 
 \item{aberant_column_names}{default column names to refer to the metric names
-are metric_formula_name, metric_measures_name and metric_score_name.
+are \code{metric_formula_name}, \code{metric_measures_name} and \code{metric_score_name}.
 To recall this function in subfunctions, it could be necessary to rename
 column names to these standard names in this function.}
 
@@ -26,12 +26,12 @@ column names to these standard names in this function.}
 that are needed to calculate the metrics (e.g. tolerance or typical value,
 or 0/1 to indicate if the species should be included).
 Defaults to the table in
-`system.file("extdata/data_taxonmetrics.csv", package = "EQRfishes")`.}
+\code{system.file("extdata/data_taxonmetrics.csv", package = "EQRfishes")}.}
 }
 \value{
 Dataset with calculated EQR for each sample
 }
 \description{
-Calculates the metrics of the ecological quality ratio based on sample data
-and fish data.
+Calculates the metrics of the Ecological Quality Ratio (EQR) based on sample
+data and fish data.
 }

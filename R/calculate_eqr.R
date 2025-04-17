@@ -1,11 +1,11 @@
-#' calculate the ecological quality ratio
+#' calculate the Ecological Quality Ratio
 #'
-#' Main function of this package, which calculates the EQR based on 2 tables of
-#' data.
+#' Main function of this package, which calculates the Ecological Quality Ratio
+#' (EQR) based on 2 tables of data.
 #' Each table must contain a sample_key!
 #'
 #' @param data_sample Data on the sample: date, method, location and location
-#' characteristics including zonation (= indextypology, which can be calculated
+#' characteristics including zonation (= index typology, which can be calculated
 #' using function `determine_zonation()`)
 #' @param data_fish Measurements on fish: dataframe with columns
 #'   - `sample_key` (reference to `data_sample`),
@@ -27,7 +27,7 @@
 #'   }
 #' @param cluster Table with columns `sample_key` and `index_cluster`
 #' that indicates how samples should be clustered into a 'waterbody'
-#' in case of the indextypologies lakes, canals and estuarine zonations.
+#' in case of the index typologies lakes, canals and estuarine zonations.
 #' Defaults to NA, because it is not needed in case of freshwater rivers.
 #'
 #' @return Dataframe with calculated EQR for each sample, or list of dataframes
