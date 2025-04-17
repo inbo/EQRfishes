@@ -12,7 +12,7 @@ for (var_metric in metric_list$metric_name) {
   level <- 2
   metric_item[[level]] <- metric_list %>%
     filter(.data$metric_name == var_metric)
-  output_zonation <- c(output_zonation, knit_child("fiche_metric.Rmd"))
+  output_zonation <- c(output_zonation, knit_child("_fiche_metric.Rmd"))
 }
 ```
 

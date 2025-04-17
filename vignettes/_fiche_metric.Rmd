@@ -38,13 +38,13 @@ if (is.na(metric_item[[level]]$metric_measures_name)) {
       ) %>%
       distinct()
     output_metric[[level - 1]] <-
-      c(output_metric[[level - 1]], knit_child("fiche_metric.Rmd"))
+      c(output_metric[[level - 1]], knit_child("_fiche_metric.Rmd"))
     level <- level - 1
   }
 }
 if (is.na(metric_item[[level]]$metric_formula_name)) {
   output_metric[[level]] <-
-    c(output_metric[[level]], knit_child("fiche_metric_measure.Rmd"))
+    c(output_metric[[level]], knit_child("_fiche_metric_measure.Rmd"))
 }
 ```
 
@@ -56,7 +56,7 @@ if (!is.na(metric_item[[level]]$metric_score_name)) {
            metric_item[[level]]$metric_measures_name)
   var_metric_score <- metric_item[[level]]$metric_score_name
   output_metric[[level]] <-
-    c(output_metric[[level]], knit_child("fiche_metric_score.Rmd"))
+    c(output_metric[[level]], knit_child("_fiche_metric_score.Rmd"))
 }
 ```
 

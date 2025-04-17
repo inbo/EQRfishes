@@ -159,7 +159,7 @@ calculate_ibi_eqr <- suppressMessages(
 ```{r zonations, include=FALSE}
 output <- NULL
 for (var_zonation in unique(zonation_metric$zonation)) {
-  output <- c(output, knit_child("fiche_zonation.Rmd"))
+  output <- c(output, knit_child("_fiche_zonation.Rmd"))
 }
 ```
 
