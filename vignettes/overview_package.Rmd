@@ -43,28 +43,28 @@ Due to the complex nature of the calculations, it is rather complicated to keep 
 
 information <- tribble(
   ~Title, ~X, ~Y, ~Hjust, ~Vjust, ~Tekst,
-  "calculate_eqr", -1, 0, 0, 0.5, "score.csv",
-  "calculate_metric", 0, -2, 0, 0.5,
+  "calculate_eqr()", -1, 0, 0, 0.5, "score.csv",
+  "calculate_metric()", 0, -2, 0, 0.5,
   "zonation_metric.csv, data_taxonmetrics.csv",
-  "calculate_metric_formula", 1, -4, 0, 0.5, "calculate_metric_formula.csv",
-  "calculate_metric", 2, -6, 0, 0.5, "",
+  "calculate_metric_formula()", 1, -4, 0, 0.5, "calculate_metric_formula.csv",
+  "calculate_metric()", 2, -6, 0, 0.5, "",
   "...", 3, -8, 0, 0.5, "",
-  "calculate_formula", 2, -10, 0, 0.5, "",
-  "calculate_metric_measures", 1, -12, 0, 0.5, "calculate_metric_measures.csv",
+  "calculate_formula()", 2, -10, 0, 0.5, "",
+  "calculate_metric_measures()", 1, -12, 0, 0.5, "calculate_metric_measures.csv",
   "(small subfunctions)", 2, -14, 0, 0.5, "data_classes.csv",
-  "var_in_interval", 3, -16, 0, 0.5, "",
-  "calculate_metric_score", 1, -18, 0, 0.5, "calculate_metric_score.csv",
-  "var_in_interval", 2, -20, 0, 0.5, "",
-  "calculate_ibi_score", 0, -22, 0, 0.5, "calculate_ibi_eqr.csv",
-  "var_in_interval", 1, -24, 0, 0.5, "",
-  "standardise_ibi", 0, -26, 0, 0.5, "",
+  "var_in_interval()", 3, -16, 0, 0.5, "",
+  "calculate_metric_score()", 1, -18, 0, 0.5, "calculate_metric_score.csv",
+  "var_in_interval()", 2, -20, 0, 0.5, "",
+  "calculate_ibi_score()", 0, -22, 0, 0.5, "calculate_ibi_eqr.csv",
+  "var_in_interval()", 1, -24, 0, 0.5, "",
+  "standardise_ibi()", 0, -26, 0, 0.5, "",
 )
 
 information %>%
   ggplot(
     aes(x = .data$X, y = .data$Y, hjust = .data$Hjust, vjust = .data$Vjust)
   ) +
-  geom_text(aes(label = .data$Tekst, x = .data$X + 8)) +
+  geom_text(aes(label = .data$Tekst, x = .data$X + 9)) +
   geom_label(
     aes(label = .data$Title, colour = .data$Title),
     show.legend = FALSE
