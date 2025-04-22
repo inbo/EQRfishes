@@ -16,6 +16,7 @@
 #' @importFrom pander evals
 #'
 #' @export
+#' @family helper
 #'
 #'
 calculate_formula <- function(formula, sampledata, metric_name) {

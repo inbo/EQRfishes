@@ -42,3 +42,8 @@ argument \code{version}.
 When both are added, NA values of column version in the dataset will be
 replaced by the version given in argument \code{version}.
 }
+\seealso{
+Other main: 
+\code{\link{calculate_eqr}()}
+}
+\concept{main}

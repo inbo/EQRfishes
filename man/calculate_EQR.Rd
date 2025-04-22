@@ -69,3 +69,8 @@ calculate_eqr(data_sample, data_fish, cluster = cluster)
 calculate_eqr(data_sample, data_fish, output = "metric", cluster = cluster)
 
 }
+\seealso{
+Other main: 
+\code{\link{determine_zonation}()}
+}
+\concept{main}

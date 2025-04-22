@@ -33,3 +33,15 @@ maximal scores of the metrics and $x = n/c$ with n the number of metrics
 and c the number of EQR classes
 (or 1//the width of an EQR class, which is 0.2).
 }
+\seealso{
+Other helper: 
+\code{\link{calculate_formula}()},
+\code{\link{calculate_ibi_score}()},
+\code{\link{calculate_metric}()},
+\code{\link{calculate_metric_formula}()},
+\code{\link{calculate_metric_measures}()},
+\code{\link{calculate_metric_score}()},
+\code{\link{determine_zonation_helper}()},
+\code{\link{var_in_interval}()}
+}
+\concept{helper}

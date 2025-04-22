@@ -19,6 +19,14 @@ navbar:
       - text: Code of conduct
         href: CODE_OF_CONDUCT.html
 
+reference:
+- title: Main functions
+  contents:
+  - has_concept("main")
+- title: Helper functions (of main functions)
+  contents:
+  - has_concept("helper")
+
 authors:
   Research Institute for Nature and Forest (INBO):
     href: "https://www.vlaanderen.be/inbo/en-gb"

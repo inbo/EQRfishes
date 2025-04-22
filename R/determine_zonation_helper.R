@@ -21,6 +21,7 @@
 #' @importFrom magrittr %>%
 #'
 #' @export
+#' @family helper
 #'
 determine_zonation_helper <- function(
   var_width, var_slope, var_tidal, var_indextype,

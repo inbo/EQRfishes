@@ -34,3 +34,15 @@ given measurements for one location.
 To determine the index typology of the whole dataset at once, please use
 function \code{determine_zonation()}.
 }
+\seealso{
+Other helper: 
+\code{\link{calculate_formula}()},
+\code{\link{calculate_ibi_score}()},
+\code{\link{calculate_metric}()},
+\code{\link{calculate_metric_formula}()},
+\code{\link{calculate_metric_measures}()},
+\code{\link{calculate_metric_score}()},
+\code{\link{standardise_ibi}()},
+\code{\link{var_in_interval}()}
+}
+\concept{helper}

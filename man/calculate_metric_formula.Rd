@@ -28,3 +28,15 @@ Dataset with calculated metric for each record
 Calculates the metrics that are based on formulas only, given fish data and
 other .
 }
+\seealso{
+Other helper: 
+\code{\link{calculate_formula}()},
+\code{\link{calculate_ibi_score}()},
+\code{\link{calculate_metric}()},
+\code{\link{calculate_metric_measures}()},
+\code{\link{calculate_metric_score}()},
+\code{\link{determine_zonation_helper}()},
+\code{\link{standardise_ibi}()},
+\code{\link{var_in_interval}()}
+}
+\concept{helper}

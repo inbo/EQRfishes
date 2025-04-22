@@ -37,6 +37,7 @@
 #' @importFrom magrittr %>%
 #'
 #' @export
+#' @family main
 #'
 determine_zonation <-
   function(dataset, version = c("new", "old")) {

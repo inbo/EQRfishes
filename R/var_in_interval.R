@@ -9,7 +9,7 @@
 #' @return TRUE or FALSE
 #'
 #' @export
-#'
+#' @family helper
 #'
 var_in_interval <- function(variable, interval) {
   if (length(variable) == 0) {

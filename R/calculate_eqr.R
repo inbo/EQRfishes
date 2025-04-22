@@ -45,6 +45,7 @@
 #' @importFrom stringr str_detect
 #'
 #' @export
+#' @family main
 #'
 #' @examples
 #' library(EQRfishes)

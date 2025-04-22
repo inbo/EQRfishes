@@ -29,6 +29,7 @@
 #' @importFrom purrr pmap
 #'
 #' @export
+#' @family helper
 #'
 calculate_metric <- function(
   data_sample_fish,

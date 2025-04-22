@@ -25,3 +25,15 @@ Calculates the metric score, given a calculated metric value
 and a table with the indices and their thresholds
 (info from \code{calculate_metric_score.csv}).
 }
+\seealso{
+Other helper: 
+\code{\link{calculate_formula}()},
+\code{\link{calculate_ibi_score}()},
+\code{\link{calculate_metric}()},
+\code{\link{calculate_metric_formula}()},
+\code{\link{calculate_metric_measures}()},
+\code{\link{determine_zonation_helper}()},
+\code{\link{standardise_ibi}()},
+\code{\link{var_in_interval}()}
+}
+\concept{helper}

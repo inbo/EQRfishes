@@ -32,6 +32,7 @@
 #' @importFrom rlang .data
 #'
 #' @export
+#' @family helper
 #'
 calculate_metric_measures <- function(
   fishdata, metric_name, metric_type, values_column, speciesfilter,

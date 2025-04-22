@@ -26,3 +26,15 @@ or the formula 'sum of metric scores'
 Distinction between old an new method is made by the absence (old method)
 or presence (new method) of a specified method for the calculated methods.
 }
+\seealso{
+Other helper: 
+\code{\link{calculate_formula}()},
+\code{\link{calculate_metric}()},
+\code{\link{calculate_metric_formula}()},
+\code{\link{calculate_metric_measures}()},
+\code{\link{calculate_metric_score}()},
+\code{\link{determine_zonation_helper}()},
+\code{\link{standardise_ibi}()},
+\code{\link{var_in_interval}()}
+}
+\concept{helper}

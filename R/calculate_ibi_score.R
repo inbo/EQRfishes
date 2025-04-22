@@ -20,6 +20,7 @@
 #' @importFrom readr read_csv2
 #'
 #' @export
+#' @family helper
 #'
 #'
 calculate_ibi_score <- function(zonation_name, metrics, calc_method_old) {

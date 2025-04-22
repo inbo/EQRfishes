@@ -60,3 +60,15 @@ table sampledata in which the newly calculated metric is added
 Calculates the metrics that are based on measures only, given a dataset with
 the information from \code{calculate_metric_measures.csv} and fish data.
 }
+\seealso{
+Other helper: 
+\code{\link{calculate_formula}()},
+\code{\link{calculate_ibi_score}()},
+\code{\link{calculate_metric}()},
+\code{\link{calculate_metric_formula}()},
+\code{\link{calculate_metric_score}()},
+\code{\link{determine_zonation_helper}()},
+\code{\link{standardise_ibi}()},
+\code{\link{var_in_interval}()}
+}
+\concept{helper}

@@ -18,3 +18,15 @@ TRUE or FALSE
 checks if a given variable is present in a given interval and returns TRUE
 or FALSE
 }
+\seealso{
+Other helper: 
+\code{\link{calculate_formula}()},
+\code{\link{calculate_ibi_score}()},
+\code{\link{calculate_metric}()},
+\code{\link{calculate_metric_formula}()},
+\code{\link{calculate_metric_measures}()},
+\code{\link{calculate_metric_score}()},
+\code{\link{determine_zonation_helper}()},
+\code{\link{standardise_ibi}()}
+}
+\concept{helper}

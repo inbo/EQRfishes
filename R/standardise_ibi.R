@@ -25,6 +25,7 @@
 #' @importFrom readr read_csv2
 #'
 #' @export
+#' @family helper
 #'
 #'
 standardise_ibi <- function(ibi, metrics, calc_method_old, zonation) {

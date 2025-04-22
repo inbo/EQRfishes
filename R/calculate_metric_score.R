@@ -18,6 +18,7 @@
 #' @importFrom rlang .data
 #'
 #' @export
+#' @family helper
 #'
 calculate_metric_score <- function(metric_score_name, indices, sampledata) {
 
