@@ -15,7 +15,7 @@
 #' @importFrom rlang .data
 #' @importFrom purrr pmap
 #'
-#' @export
+#' @noRd
 #' @family helper
 #'
 calculate_metric_formula <- function(

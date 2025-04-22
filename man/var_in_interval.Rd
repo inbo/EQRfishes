@@ -18,15 +18,18 @@ TRUE or FALSE
 checks if a given variable is present in a given interval and returns TRUE
 or FALSE
 }
+\examples{
+library(EQRfishes)
+var_in_interval(3, "[1,5[")
+var_in_interval(1, "[1,5[")
+var_in_interval(5, "[1,5[")
+var_in_interval(1, "]1,5[")
+var_in_interval(5, "[1,5]")
+
+}
 \seealso{
 Other helper: 
 \code{\link{calculate_formula}()},
-\code{\link{calculate_ibi_score}()},
-\code{\link{calculate_metric}()},
-\code{\link{calculate_metric_formula}()},
-\code{\link{calculate_metric_measures}()},
-\code{\link{calculate_metric_score}()},
-\code{\link{determine_zonation_helper}()},
-\code{\link{standardise_ibi}()}
+\code{\link{determine_zonation_helper}()}
 }
 \concept{helper}

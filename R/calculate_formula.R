@@ -18,6 +18,16 @@
 #' @export
 #' @family helper
 #'
+#' @examples
+#' library(EQRfishes)
+#' calculate_formula(
+#'   formula = "ifelse(MniZoet == 0, 0, PisciZoet * 100 / MniZoet)",
+#'   sampledata = data.frame(
+#'     name = c("MniZoet", "PisciZoet"),
+#'     value = c("10", "3")
+#'   ),
+#'   metric_name = "PercPisci"
+#' )
 #'
 calculate_formula <- function(formula, sampledata, metric_name) {
 

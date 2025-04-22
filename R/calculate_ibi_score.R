@@ -19,7 +19,7 @@
 #' @importFrom dplyr distinct filter left_join summarise
 #' @importFrom readr read_csv2
 #'
-#' @export
+#' @noRd
 #' @family helper
 #'
 #'

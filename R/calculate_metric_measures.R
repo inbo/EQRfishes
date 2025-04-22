@@ -31,7 +31,7 @@
 #' @importFrom dplyr bind_rows filter
 #' @importFrom rlang .data
 #'
-#' @export
+#' @noRd
 #' @family helper
 #'
 calculate_metric_measures <- function(

@@ -23,6 +23,16 @@
 #' @export
 #' @family helper
 #'
+#' @examples
+#' library(EQRfishes)
+#' determine_zonation_helper(
+#'   var_width = 3,
+#'   var_slope = 3,
+#'   var_tidal = FALSE,
+#'   var_indextype = "ZTWA",
+#'   version = "new"
+#' )
+#'
 determine_zonation_helper <- function(
   var_width, var_slope, var_tidal, var_indextype,
   version = c("new", "old")

@@ -11,6 +11,14 @@
 #' @export
 #' @family helper
 #'
+#' @examples
+#' library(EQRfishes)
+#' var_in_interval(3, "[1,5[")
+#' var_in_interval(1, "[1,5[")
+#' var_in_interval(5, "[1,5[")
+#' var_in_interval(1, "]1,5[")
+#' var_in_interval(5, "[1,5]")
+#'
 var_in_interval <- function(variable, interval) {
   if (length(variable) == 0) {
     return(FALSE)

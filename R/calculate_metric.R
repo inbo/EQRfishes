@@ -28,7 +28,7 @@
 #' @importFrom tidyr nest unnest
 #' @importFrom purrr pmap
 #'
-#' @export
+#' @noRd
 #' @family helper
 #'
 calculate_metric <- function(

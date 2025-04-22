@@ -34,15 +34,20 @@ given measurements for one location.
 To determine the index typology of the whole dataset at once, please use
 function \code{determine_zonation()}.
 }
+\examples{
+library(EQRfishes)
+determine_zonation_helper(
+  var_width = 3,
+  var_slope = 3,
+  var_tidal = FALSE,
+  var_indextype = "ZTWA",
+  version = "new"
+)
+
+}
 \seealso{
 Other helper: 
 \code{\link{calculate_formula}()},
-\code{\link{calculate_ibi_score}()},
-\code{\link{calculate_metric}()},
-\code{\link{calculate_metric_formula}()},
-\code{\link{calculate_metric_measures}()},
-\code{\link{calculate_metric_score}()},
-\code{\link{standardise_ibi}()},
 \code{\link{var_in_interval}()}
 }
 \concept{helper}

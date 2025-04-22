@@ -24,7 +24,7 @@
 #' @importFrom dplyr distinct group_by inner_join select summarise
 #' @importFrom readr read_csv2
 #'
-#' @export
+#' @noRd
 #' @family helper
 #'
 #'

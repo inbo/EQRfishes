@@ -21,16 +21,21 @@ calculating the formula
 \description{
 small function that calculates a formula after replacing the parameter names
 with their values
+\examples{
+library(EQRfishes)
+calculate_formula(
+  formula = "ifelse(MniZoet == 0, 0, PisciZoet * 100 / MniZoet)",
+  sampledata = data.frame(
+    name = c("MniZoet", "PisciZoet"),
+    value = c("10", "3")
+  ),
+  metric_name = "PercPisci"
+)
+
 }
 \seealso{
 Other helper: 
-\code{\link{calculate_ibi_score}()},
-\code{\link{calculate_metric}()},
-\code{\link{calculate_metric_formula}()},
-\code{\link{calculate_metric_measures}()},
-\code{\link{calculate_metric_score}()},
 \code{\link{determine_zonation_helper}()},
-\code{\link{standardise_ibi}()},
 \code{\link{var_in_interval}()}
 }
 \concept{helper}
