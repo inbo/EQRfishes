@@ -4,8 +4,8 @@ Title: Ecological Quality Ratio of waters based on fish data
 Version: 0.1.0
 Authors@R: c(
     person("Els", "Lommelen", , "els.lommelen@inbo.be", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0002-3481-5684")),
-    person(, "Research Institute for Nature and Forest (INBO)", , "info@inbo.be", role = "cph")
+           comment = c(ORCID = "0000-0002-3481-5684", affiliation = "Research Institute for Nature and Forest (INBO)")),
+    person("Research Institute for Nature and Forest (INBO)", , , "info@inbo.be", role = "cph")
   )
 Description: Package allows to calculate the Ecological Quality Ratio of
     waters based on fish data.
