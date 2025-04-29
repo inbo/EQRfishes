@@ -26,8 +26,7 @@ library(readr)
 library(EQRfishes)
 library(knitr)
 library(tidyr)
-
-options(knitr.kable.NA = "")
+library(gt)
 ```
 
 # Introduction
@@ -77,7 +76,13 @@ But there are a few exceptions to deal with a lack of (typical) species:
 suppressMessages(
   read_csv2(system.file("extdata/calculate_ibi_eqr.csv", package = "EQRfishes"))
 ) %>%
-  kable()
+  gt() %>%
+  sub_missing(missing_text = "") %>%
+  opt_table_font(size = 16) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels(columns = everything())
+  )
 ```
 
 (For brabeel: if less than 30 individuals, the number of individuals is considered too low to calculate a reliable index.)
@@ -102,7 +107,13 @@ This standardised IBI is used to determine the EQR class, using the below table,
 suppressMessages(
   read_csv2(system.file("extdata/score.csv", package = "EQRfishes"))
 ) %>%
-  kable()
+  gt() %>%
+  sub_missing(missing_text = "") %>%
+  opt_table_font(size = 16) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels(columns = everything())
+  )
 ```
 
 Finally the EQR is calculated for most indexes (the older indexes, the canals index and the IJzer and Schelde estuaria indexes) as

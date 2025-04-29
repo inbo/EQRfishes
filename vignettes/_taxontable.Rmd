@@ -4,5 +4,11 @@ taxonlist %>%
   select("taxonname", presence = "{{column}}") %>%
   filter(.data$presence == 1) %>%
   select(!!sym("{{column}}") := taxonname) %>%
-  kable()
+  gt() %>%
+  sub_missing(missing_text = "") %>%
+  opt_table_font(size = 16) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels(columns = everything())
+  )
 ```

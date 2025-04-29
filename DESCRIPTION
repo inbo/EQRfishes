@@ -23,6 +23,7 @@ Imports:
     tidyr (>= 1.0.0)
 Suggests: 
     ggplot2,
+    gt,
     knitr,
     rmarkdown,
     testthat,
