@@ -26,6 +26,7 @@ library(EQRfishes)
 library(knitr)
 library(tidyr)
 library(gt)
+library(DT)
 ```
 
 ## Introduction
@@ -88,13 +89,7 @@ This datasheet gives all needed information to determine the zonation of a speci
 suppressMessages(
   read_csv2(system.file("extdata/data_zonation.csv", package = "EQRfishes"))
 ) %>%
-  gt() %>%
-  sub_missing(missing_text = "") %>%
-  opt_table_font(size = 16) %>%
-  tab_style(
-    style = cell_text(weight = "bold"),
-    locations = cells_column_labels(columns = everything())
-  )
+  datatable()
 ```
 
 Huetzonation for indextypecode ZTWA:
@@ -134,28 +129,18 @@ This datasheet shows which metrics and metric scores have to be calculated for e
 - column metric_score_name gives the score name, referring to `calculate_metric_score.csv`, which contains the indices to calculate the metric scores based on metric variables
 
 If the metric is only applicable to one method, this method is mentioned (E = electric, F = fyke)
-<details><summary>Show table</summary>
 
 ```{r zonation_metric}
 suppressMessages(
   read_csv2(system.file("extdata/zonation_metric.csv", package = "EQRfishes"))
 ) %>%
-  gt() %>%
-  sub_missing(missing_text = "") %>%
-  opt_table_font(size = 16) %>%
-  tab_style(
-    style = cell_text(weight = "bold"),
-    locations = cells_column_labels(columns = everything())
-  )
+  datatable()
 ```
 
-</details>
 
 ### `description_metrics.csv`
 
 This datasheet is not used in the calculations, but it gives an overview of all metrics (and variables) with a description
-
-<details><summary>Show table</summary>
 
 ```{r description_metrics}
 suppressMessages(
@@ -163,16 +148,9 @@ suppressMessages(
     system.file("extdata/description_metrics.csv", package = "EQRfishes")
   )
 ) %>%
-  gt() %>%
-  sub_missing(missing_text = "") %>%
-  opt_table_font(size = 16) %>%
-  tab_style(
-    style = cell_text(weight = "bold"),
-    locations = cells_column_labels(columns = everything())
-  )
+  datatable()
 ```
 
-</details>
 
 ### `calculate_metric_formula.csv`
 
@@ -185,24 +163,15 @@ This datasheet shows which how to calculate metrics based on other metrics and m
     - column `submetric_score_name`: if a score is used in the formula, in this case also the column `submetric_formula_name` or `submetric_measures_name` should be filled, with the variables needed in `calculate_metric_score.csv`
 - columns `metric_formula_name` and `formula` should be repeated to allow to add multiple variables for one formula
 
-<details><summary>Show table</summary>
-
 ```{r calculate_metric_formula}
 suppressMessages(
   read_csv2(
     system.file("extdata/calculate_metric_formula.csv", package = "EQRfishes")
   )
 ) %>%
-  gt() %>%
-  sub_missing(missing_text = "") %>%
-  opt_table_font(size = 16) %>%
-  tab_style(
-    style = cell_text(weight = "bold"),
-    locations = cells_column_labels(columns = everything())
-  )
+  datatable()
 ```
 
-</details>
 
 ### `calculate_metric_measures.csv`
 
@@ -218,30 +187,19 @@ This datasheet shows which how to calculate metrics based on fishdata of one loc
 - column `exclude_species_length`: which species lengths to exclude before doing the calculation?
 - ...
 
-<details><summary>Show table</summary>
-
 ```{r calculate_metric_measures}
 suppressMessages(
   read_csv2(
     system.file("extdata/calculate_metric_measures.csv", package = "EQRfishes")
   )
 ) %>%
-  gt() %>%
-  sub_missing(missing_text = "") %>%
-  opt_table_font(size = 16) %>%
-  tab_style(
-    style = cell_text(weight = "bold"),
-    locations = cells_column_labels(columns = everything())
-  )
+  datatable()
 ```
 
-</details>
 
 ### `data_taxonmetrics.csv`
 
 This datasheet contains the species lists where `calculate_metric_measures.csv` often refers to.  As this table is too large to display at once, a first table gives all columns that can contain different values.
-
-<details><summary>Show table</summary>
 
 ```{r data_taxonmetrics}
 suppressMessages(
@@ -253,20 +211,11 @@ suppressMessages(
 
 taxonlist %>%
   select("taxonname", "taxoncode", starts_with("WF_")) %>%
-  gt() %>%
-  sub_missing(missing_text = "") %>%
-  opt_table_font(size = 16) %>%
-  tab_style(
-    style = cell_text(weight = "bold"),
-    locations = cells_column_labels(columns = everything())
-  )
+  datatable()
 ```
 
-</details>
 
 Other columns only give presence/absence.  We here list for each column the species that are present (xxx = 1).
-
-<details><summary>Show tables</summary>
 
 ```{r include=FALSE}
 out <- NULL
@@ -283,7 +232,6 @@ for (column in columns_relevant) {
 ```
 `r paste(knit(text = out), collapse = '\n')`
 
-</details>
 
 
 ### `calculate_metric_score.csv`
@@ -296,13 +244,7 @@ suppressMessages(
     system.file("extdata/calculate_metric_score.csv", package = "EQRfishes")
   )
 ) %>%
-  gt() %>%
-  sub_missing(missing_text = "") %>%
-  opt_table_font(size = 16) %>%
-  tab_style(
-    style = cell_text(weight = "bold"),
-    locations = cells_column_labels(columns = everything())
-  )
+  datatable()
 ```
 
 ### `calculate_ibi_eqr.csv`
@@ -311,20 +253,12 @@ This datasheet gives the information to calculate the IBI and EQR:
 
 - for IBI, only exceptions to the normal rule of the average of the metric scores are mentioned
 - EQR calculation is based on IBI and is given for each zonation separately
-<details><summary>Show table</summary>
 
 ```{r calculate_ibi_eqr}
 suppressMessages(
   read_csv2(system.file("extdata/calculate_ibi_eqr.csv", package = "EQRfishes"))
 ) %>%
-  gt() %>%
-  sub_missing(missing_text = "") %>%
-  opt_table_font(size = 16) %>%
-  tab_style(
-    style = cell_text(weight = "bold"),
-    locations = cells_column_labels(columns = everything())
-  )
+  datatable()
 ```
 
-</details>
 

@@ -97,3 +97,7 @@ code.sourceCode.diff span.va {
   color: #fff;
   background: #337ab7;
 }
+
+.dataTables_wrapper {
+  font-size: smaller;
+}
