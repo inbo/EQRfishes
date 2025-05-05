@@ -31,6 +31,7 @@ Suggests:
     tibble
 VignetteBuilder: 
     knitr
+Config/checklist/communities: inbo
 Encoding: UTF-8
 Language: en-GB
 LazyData: true
