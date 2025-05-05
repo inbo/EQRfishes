@@ -17,7 +17,6 @@ MedWei;Median weight of _Abramis brama_, _Perca fluviatilis_ and _Rutilus rutilu
 MmksRec;multiple klasse species;
 Mnizoet;aantal zoetwatervissen;
 MnsBen;number of bentic species;
-Mnsbrak;aantal soorten brak;
 MnsDia;diadrome soorten;
 MnsEst;estuarien residente soorten;
 MnsGespa;aantal gespecialiseerde paaiers;
@@ -35,12 +34,10 @@ MpiBen;percentage bentic individuals;
 Mpigesp;gespecialiseerde paaiers;
 MpiInv;relative percentage of invertivorous individuals;idem MpiInvt?
 MpiInvt;;
-MpiMjm;percentage marien juveniele migrerende soorten;
 MpiOmn;relative percentage of omnivorous individuals;
 Mpiomni;percentage omnivoren;
 MpiPis;percentage piscivores;
 Mpipisc;;
-MpiSme;percentage spiering;
 MpiSpa;relative percentage of specialised spawners (individuals);
 MpsRekr;;
 MpsRec;percentage of recruiting species (brabeel, terwijl met kr voor brasem en barbeel);

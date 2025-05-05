@@ -78,11 +78,6 @@ estuarien_Schelde_mesohaline;MnsSpa;SF;;MnsSpa_mesohaline;SMnsSpa_mesohaline
 estuarien_Schelde_mesohaline;MnsHab;SF;;MnsHab_mesohaline;SMnsHab_mesohaline
 estuarien_Schelde_mesohaline;MpiInt;SF;MpiInt_mesohaline;;SMpiInt_mesohaline
 estuarien_Schelde_mesohaline;MnsMms;SF;;MnsMms_mesohaline;SMnsMms_mesohaline
-estuarien_Schelde_brak;MnsTot;SF;;MnsTot_brak;SMnsTot_brak
-estuarien_Schelde_brak;MpiSme;SF;MpiSme_brak;;SMpiSme_brak
-estuarien_Schelde_brak;MpiMjm;SF;MpiMjm_brak;;SMpiMjm_brak
-estuarien_Schelde_brak;MpiOmn;SF;MpiOmn_brak;;SMpiOmn_brak
-estuarien_Schelde_brak;MpiPis;SF;MpiPis_brak;;SMpiPis_brak
 bron;ManTol;E;;ManTol_bron;SManTol_bron
 bron;ManSha;E;;ManSha;SManSha_bron
 bron;MpiSpa;E;MpiSpa_bron;;SMpiSpa_bron
