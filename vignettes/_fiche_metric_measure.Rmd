@@ -21,7 +21,7 @@ if (nrow(measure_rules) != 1) {
 Calculation type: `r measure_rules$metric_type`
 
 ```{r results='asis'}
-select_columns <- c("NederLandseNaam", "taxoncode")
+select_columns <- c("taxonname", "dutch_name", "taxoncode")
 if (
   any(
     !is.na(measure_rules$values_column) &
@@ -34,7 +34,7 @@ if (any(!is.na(measure_rules$speciesfilter))) {
   taxonlist <- data_taxonmetrics %>%
     filter(eval(parse(text = (measure_rules$speciesfilter))))
 }
-if (is.na(measure_rules$speciesfilter) && length(select_columns) > 2) {
+if (is.na(measure_rules$speciesfilter) && length(select_columns) > 3) {
   taxonlist <- data_taxonmetrics
 }
 if (exists("taxonlist")) {

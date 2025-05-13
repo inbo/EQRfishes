@@ -1,162 +1,162 @@
-taxonname;taxoncode;exoot;wf_tolerantie_brasem_barbeel;wf_type_brasem;wf_type_barbeel;wf_type_upstream;wf_tolerantie_lakes;wf_tolerantie_bron;grootte_klasse_upstream;migratie;spec_paaier;bentisch;invertivoor;omnivoor;omnivoor_lakes;piscivoor_brak;piscivoor_zoet;mni_zoet;nat_recrutering_brasem_en_barbeel;canals;canals_rec;lakes;ben_wei_canals;ben_wei_lakes;brak_marine_juvenile_migrating;opmerking.x;MnsTot_en_MniInd_brabeel;MniTol_brabeel;MniInv_brabeel;MpsRec_brabeel;MniSpa_brongebied;MniRhe_brongebied;ManTol_soortenlijst_brongebied;gevoelige_soorten_brongebied;MniInd_Getijde_rivieren_zoet;MniSpa_Getijde_rivieren_zoet;MniInv_Getijde_rivieren_zoet;MnsPis_Getijde_rivieren_zoet;WetenschappelijkeNaam;NederLandseNaam;MnsEst_Ijzerestuariumindex;Dia_ijzerestuariumindex;MnsMjs_Ijzerestuariumindex;MnsTyp_Ijzerestuariumindex;opmerking.y;MnsTot_en_MnsInd_Zeeschelde_mesohalien;MnsDia_Zeeschelde_mesohalien;MnsSpa_Zeeschelde_mesohalien;MnsHab_Zeeschelde_mesohalien;MniInt_Zeeschelde_mesohalien;MnsMms_Zeeschelde_mesohalien;opmerkingen;MniInd_Zeeschelde_oligohalien;MnsPis_Zeeschelde_oligohalien;MnsInt_Zeeschelde_oligohalien;MnsDia_Zeeschelde_oligohalien;MnsMms_Zeeschelde_oligohalien;MnsErs_Zeeschelde_oligohalien;MniInd_en_MnsTot_Zeeschelde_zoet;MniSpa_Zeeschelde_zoet;MniPis_Zeeschelde_zoet;MniBen_Zeeschelde_zoet;MniDia_Zeeschelde_zoet;opmerking
-Abramis brama L.;ABR.BRA.;0;1;5;2;1;1;1;0;0;0;0;0;1;1;0;0;1;1;1;1;1;1;1;0;NA;1;1;0;1;0;0;1;0;1;0;0;0;Abramis brama L.;brasem;0;0;0;0;NA;0;0;0;0;0;0;NA;1;0;0;0;0;0;1;0;0;0;0;NA
-Acipenser baeri;ACI.BAE.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Acipenser baeri;Siberische steur;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Acipenser gueldenstaedtii;ACI.GUE.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Acipenser oxyrinchus;ACI.OXY.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Acipenser ruthenus;ACI.RUT.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Acipenser ruthenus;sterlet;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Acipenser stellatus;ACI.STE.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Acipenser sturio L.;ACI.STU.;0;5;1;3;0;5;5;0;1;1;0;0;0;0;0;0;1;1;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Acipenser sturio L.;Europese steur;0;1;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Agonus cataphractus;AGO.CAT.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Agonus cataphractus;harnasmannetje;1;0;0;1;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Alburnus alburnus;ALB.ALB.;0;2;3;3;2;2;2;0;0;0;0;1;0;0;0;0;1;1;1;1;0;0;0;0;NA;1;1;1;1;0;0;1;0;0;0;0;0;Alburnus alburnus;alver;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;1;0;0;0;0;enkel in macro in MnsTot niet in MniInd (aangepast)
-Alburnoides bipunctatus Bloch;ALB.BIP.;0;5;1;3;4;5;5;1;0;1;0;1;0;0;0;0;1;1;0;0;0;0;0;0;NA;1;0;1;1;0;0;0;1;0;0;0;0;Alburnoides bipunctatus Bloch;gestippelde alver;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Alosa alosa L.;ALO.ALO.;0;1;1;1;1;5;5;0;1;1;0;0;0;0;1;1;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Alosa alosa L.;elft;0;1;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Alosa fallax;ALO.FAL.;0;1;1;1;1;5;5;0;0;1;0;0;0;0;1;1;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;1;0;0;1;Alosa fallax;fint;0;1;0;0;NA;1;1;0;0;1;0;NA;1;1;1;1;0;0;1;1;1;0;1;NA
-Ameiurus melas Rafinesque L.;AME.MEL.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Ameiurus melas Rafinesque L.;zwarte dwergmeerval;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Ameiurus nebulosus Le Sueur;AME.NEB.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Ameiurus nebulosus Le Sueur;bruine dwergmeerval;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Ammodytes tobianus;AMM.TOB.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;in de macro staat dit soms als kleine zandspiering;0;0;0;0;0;0;0;0;0;0;0;0;Ammodytes tobianus;zandspiering;1;0;0;1;NA;1;0;0;0;0;0;staat in MnsTot niet in MnsInd in Macro;0;0;0;0;0;0;0;0;0;0;0;NA
-Anguilla anguilla L.;ANG.ANG.;0;2;4;3;2;2;2;1;2;0;1;0;1;1;0;0;1;1;1;0;1;0;0;0;NA;1;0;0;1;0;0;1;0;1;0;0;0;Anguilla anguilla L.;paling;0;1;0;0;NA;1;1;0;0;0;0;NA;1;0;0;1;0;0;1;0;0;1;1;NA
-Aphia minuta;APH.MIN.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Aphia minuta;glasgrondel;1;0;0;0;NA;1;0;0;0;0;0;staat in MnsTot en niet in MnsInd in Macro;0;0;0;0;0;0;0;0;0;0;0;NA
-Argyrosomus regius;ARG.REG.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Argyrosomus regius;Atlantische ombervis;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Arnoglossus laterna;ARN.LAT.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Arnoglossus laterna;schurftvis;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Aspius aspius;ASP.ASP.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;0;0;0;0;0;0;Leuciscus aspius;0;0;0;0;0;0;0;0;0;0;0;0;Aspius aspius;roofblei;0;0;0;0;Leuciscus aspius;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Atherina boyeri;ATH.BOY.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;NA;0;0;0;0;0;0;0;0;0;0;0;0;Atherina boyeri;kleine koornaarvis;0;0;1;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Atherina presbyter;ATH.PRE.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;NA;0;0;0;0;0;0;0;0;0;0;0;0;Atherina presbyter;grote koornaarvis;0;0;1;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Babka gymnotrachelus;BAB.GYM.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Ballerus ballerus;BAL.BAL.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Ballerus sapa;BAL.SAP.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;toegevoegd;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Barbus barbus L;BAR.BAR.;0;4;1;5;4;4;4;1;1;1;1;0;1;0;0;0;1;1;0;0;0;0;0;0;NA;1;0;0;1;1;1;1;0;0;0;0;0;Barbus barbus L;barbeel;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Barbatula barbatula L.;BAR.BUS.;0;3;1;3;5;3;3;1;0;1;1;1;0;0;0;0;1;1;0;0;0;0;0;0;NA;1;0;1;1;1;1;1;1;0;0;0;0;Barbatula barbatula L.;bermpje;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Barbus meridionalis;BAR.MER.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Barbus meridionalis;Mediterrane barbeel;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Belone belone;BEL.BEL.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Belone belone;geep;0;0;1;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Blicca bjoerkna L.;BLI.BJO.;0;2;5;2;1;2;2;0;0;0;0;0;1;0;0;0;1;1;1;1;1;1;1;0;NA;1;1;0;1;0;0;1;0;1;0;0;0;Blicca bjoerkna L.;kolblei;0;0;0;0;NA;0;0;0;0;0;0;NA;1;0;0;0;0;0;1;0;0;0;0;NA
-Buglossidium luteum;BUG.LUT.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Buglossidium luteum;dwergtong;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Callionymus lyra;CAL.LYR.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Callionymus lyra;pitvis;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Carassius gibelio L.;CAR.AUG.;1;0;2;1;0;0;0;0;0;0;0;0;1;1;0;0;1;1;1;1;1;1;1;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Carassius gibelio L.;giebel;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Carassius auratus;CAR.AUR.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Carassius auratus;goudvis;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Carassius carassius L.;CAR.CAR.;0;3;2;1;1;3;3;0;0;0;0;0;1;0;0;0;1;1;1;1;1;0;0;0;NA;1;0;0;1;0;0;0;0;0;0;0;0;Carassius carassius L.;kroeskarper;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;1;0;0;0;0;NA
-Chalcalburnus chalcoides;CHA.CHA.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Chalcalburnus chalcoides;Donau alver;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Chelon labrosus Risso;CHE.LAB.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Chelon labrosus Risso;diklipharder;0;0;1;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Chelidonichthys lucernus;CHE.LUC.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;1;NA;0;0;0;0;0;0;0;0;0;0;0;0;Chelidonichthys lucernus;rode poon;0;0;1;0;NA;1;0;0;1;0;1;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Chelon ramada;CHE.RAM.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;1;0;1;0;Chelon ramada;dunlipharder;0;1;0;1;NA;1;1;0;0;1;0;NA;1;0;1;1;0;0;1;0;0;0;1;NA
-Chondrostoma nasus L.;CHO.NAS.;0;4;1;4;4;4;4;1;1;1;1;0;1;0;0;0;1;1;0;0;0;0;0;0;NA;1;0;0;1;0;0;0;0;0;0;0;0;Chondrostoma nasus L.;sneep;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Ciliata mustela;CIL.MUS.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Ciliata mustela;vijfdradige meun;0;0;0;1;NA;1;0;0;1;0;1;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Ciliata septentrionalis;CIL.SEP.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Clarias gariepinus;CLA.GAR.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Clarias gariepinus;Afrikaanse meerval;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Clupea harengus;CLU.HAR.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;NA;0;0;0;0;0;0;0;0;0;0;0;0;Clupea harengus;haring;0;0;1;0;NA;1;0;0;0;0;1;NA;1;0;0;0;1;0;0;0;0;0;0;NA
-Cobitis taenia L.;COB.TAE.;0;4;3;3;1;4;4;0;0;1;1;1;0;0;0;0;1;1;0;0;0;0;0;0;NA;1;0;1;1;0;0;0;0;0;0;0;0;Cobitis taenia L.;kleine modderkruiper;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Conger conger;CON.CON.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Conger conger;congeraal;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Coregonus albula;COR.ALB.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Coregonus lavaretus L.;COR.LAV.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Coregonus lavaretus L.;grote marene;0;1;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Coregonus oxyrhynchus L.;COR.OXY.;0;5;0;0;0;5;5;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Coregonus oxyrhynchus L.;noordzeehouting;0;1;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Cottus gobio L.;COT.GRP.;0;5;1;3;4;5;5;1;0;1;1;1;0;0;0;0;1;1;0;0;0;0;0;0;NA;1;0;1;1;1;1;1;1;0;0;0;0;Cottus gobio L.;donderpad;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Cottus perifretum;COT.PER.;0;5;1;3;4;5;5;1;0;1;1;1;0;0;0;0;1;1;0;0;0;0;0;0;NA;1;0;1;1;1;1;1;1;0;0;0;0;Cottus perifretum;rivierdonderpad;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Cottus poecilopus;COT.POE.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Cottus poecilopus;Siberische rivierdonderpad;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Cottus rhenanus;COT.RHE.;0;5;1;3;4;5;5;1;0;1;1;1;0;0;0;0;1;1;0;0;0;0;0;0;toegevoegd;1;0;1;1;1;1;1;1;0;0;0;0;NA;NA;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Ctenopharyngodon idella Valenciennes;CTE.IDE.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Ctenopharyngodon idella Valenciennes;graskarper;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Cyclopterus lumpus;CYC.LUM.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Cyclopterus lumpus;snotolf;0;0;1;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Cyprinus carpio L.;CYP.CAR.;0;2;3;1;1;2;2;0;0;0;0;0;1;1;0;0;1;1;1;1;1;1;1;0;NA;1;0;0;1;0;0;1;0;1;0;0;0;Cyprinus carpio L.;karper;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Dasyatis pastinaca;DAS.PAS.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Dasyatis pastinaca;gewone pijlstaartrog;0;0;0;0;niet in VIS2;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Dicentrarchus labrax L.;DIC.LAB.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;1;NA;0;0;0;0;0;0;0;0;0;0;0;0;Dicentrarchus labrax L.;zeebaars;0;0;1;1;NA;1;0;0;0;0;1;NA;1;1;0;0;1;0;0;0;0;0;0;NA
-Echeiichthys vipera;ECH.VIP.;0;0;0;0;0;0;0;0;0;0;0;0;1;0;1;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Echeiichthys vipera;kleine pieterman;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Eleutheronema tetradactylum;ELE.TET.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Engraulis encrasicolus;ENG.ENC.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Engraulis encrasicolus;ansjovis;0;0;1;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Entelurus aequoreus;ENT.AEQ.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Entelurus aequoreus;adderzeenaald;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Esox lucius L.;ESO.LUC.;0;4;5;4;2;4;4;0;0;1;0;0;0;0;1;1;1;1;1;1;1;0;0;0;NA;1;0;0;1;1;0;1;0;1;1;0;1;Esox lucius L.;snoek;0;0;0;0;NA;0;0;0;0;0;0;NA;1;1;1;0;0;0;1;1;1;0;0;NA
-Eutrigla gurnardus;EUT.GUR.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Eutrigla gurnardus;grauwe poon;0;0;1;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Gadus morhua;GAD.MOR.;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;1;NA;0;0;0;0;0;0;0;0;0;0;0;0;Gadus morhua;kabeljauw;0;0;1;0;NA;1;0;0;0;1;1;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Gasterosteus aculeatus L.;GAS.ACU.;0;1;3;3;2;1;1;0;0;0;0;0;1;1;0;0;1;1;1;1;1;0;0;0;NA;1;1;0;1;0;0;1;0;1;1;0;0;Gasterosteus aculeatus L.;driedoornige stekelbaars;0;1;0;0;NA;1;1;0;1;0;0;NA;1;0;0;1;0;0;1;1;0;0;1;NA
-Gobiosoma bosc;GOB.BOS.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Gobio gobio L.;GOB.GOB.;0;3;1;5;4;3;3;1;0;1;0;1;0;0;0;0;1;1;1;1;1;0;0;0;NA;1;0;1;1;1;1;1;0;1;1;1;0;Gobio gobio L.;riviergrondel;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Gobius niger;GOB.NIG1.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Gobius niger;zwarte grondel;1;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Gobius paganellus;GOB.PAG.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Gymnocephalus cernua L.;GYM.CER.;0;2;5;3;1;2;2;0;0;0;1;1;0;0;0;0;1;1;1;1;1;1;1;0;NA;1;0;1;1;0;0;1;0;1;0;1;0;Gymnocephalus cernua L.;pos;0;0;0;0;NA;1;0;0;1;0;0;NA;1;0;0;0;0;0;1;0;0;1;0;NA
-Hippocampus hippocampus;HIP.HIP.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Hippocampus hippocampus;kortsnuitzeepaardje;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Hippocampus ramulosus;HIP.RAM.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Hippocampus ramulosus;klein zeepaardje;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Hyperoplus lanceolatus;HYP.LAN.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Hyperoplus lanceolatus;smelt;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Hypophtalmichthys molitrix Valenciennes L.;HYP.MOL.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Hypophtalmichthys molitrix Valenciennes L.;zilverkarper;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Hypophthalmichthys nobilis;HYP.NOB.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Ictalurus punctatus rafinesque;ICT.PUN.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;Amerikaanse meerval;0;0;0;0;0;0;0;0;0;0;0;0;Ictalurus punctatus rafinesque;kanaalmeerval;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-NA;KAR.KAR.;0;2;0;0;0;2;2;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;NA;karperachtige;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Lampetra fluviatilis L.;LAM.FLU.;0;5;1;1;3;5;5;0;2;1;1;0;0;0;1;1;1;0;0;0;0;0;0;0;NA;1;0;0;0;0;0;0;0;1;1;0;0;Lampetra fluviatilis L.;rivierprik;0;1;0;0;NA;1;1;0;1;1;0;NA;1;1;1;1;0;0;1;1;1;1;1;NA
-Lampetra planeri Bloch;LAM.PLA.;0;5;1;2;4;5;5;0;0;1;1;0;0;0;0;0;1;1;0;0;0;0;0;0;NA;1;0;0;1;1;1;1;1;0;0;0;0;Lampetra planeri Bloch;beekprik;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Lampetra sp.;LAM.SPE.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Lampetra sp.;prik;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Lepomis gibbosus L.;LEP.GIB.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Lepomis gibbosus L.;zonnebaars;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Leuciscus cephalus L.;LEU.CEP.;0;3;3;5;4;3;3;1;1;1;0;0;1;0;0;0;1;1;1;1;0;0;0;0;NA;1;0;0;1;0;1;1;0;0;0;0;0;Leuciscus cephalus L.;kopvoorn;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Leucaspius delineatus L.;LEU.DEL.;0;4;2;1;1;4;4;0;0;0;0;0;0;0;0;0;1;1;1;1;1;0;0;0;NA;1;0;0;1;0;0;1;0;1;0;0;0;Leucaspius delineatus L.;vetje;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;1;0;0;0;0;enkel in macro in MnsTot niet in MniInd (aangepast)
-Leuciscus idus L.;LEU.IDE.;0;4;4;4;2;4;4;0;0;0;0;0;1;1;0;0;1;1;1;1;1;0;0;0;NA;1;0;0;1;0;1;1;0;1;0;0;0;Leuciscus idus L.;winde;0;0;0;0;NA;0;0;0;0;0;0;NA;1;1;1;0;0;0;1;0;1;0;0;NA
-Leuciscus leuciscus L.;LEU.LEU.;0;4;1;5;5;4;4;1;0;1;0;1;0;0;0;0;1;1;0;0;0;0;0;0;NA;1;0;1;1;1;1;1;1;0;0;0;0;Leuciscus leuciscus L.;serpeling;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Liparis liparis;LIP.LIP.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Liparis liparis;slakdolf;1;0;0;0;NA;1;0;0;1;1;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Lipophrys pholis;LIP.PHO.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Lipophrys pholis;slijmvis;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Liza aurata;LIZ.AUR.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Lota lota L.;LOT.LOT.;0;4;3;3;3;4;4;0;1;1;1;0;0;0;1;1;1;1;0;0;1;0;0;0;NA;1;0;0;1;1;0;1;1;0;0;0;0;Lota lota L.;kwabaal;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Merlangius merlangus;MER.MER.;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;1;NA;0;0;0;0;0;0;0;0;0;0;0;0;Merlangius merlangus;wijting;0;0;1;0;NA;1;0;0;1;0;1;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Micropterus salmoides;MIC.SAL.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Micropterus salmoides;grootbekbaars;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Micropogonias undulatus;MIC.UND.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Limanda limanda;MIM.LIM.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;NA;0;0;0;0;0;0;0;0;0;0;0;0;Limanda limanda;schar;0;0;1;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Misgurnus anguillicaudatis;MIS.ANG.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;toegevoegd;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Misgurnus bipartitus;MIS.BIP.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Misgurnus fossilis L.;MIS.FOS.;0;3;3;1;1;3;3;0;0;1;1;1;0;0;0;0;1;1;0;0;0;0;0;0;NA;1;0;1;1;0;0;0;0;0;0;0;0;Misgurnus fossilis L.;grote modderkuiper;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;1;0;0;1;0;NA
-Misgurnus mizolepis;MIS.MIZ.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Mullus surmuletus;MUL.SUR.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Mullus surmuletus;mul;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Myoxocephalus scorpius;MYO.SCO.;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Myoxocephalus scorpius;zeedonderpad;1;0;0;1;NA;1;0;0;0;0;0;NA;1;1;0;0;0;1;0;0;0;0;0;NA
-Neogobius fluviatilis;NEO.FLU.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;toegevoegd;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Ponticola Kessleri;NEO.KES.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;toegevoegd;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Neogobius melanostomus;NEO.MEL.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Neogobius melanostomus;zwartbekgrondel;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Oncorhyncus mykiss Walbaum;ONC.MYK.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Oncorhyncus mykiss Walbaum;regenboogforel;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Osmerus eperlanus L.;OSM.EPE.;0;4;1;1;2;4;4;0;0;1;0;1;0;0;1;1;1;1;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;1;0;0;1;Osmerus eperlanus L.;spiering;0;1;0;0;NA;1;1;0;0;1;0;NA;1;1;1;1;0;0;1;1;1;0;1;NA
-Parachondrostoma toxostoma;PAR.TOX.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Parachondrostoma toxostoma;Franse sneep;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Perca fluviatilis L.;PER.FLU.;0;2;5;3;2;2;2;0;0;0;0;1;0;0;1;1;1;1;1;1;1;0;0;0;NA;1;1;0;1;0;0;1;0;1;0;1;1;Perca fluviatilis L.;baars;0;0;0;0;NA;1;0;0;0;0;0;NA;1;1;0;0;0;0;1;0;1;0;0;NA
-Perccottus glenii;PER.GLE.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Petromyzon marinus L.;PET.MAR.;0;5;1;0;1;5;5;0;1;1;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Petromyzon marinus L.;zeeprik;0;1;0;0;NA;1;1;1;1;1;0;NA;1;1;1;1;0;0;1;1;1;0;1;NA
-Pholis gunnellus;PHO.GUN.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Pholis gunnellus;botervis;1;0;0;0;NA;1;0;0;0;0;0;staat niet in de MACRO maar jan in mail dat mocht worden toegevoegd;0;0;0;0;0;0;0;0;0;0;0;NA
-Phoxinus phoxinus L.;PHO.PHO.;0;5;1;3;4;5;5;1;0;1;0;0;1;0;0;0;1;1;0;0;0;0;0;0;NA;1;0;0;1;0;0;0;1;0;0;0;0;Phoxinus phoxinus L.;elrits;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Pimephales promelas;PIM.PRO.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Pimephales promelas;dikkopelrits;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Platichtys flesus L.;PLA.FLE.;0;2;1;1;1;2;2;0;0;0;1;1;0;0;1;0;1;0;1;1;0;0;0;0;NA;1;0;1;0;0;0;0;0;1;0;1;0;Platichtys flesus L.;bot;0;1;0;1;NA;1;1;0;1;0;0;NA;1;1;0;1;0;0;1;0;1;1;1;NA
-Pleuronectes platessa L.;PLE.PLA.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;NA;0;0;0;0;0;0;0;0;0;0;0;0;Pleuronectes platessa L.;schol;0;0;1;0;NA;1;0;0;1;0;1;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Pollachius pollachius;POL.POL.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Pollachius pollachius;pollak;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Pollachius virens;POL.VIR.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Pollachius virens;koolvis;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Pomatoschistus lozanoi;POM.LOZ.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Pomatoschistus lozanoi;Lozano's grondel;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Pomatoschistus microps Kroyer;POM.MIC.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;1;1;1;0;Pomatoschistus microps Kroyer;brakwatergrondel;1;0;0;0;NA;1;0;1;1;0;0;NA;1;0;0;0;0;1;1;0;0;0;0;enkel in macro in MnsTot niet in MniInd (aangepast)
-Pomatoschistus minutus Pallas;POM.MIN.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;1;1;1;0;Pomatoschistus minutus Pallas;dikkopje;1;0;0;0;NA;1;0;1;1;0;0;NA;1;0;0;0;0;1;0;0;0;0;0;NA
-Pomatoschistus pictus;POM.PIC.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Pomatoschistus pictus;gevlekte grondel;0;0;1;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-NA;POM.XXX.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;NA;grondel sp.;0;0;0;0;NA;1;0;1;1;0;0;NA;1;0;0;0;0;1;0;0;0;0;0;NA
-Proterorhinus semilunaris;PRO.SEM.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Proterorhinus semilunaris;marmergrondel;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Pseudorasbora parva Schlegel;PSE.PAR.;1;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;1;1;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Pseudorasbora parva Schlegel;blauwbandgrondel;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Pungitius pungitius L.;PUN.PUN.;0;1;3;3;1;1;1;0;0;0;0;0;1;1;0;0;1;1;1;1;1;0;0;0;NA;1;1;0;1;0;0;1;0;1;1;0;0;Pungitius pungitius L.;tiendoornige stekelbaars;0;0;0;0;NA;0;0;0;0;0;0;NA;1;0;0;0;0;0;1;1;0;0;0;NA
-Raja clavata;RAJ.CLA.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Raja clavata;stekelrog;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Raniceps raninus;RAN.RAN.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Raniceps raninus;vorskwab;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Rhodeus amarus;RHO.AMA.;0;3;5;3;1;3;3;0;0;1;0;0;0;0;0;0;1;1;1;1;1;0;0;0;NA;1;0;0;1;1;0;1;0;1;1;0;0;Rhodeus amarus;bittervoorn;0;0;0;0;NA;0;0;0;0;0;0;NA;1;0;0;0;0;0;1;0;0;1;0;NA
-Romanogobio belingi;ROM.BEL.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Rutilus rutilus L.;RUT.RUT.;0;1;5;3;1;1;1;0;0;0;0;0;1;1;0;0;1;1;1;1;1;0;0;0;NA;1;1;0;1;0;0;1;0;1;0;0;0;Rutilus rutilus L.;blankvoorn;0;0;0;0;NA;1;0;0;0;0;0;NA;1;0;0;0;0;0;1;0;0;0;0;NA
-Sabanejewia aurata;SAB.AUR.;1;4;3;0;0;4;4;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Sabanejewia aurata;gouden modderkruiper;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Salmo trutta fario L.;SAL.FAR.;0;5;1;3;5;5;5;1;1;1;0;1;0;0;1;1;1;1;0;0;0;0;0;0;NA;1;0;0;1;1;1;1;1;0;0;0;0;Salmo trutta fario L.;beekforel;0;1;0;0;NA;1;1;0;0;1;0;NA;1;1;1;1;0;0;1;0;1;0;1;NA
-Salvenius fontinalis Mitchill;SAL.FON.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Salvenius fontinalis Mitchill;bronforel;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Salmo salar;SAL.SAL.;0;5;1;1;5;5;5;0;2;1;0;1;0;0;1;0;1;0;0;0;0;0;0;0;NA;1;0;0;0;0;0;0;0;0;0;0;0;Salmo salar;Atlantische zalm;0;1;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Salmo trutta;SAL.TRT.;0;5;1;3;5;5;5;1;1;0;0;1;0;0;1;1;1;1;0;0;0;0;0;0;toegevoegd;1;0;0;1;1;1;1;1;0;0;0;0;NA;NA;0;0;0;0;NA;1;1;0;0;1;0;NA;1;1;1;1;0;0;1;0;1;0;1;NA
-Salmo trutta trutta L.;SAL.TRU.;0;5;1;3;5;5;5;0;2;1;0;1;0;0;1;1;1;0;0;0;0;0;0;0;NA;1;0;0;0;1;1;1;1;0;0;0;0;Salmo trutta trutta L.;zeeforel;0;1;0;0;NA;1;1;0;0;1;0;NA;1;1;1;1;0;0;1;0;1;0;1;niet in MniInd wel MnsTot (aangepast)
-Sander lucioperca L.;SAN.LUC.;1;0;5;3;0;3;0;0;0;0;0;0;0;0;1;1;1;1;1;1;1;0;0;0;NA;1;0;0;1;0;0;0;0;1;0;0;1;Sander lucioperca L.;snoekbaars;0;0;0;0;NA;1;0;0;0;0;0;NA;1;1;0;0;0;0;1;0;1;0;0;NA
-Scardinius erythrophtalmus L;SCA.ERY.;0;3;5;3;1;3;3;0;0;1;0;0;1;1;0;0;1;1;1;1;1;0;0;0;NA;1;0;0;1;1;0;1;0;1;1;0;0;Scardinius erythrophtalmus L;rietvoorn;0;0;0;0;NA;0;0;0;0;0;0;NA;1;0;0;0;0;0;1;0;0;0;0;NA
-Scophthalmus maximus;SCO.MAX.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;1;NA;0;0;0;0;0;0;0;0;0;0;0;0;Scophthalmus maximus;tarbot;0;0;1;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Scophthalmus rhombus;SCO.RHO.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;1;NA;0;0;0;0;0;0;0;0;0;0;0;0;Scophthalmus rhombus;griet;0;0;1;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Scomberesox saurus;SCO.SAU1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Scomberesox saurus;makreelgeep;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Scomber scombrus;SCO.SCO.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Scomber scombrus;makreel;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Silurus glanis L.;SIL.GLA.;0;2;4;2;1;2;2;0;0;0;1;0;0;0;1;1;1;1;1;1;1;0;0;0;NA;1;0;0;1;0;0;0;0;1;0;0;1;Silurus glanis L.;Europese meerval;0;0;0;0;NA;0;0;0;0;0;0;NA;1;1;0;0;0;0;1;1;1;1;0;NA
-Solea solea;SOL.SOL.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;NA;0;0;0;0;0;0;0;0;0;0;0;0;Solea solea;tong;0;0;1;1;NA;1;0;0;1;1;1;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Spinachia spinachia;SPI.SPI.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Spinachia spinachia;zeestekelbaars;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Spondyliosoma cantharus;SPO.CAN.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Sprattus sprattus L.;SPR.SPR.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Sprattus sprattus L.;sprot;0;0;0;0;NA;1;0;0;0;0;1;NA;1;0;0;0;1;0;0;0;0;0;0;NA
-Squalus acanthias;SQU.ACA.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Squalus acanthias;doornhaai;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Squatina squatina;SQU.SQU.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Squatina squatina;zee-engel;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Syngnathus acus;SYN.ACU.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Syngnathus acus;grote zeenaald;1;0;0;0;NA;1;0;1;1;1;0;NA;1;1;1;0;0;1;0;0;0;0;0;NA
-Syngnathus rostellatus;SYN.ROS.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Syngnathus rostellatus;kleine zeenaald;1;0;0;0;NA;1;0;1;1;1;0;NA;1;0;1;0;0;1;0;0;0;0;0;NA
-Taurulus bubalis;TAU.BUB.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Taurulus bubalis;groene zeedonderpad;1;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Telestes souffia;TEL.SOE.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Telestes souffia;soeffie;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Terapon jarbua;TER.JAR.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Thymallus thymallus L.;THY.THY.;0;5;1;3;5;5;5;1;1;1;0;1;0;0;0;0;1;1;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Thymallus thymallus L.;vlagzalm;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Tinca tinca L.;TIN.TIN.;0;3;5;2;1;3;3;0;0;1;1;0;1;1;0;0;1;1;1;1;1;1;1;0;NA;1;1;0;1;1;0;1;0;1;1;0;0;Tinca tinca L.;zeelt;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Trachurus trachurus;TRA.TRA.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Trachurus trachurus;horsmakreel;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Tridentiger bifasciatus;TRI.BIF.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;NA;NA;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Trisopterus luscus L.;TRI.LUS.;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Trisopterus luscus L.;steenbolk;0;0;1;0;NA;1;0;0;0;0;1;NA;1;1;0;0;1;0;0;0;0;0;0;NA
-Umbra pygmaea;UMB.PYG.;1;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;1;1;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Umbra pygmaea;Amerikaanse hondsvis;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Vimba vimba;VIM.VIM.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Vimba vimba;blauwneus;0;0;0;0;NA;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;NA
-Zoarces viviparus;ZOA.VIV.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;NA;0;0;0;0;0;0;0;0;0;0;0;0;Zoarces viviparus;puitaal;1;0;0;1;NA;1;0;1;1;0;0;NA;1;0;0;0;0;1;0;0;0;0;0;NA
+taxonkey;taxoncode;exoot;wf_tolerantie_brasem_barbeel;wf_type_brasem;wf_type_barbeel;wf_type_upstream;wf_tolerantie_lakes;wf_tolerantie_bron;grootte_klasse_upstream;migratie;spec_paaier;bentisch;invertivoor;omnivoor;omnivoor_lakes;piscivoor_brak;piscivoor_zoet;mni_zoet;nat_recrutering_brasem_en_barbeel;canals;canals_rec;lakes;ben_wei_canals;ben_wei_lakes;brak_marine_juvenile_migrating;MnsTot_en_MniInd_brabeel;MniTol_brabeel;MniInv_brabeel;MpsRec_brabeel;MniSpa_brongebied;MniRhe_brongebied;ManTol_soortenlijst_brongebied;gevoelige_soorten_brongebied;MniInd_Getijde_rivieren_zoet;MniSpa_Getijde_rivieren_zoet;MniInv_Getijde_rivieren_zoet;MnsPis_Getijde_rivieren_zoet;MnsEst_Ijzerestuariumindex;Dia_ijzerestuariumindex;MnsMjs_Ijzerestuariumindex;MnsTyp_Ijzerestuariumindex;MnsTot_en_MnsInd_Zeeschelde_mesohalien;MnsDia_Zeeschelde_mesohalien;MnsSpa_Zeeschelde_mesohalien;MnsHab_Zeeschelde_mesohalien;MniInt_Zeeschelde_mesohalien;MnsMms_Zeeschelde_mesohalien;MniInd_Zeeschelde_oligohalien;MnsPis_Zeeschelde_oligohalien;MnsInt_Zeeschelde_oligohalien;MnsDia_Zeeschelde_oligohalien;MnsMms_Zeeschelde_oligohalien;MnsErs_Zeeschelde_oligohalien;MniInd_en_MnsTot_Zeeschelde_zoet;MniSpa_Zeeschelde_zoet;MniPis_Zeeschelde_zoet;MniBen_Zeeschelde_zoet;MniDia_Zeeschelde_zoet;dutch_name;taxonname
+574;ABR.BRA.;0;1;5;2;1;1;1;0;0;0;0;0;1;1;0;0;1;1;1;1;1;1;1;0;1;1;0;1;0;0;1;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;1;0;0;0;0;brasem;Abramis brama
+696;ACI.BAE.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;Siberische steur;Acipenser baeri
+583;ACI.GUE.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;diamantsteur;Acipenser gueldenstaedtii
+557;ACI.OXY.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;Atlantische steur;Acipenser oxyrinchus
+711;ACI.RUT.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;sterlet;Acipenser ruthenus
+706;ACI.STE.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;spitssnuitsteur;Acipenser stellatus
+598;ACI.STU.;0;5;1;3;0;5;5;0;1;1;0;0;0;0;0;0;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;Europese steur;Acipenser sturio
+634;AGO.CAT.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;harnasmannetje;Agonus cataphractus
+551;ALB.ALB.;0;2;3;3;2;2;2;0;0;0;0;1;0;0;0;0;1;1;1;1;0;0;0;0;1;1;1;1;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;alver;Alburnus alburnus
+607;ALB.BIP.;0;5;1;3;4;5;5;1;0;1;0;1;0;0;0;0;1;1;0;0;0;0;0;0;1;0;1;1;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;gestippelde alver;Alburnoides bipunctatus
+594;ALO.ALO.;0;1;1;1;1;5;5;0;1;1;0;0;0;0;1;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;elft;Alosa alosa
+600;ALO.FAL.;0;1;1;1;1;5;5;0;0;1;0;0;0;0;1;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;1;0;1;0;0;1;1;0;0;1;0;1;1;1;1;0;0;1;1;1;0;1;fint;Alosa fallax
+741;AME.MEL.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;zwarte dwergmeerval;Ameiurus melas
+577;AME.NEB.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;bruine dwergmeerval;Ameiurus nebulosus
+727;AMM.TOB.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;zandspiering;Ammodytes tobianus
+673;ANG.ANG.;0;2;4;3;2;2;2;1;2;0;1;0;1;1;0;0;1;1;1;0;1;0;0;0;1;0;0;1;0;0;1;0;1;0;0;0;0;1;0;0;1;1;0;0;0;0;1;0;0;1;0;0;1;0;0;1;1;paling;Anguilla anguilla
+617;APH.MIN.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;glasgrondel;Aphia minuta
+556;ARG.REG.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;Atlantische ombervis;Argyrosomus regius
+693;ARN.LAT.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;schurftvis;Arnoglossus laterna
+690;ASP.ASP.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;roofblei;Leuciscus aspius
+647;ATH.BOY.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;kleine koornaarvis;Atherina boyeri
+629;ATH.PRE.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;grote koornaarvis;Atherina presbyter
+668;BAB.GYM.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;naakthalsgrondel;Babka gymnotrachelus
+575;BAL.BAL.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;brasemblei;Ballerus ballerus
+588;BAL.SAP.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;Donaubrasem;Ballerus sapa
+561;BAR.BAR.;0;4;1;5;4;4;4;1;1;1;1;0;1;0;0;0;1;1;0;0;0;0;0;0;1;0;0;1;1;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;barbeel;Barbus barbus
+565;BAR.BUS.;0;3;1;3;5;3;3;1;0;1;1;1;0;0;0;0;1;1;0;0;0;0;0;0;1;0;1;1;1;1;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;bermpje;Barbatula barbatula
+665;BAR.MER.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;mediterrane barbeel;Barbus meridionalis
+604;BEL.BEL.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;geep;Belone belone
+653;BLI.BJO.;0;2;5;2;1;2;2;0;0;0;0;0;1;0;0;0;1;1;1;1;1;1;1;0;1;1;0;1;0;0;1;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;1;0;0;0;0;kolblei;Blicca bjoerkna
+593;BUG.LUT.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;dwergtong;Buglossidium luteum
+675;CAL.LYR.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;pitvis;Callionymus lyra
+616;CAR.AUG.;1;0;2;1;0;0;0;0;0;0;0;0;1;1;0;0;1;1;1;1;1;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;giebel;Carassius gibelio
+620;CAR.AUR.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;goudvis;Carassius auratus
+657;CAR.CAR.;0;3;2;1;1;3;3;0;0;0;0;0;1;0;0;0;1;1;1;1;1;0;0;0;1;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;kroeskarper;Carassius carassius
+587;CHA.CHA.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;Donau alver;Chalcalburnus chalcoides
+586;CHE.LAB.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;diklipharder;Chelon labrosus
+688;CHE.LUC.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;1;0;0;1;0;1;0;0;0;0;0;0;0;0;0;0;0;rode poon;Chelidonichthys lucerna
+592;CHE.RAM.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;1;0;0;1;0;1;1;1;0;0;1;0;1;0;1;1;0;0;1;0;0;0;1;dunlipharder;Chelon ramada
+700;CHO.NAS.;0;4;1;4;4;4;4;1;1;1;1;0;1;0;0;0;1;1;0;0;0;0;0;0;1;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;sneep;Chondrostoma nasus
+719;CIL.MUS.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;0;0;1;0;1;0;0;0;0;0;0;0;0;0;0;0;vijfdradige meun;Ciliata mustela
+671;CIL.SEP.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;Noorse meun;Ciliata septentrionalis
+550;CLA.GAR.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;Afrikaanse meerval;Clarias gariepinus
+633;CLU.HAR.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;1;0;0;0;0;1;1;0;0;0;1;0;0;0;0;0;0;haring;Clupea harengus
+649;COB.TAE.;0;4;3;3;1;4;4;0;0;1;1;1;0;0;0;0;1;1;0;0;0;0;0;0;1;0;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;kleine modderkruiper;Cobitis taenia
+582;CON.CON.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;congeraal;Conger conger
+648;COR.ALB.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;kleine marene;Coregonus albula
+630;COR.LAV.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;grote marene;Coregonus lavaretus
+669;COR.OXY.;0;5;0;0;0;5;5;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;noordzeehouting;Coregonus oxyrinchus
+589;COT.GRP.;0;5;1;3;4;5;5;1;0;1;1;1;0;0;0;0;1;1;0;0;0;0;0;0;1;0;1;1;1;1;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;donderpad;Cottus gobio
+684;COT.PER.;0;5;1;3;4;5;5;1;0;1;1;1;0;0;0;0;1;1;0;0;0;0;0;0;1;0;1;1;1;1;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;rivierdonderpad;Cottus perifretum
+695;COT.POE.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;Siberische rivierdonderpad;Cottus poecilopus
+562;COT.RHE.;0;5;1;3;4;5;5;1;0;1;1;1;0;0;0;0;1;1;0;0;0;0;0;0;1;0;1;1;1;1;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;beekdonderpad;Cottus rhenanus
+621;CTE.IDE.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;graskarper;Ctenopharyngodon idella
+703;CYC.LUM.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;snotolf;Cyclopterus lumpus
+642;CYP.CAR.;0;2;3;1;1;2;2;0;0;0;0;0;1;1;0;0;1;1;1;1;1;1;1;0;1;0;0;1;0;0;1;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;karper;Cyprinus carpio
+745;DAS.PAS.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;gewone pijlstaartrog;Dasyatis pastinaca
+728;DIC.LAB.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;1;0;0;0;0;1;1;1;0;0;1;0;0;0;0;0;0;zeebaars;Dicentrarchus labrax
+650;ECH.VIP.;0;0;0;0;0;0;0;0;0;0;0;0;1;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;kleine pieterman;Echiichthys vipera
+682;ELE.TET.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;reuzenkapiteinvis;Eleutheronema tetradactylum
+554;ENG.ENC.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;ansjovis;Engraulis encrasicolus
+549;ENT.AEQ.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;adderzeenaald;Entelurus aequoreus
+701;ESO.LUC.;0;4;5;4;2;4;4;0;0;1;0;0;0;0;1;1;1;1;1;1;1;0;0;0;1;0;0;1;1;0;1;0;1;1;0;1;0;0;0;0;0;0;0;0;0;0;1;1;1;0;0;0;1;1;1;0;0;snoek;Esox lucius
+622;EUT.GUR.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;grauwe poon;Eutrigla gurnardus
+640;GAD.MOR.;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;1;0;0;0;1;1;0;0;0;0;0;0;0;0;0;0;0;kabeljauw;Gadus morhua
+591;GAS.ACU.;0;1;3;3;2;1;1;0;0;0;0;0;1;1;0;0;1;1;1;1;1;0;0;0;1;1;0;1;0;0;1;0;1;1;0;0;0;1;0;0;1;1;0;1;0;0;1;0;0;1;0;0;1;1;0;0;1;driedoornige stekelbaars;Gasterosteus aculeatus
+667;GOB.BOS.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;naakte grondel;Gobiosoma bosc
+685;GOB.GOB.;0;3;1;5;4;3;3;1;0;1;0;1;0;0;0;0;1;1;1;1;1;0;0;0;1;0;1;1;1;1;1;0;1;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;riviergrondel;Gobio gobio
+742;GOB.NIG1.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;zwarte grondel;Gobius niger
+672;GOB.PAG.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;paganelgrondel;Gobius paganellus
+678;GYM.CER.;0;2;5;3;1;2;2;0;0;0;1;1;0;0;0;0;1;1;1;1;1;1;1;0;1;0;1;1;0;0;1;0;1;0;1;0;0;0;0;0;1;0;0;1;0;0;1;0;0;0;0;0;1;0;0;1;0;pos;Gymnocephalus cernua
+656;HIP.HIP.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;kortsnuitzeepaardje;Hippocampus hippocampus
+646;HIP.RAM.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;klein zeepaardje;Hippocampus ramulosus
+699;HYP.LAN.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;smelt;Hyperoplus lanceolatus
+735;HYP.MOL.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;zilverkarper;Hypophthalmichthys molitrix
+628;HYP.NOB.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;grootkopkarper;Hypophthalmichthys nobilis
+641;ICT.PUN.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;kanaalmeerval;Ictalurus punctatus
+643;KAR.KAR.;0;2;0;0;0;2;2;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;karperachtige;NA
+686;LAM.FLU.;0;5;1;1;3;5;5;0;2;1;1;0;0;0;1;1;1;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;1;1;0;0;0;1;0;0;1;1;0;1;1;0;1;1;1;1;0;0;1;1;1;1;1;rivierprik;Lampetra fluviatilis
+564;LAM.PLA.;0;5;1;2;4;5;5;0;0;1;1;0;0;0;0;0;1;1;0;0;0;0;0;0;1;0;0;1;1;1;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;beekprik;Lampetra planeri
+679;LAM.SPE.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;prik;Lampetra sp.
+737;LEP.GIB.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;zonnebaars;Lepomis gibbosus
+655;LEU.CEP.;0;3;3;5;4;3;3;1;1;1;0;0;1;0;0;0;1;1;1;1;0;0;0;0;1;0;0;1;0;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;kopvoorn;Squalius cephalus
+718;LEU.DEL.;0;4;2;1;1;4;4;0;0;0;0;0;0;0;0;0;1;1;1;1;1;0;0;0;1;0;0;1;0;0;1;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;vetje;Leucaspius delineatus
+723;LEU.IDE.;0;4;4;4;2;4;4;0;0;0;0;0;1;1;0;0;1;1;1;1;1;0;0;0;1;0;0;1;0;1;1;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;1;0;0;0;1;0;1;0;0;winde;Leuciscus idus
+694;LEU.LEU.;0;4;1;5;5;4;4;1;0;1;0;1;0;0;0;0;1;1;0;0;0;0;0;0;1;0;1;1;1;1;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;serpeling;Leuciscus leuciscus
+697;LIP.LIP.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;1;0;0;1;1;0;0;0;0;0;0;0;0;0;0;0;0;slakdolf;Liparis liparis
+698;LIP.PHO.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;slijmvis;Lipophrys pholis
+619;LIZ.AUR.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;goudharder;Liza aurata
+658;LOT.LOT.;0;4;3;3;3;4;4;0;1;1;1;0;0;0;1;1;1;1;0;0;1;0;0;0;1;0;0;1;1;0;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;kwabaal;Lota lota
+722;MER.MER.;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;1;0;0;1;0;1;0;0;0;0;0;0;0;0;0;0;0;wijting;Merlangius merlangus
+627;MIC.SAL.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;grootbekbaars;Micropterus salmoides
+652;MIC.UND.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;knorrepos;Micropogonias undulatus
+691;MIM.LIM.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;schar;Limanda limanda
+559;MIS.ANG.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;Aziatische modderkruiper;Misgurnus anguillicaudatus
+744;MIS.BIP.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;Noord-Aziatische modderkruiper;Misgurnus bipartitus
+631;MIS.FOS.;0;3;3;1;1;3;3;0;0;1;1;1;0;0;0;0;1;1;0;0;0;0;0;0;1;0;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;1;0;grote modderkruiper;Misgurnus fossilis
+580;MIS.MIZ.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;Chinese modderkruiper;Misgurnus mizolepis
+666;MUL.SUR.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;mul;Mullus surmuletus
+729;MYO.SCO.;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;1;1;0;0;0;0;0;1;1;0;0;0;1;0;0;0;0;0;zeedonderpad;Myoxocephalus scorpius
+677;NEO.FLU.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;Pontische stroomgrondel;Neogobius fluviatilis
+645;NEO.KES.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;Kesslers grondel;Ponticola kessleri
+740;NEO.MEL.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;zwartbekgrondel;Neogobius melanostomus
+681;ONC.MYK.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;regenboogforel;Oncorhynchus mykiss
+705;OSM.EPE.;0;4;1;1;2;4;4;0;0;1;0;1;0;0;1;1;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;1;0;1;0;0;1;1;0;0;1;0;1;1;1;1;0;0;1;1;1;0;1;spiering;Osmerus eperlanus
+603;PAR.TOX.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;Franse sneep;Parachondrostoma toxostoma
+560;PER.FLU.;0;2;5;3;2;2;2;0;0;0;0;1;0;0;1;1;1;1;1;1;1;0;0;0;1;1;0;1;0;0;1;0;1;0;1;1;0;0;0;0;1;0;0;0;0;0;1;1;0;0;0;0;1;0;1;0;0;baars;Perca fluviatilis
+553;PER.GLE.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;amoergrondel;Perccottus glenii
+733;PET.MAR.;0;5;1;0;1;5;5;0;1;1;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;1;1;1;1;1;0;1;1;1;1;0;0;1;1;1;0;1;zeeprik;Petromyzon marinus
+572;PHO.GUN.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;botervis;Pholis gunnellus
+595;PHO.PHO.;0;5;1;3;4;5;5;1;0;1;0;0;1;0;0;0;1;1;0;0;0;0;0;0;1;0;0;1;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;elrits;Phoxinus phoxinus
+584;PIM.PRO.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;dikkopelrits;Pimephales promelas
+571;PLA.FLE.;0;2;1;1;1;2;2;0;0;0;1;1;0;0;1;0;1;0;1;1;0;0;0;0;1;0;1;0;0;0;0;0;1;0;1;0;0;1;0;1;1;1;0;1;0;0;1;1;0;1;0;0;1;0;1;1;1;bot;Platichthys flesus
+692;PLE.PLA.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;1;0;0;1;0;1;0;0;0;0;0;0;0;0;0;0;0;schol;Pleuronectes platessa
+676;POL.POL.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;pollak;Pollachius pollachius
+654;POL.VIR.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;koolvis;Pollachius virens
+659;POM.LOZ.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;lozano's grondel;Pomatoschistus lozanoi
+573;POM.MIC.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;1;0;1;0;0;0;1;0;1;1;0;0;1;0;0;0;0;1;1;0;0;0;0;brakwatergrondel;Pomatoschistus microps
+585;POM.MIN.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;1;0;1;0;0;0;1;0;1;1;0;0;1;0;0;0;0;1;0;0;0;0;0;dikkopje;Pomatoschistus minutus
+610;POM.PIC.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;gevlekte grondel;Pomatoschistus pictus
+626;POM.XXX.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;1;1;0;0;1;0;0;0;0;1;0;0;0;0;0;grondel sp;NA
+663;PRO.SEM.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;marmergrondel;Proterorhinus semilunaris
+569;PSE.PAR.;1;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;blauwband;Pseudorasbora parva
+715;PUN.PUN.;0;1;3;3;1;1;1;0;0;0;0;0;1;1;0;0;1;1;1;1;1;0;0;0;1;1;0;1;0;0;1;0;1;1;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;1;1;0;0;0;tiendoornige stekelbaars;Pungitius pungitius
+710;RAJ.CLA.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;stekelrog;Raja clavata
+721;RAN.RAN.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;vorskwab;Raniceps raninus
+566;RHO.AMA.;0;3;5;3;1;3;3;0;0;1;0;0;0;0;0;0;1;1;1;1;1;0;0;0;1;0;0;1;1;0;1;0;1;1;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;1;0;0;1;0;bittervoorn;Rhodeus amarus
+725;ROM.BEL.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;witvinriviergrondel;Romanogobio belingi
+568;RUT.RUT.;0;1;5;3;1;1;1;0;0;0;0;0;1;1;0;0;1;1;1;1;1;0;0;0;1;1;0;1;0;0;1;0;1;0;0;0;0;0;0;0;1;0;0;0;0;0;1;0;0;0;0;0;1;0;0;0;0;blankvoorn;Rutilus rutilus
+618;SAB.AUR.;1;4;3;0;0;4;4;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;gouden modderkruiper;Sabanejewia aurata
+563;SAL.FAR.;0;5;1;3;5;5;5;1;1;1;0;1;0;0;1;1;1;1;0;0;0;0;0;0;1;0;0;1;1;1;1;1;0;0;0;0;0;1;0;0;1;1;0;0;1;0;1;1;1;1;0;0;1;0;1;0;1;beekforel;Salmo trutta fario
+576;SAL.FON.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;bronforel;Salvelinus fontinalis
+726;SAL.SAL.;0;5;1;1;5;5;5;0;2;1;0;1;0;0;1;0;1;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;zalm;Salmo salar
+555;SAL.TRT.;0;5;1;3;5;5;5;1;1;0;0;1;0;0;1;1;1;1;0;0;0;0;0;0;1;0;0;1;1;1;1;1;0;0;0;0;0;0;0;0;1;1;0;0;1;0;1;1;1;1;0;0;1;0;1;0;1;Atlantische forel;Salmo trutta
+731;SAL.TRU.;0;5;1;3;5;5;5;0;2;1;0;1;0;0;1;1;1;0;0;0;0;0;0;0;1;0;0;0;1;1;1;1;0;0;0;0;0;1;0;0;1;1;0;0;1;0;1;1;1;1;0;0;1;0;1;0;1;zeeforel;Salmo trutta trutta
+702;SAN.LUC.;1;0;5;3;0;3;0;0;0;0;0;0;0;0;1;1;1;1;1;1;1;0;0;0;1;0;0;1;0;0;0;0;1;0;0;1;0;0;0;0;1;0;0;0;0;0;1;1;0;0;0;0;1;0;1;0;0;snoekbaars;Sander lucioperca
+683;SCA.ERY.;0;3;5;3;1;3;3;0;0;1;0;0;1;1;0;0;1;1;1;1;1;0;0;0;1;0;0;1;1;0;1;0;1;1;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;1;0;0;0;0;rietvoorn;Scardinius erythrophthalmus
+714;SCO.MAX.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;tarbot;Scophthalmus maximus
+623;SCO.RHO.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;griet;Scophthalmus rhombus
+661;SCO.SAU1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;makreelgeep;Scomberesox saurus
+660;SCO.SCO.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;makreel;Scomber scombrus
+596;SIL.GLA.;0;2;4;2;1;2;2;0;0;0;1;0;0;0;1;1;1;1;1;1;1;0;0;0;1;0;0;1;0;0;0;0;1;0;0;1;0;0;0;0;0;0;0;0;0;0;1;1;0;0;0;0;1;1;1;1;0;Europese meerval;Silurus glanis
+716;SOL.SOL.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;1;0;0;1;1;1;0;0;0;0;0;0;0;0;0;0;0;tong;Solea solea
+734;SPI.SPI.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;zeestekelbaars;Spinachia spinachia
+750;SPO.CAN.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;zeekarper;Spondyliosoma cantharus
+707;SPR.SPR.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;1;1;0;0;0;1;0;0;0;0;0;0;sprot;Sprattus sprattus
+590;SQU.ACA.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;doornhaai;Squalus acanthias
+730;SQU.SQU.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;zee-engel;Squatina squatina
+632;SYN.ACU.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;1;0;1;1;1;0;1;1;1;0;0;1;0;0;0;0;0;grote zeenaald;Syngnathus acus
+651;SYN.ROS.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;1;0;1;1;1;0;1;0;1;0;0;1;0;0;0;0;0;kleine zeenaald;Syngnathus rostellatus
+625;TAU.BUB.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;groene zeedonderpad;Taurulus bubalis
+704;TEL.SOE.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;soeffie;Telestes souffia 
+639;TER.JAR.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;jarbuabaars;Terapon jarbua
+720;THY.THY.;0;5;1;3;5;5;5;1;1;1;0;1;0;0;0;0;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;vlagzalm;Thymallus thymallus
+732;TIN.TIN.;0;3;5;2;1;3;3;0;0;1;1;0;1;1;0;0;1;1;1;1;1;1;1;0;1;1;0;1;1;0;1;0;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;zeelt;Tinca tinca
+636;TRA.TRA.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;horsmakreel;Trachurus trachurus
+748;TRI.BIF.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;shimofurigrondel;Tridentiger bifasciatus
+708;TRI.LUS.;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;1;0;0;0;0;1;1;1;0;0;1;0;0;0;0;0;0;steenbolk;Trisopterus luscus
+552;UMB.PYG.;1;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;Amerikaanse hondsvis;Umbra pygmaea
+570;VIM.VIM.;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;blauwneus;Vimba vimba
+680;ZOA.VIV.;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;1;1;0;1;1;0;0;1;0;0;0;0;1;0;0;0;0;0;puitaal;Zoarces viviparus
