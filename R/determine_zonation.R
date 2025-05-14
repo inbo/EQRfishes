@@ -19,17 +19,23 @@
 #'
 #' @param dataset dataset on location measures with at least columns
 #'
-#' - `width_river` width of the river at the sample location,
-#' - `slope` slope of the river at the sample location,
+#' - `width_river` width of the river at the sample location (meters),
+#' - `slope` slope of the river at the sample location (per mille),
 #' - `tidal` tidal effect present (TRUE) or absent (FALSE)?
-#' - `IndexTypeCode` type based on salinity of the sample location
+#' - `IndexTypeCode` type based on salinity of the sample location:
+#'   - `"ZTWA"` for freshwater,
+#'   - `"YZRP"` for estuarine Ijzer,
+#'   - `"SCHM"` for estuarine Schelde mesohaline,
+#'   - `"SCHO"` for estuarine Schelde oligohaline,
+#'   - `"SCHZ"` for estuarine Schelde freshwater,
+#'   - `"ZTWZ"` for estuarine tributaries with freshwater
 #' @param version 'new' version with bron and brabeel or 'old' version without
 #' these two zonations?
 #' Defaults to 'new'.
 #' This information will be used if dataset has no column `version` or to
 #' replace NA values in column `version`.
 #'
-#' @return input dataset with additional column 'zonation'
+#' @return input dataset with additional column `zonation`
 #'
 #' @importFrom assertthat has_name
 #' @importFrom dplyr mutate rowwise ungroup

@@ -44,13 +44,53 @@ These calculations can be performed by:
 
 For the second item, 7 types of calculations are added in the package:
 
-- `number_of_species`: number of species that are captured and that occur in the given list
-- `number_of_individuals`: number of individuals that are captured and of which the species name occurs in the given list
-- `total_weight`: : total weight of the fishes that are captured and of which the species name occurs in the given list
-- `sum_values_column`: each species gets a value (e.g. tolerance value or typical species value), and the result is the sum of the values given for each of the captured species
-- `number_of_length_classes`: sum of the number of length classes that is captured for each of the listed species (length classes are species dependent and are given in the overview)
-- `sum_of_scored_length_classes`: after counting the number of length classes for the listed species, the number of length classes gets a species dependent score and the result is the sum of these scores (if `values_column = "Gkla"`) or the result is the number of species with > 1 length class (if `values_column = "multiple"`)
-- `shannon_wiener_index`: calculation of the Shannon Wiener index using all species <!-- later berekening nog toevoegen, of referentie hiernaar -->
+```{r}
+# add descriptions to table to repeat in overview of calculations per index
+metric_type_description <- data.frame(
+  metric_type = c(
+    "number_of_species",
+    "number_of_individuals",
+    "total_weight",
+    "sum_values_column",
+    "number_of_length_classes",
+    "sum_of_scored_length_classes",
+    "shannon_wiener_index"
+  ),
+  description_type = c(
+    "number of species that are captured and that occur in the given list",
+    "number of individuals that are captured and of which the species name
+    occurs in the given list",
+    "total weight of the fishes that are captured and of which the species name
+    occurs in the given list",
+    "each species gets a value (e.g. tolerance value or typical species value),
+    and the result is the sum of the values given for each of the captured
+    species",
+    "sum of the number of length classes that is captured for each of the
+    listed species (length classes are species dependent and are given in
+    `vignette(\"overview_package\", package = \"EQRfishes\")`)",
+    "after counting the number of length classes for the listed species, the
+    number of length classes gets a species dependent score and the result is
+    the sum of these scores (if `values_column = \"Gkla\"`) or the result is
+    the number of species with > 1 length class (if
+    `values_column = \"multiple\"`)",
+    "calculation of the Shannon Wiener index using all captured fish species:
+    $$-\\sum\\limits_{i=1}^{s} \\frac{n_i}{N} \\ln \\frac{n_i}{N}$$
+    with $\\sum\\limits_{i=1}^{s}$ the sum over all species,
+    $n_i$ the number of individuals for each species and
+    $N$ the total number of individuals (of all species)."
+  )
+)
+```
+
+```{r, results='asis'}
+cat(
+  paste0(
+    "- `", metric_type_description$metric_type, "`: ",
+    metric_type_description$description_type, collapse = "\n\n"
+  )
+)
+```
+
 
 After calculations are done, the metric score (named as metric name preceded by an `S`) is calculated by looking up in which interval the result is situated.
 Intervals are presented as `[min, max]`, `]min, max[`, `[min, max[`, `]min, max]`, `] , max]` or `[min, [`, where `[]` presents a closed interval (`min` and `max` included), `][` an open interval (`min` and `max` excluded) and the absence of `min` or `max` means everything lower resp. higher than `max` resp. `min`.
@@ -85,13 +125,13 @@ suppressMessages(
   )
 ```
 
-(For brabeel: if less than 30 individuals, the number of individuals is considered too low to calculate a reliable index.)
+(For brabeel: if less than 10 individuals, the number of individuals is considered too low to calculate a reliable index.)
 
 After that, a standardised IBI is calculated.
 For the older indexes, this is $IBI / 5$.
 For the newer indexes, this is
- $(IBI - n_{metrics} / c) / (IBI_{max} - n_{metrics} / c)$
-with c = 1 for zonation bron and c = 5 for all other zonations.
+ $(IBI - \frac{n_{metrics}}{c}) / (IBI_{max} - \frac{n_{metrics}}{c})$
+with $c = 1$ for zonation bron and $c = 5$ for all other zonations.
 For the estuarine zonations of IJzer and Schelde, no standardisation is done.
  
 This standardised IBI is used to determine the EQR class, using the below table, where the upper limit
@@ -118,7 +158,7 @@ suppressMessages(
 
 Finally the EQR is calculated for most indexes (the older indexes, the canals index and the IJzer and Schelde estuaria indexes) as
 
-$(EQR_{class} - 1) / nclass + (IBI_{std} - ibi_{classmin}) / (nclass * (IBI_{classmax} - IBI_{classmin}))$
+$\frac{EQR_{class} - 1}{n_{class}} + \frac{IBI_{std} - ibi_{classmin}}{n_{class} * (IBI_{classmax} - IBI_{classmin})}$
 
 For the indexes brabeel, lakes, bron and estuarien_zijrivieren_zoet, the standardised IBI is used as EQR.
 
@@ -149,7 +189,8 @@ calculate_metric_measures <- suppressMessages(
     filter(
       !(!is.na(.data$...12) & .data$...12 == "check" &
           .data$metric_measures_name == "MnsPis_lakes")
-    )
+    ) %>%
+    left_join(metric_type_description, by = "metric_type")
 )
 data_taxonmetrics <- suppressMessages(
   read_csv2(

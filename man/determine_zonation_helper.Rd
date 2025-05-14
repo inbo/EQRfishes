@@ -13,13 +13,21 @@ determine_zonation_helper(
 )
 }
 \arguments{
-\item{var_width}{width of the river at the sample location}
+\item{var_width}{width of the river at the sample location (meters)}
 
-\item{var_slope}{slope of the river at the sample location}
+\item{var_slope}{slope of the river at the sample location (per mille)}
 
 \item{var_tidal}{tidal effect present (TRUE) or absent (FALSE)?}
 
-\item{var_indextype}{type based on salinity of the sample location}
+\item{var_indextype}{type based on salinity of the sample location:
+\itemize{
+\item \code{"ZTWA"} for freshwater,
+\item \code{"YZRP"} for estuarine Ijzer,
+\item \code{"SCHM"} for estuarine Schelde mesohaline,
+\item \code{"SCHO"} for estuarine Schelde oligohaline,
+\item \code{"SCHZ"} for estuarine Schelde freshwater,
+\item \code{"ZTWZ"} for estuarine Schelde freshwater
+}}
 
 \item{version}{'new' version with bron and brabeel, or 'old' version without
 these two zonations?
@@ -31,6 +39,9 @@ zonation of the focal location(s)
 \description{
 This helper function determines the index typology (\code{zonation}) based on the
 given measurements for one location.
+In case the result is "stilstaand" (slope = 0), the index typology can be
+"lakes" or "canals", which should be determined based on the morphology
+of the water object.
 To determine the index typology of the whole dataset at once, please use
 function \code{determine_zonation()}.
 }

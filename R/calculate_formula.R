@@ -1,11 +1,13 @@
 #' calculate formula based on given parameters
 #'
-#' small function that calculates a formula after replacing the parameter names
-#' with their values
+#' Small helper function that calculates a formula after replacing the parameter
+#' names with their values.
+#' The function is meant to calculate the formulas in
+#' `system.file("extdata/calculate_metric_formula.csv", package = "EQRfishes")`.
 #'
 #' @param formula formula including only given parameters
-#' @param sampledata location specific variables (column name) with their values
-#' (value)
+#' @param sampledata location specific variables (column `name`) with their
+#' values (column`value`, given as character string!)
 #' @param metric_name name of the variable to be calculated
 #'
 #' @return table sampledata with an additional metric which is the result of

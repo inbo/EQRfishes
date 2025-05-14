@@ -33,7 +33,7 @@ library(DT)
 
 This vignette gives an overview of the content of the package. It documents how calculations are done and is a manual to make changes in the package.
 
-The EQRfishes-package allows to calculate quality indices on waterbodies, based on fish measurement data. The package is designed in such way that the information on how to calculate the indices (formulas, class intervals,...), is saved in data sheets (in the folder `inst/extdata`), while the R code itself only contains routines to execute these calculations. This allows users to redefine calculations without digging into the R code.
+The EQRfishes-package allows to calculate quality indices on waterbodies, based on fish measurement data. The package is designed in such way that the information on how to calculate the indices (formulas, class intervals,...) is saved in data sheets (in folder `inst/extdata`), while the R code itself only contains routines to execute these calculations. This allows users to redefine calculations without digging into the R code.
 
 ## Overview package functions
 
@@ -50,7 +50,8 @@ information <- tribble(
   "calculate_metric()", 2, -6, 0, 0.5, "",
   "...", 3, -8, 0, 0.5, "",
   "calculate_formula()", 2, -10, 0, 0.5, "",
-  "calculate_metric_measures()", 1, -12, 0, 0.5, "calculate_metric_measures.csv",
+  "calculate_metric_measures()", 1, -12, 0, 0.5,
+  "calculate_metric_measures.csv",
   "(small subfunctions)", 2, -14, 0, 0.5, "data_classes.csv",
   "var_in_interval()", 3, -16, 0, 0.5, "",
   "calculate_metric_score()", 1, -18, 0, 0.5, "calculate_metric_score.csv",
@@ -79,11 +80,24 @@ information %>%
   )
 ```
 
+Function `determine_zonation()` is less complicated: it only calls its helper
+function `determine_zonation_helper()` that does the job for 1 sample location,
+and function `var_in_interval()` that checks if given data are within
+the intervals given in [`data_zonation.csv`](#data_zonation-csv).
+
 ## Overview information on calculations
+
+This section gives an overview of the data available in the data sheets in
+folder `inst/extdata`, ordered by sheet.
+For reconstructing the calculations, take a look at
+`vignette("overview_calculations", package = "EQRfishes")`, where the same
+information (from the sheets) is presented by index typology and metric.
 
 ### `data_zonation.csv`
 
-This datasheet gives all needed information to determine the zonation of a specific location.
+This data sheet gives all needed information to determine the index typology
+(`zonation`) of a specific sample location.
+It is used in function `determine_zonation()`.
 
 ```{r zonation}
 suppressMessages(
@@ -95,40 +109,51 @@ suppressMessages(
 Huetzonation for indextypecode ZTWA:
 
 ```{r zonation-ZTWA}
-suppressMessages(
-  read_csv2(system.file("extdata/data_zonation.csv", package = "EQRfishes"))
+dataset_ztwa <- merge(
+  merge(
+    data.frame(river_width = seq(0, 110, by = 0.5), x = 0),
+    data.frame(river_slope = seq(0, 8, by = 0.1), x = 0),
+    by = "x"
+  ),
+  suppressMessages(
+    read_csv2(system.file("extdata/data_zonation.csv", package = "EQRfishes"))
+  ) %>%
+    filter(.data$indextypecode == "ZTWA") %>%
+    select(-"tidal", -"indextypecode") %>%
+    mutate(x = 0),
+  by = "x"
 ) %>%
-  filter(.data$indextypecode == "ZTWA") %>%
-  select(-"tidal", -"indextypecode", -"zonation_old") %>%
-  #mutate()
-  pivot_wider(names_from = "width", values_from = "zonation") %>%
-  arrange(.data$slope) %>%
-  kable()
+  filter(
+    var_in_interval(river_width, width),
+    var_in_interval(river_slope, slope)
+  )
+dataset_ztwa %>%
+  ggplot(aes(x = river_width, y = river_slope, colour = zonation)) +
+  geom_point()
 ```
 
 Old huetzonation for indextypecode ZTWA:
 
 ```{r zonation-ZTWA-old}
-suppressMessages(
-  read_csv2(system.file("extdata/data_zonation.csv", package = "EQRfishes"))
-) %>%
-  filter(.data$indextypecode == "ZTWA") %>%
-  select(-"tidal", -"indextypecode", -"zonation") %>%
-  #mutate()
-  pivot_wider(names_from = "width", values_from = "zonation_old") %>%
-  arrange(.data$slope) %>%
-  kable()
+dataset_ztwa %>%
+  ggplot(aes(x = river_width, y = river_slope, colour = zonation_old)) +
+  geom_point()
+
 ```
 
 ### `zonation_metric.csv`
 
-This datasheet shows which metrics and metric scores have to be calculated for each zonation, with additional information on where to find the information for calculation of the metric:
+This data sheet shows which metrics and metric scores have to be calculated for each index typology (`zonation`), with additional information on where to find the information for calculation of the metric:
 
-- column metric_formula_name contains metrics for which the formulas for calculation are added to `calculate_metric_formula.csv`
-- column metric_measures_name contains metrics for which the calculation methods (directly based on measures) are added to `calculate_metric_measures.csv`
-- column metric_score_name gives the score name, referring to `calculate_metric_score.csv`, which contains the indices to calculate the metric scores based on metric variables
+- column `metric_formula_name` contains metrics for which the formulas for calculation are added to [`calculate_metric_formula.csv`](#calculate_metric_formula-csv)
+- column `metric_measures_name` contains metrics for which the calculation methods (directly based on measures) are added to [`calculate_metric_measures.csv`](#calculate_metric_measures-csv)
+- column `metric_score_name` gives the score name, referring to [`calculate_metric_score.csv`](#calculate_metric_score-csv), which contains the indices to calculate the metric scores based on metric variables
 
-If the metric is only applicable to one method, this method is mentioned (E = electric, F = fyke)
+This table also mentions the methods for which the metric is developed (E = electric, F = fyke, SN = trawl).
+Calculations will only be done on data collected with the mentioned method(s).
+
+For some index typologies, metrics MniInd or MnsTot are added without `metric_score_name`.
+Here the metric score is not used to calculate the IBI, but it is used to give IBI a low value if the number of individuals or species is too low to calculate the IBI and EQR (see [`calculate_ibi_eqr.csv`](#calculate_ibi_eqr-csv)).
 
 ```{r zonation_metric}
 suppressMessages(
@@ -140,7 +165,7 @@ suppressMessages(
 
 ### `description_metrics.csv`
 
-This datasheet is not used in the calculations, but it gives an overview of all metrics (and variables) with a description
+This data sheet is not used in the calculations, but it gives an overview of all metrics (and variables) with a description.
 
 ```{r description_metrics}
 suppressMessages(
@@ -154,14 +179,14 @@ suppressMessages(
 
 ### `calculate_metric_formula.csv`
 
-This datasheet shows which how to calculate metrics based on other metrics and metric scores:
+This data sheet shows how to calculate metrics based on other metrics and metric scores:
 
-- column `formula`: R-code to calculate the metric based on variables
+- column `formula`: R-code to calculate the metric under `metric_formula_name` based on variables
 - all variables from the formula should be mentioned in one of these columns:
-    - column `submetric_formula_name`: if the variable itself should be calculated using a formula (add variable to `calculate_metric_formula.csv`)
-    - column `submetric_measures_name`: if the variable can be calculated directly based on measures (add variable to `calculate_metric_measures.csv`)
-    - column `submetric_score_name`: if a score is used in the formula, in this case also the column `submetric_formula_name` or `submetric_measures_name` should be filled, with the variables needed in `calculate_metric_score.csv`
-- columns `metric_formula_name` and `formula` should be repeated to allow to add multiple variables for one formula
+    - column `submetric_formula_name`: if the variable itself should be calculated using a formula (add variable to this table `calculate_metric_formula.csv` as well)
+    - column `submetric_measures_name`: if the variable can be calculated directly based on measures (add variable to [`calculate_metric_measures.csv`](#calculate_metric_measures-csv))
+    - column `submetric_score_name`: if a score is used in the formula; in this case also the column `submetric_formula_name` or `submetric_measures_name` should be filled, with the variables needed in [`calculate_metric_score.csv`](#calculate_metric_score-csv)
+- the cells in columns `metric_formula_name` and `formula` should be repeated in different rows to allow to add multiple variables for one formula
 
 ```{r calculate_metric_formula}
 suppressMessages(
@@ -175,17 +200,23 @@ suppressMessages(
 
 ### `calculate_metric_measures.csv`
 
-This datasheet shows which how to calculate metrics based on fishdata of one location. Variables in this sheet mostly refer to species specific values that are gathered in `data_taxonmetrics.csv` (otherwise the origin is mentioned below).
+This data sheet shows how to calculate metrics based on fish measurements of one location.
+Variables in this sheet mostly refer to species specific values that are gathered in [`data_taxonmetrics.csv`](#data_taxonmetrics-csv) (otherwise the origin is mentioned below).
 
-- column `metric_type`: refers to a specific type of calculation
-- column `values_column`: extra information needed for calculation of some metric types:
+- column `metric_type`: refers to a specific type of calculation that is used to calculate the metric mentioned under `metric_measures_name` (see `vignette("overview_calculations", package = "EQRfishes")` for additional information on these calculations)
+- column `values_column`: extra information needed for calculation if `metric_type` is one of these:
     - `sum_values_column`: calculates the sum of the species specific values in the indicated column
-    - `sum_of_scored_length_classes`: each species get a score dependent on the length class, an this score is:
-        - if `value_column` mentions multiple: all species with > 1 length class are counted
-        - otherwise `value_column` refers to variable in `data_classes.csv` --> species get scores dependent on the number of length classes, and these scores are summed over different species
-- column `speciesfilter`: R-code indicating which species to add, referring to columns in `data_taxonmetrics.csv`
+    - `sum_of_scored_length_classes`: each species gets a score dependent on the length class, and this score is:
+        - if `values_column` mentions multiple: all species with > 1 length class are counted
+        - otherwise `values_column` refers to variable in [`data_classes.csv`](#data_classes-csv) --> species get scores dependent on the number of length classes, and these scores are summed over different species
+- column `speciesfilter`: R-code indicating which species to add, referring to column names in [`data_taxonmetrics.csv`](#data_taxonmetrics-csv).
+    No value means that all species are included for the calculation.
 - column `exclude_species_length`: which species lengths to exclude before doing the calculation?
-- ...
+- column `null_to_0`: value 1 indicates that result NULL should be replaced by 0.
+- column `only_individual_measures`: value 1 indicates that only individually measured data should be used
+- column `saltru_to_salfar`: Should _Salmo trutta_ fario (SAL.FAR.) and _Salmo trutta_ trutta (SAL.TRU.) be treated as the same species?
+    - If TRUE, _Salmo trutta_ fario, _Salmo trutta_ trutta and _Salmo trutta_ (SAL.TRT.) are treated as one species (and values of _Salmo trutta_ fario are used).
+    - If FALSE, _Salmo trutta_ fario and _Salmo trutta_ trutta are treated as separate species/variants to calculate this metric; _Salmo trutta_ is treated as the same species as _Salmo trutta_ fario.
 
 ```{r calculate_metric_measures}
 suppressMessages(
@@ -199,7 +230,10 @@ suppressMessages(
 
 ### `data_taxonmetrics.csv`
 
-This datasheet contains the species lists where `calculate_metric_measures.csv` often refers to.  As this table is too large to display at once, a first table gives all columns that can contain different values.
+This data sheet contains the species lists where [`calculate_metric_measures.csv`](#calculate_metric_measures-csv) often refers to.
+In fact it is a pivot table with a complete fish species list in the rows and each column presenting one of the variables in [`calculate_metric_measures.csv`](#calculate_metric_measures-csv).
+
+As this table is too large to display at once, a first table gives all columns that can contain different values (typically used for the metric type (or calculation) `sum_values_column`).
 
 ```{r data_taxonmetrics}
 suppressMessages(
@@ -210,33 +244,52 @@ suppressMessages(
 )
 
 taxonlist %>%
-  select("taxonname", "taxoncode", starts_with("WF_")) %>%
+  select("taxonname", "taxoncode", starts_with("wf_")) %>%
   datatable()
 ```
 
 
-Other columns only give presence/absence.  We here list for each column the species that are present (xxx = 1).
+Other columns only give presence/absence presented by values 1 or 0.  We here list for each column the species that are present (with value 1 in the table).
 
 ```{r include=FALSE}
 out <- NULL
 columns_relevant <- taxonlist %>%
   select(
-    -"taxonname", -"taxoncode", -starts_with("WF_"),
-    -starts_with("Recr_"), -starts_with("Gkla_"), -ends_with("_Opm")
+    -"taxonname", -"taxoncode", -"taxonkey", -"dutch_name", -starts_with("wf_")
   ) %>%
   colnames() %>%
   sort()
 for (column in columns_relevant) {
-  out <- c(out, knit_expand("_taxontable.Rmd"))
+  out <- c(
+    out,
+    paste0("<details><summary>Show column `", column, "`</summary>"),
+    knit_expand("_taxontable.Rmd"),
+    "</details>"
+  )
 }
 ```
 `r paste(knit(text = out), collapse = '\n')`
 
 
+### `data_classes.csv`
+
+To calculate the number of length classes or to score length classes,
+data sheet `data_classes.csv` is used.
+`variable` `"Recr"` allows to count the number of length classes (`interval` indicates fish length classes, `class` is an index number that allows to count the number of unique classes).
+`variable` `"Gkla"` assigns a `score` related to the number of length classes (`interval` indicates number of length classes).
+Also `variable` `"multiple"` assigns a `score` related to the number of length classes: 1 (per species) if > 1 length class, otherwise 0.
+
+```{r}
+suppressMessages(
+  read_csv2(system.file("extdata/data_classes.csv", package = "EQRfishes"))
+) %>%
+  datatable()
+```
+
 
 ### `calculate_metric_score.csv`
 
-This datasheet mentions the intervals that are used to derive a metric score based on 1 or 2 variables/metrics (the second variable is mentioned in `add_category` with interval `value_add_category`), score_id is the class (or score).
+This data sheet mentions the intervals that are used to derive a metric score (name in column `metric_score`) based on 1 or 2 variables/metrics (the first variable is mentioned in `metric` with interval `value_metric`; the second variable is mentioned in `add_category` with interval `value_add_category`), `score_id` is the class (or score).
 
 ```{r calculate_metric_score}
 suppressMessages(
@@ -249,10 +302,9 @@ suppressMessages(
 
 ### `calculate_ibi_eqr.csv`
 
-This datasheet gives the information to calculate the IBI and EQR:
 
-- for IBI, only exceptions to the normal rule of the average of the metric scores are mentioned
-- EQR calculation is based on IBI and is given for each zonation separately
+This data sheet gives the information to calculate the IBI, but only exceptions to the general rule of the average of the metric scores are mentioned.
+These exceptions are often low scores that are given in case the number of species or individuals is low.
 
 ```{r calculate_ibi_eqr}
 suppressMessages(
@@ -261,4 +313,15 @@ suppressMessages(
   datatable()
 ```
 
+
+### `score.csv`
+
+This data sheet gives the information to calculate the EQR based on IBI (see `vignette("overview_calculations", package = "EQRfishes")` for more information).
+
+```{r score}
+suppressMessages(
+  read_csv2(system.file("extdata/score.csv", package = "EQRfishes"))
+) %>%
+  datatable()
+```
 

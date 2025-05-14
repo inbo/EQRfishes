@@ -19,6 +19,14 @@
 #' @param only_individual_measures value 1 indicates that only individually
 #' measured data should be used (info from `calculate_metric_measures.csv`)
 #' @param null_to_0 value 1 indicates that result NULL should be replaced by 0
+#' @param saltru_to_salvar Should _Salmo trutta_ fario (SAL.FAR.) and
+#' _Salmo trutta_ trutta (SAL.TRU.) be treated as the same species?
+#' If TRUE, _Salmo trutta_ fario, _Salmo trutta_ trutta and _Salmo trutta_
+#' (SAL.TRT.) are treated as one species
+#' (and values of _Salmo trutta_ fario are used).
+#' If FALSE, _Salmo trutta_ fario and _Salmo trutta_ trutta are treated as
+#' separate species/variants to calculate this metric;
+#' _Salmo trutta_ is treated as the same species as _Salmo trutta_ fario.
 #' @param sampledata table with earlier calculated variables to which the newly
 #' calculated variable should be added
 #'

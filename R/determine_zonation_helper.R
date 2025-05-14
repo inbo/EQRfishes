@@ -2,13 +2,22 @@
 #'
 #' This helper function determines the index typology (`zonation`) based on the
 #' given measurements for one location.
+#' In case the result is "stilstaand" (slope = 0), the index typology can be
+#' "lakes" or "canals", which should be determined based on the morphology
+#' of the water object.
 #' To determine the index typology of the whole dataset at once, please use
 #' function `determine_zonation()`.
 #'
-#' @param var_width width of the river at the sample location
-#' @param var_slope slope of the river at the sample location
+#' @param var_width width of the river at the sample location (meters)
+#' @param var_slope slope of the river at the sample location (per mille)
 #' @param var_tidal tidal effect present (TRUE) or absent (FALSE)?
-#' @param var_indextype type based on salinity of the sample location
+#' @param var_indextype type based on salinity of the sample location:
+#'   - `"ZTWA"` for freshwater,
+#'   - `"YZRP"` for estuarine Ijzer,
+#'   - `"SCHM"` for estuarine Schelde mesohaline,
+#'   - `"SCHO"` for estuarine Schelde oligohaline,
+#'   - `"SCHZ"` for estuarine Schelde freshwater,
+#'   - `"ZTWZ"` for estuarine Schelde freshwater
 #' @param version 'new' version with bron and brabeel, or 'old' version without
 #' these two zonations?
 #' Defaults to 'new'.

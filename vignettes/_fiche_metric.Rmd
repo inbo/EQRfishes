@@ -25,6 +25,10 @@ if (is.na(metric_item[[level]]$metric_measures_name)) {
   output_metric[[level]] <- c(
     output_metric[[level]], paste0("__", unique(formula[[level]]$formula), "__")
   )
+  output_metric[[level]] <- c(
+    output_metric[[level]],
+    "(The calculation of these variables is explained under the subtitles below.)" # nolint: line_length_linter
+  )
 
   for (var_metric in unique(formula[[level]]$submetric_name)) {
     level <- level + 1

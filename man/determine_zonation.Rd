@@ -9,10 +9,18 @@ determine_zonation(dataset, version = c("new", "old"))
 \arguments{
 \item{dataset}{dataset on location measures with at least columns
 \itemize{
-\item \code{width_river} width of the river at the sample location,
-\item \code{slope} slope of the river at the sample location,
+\item \code{width_river} width of the river at the sample location (meters),
+\item \code{slope} slope of the river at the sample location (per mille),
 \item \code{tidal} tidal effect present (TRUE) or absent (FALSE)?
-\item \code{IndexTypeCode} type based on salinity of the sample location
+\item \code{IndexTypeCode} type based on salinity of the sample location:
+\itemize{
+\item \code{"ZTWA"} for freshwater,
+\item \code{"YZRP"} for estuarine Ijzer,
+\item \code{"SCHM"} for estuarine Schelde mesohaline,
+\item \code{"SCHO"} for estuarine Schelde oligohaline,
+\item \code{"SCHZ"} for estuarine Schelde freshwater,
+\item \code{"ZTWZ"} for estuarine tributaries with freshwater
+}
 }}
 
 \item{version}{'new' version with bron and brabeel or 'old' version without
@@ -22,7 +30,7 @@ This information will be used if dataset has no column \code{version} or to
 replace NA values in column \code{version}.}
 }
 \value{
-input dataset with additional column 'zonation'
+input dataset with additional column \code{zonation}
 }
 \description{
 This function determines the index typology (\code{zonation}) based on the given

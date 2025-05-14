@@ -10,9 +10,9 @@
 #' metrics),
 #' this is IBI//c with c the number of EQR classes
 #' (or 1//the width of an EQR class, which is 0.2).
-#' For the new method, this is (IBI - x) // (y - x) with y the sum of the
-#' maximal scores of the metrics and x = n//c with n the number of metrics
-#' and c the number of EQR classes
+#' For the new method, this is $\frac{IBI - x}{y - x}$ with y the sum of the
+#' maximal scores of the metrics and $x = \frac{n}{c}$ with n the number of
+#' metrics and c the number of EQR classes
 #' (or 1//the width of an EQR class, which is 0.2).
 #'
 #' @param ibi IBI-score, result of the function `calculate_ibi_score()`
