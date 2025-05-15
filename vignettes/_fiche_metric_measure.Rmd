@@ -87,7 +87,10 @@ if (!is.na(measure_rules$saltru_to_salfar) && !measure_rules$saltru_to_salfar) {
     "_Salmo trutta_ fario and _Salmo trutta_ trutta are treated as separate species/variants to calculate this metric; _Salmo trutta_ is treated as the same species as _Salmo trutta_ fario.\n\n" # nolint: line_length_linter
   )
 } else {
-  if (sal_present) {
+  if (
+    sal_present &&
+      !measure_rules$metric_type %in% c("number_of_individuals", "total_weight")
+  ) {
     cat(
       "_Salmo trutta_ fario, _Salmo trutta_ trutta and _Salmo trutta_ are treated as one species (and values of _Salmo trutta_ fario are used).\n\n" # nolint: line_length_linter
     )
