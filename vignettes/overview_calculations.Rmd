@@ -6,6 +6,9 @@ output:
   rmarkdown::html_vignette:
     fig_caption: yes
     toc: TRUE
+bibliography: references.bib
+link-citations: true
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/research-institute-for-nature-and-forest.csl
 vignette: >
   %\VignetteIndexEntry{Overview of calculations}
   %\VignetteEngine{knitr::rmarkdown}
@@ -206,11 +209,18 @@ calculate_metric_score <- suppressMessages(
 calculate_ibi_eqr <- suppressMessages(
   read_csv2(system.file("extdata/calculate_ibi_eqr.csv", package = "EQRfishes"))
 )
+index_overview <- suppressMessages(
+  read_csv2(
+    system.file("extdata/index_names_english_dutch.csv", package = "EQRfishes")
+  )
+)
 ```
 
 ```{r zonations, include=FALSE}
 output <- NULL
 for (var_zonation in unique(zonation_metric$zonation)) {
+  index_information <- index_overview %>%
+    filter(short_name == var_zonation)
   output <- c(output, knit_child("_fiche_zonation.Rmd"))
 }
 ```
@@ -218,6 +228,11 @@ for (var_zonation in unique(zonation_metric$zonation)) {
 ```{r output, results='asis'}
 cat(output, sep = "\n")
 ```
+
+
+# References
+
+
 <!--
 ## Overview information on calculations
 

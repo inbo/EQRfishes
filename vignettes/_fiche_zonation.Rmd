@@ -1,5 +1,30 @@
 
-# `r var_zonation`
+# `r index_information$english_name`
+
+(Dutch: `r index_information$dutch_name`)
+
+```{r echo=FALSE, results='asis'}
+if (index_information$reference == "not published") {
+  cat("This index is not published.")
+  description_metrics_selection <- description_metrics %>%
+    filter(is.na(publication))
+} else if (startsWith(index_information$reference, "based on")) {
+  cat("This index is ", index_information$reference, ".", sep = "")
+  description_metrics_selection <- description_metrics %>%
+    filter(
+      publication ==
+        gsub("(based on )?(.*)$", "\\2", index_information$reference)
+    )
+} else {
+  cat("This index is published in ", index_information$reference, ".", sep = "")
+  description_metrics_selection <- description_metrics %>%
+    filter(publication == index_information$reference)
+}
+if (!is.na(index_information$add_info)) {
+  cat(" ", index_information$add_info)
+}
+```
+
 
 ```{r echo=FALSE, include=FALSE, results='asis'}
 output_zonation <- NULL

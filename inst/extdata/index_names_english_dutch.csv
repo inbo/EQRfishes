@@ -1,0 +1,16 @@
+short_name;dutch_name;english_name;IsHuetzone;IsTidal;indexTypeCode;reference;add_info
+barbeel;barbeel index;fish-based barbel IBI;1;0;ZTWA;@belpaire_index_2000;
+brasem;brasem index;fish-based bream IBI;1;0;ZTWA;@belpaire_index_2000;
+forel;forel index;fish-based trout IBI;1;0;ZTWA;based on @breine_fish-based_2004;
+stilstaand;stilstaand index;;1;0;ZTWA;;
+upstream;bovenstroomse index;fish-based upstream IBI;1;0;ZTWA;@breine_fish-based_2004;
+vlagzalm;vlagzalm index;fish-based grayling IBI;1;0;ZTWA;based on @breine_fish-based_2004;
+bron;bron index;fish-based river source IBI;1;0;ZTWA;@breine_een_2018;
+canals;kanaal index;fish- based canals IBI;0;0;CANA;not published;
+lakes;meren index;fish-based lakes IBI;0;0;ENCL;@breine_development_2015;
+estuarien_IJzer;IJzer estuariene index;fish-based IJzer estuarine index;0;1;YZRP;@breine_het_2013;
+estuarien_Schelde_mesohaline;estuariene Schelde mesohaliene index;fish-based estuarine Schelde mesohaline   index;0;1;SCHM;@breine_zone-specific_2010;
+estuarien_Schelde_oligohaline;estuariene Schelde oligohaliene index;fish-based estuarine Schelde oligohaline  index;0;1;SCHO;@breine_zone-specific_2010;It is also used for river Rupel.
+estuarien_Schelde_freshwater;estuariene Schelde zoetwater index;fish-based estuarine Schelde freshwater index;0;1;SCHZ;@breine_zone-specific_2010;
+estuarien_zijrivieren_zoet;getijgebonden zijrivieren zoet index;fish-based estuarine tribuataries river Schelde index;0;1;ZTWZ;@breine_visindex_2020;
+brabeel;brasem & barbeel index versie 2021;fish-based lowland IBI;1;0;ZTWA;@breine_new_2021;
