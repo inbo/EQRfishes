@@ -106,7 +106,8 @@ suppressMessages(
   datatable()
 ```
 
-Huetzonation for indextypecode ZTWA:
+Graphic presentation of these data for `indextypecode` ZTWA for the new index typology
+(column `zonation` in table):
 
 ```{r zonation-ZTWA}
 dataset_ztwa <- merge(
@@ -132,7 +133,8 @@ dataset_ztwa %>%
   geom_point()
 ```
 
-Old huetzonation for indextypecode ZTWA:
+Graphic presentation of these data for `indextypecode` ZTWA for the old index typology
+(column `zonation_old` in table):
 
 ```{r zonation-ZTWA-old}
 dataset_ztwa %>%

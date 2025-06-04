@@ -76,7 +76,8 @@ metric_type_description <- data.frame(
     the sum of these scores (if `values_column = \"Gkla\"`) or the result is
     the number of species with > 1 length class (if
     `values_column = \"multiple\"`)",
-    "calculation of the Shannon Wiener index using all captured fish species:
+    "calculation of the Shannon Wiener diversity index using all captured fish
+    species:
     $$-\\sum\\limits_{i=1}^{s} \\frac{n_i}{N} \\ln \\frac{n_i}{N}$$
     with $\\sum\\limits_{i=1}^{s}$ the sum over all species,
     $n_i$ the number of individuals for each species and
