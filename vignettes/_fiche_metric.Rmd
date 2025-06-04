@@ -41,9 +41,16 @@ if (nrow(description_metric) > 0) {
 }
 
 if (level == 2 && !is.na(metric_item[[2]]$method)) {
-  output_metric[[level]] <- sprintf(
-    "_This metric should only be calculated from data collected by the method(s): %s._\n\n", # nolint: line_length_linter
-    metric_item[[2]]$method
+  method <- gsub("E", "electrofishing (E)", metric_item[[2]]$method)
+  method <- gsub("SN", "trawling (SN)", method)
+  method <- gsub("SF", "fykefishing (SF)", method)
+  method <- gsub("\\|", ", ", method)
+  output_metric[[level]] <- c(
+    output_metric[[level]],
+    sprintf(
+      "_This metric should only be calculated from data collected by the method(s): %s._\n\n", # nolint: line_length_linter
+      method
+    )
   )
 }
 if (is.na(metric_item[[level]]$metric_measures_name)) {

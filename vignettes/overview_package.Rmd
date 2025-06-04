@@ -149,7 +149,7 @@ This data sheet shows which metrics and metric scores have to be calculated for 
 - column `metric_measures_name` contains metrics for which the calculation methods (directly based on measures) are added to [`calculate_metric_measures.csv`](#calculate_metric_measures-csv)
 - column `metric_score_name` gives the score name, referring to [`calculate_metric_score.csv`](#calculate_metric_score-csv), which contains the indices to calculate the metric scores based on metric variables
 
-This table also mentions the methods for which the metric is developed (E = electric, F = fyke, SN = trawl).
+This table also mentions the methods for which the metric is developed (E = electrofishing, F = fykefishing, SN = trawling).
 Calculations will only be done on data collected with the mentioned method(s).
 
 For some index typologies, metrics MniInd or MnsTot are added without `metric_score_name`.
