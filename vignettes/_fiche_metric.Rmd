@@ -3,6 +3,43 @@
 
 ```{r include=FALSE, results='asis'}
 output_metric[[level]] <- ""
+
+description_metric <- description_metrics_selection %>%
+  filter(metric == var_metric)
+if (nrow(description_metric) == 0) {
+  description_metric <- description_metrics_selection %>%
+    filter(
+      coalesce(
+        metric == metric_item[[level]]$metric_measures_name,
+        metric == metric_item[[level]]$metric_formula_name
+      )
+    )
+}
+if (nrow(description_metric) > 0) { 
+  output_metric[[level]] <- c(
+    output_metric[[level]],
+    paste0(
+      paste0(
+        "This metric represents the "[
+          !(level == 2 && is.na(unique(metric_item[[level]]$metric_score_name)))
+        ],
+        unique(description_metric$description),
+        ". "
+      )[!is.na(unique(description_metric$description))],
+      paste0(
+        "It is named '",
+        unique(description_metric$metric_in_publication),
+        "' in ",
+        unique(description_metric$publication),
+        ".",
+        sep = ""
+      )[
+        !is.na(unique(description_metric$metric_in_publication))
+      ]
+    )
+  )
+}
+
 if (level == 2 && !is.na(metric_item[[2]]$method)) {
   output_metric[[level]] <- sprintf(
     "_This metric should only be calculated from data collected by the method(s): %s._\n\n", # nolint: line_length_linter
