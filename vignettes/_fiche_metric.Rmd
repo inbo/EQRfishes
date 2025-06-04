@@ -73,6 +73,30 @@ if (is.na(metric_item[[level]]$metric_measures_name)) {
     output_metric[[level]],
     "(The calculation of these variables is explained under the subtitles below.)" # nolint: line_length_linter
   )
+  if (grepl("surface", unique(formula[[level]]$formula))) {
+    output_metric[[level]] <- c(
+      output_metric[[level]],
+      paste(paste0(rep("#", level + 1), collapse = ""), "surface"),
+      "surface expresses the effort of capturing:",
+      "- for electrofishing: fished length (m) * fished river width (m)"[
+        grepl("E", metric_item[[2]]$method)
+      ],
+      "- for fykefishing: n_fyke_nets ^ 2 * 40 (length in m) * 2 (width in m)"[
+        grepl("SF", metric_item[[2]]$method)
+      ],
+      "- for trawling: fished length (m) * river width (m)"[
+        grepl("SN", metric_item[[2]]$method)
+      ]
+    )
+  }
+  if (grepl("n_fyke_days", unique(formula[[level]]$formula))) {
+    output_metric[[level]] <- c(
+      output_metric[[level]],
+      paste(paste0(rep("#", level + 1), collapse = ""), "n_fyke_days"),
+      "'n_fyke_days' is the total number of days that fykes were used,
+      so the number of fykes * the number of days."
+    )
+  }
 
   for (var_metric in unique(formula[[level]]$submetric_name)) {
     level <- level + 1
