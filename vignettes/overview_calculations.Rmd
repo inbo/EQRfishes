@@ -1,6 +1,6 @@
 ---
 title: "Overview of calculations"
-author: "Els Lommelen"
+author: "Els Lommelen & Gerlinde Van Thuyne"
 date: "`r Sys.Date()`"
 output:
   rmarkdown::html_vignette:
