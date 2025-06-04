@@ -60,18 +60,18 @@ describe("IBI is calculated correctly", {
 
     expect_equal(
       results_eqr$ibi,
-      c(NA, 8, 20, 9, NA, 12, 12, NA)
+      c(5.08, 8, 20, 9, 5.08, 12, 12, 5.08)
     )
     expect_equal(
       results_eqr$eqr,
-      c(NA, 0.291666666666667, 0.7916666666666666667, 0.3333333333333333, NA,
-        0.45833333333333333333, 0.45833333333333333333, NA)
+      c(0.17, 0.291666666666667, 0.7916666666666666667, 0.3333333333333333,
+        0.17, 0.45833333333333333333, 0.45833333333333333333, 0.17)
     )
     expect_equal(
       results_eqr$beoordeling,
-      c("niet genoeg individuen", "ontoereikend", "goed", "ontoereikend",
-        "niet genoeg individuen", "ontoereikend", "ontoereikend",
-        "niet genoeg individuen")
+      c("slecht", "ontoereikend", "goed", "ontoereikend",
+        "slecht", "ontoereikend", "ontoereikend",
+        "slecht")
     )
   })
   it("upstream", {

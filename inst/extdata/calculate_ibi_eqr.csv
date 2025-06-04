@@ -3,8 +3,10 @@ barbeel;IBI;MnsTot;[0,0];;;0
 barbeel;IBI;MnsTot;]0,2];;;1
 brasem;IBI;MnsTot;[0,0];;;0
 brasem;IBI;MnsTot;]0,2];;;1
-brabeel;IBI;MniInd;[0,0];;;0
-brabeel;IBI;MniInd;]0,10];;;
+brabeel;IBI;MnsTot;[0,0];;;1
+brabeel;IBI;MnsTot;]0,2];;;5.08
+brabeel;IBI;MniInd;[0,0];;;1
+brabeel;IBI;MniInd;]0,10];;;5.08
 upstream;IBI;MnsTot;[0,0];;;0
 upstream;IBI;MnsTot;]0,1];MniInd;] ,10[;1
 upstream;IBI;MnsTot;]0,2];MniInd;] ,15[;1
