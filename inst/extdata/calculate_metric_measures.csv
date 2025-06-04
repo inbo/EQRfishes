@@ -48,7 +48,7 @@ TotWeight_lakes;total_weight;;lakes == 1;;;;;;;;
 MniInd_lakes;number_of_individuals;;lakes == 1;;;;;;;;
 MniOmn_lakes;number_of_individuals;;omnivoor_lakes == 1;;;;;;;;
 MnsPis_lakes;number_of_species;;lakes == 1 & piscivoor_zoet == 1;;;;;;;;
-MniInvt_lakes;number_of_individuals;;lakes == 1 & invertivoor == 1;;;;;;;;
+MniInv_lakes;number_of_individuals;;lakes == 1 & invertivoor == 1;;;;;;;;
 MniInd_freshwater;number_of_individuals;;MniInd_en_MnsTot_Zeeschelde_zoet == 1;;;;;;;;
 MniPis_freshwater;number_of_individuals;;MniPis_Zeeschelde_zoet == 1;;;;;;;;
 MnsTot_freshwater;number_of_species;;MniInd_en_MnsTot_Zeeschelde_zoet == 1;;;;;;;;

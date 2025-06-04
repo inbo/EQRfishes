@@ -47,7 +47,7 @@ lakes;BenWei;SF;BenWei_lakes;;SBenWei_lakes_fyke
 lakes;MpiOmn;SF;MpiOmn_lakes;;SMpiOmn_lakes
 lakes;MnsPis;SF;;MnsPis_lakes;SMnsPis_lakes
 lakes;ManTol;SF;;ManTol_lakes;SManTol_lakes
-lakes;MpiInv;E;MpiInvt_lakes;;SMpiInv_lakes
+lakes;MpiInv;E;MpiInv_lakes;;SMpiInv_lakes
 lakes;MpiSpa;E;MpiSpa_lakes;;SMpiSpa_lakes
 canals;MnsTot;E;;MnsTot_canals;SMnsTot_canals
 canals;ManBio;E;ManBio_canals;;SManBio_canals
