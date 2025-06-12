@@ -8,14 +8,14 @@ ANG.ANG.;Recr;[9.4,15.5];1;
 ANG.ANG.;Recr;]15.5, [;2;
 ANG.ANG.;Gkla;] ,2[;;1
 ANG.ANG.;Gkla;[2,3[;;3
-ANG.ANG.;Gkla;[3,7];;5
+ANG.ANG.;Gkla;[3, [;;5
 ABR.BRA.;Recr;[0,7[;0;
 ABR.BRA.;Recr;[7,14];1;
 ABR.BRA.;Recr;]14, [;2;
 ALB.BIP.;Recr;[0,4.8];0;
 ALB.BIP.;Recr;[4.8, [;1;
 ALB.BIP.;Gkla;] ,2[;;1
-ALB.BIP.;Gkla;[2,7[;;3
+ALB.BIP.;Gkla;[2, [;;3
 ALB.ALB.;Recr;[0,5.6[;0;
 ALB.ALB.;Recr;[5.6,10];1;
 ALB.ALB.;Recr;]10, [;2;
@@ -23,7 +23,7 @@ BAR.BAR.;Recr;[0,4];0;
 BAR.BAR.;Recr;]4,10];1;
 BAR.BAR.;Recr;]10, [;2;
 BAR.BAR.;Gkla;] ,2[;;3
-BAR.BAR.;Gkla;[2,7];;5
+BAR.BAR.;Gkla;[2, [;;5
 BLI.BJO.;Recr;[0,6];0;
 BLI.BJO.;Recr;]6,11];1;
 BLI.BJO.;Recr;]11, [;2;
@@ -38,7 +38,7 @@ CHO.NAS.;Recr;[0,8];0;
 CHO.NAS.;Recr;]8,20];1;
 CHO.NAS.;Recr;]20, [;2;
 CHO.NAS.;Gkla;] ,2[;;3
-CHO.NAS.;Gkla;[2,7];;5
+CHO.NAS.;Gkla;[2, [;;5
 CYP.CAR.;Recr;[0,13];0;
 CYP.CAR.;Recr;]13,25.5];1;
 CYP.CAR.;Recr;]25.5, [;2;
@@ -54,7 +54,7 @@ LEU.CEP.;Recr;]10,16];2;
 LEU.CEP.;Recr;]16, [;3;
 LEU.CEP.;Gkla;] ,3[;;1
 LEU.CEP.;Gkla;[3,4[;;3
-LEU.CEP.;Gkla;[4,7];;5
+LEU.CEP.;Gkla;[4, [;;5
 LEU.DEL.;Recr;[0,3];0;
 LEU.DEL.;Recr;]3, [;1;
 LEU.IDE.;Recr;[0,10];0;
@@ -66,20 +66,17 @@ LEU.LEU.;Recr;]12.3,17];1;
 LEU.LEU.;Recr;]17, [;2;
 LEU.LEU.;Gkla;] ,2[;;1
 LEU.LEU.;Gkla;[2,3[;;3
-LEU.LEU.;Gkla;[3,7];;5
+LEU.LEU.;Gkla;[3, [;;5
 PHO.PHO.;Recr;[0,4.4];0;
 PHO.PHO.;Recr;]4.4,6.7];1;
 PHO.PHO.;Recr;]6.7, [;2;
 PHO.PHO.;Gkla;] ,2[;;3
-PHO.PHO.;Gkla;[2,7];;5
+PHO.PHO.;Gkla;[2, [;;5
 PIM.PRO.;Recr;[0,5];0;
 PIM.PRO.;Recr;]5,10];1;
 PIM.PRO.;Recr;]10, [;2;
 PSE.PAR.;Recr;[0,4];0;
 PSE.PAR.;Recr;]4, [;1;
-RHO.SER.;Recr;[0,6];0;
-RHO.SER.;Recr;]6,9];1;
-RHO.SER.;Recr;]9, [;2;
 RHO.AMA.;Recr;[0,6];0;
 RHO.AMA.;Recr;]6,9];1;
 RHO.AMA.;Recr;]9, [;2;
@@ -131,12 +128,12 @@ SAL.FAR.;Recr;]14,18];2;
 SAL.FAR.;Recr;]18, [;3;
 SAL.FAR.;Gkla;] ,2[;;1
 SAL.FAR.;Gkla;[2,3[;;3
-SAL.FAR.;Gkla;[3,7];;5
+SAL.FAR.;Gkla;[3, [;;5
 THY.THY.;Recr;[0,14];0;
 THY.THY.;Recr;]14,24];1;
 THY.THY.;Recr;]24, [;2;
 THY.THY.;Gkla;] ,2[;;3
-THY.THY.;Gkla;[2,7];;5
+THY.THY.;Gkla;[2, [;;5
 GAS.ACU.;Recr;[0,4];0;
 GAS.ACU.;Recr;]4, [;1;
 PUN.PUN.;Recr;[0,4];0;
@@ -146,7 +143,7 @@ COT.GRP.;Recr;[5,8];1;
 COT.GRP.;Recr;]8, [;2;
 COT.GRP.;Gkla;] ,2[;;1
 COT.GRP.;Gkla;[2,3[;;3
-COT.GRP.;Gkla;[3,7];;5
+COT.GRP.;Gkla;[3, [;;5
 LEP.GIB.;Recr;[0,4.6];0;
 LEP.GIB.;Recr;]4.6,8];1;
 LEP.GIB.;Recr;]8, [;2;
@@ -158,19 +155,27 @@ PER.FLU.;Recr;[0,7];0;
 PER.FLU.;Recr;]7,13];1;
 PER.FLU.;Recr;]13,20];2;
 PER.FLU.;Recr;]20, [;3;
-STI.LUC.;Recr;[0,12];0;
-STI.LUC.;Recr;]12,29.2];1;
-STI.LUC.;Recr;]29.2,40];2;
-STI.LUC.;Recr;]40, [;3;
+SAN.LUC.;Recr;[0,12];0;
+SAN.LUC.;Recr;]12,29.2];1;
+SAN.LUC.;Recr;]29.2,40];2;
+SAN.LUC.;Recr;]40, [;3;
 ASP.ASP.;Recr;[0,15[;0;
 ASP.ASP.;Recr;[15,35];1;
 ASP.ASP.;Recr;]35, [;2;
 PRO.SEM.;Recr;[0,5];0;
 PRO.SEM.;Recr;]5, [;1;
-SAN.LUC.;Recr;] ,12];0;
-SAN.LUC.;Recr;]12,29.2];1;
-SAN.LUC.;Recr;]29.2,40];2;
-SAN.LUC.;Recr;]40, [;3;
+COT.RHE.;Recr;[0,5[;0;
+COT.RHE.;Recr;[5,8];1;
+COT.RHE.;Recr;]8, [;2;
+COT.RHE.;Gkla;] ,2[;;1
+COT.RHE.;Gkla;[2,3[;;3
+COT.RHE.;Gkla;[3, [;;5
+COT.PER.;Recr;[0,5[;0;
+COT.PER.;Recr;[5,8];1;
+COT.PER.;Recr;]8, [;2;
+COT.PER.;Gkla;] ,2[;;1
+COT.PER.;Gkla;[2,3[;;3
+COT.PER.;Gkla;[3, [;;5
 PLA.FLE.;Recr;] ,4];0;
 PLA.FLE.;Recr;]4,11.5];1;
 PLA.FLE.;Recr;]11.5,18.5];2;
