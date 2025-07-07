@@ -80,6 +80,14 @@ calculate_eqr <- function(
 
   match.arg(output)
 
+  data_sample <- data_sample %>%
+    mutate(
+      method =
+        ifelse(str_detect(.data$method, "^E"), "E", .data$method),
+      method =
+        ifelse(str_detect(.data$method, "^SF"), "SF", .data$method)
+    )
+
   join_data_fish <- "sample_key"
   select_keys <- "sample_key"
   if (any(str_detect(data_sample$zonation, "estuarien|lakes|canals"))) {
@@ -103,11 +111,7 @@ calculate_eqr <- function(
               substr(paste0(.data$method, .data$method), 1, 2),
               sep = "_"
             )
-          ),
-        method =
-          ifelse(str_detect(.data$method, "^E"), "E", .data$method),
-        method =
-          ifelse(str_detect(.data$method, "^SF"), "SF", .data$method)
+          )
       )
     test_index_cluster <- data_sample %>%
       filter(
