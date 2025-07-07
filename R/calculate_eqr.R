@@ -312,7 +312,36 @@ calculate_eqr <- function(
     filter(
       is.na(.data$method_for_metric) |
         str_detect(.data$method, .data$method_for_metric)
-    ) %>%
+    )
+  if (nrow(result) == 0) {
+    problem <- data_sample %>%
+      distinct(
+        .data$sample_key, .data$LocationID, .data$method, .data$year,
+        .data$zonation
+      ) %>%
+      left_join(
+        suppressMessages(
+          read_csv2(
+            system.file("extdata/zonation_metric.csv", package = "EQRfishes")
+          )
+        ) %>%
+          distinct(.data$zonation, .data$method),
+        by = "zonation",
+        suffix = c("", "_for_metric"), relationship = "many-to-many"
+      ) %>%
+      filter(
+        !str_detect(.data$method, .data$method_for_metric)
+      )
+    stop(
+      sprintf(
+        "method %s cannot be used to calculate the index %s for sample_key %s,
+        only %s is allowed",
+        problem$method, problem$zonation, problem$sample_key,
+        problem$method_for_metric
+      )
+    )
+  }
+  result <- result %>%
     left_join(
       data_fish,
       by = join_data_fish
