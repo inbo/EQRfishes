@@ -86,8 +86,7 @@ calculate_metric <- function(
             "extdata/calculate_metric_measures.csv", package = "EQRfishes"
           )
         )
-      ) %>%
-        select(-"opmerking"),  # tijdelijk zolang in deze csv een opmerking staat
+      ),
       by = "metric_measures_name", suffix = c("", "_info_measures")
     ) %>%
     mutate(
