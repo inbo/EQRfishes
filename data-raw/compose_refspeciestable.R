@@ -152,6 +152,18 @@ data_zeeschelde_zoet %>%
   count(taxoncode) %>%
   filter(n > 1)
 
+query_data_classes <-
+  "SELECT TaxonCode as taxoncode,
+    --TaxonKey as taxonkey,
+    variable,
+    interval_rekrutering as interval,
+    class,
+    score_Gkla as score
+  FROM visindex.data_classes_aangepast"
+
+data_classes <-
+  sqlQuery(connection_vis, query_data_classes, stringsAsFactors = FALSE)
+
 odbcClose(connection_vis)
 
 data_taxonmetrics <- data_taxonmetrics %>%
@@ -180,3 +192,4 @@ data_taxonmetrics <- data_taxonmetrics %>%
   left_join(list_species, by = c("taxonkey", "taxoncode"))
 
 write_csv2(data_taxonmetrics, "inst/extdata/data_taxonmetrics.csv")
+write_csv2(data_classes, "inst/extdata/data_classes.csv", na = "")
