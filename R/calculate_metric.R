@@ -113,8 +113,7 @@ calculate_metric <- function(
     select(
       -"metric_formula_name", -"metric_measures_name",
       -"metric_type", -"speciesfilter", -"exclude_species_length",
-      -"only_individual_measures", -"null_to_0",  #de laatste 3 voorwaarden nog inwerken in script!
-      -"method" #, -"opmerking"
+      -"only_individual_measures", -"null_to_0"
     )
 
   if (nrow(result_formula) > 0) {
