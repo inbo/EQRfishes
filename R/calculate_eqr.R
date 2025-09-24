@@ -750,6 +750,12 @@ calculate_eqr <- function(
         ),
       eqr =
         ifelse(
+          .data$zonation == "bron" & .data$ibi == 0,
+          0,
+          .data$eqr
+        ),
+      eqr =
+        ifelse(
           .data$zonation == "estuarien_zijrivieren_zoet" & .data$ibi == 0.8,
           0.05,
           .data$eqr

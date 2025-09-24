@@ -169,6 +169,7 @@ For the indexes brabeel, lakes, bron and estuarien_zijrivieren_zoet, the standar
 Exceptions are:
 
 - if zonation = bron and IBI = 4, EQR = 0.2
+- if zonation = bron and IBI = 0, EQR = 0
 - if zonation = estuarien_zijrivieren_zoet and IBI = 0.8, EQR = 0.05
 
 ```{r load-sheets}
