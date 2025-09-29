@@ -500,6 +500,19 @@ calculate_eqr <- function(
   if (nrow(result_metrics_aggregated) > 0) {
     result_metrics <- result_metrics %>%
       filter(!str_detect(.data$zonation, "estuarien|lakes|canals")) %>%
+      mutate(
+        sample_key_trim =
+          substr(.data$sample_key, 1, nchar(.data$sample_key) - 3)
+      ) %>%
+      left_join(cluster, by = c("sample_key_trim" = "sample_key")) %>%
+      mutate(
+        sample_key = ifelse(
+          !is.na(.data$index_cluster),
+          .data$sample_key_trim,
+          .data$sample_key
+        ),
+        sample_key_trim = NULL
+      ) %>%
       bind_rows(result_metrics_aggregated)
   }
 
