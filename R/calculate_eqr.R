@@ -504,7 +504,13 @@ calculate_eqr <- function(
         sample_key_trim =
           substr(.data$sample_key, 1, nchar(.data$sample_key) - 3)
       ) %>%
-      left_join(cluster, by = c("sample_key_trim" = "sample_key")) %>%
+      left_join(
+        cluster %>%
+          mutate(
+            sample_key = as.character(.data$sample_key)
+          ),
+        by = c("sample_key_trim" = "sample_key")
+      ) %>%
       mutate(
         sample_key = ifelse(
           !is.na(.data$index_cluster),
