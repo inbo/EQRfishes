@@ -40,10 +40,6 @@ describe("IBI is calculated correctly", {
       results_eqr$eqr,
       0.45
     )
-    expect_equal(
-      results_eqr$beoordeling,
-      "ontoereikend"
-    )
   })
 })
 

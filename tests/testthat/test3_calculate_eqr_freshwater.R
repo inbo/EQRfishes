@@ -67,12 +67,6 @@ describe("IBI is calculated correctly", {
       c(0.17, 0.291666666666667, 0.7916666666666666667, 0.3333333333333333,
         0.17, 0.45833333333333333333, 0.45833333333333333333, 0.17)
     )
-    expect_equal(
-      results_eqr$beoordeling,
-      c("slecht", "ontoereikend", "goed", "ontoereikend",
-        "slecht", "ontoereikend", "ontoereikend",
-        "slecht")
-    )
   })
   it("upstream", {
     expect_warning(
@@ -91,10 +85,6 @@ describe("IBI is calculated correctly", {
       results_eqr$eqr,
       0.25
     )
-    expect_equal(
-      results_eqr$beoordeling,
-      "ontoereikend"
-    )
     expect_warning(
       results_eqr <- calculate_eqr(
         data_sample %>%
@@ -110,10 +100,6 @@ describe("IBI is calculated correctly", {
     expect_equal(
       results_eqr$eqr,
       0.54444444444444444
-    )
-    expect_equal(
-      results_eqr$beoordeling,
-      "matig"
     )
     expect_warning(
       results_eqr <- calculate_eqr(
@@ -131,10 +117,6 @@ describe("IBI is calculated correctly", {
       results_eqr$eqr,
       0.76666666666666666667
     )
-    expect_equal(
-      results_eqr$beoordeling,
-      "goed"
-    )
     expect_warning(
       results_eqr <- calculate_eqr(
         data_sample %>%
@@ -150,10 +132,6 @@ describe("IBI is calculated correctly", {
     expect_equal(
       results_eqr$eqr,
       0.433333333333333333
-    )
-    expect_equal(
-      results_eqr$beoordeling,
-      "matig"
     )
   })
   it("brasem en barbeel old", {
@@ -179,10 +157,6 @@ describe("IBI is calculated correctly", {
     expect_equal(
       results_eqr$eqr,
       c(0.2, 0.5, 0.475, 0.31666667)
-    )
-    expect_equal(
-      results_eqr$beoordeling,
-      c("slecht", "matig", "matig", "ontoereikend")
     )
 
     expect_warning(
@@ -216,10 +190,6 @@ describe("IBI is calculated correctly", {
     expect_equal(
       results_eqr$eqr,
       c(0.65, 0.55, 0.475, 0.4)
-    )
-    expect_equal(
-      results_eqr$beoordeling,
-      c("goed", "matig", "matig", "ontoereikend")
     )
   })
 })

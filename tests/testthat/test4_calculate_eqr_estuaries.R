@@ -89,10 +89,6 @@ describe("IBI is calculated correctly", {
       results_eqr$eqr,
       c(0.4166666666667, 0.333333333, 0.41666666667)
     )
-    expect_equal(
-      results_eqr$score_cat,
-      c("poor", "poor", "poor")
-    )
   })
   it("estuarien mesohaline", {
     expect_warning(
@@ -112,10 +108,6 @@ describe("IBI is calculated correctly", {
     expect_equal(
       results_eqr$eqr,
       c(0.5, 0.5)
-    )
-    expect_equal(
-      results_eqr$score_cat,
-      c("moderate", "moderate")
     )
   })
   it("estuarien oligohaline", {
@@ -137,10 +129,6 @@ describe("IBI is calculated correctly", {
     expect_equal(
       results_eqr$eqr,
       c(0.25, 0.25, 0.33333333)
-    )
-    expect_equal(
-      results_eqr$score_cat,
-      c("poor", "poor", "poor")
     )
   })
 })

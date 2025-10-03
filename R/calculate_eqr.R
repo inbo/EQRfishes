@@ -810,14 +810,6 @@ calculate_eqr <- function(
     select(
       select_keys, "zonation", "LocationID", "year", "calc_method_old",
       "ibi", "eqr_class", "eqr"
-    ) %>%
-    left_join(
-      eqr_scores %>%
-        select(
-          -"std_ibi_old", -"std_ibi_new", -"std_ibi_newst", -"ibi_ijzer",
-          -"ibi_estuarien"
-        ),
-      by = c("eqr_class" = "EQR_class")
     )
 
   if (output[[1]] == "EQR") {

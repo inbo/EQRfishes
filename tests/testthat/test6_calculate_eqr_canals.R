@@ -49,14 +49,6 @@ describe("IBI is calculated correctly", {
       results_eqr$eqr,
       c(0.77941177, 0.5882353)
     )
-    expect_equal(
-      results_eqr$score_cat,
-      c("GEP", "moderate")
-    )
-    expect_equal(
-      results_eqr$beoordeling,
-      c("goed", "matig")
-    )
   })
 })
 
