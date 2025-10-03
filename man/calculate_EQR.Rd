@@ -53,7 +53,7 @@ Main function of this package, which calculates the Ecological Quality Ratio
 Each table must contain a sample_key!
 }
 \examples{
-library(tidyverse)
+library(dplyr)
 library(EQRfishes)
 # freshwater river indexes (lowland IBI, upstream,...)
 data_sample <- read.csv2(
@@ -74,7 +74,7 @@ zonation_info <- data.frame(
     "forel"
   )
 )
-data_sample <- data_sample \%>\%
+data_sample <- data_sample |>
   inner_join(zonation_info, by = "sample_key")
 # calculate index
 calculate_eqr(data_sample, data_fish)

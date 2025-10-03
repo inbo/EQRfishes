@@ -48,7 +48,7 @@
 #' @family main
 #'
 #' @examples
-#' library(tidyverse)
+#' library(dplyr)
 #' library(EQRfishes)
 #' # freshwater river indexes (lowland IBI, upstream,...)
 #' data_sample <- read.csv2(
@@ -69,7 +69,7 @@
 #'     "forel"
 #'   )
 #' )
-#' data_sample <- data_sample %>%
+#' data_sample <- data_sample |>
 #'   inner_join(zonation_info, by = "sample_key")
 #' # calculate index
 #' calculate_eqr(data_sample, data_fish)
