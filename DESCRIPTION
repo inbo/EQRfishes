@@ -9,6 +9,8 @@ Authors@R: c(
            comment = c(ORCID = "0000-0001-6362-3588", affiliation = "Research Institute for Nature and Forest (INBO)")),
     person("Jan", "Breine", , "jan.breine@inbo.be", role = "ctb",
            comment = c(ORCID = "0000-0002-2595-9782", affiliation = "Research Institute for Nature and Forest (INBO)")),
+    person("Jo", "Loos", , "jo.loos@inbo.be", role = "ctb",
+           comment = c(ORCID = "0000-0001-6192-8150", affiliation = "Research Institute for Nature and Forest (INBO)")),
     person("Research Institute for Nature and Forest (INBO)", , , "info@inbo.be", role = "cph")
   )
 Description: Package allows to calculate the Ecological Quality Ratio of
