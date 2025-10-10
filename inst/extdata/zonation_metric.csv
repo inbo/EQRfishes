@@ -49,6 +49,7 @@ lakes;MnsPis;SF;;MnsPis_lakes;SMnsPis_lakes
 lakes;ManTol;SF;;ManTol_lakes;SManTol_lakes
 lakes;MpiInv;E;MpiInv_lakes;;SMpiInv_lakes
 lakes;MpiSpa;E;MpiSpa_lakes;;SMpiSpa_lakes
+lakes;MniInd;SF;;MniInd_lakes;
 canals;MnsTot;E;;MnsTot_canals;SMnsTot_canals
 canals;ManBio;E;ManBio_canals;;SManBio_canals
 canals;ManSha;E;;ManSha;SManSha_canals
@@ -59,6 +60,7 @@ estuarien_IJzer;MnsDia;SF;;MnsDia_Ijzer;SMnsDia_Ijzer
 estuarien_IJzer;RmniDia;SF;RmniDia;;SRmniDia
 estuarien_IJzer;MnsMjs;SF;;MnsMjs;SMnsMjs
 estuarien_IJzer;MnsTyp;SF;;MnsTyp;SMnsTyp
+estuarien_IJzer;MniYzer;SF;;MniYzer;
 estuarien_Schelde_freshwater;MnsTot;SF;;MnsTot_freshwater;SMnsTot_freshwater
 estuarien_Schelde_freshwater;MniInd;SF;MniInd_f_freshwater;;SMniInd_freshwater
 estuarien_Schelde_freshwater;MpiDia;SF;MpiDia_freshwater;;SMpiDia_freshwater

@@ -34,12 +34,12 @@
 #' if parameter output is specified
 #'
 #' @importFrom assertthat assert_that has_name
-#' @importFrom dplyr arrange distinct filter group_by left_join mutate n select
-#'   summarise ungroup
+#' @importFrom dplyr across all_of arrange distinct filter group_by left_join
+#'   mutate n select summarise ungroup
 #' @importFrom plyr .
 #' @importFrom magrittr %>%
 #' @importFrom rlang .data
-#' @importFrom tidyr gather nest unnest
+#' @importFrom tidyr gather nest pivot_longer pivot_wider unnest
 #' @importFrom readr read_csv2
 #' @importFrom purrr pmap
 #' @importFrom stringr str_detect
@@ -526,8 +526,20 @@ calculate_eqr <- function(
     suppressMessages(
       read_csv2(system.file("extdata/score.csv", package = "EQRfishes"))
     )
+  ibi_exceptions <-
+    suppressMessages(
+      read_csv2(
+        system.file("extdata/calculate_ibi_eqr.csv", package = "EQRfishes")
+      )
+    )
 
   result_eqr <- result_metrics %>%
+    left_join(
+      ibi_exceptions %>%
+        nest(.by = "zonation", .key = "ibi_exceptions"),
+      by = "zonation",
+      relationship = "many-to-one"
+    ) %>%
     mutate(
       calc_method_old =
         .data$zonation %in% c("brasem", "barbeel", "upstream", "forel",
@@ -543,7 +555,10 @@ calculate_eqr <- function(
         as.numeric(
           unlist(
             pmap(
-              list(.data$zonation, .data$metrics, .data$calc_method_old),
+              list(
+                .data$zonation, .data$metrics, .data$calc_method_old,
+                ibi_exceptions
+              ),
               calculate_ibi_score
             )
           )
@@ -815,6 +830,68 @@ calculate_eqr <- function(
   if (output[[1]] == "EQR") {
     return(result_eqr)
   }
+
+  # if defaults are used, results of metrics are replaced by NA
+  result_metrics <- result_metrics %>%
+    left_join(
+      result_metrics %>%
+        inner_join(
+          ibi_exceptions,
+          by = c("zonation", "metric_name" = "calculated"),
+          relationship = "many-to-many"
+        ) %>%
+        filter(var_in_interval(.data$metric_value, .data$interval)) %>%
+        left_join(
+          result_metrics,
+          by = c(select_keys, "zonation", "calculated2" = "metric_name"),
+          suffix = c("", "2"),
+          relationship = "many-to-many"
+        ) %>%
+        filter(
+          var_in_interval(.data$metric_value2, .data$interval2)
+        ) %>%
+        select(
+          all_of(select_keys), "metric_name_calc" = "metric_name", "calculated2"
+        ) %>%
+        pivot_longer(
+          c("metric_name_calc", "calculated2"),
+          names_to = NULL,
+          values_to = "metric_name_calc",
+          values_drop_na = TRUE
+        ) %>%
+        distinct() %>%
+        group_by(across(all_of(select_keys))) %>%
+        mutate(suffix_no = as.character(seq_len(n()))) %>%
+        ungroup() %>%
+        pivot_wider(
+          names_from = "suffix_no",
+          names_prefix  = "metric_name_calc",
+          values_from = "metric_name_calc"
+        ) %>%
+        bind_rows(    #add empty table to add columns if they don't exist yet
+          data.frame(
+            metric_name_calc1 = character(), metric_name_calc2 = character()
+          )
+        ) %>%
+        mutate(ibi_exception = TRUE),
+      by = select_keys,
+      relationship = "many-to-one"
+    ) %>%
+    mutate(
+      metric_value =
+        ifelse(
+          !is.na(.data$ibi_exception) &
+            .data$metric_name != .data$metric_name_calc1 &
+            .data$metric_name != .data$metric_name_calc2,
+          NA, .data$metric_value
+        ),
+      metric_score =
+        ifelse(!is.na(.data$ibi_exception), NA, .data$metric_score),
+      ibi_exception = NULL,
+      metric_name_calc1 = NULL,
+      metric_name_calc2 = NULL
+    )
+
   if (output == "metric") {
     return(
       list(eqr = result_eqr, metric = result_metrics)

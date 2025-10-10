@@ -23,27 +23,25 @@
 #' @family helper
 #'
 #'
-calculate_ibi_score <- function(zonation_name, metrics, calc_method_old) {
+calculate_ibi_score <- function(
+  zonation_name, metrics, calc_method_old, ibi_exceptions
+) {
 
-  ibi_exceptions <-
-    suppressMessages(
-      read_csv2(
-        system.file("extdata/calculate_ibi_eqr.csv", package = "EQRfishes")
+  if (!is.null(ibi_exceptions)) {
+    ibi_exceptions <- ibi_exceptions %>%
+      filter(
+        .data$to_calculate == "IBI"
+      ) %>%
+      left_join(
+        metrics,
+        by = c("calculated" = "metric_name")
+      ) %>%
+      filter(
+        var_in_interval(.data$metric_value, .data$interval)
       )
-    ) %>%
-    filter(
-      .data$zonation == zonation_name,
-      .data$to_calculate == "IBI"
-    ) %>%
-    left_join(
-      metrics,
-      by = c("calculated" = "metric_name")
-    ) %>%
-    filter(
-      var_in_interval(.data$metric_value, .data$interval)
-    )
+  }
 
-  if (!all(is.na(ibi_exceptions$calculated2))) {
+  if (!is.null(ibi_exceptions) && !all(is.na(ibi_exceptions$calculated2))) {
     ibi_exceptions <- ibi_exceptions %>%
       left_join(
         metrics,
@@ -55,7 +53,7 @@ calculate_ibi_score <- function(zonation_name, metrics, calc_method_old) {
       )
   }
 
-  if (nrow(ibi_exceptions) > 0) {
+  if (!is.null(ibi_exceptions) && nrow(ibi_exceptions) > 0) {
     ibi <- ibi_exceptions %>%
       select("result") %>%
       distinct()

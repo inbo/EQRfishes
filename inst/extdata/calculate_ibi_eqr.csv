@@ -5,8 +5,9 @@ brasem;IBI;MnsTot;[0,0];;;0
 brasem;IBI;MnsTot;]0,2];;;1
 brabeel;IBI;MnsTot;[0,0];;;1
 brabeel;IBI;MnsTot;]0,2];;;5.08
-brabeel;IBI;MniInd;[0,0];;;1
 brabeel;IBI;MniInd;]0,10];;;5.08
+forel;IBI;MnsTot;[0,0];;;0
+vlagzalm;IBI;MnsTot;[0,0];;;0
 upstream;IBI;MnsTot;[0,0];;;0
 upstream;IBI;MnsTot;]0,1];MniInd;] ,10[;1
 upstream;IBI;MnsTot;]0,2];MniInd;] ,15[;1
@@ -18,7 +19,9 @@ estuarien_Schelde_oligohaline;IBI;MnsTot;[0,0];;;0
 estuarien_Schelde_oligohaline;IBI;MnsTot;]0,7[;;;0.96
 estuarien_Schelde_mesohaline;IBI;MnsTot;[0,0];;;0
 estuarien_Schelde_mesohaline;IBI;MnsTot;]0,6.8[;;;0.96
-estuarien_zijrivieren_zoet;IBI;MnsTot;[0,0];;;0
+estuarien_zijrivieren_zoet;IBI;MnsTot;[0,0];;;0.79999999
 estuarien_zijrivieren_zoet;IBI;MnsTot;]0,2[;;;0.832
+estuarien_IJzer;IBI;MniYzer;[0,0];;;0
+lakes;IBI;MniInd;[0,0];;;1.2
 (undetermined);IBI;metric_score;;;;-1
 (undetermined);EQR;IBI;-1;;;-1
