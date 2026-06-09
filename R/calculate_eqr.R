@@ -118,9 +118,10 @@ calculate_eqr <- function(
   join_data_fish <- "sample_key"
   select_keys <- "sample_key"
   if (any(str_detect(data_sample$zonation, "estuarien|lakes|canals"))) {
-    if (length(cluster) == 1 && is.na(cluster)) {
-      stop("Argument cluster must be provided for indextypologies lakes, canals or estuarien") # nolint: line_length_linter
-    }
+    stopifnot(
+      "Argument cluster must be provided for indextypologies lakes, canals or estuarien" # nolint: line_length_linter
+      = length(cluster) != 1 || !is.na(cluster)
+    )
     assert_that(has_name(cluster, c("sample_key", "index_cluster")))
     data_sample <- data_sample %>%
       left_join(
@@ -293,20 +294,18 @@ calculate_eqr <- function(
 
   fish_not_measured <- data_fish %>%
     filter(is.na(.data$number) & is.na(.data$length) & is.na(.data$weight))
-  if (nrow(fish_not_measured) > 0) {
-    stop(
-      "Some fishes don't have any data (no number of fishes, no fish length and no weight). Please indicate at least the number of fishes or remove the record(s)." # nolint: line_length_linter
-    )
-  }
+  stopifnot(
+    "Some fishes don't have any data (no number of fishes, no fish length and no weight). Please indicate at least the number of fishes or remove the record(s)." # nolint: line_length_linter
+    = nrow(fish_not_measured) == 0
+  )
   rm(fish_not_measured)
 
   fish_zero_number <- data_fish %>%
     filter(.data$number <= 0)
-  if (nrow(fish_zero_number) > 0) {
-    stop(
-      "For some fishdata, the number of fishes is zero or below. Please give a positive integer for the number of fishes (or remove the record(s))." # nolint: line_lenght_linter
-    )
-  }
+  stopifnot(
+    "For some fishdata, the number of fishes is zero or below. Please give a positive integer for the number of fishes (or remove the record(s))." # nolint: line_lenght_linter
+    = nrow(fish_zero_number) == 0
+  )
   rm(fish_zero_number)
 
   data_fish <- data_fish %>%
