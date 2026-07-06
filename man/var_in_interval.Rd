@@ -28,8 +28,8 @@ var_in_interval(5, "[1,5]")
 
 }
 \seealso{
-Other helper: 
-\code{\link{calculate_formula}()},
-\code{\link{determine_zonation_helper}()}
+Other helper:
+\code{\link[=calculate_formula]{calculate_formula()}},
+\code{\link[=determine_zonation_helper]{determine_zonation_helper()}}
 }
 \concept{helper}

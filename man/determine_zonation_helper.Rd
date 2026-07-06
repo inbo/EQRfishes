@@ -57,8 +57,8 @@ determine_zonation_helper(
 
 }
 \seealso{
-Other helper: 
-\code{\link{calculate_formula}()},
-\code{\link{var_in_interval}()}
+Other helper:
+\code{\link[=calculate_formula]{calculate_formula()}},
+\code{\link[=var_in_interval]{var_in_interval()}}
 }
 \concept{helper}
