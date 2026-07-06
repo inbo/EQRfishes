@@ -63,7 +63,8 @@ calculate_metric_formula <- function(
             ) %>%
             select(-"temp_row_nr")
         ),
-      by = "metric_formula_name", suffix = c("", "_")
+      by = "metric_formula_name", suffix = c("", "_"),
+      relationship = "many-to-many"
     ) %>%
     arrange(.data$row_id) %>%
     mutate(
