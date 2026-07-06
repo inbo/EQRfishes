@@ -23,7 +23,6 @@ TotaleRecrutering;sum_of_scored_length_classes;multiple;MpsRec_brabeel == 1;;;1;
 TypeWaardeBrasem;sum_values_column;wf_type_brasem;mni_zoet == 1 & wf_type_brasem > 0;;;;
 Mantypzoetsoorten_brasem;number_of_species;;wf_type_brasem > 0;;;;
 GewTinTin;total_weight;;taxoncode == 'TIN.TIN.';;1;;
-AantalGrootteKlassenTinTin;number_of_length_classes;;taxoncode == 'TIN.TIN.';;;1;
 GewScaEry;total_weight;;taxoncode == 'SCA.ERY.';;;;
 GewRutRut;total_weight;;taxoncode == 'RUT.RUT.';;;;
 MniInd_upstream;number_of_individuals;;;;;;
