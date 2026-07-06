@@ -20,7 +20,7 @@
 #' @param dataset dataset on location measures with at least columns
 #'
 #' - `width_river` width of the river at the sample location (meters),
-#' - `slope` slope of the river at the sample location (per mille),
+#' - `slope` slope of the river at the sample location (per thousand),
 #' - `tidal` tidal effect present (TRUE) or absent (FALSE)?
 #' - `IndexTypeCode` type based on salinity of the sample location:
 #'   - `"ZTWA"` for freshwater,

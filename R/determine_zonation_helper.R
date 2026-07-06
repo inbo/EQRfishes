@@ -9,7 +9,7 @@
 #' function `determine_zonation()`.
 #'
 #' @param var_width width of the river at the sample location (meters)
-#' @param var_slope slope of the river at the sample location (per mille)
+#' @param var_slope slope of the river at the sample location (per thousand)
 #' @param var_tidal tidal effect present (TRUE) or absent (FALSE)?
 #' @param var_indextype type based on salinity of the sample location:
 #'   - `"ZTWA"` for freshwater,

@@ -15,7 +15,7 @@ determine_zonation_helper(
 \arguments{
 \item{var_width}{width of the river at the sample location (meters)}
 
-\item{var_slope}{slope of the river at the sample location (per mille)}
+\item{var_slope}{slope of the river at the sample location (per thousand)}
 
 \item{var_tidal}{tidal effect present (TRUE) or absent (FALSE)?}
 

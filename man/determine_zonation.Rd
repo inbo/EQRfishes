@@ -10,7 +10,7 @@ determine_zonation(dataset, version = c("new", "old"))
 \item{dataset}{dataset on location measures with at least columns
 \itemize{
 \item \code{width_river} width of the river at the sample location (meters),
-\item \code{slope} slope of the river at the sample location (per mille),
+\item \code{slope} slope of the river at the sample location (per thousand),
 \item \code{tidal} tidal effect present (TRUE) or absent (FALSE)?
 \item \code{IndexTypeCode} type based on salinity of the sample location:
 \itemize{
