@@ -4,7 +4,7 @@
 #' data and fish data.
 #'
 #' @param data_sample_fish Data on the sample with additional parameters
-#' zonation (= index typology, calculated by calculate_zonation) and surface
+#' indextypology (calculated by `calculate_zonation()`) and surface
 #' and `fishdata` included
 #' @param aberant_column_names default column names to refer to the metric names
 #' are `metric_formula_name`, `metric_measures_name` and `metric_score_name`.
@@ -126,7 +126,7 @@ calculate_metric <- function(
     unnest(cols = "sampledata") %>%
     distinct() %>%
     select(
-      "sample_key", "zonation", "metric_name", "metric_score_name",
+      "sample_key", "indextypology", "metric_name", "metric_score_name",
       "row_id", "name", "value"
     ) %>%
     nest(sampledata = c("name", "value")) %>%

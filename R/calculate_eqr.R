@@ -58,19 +58,19 @@
 #'   system.file("testdata/freshwater_fish_data.csv", package = "EQRfishes")
 #' )
 #' # add information on index that should be calculated
-#' zonation_info <- data.frame(
+#' index_info <- data.frame(
 #'   order_id = 1:12,
 #'   sample_key = c(
 #'     11652, 13384, 8681, 13282, 13561, 8434, 4550, 11611, 13534, 13512, 8507,
 #'     2258
 #'   ),
-#'   zonation = c(
+#'   indextypology = c(
 #'     rep("brabeel", 6), "bron", "upstream", "vlagzalm", rep("brabeel", 2),
 #'     "forel"
 #'   )
 #' )
 #' data_sample <- data_sample |>
-#'   inner_join(zonation_info, by = "sample_key")
+#'   inner_join(index_info, by = "sample_key")
 #' # calculate index
 #' calculate_eqr(data_sample, data_fish)
 #' calculate_eqr(data_sample, data_fish, output = "metric")
@@ -117,7 +117,7 @@ calculate_eqr <- function(
 
   join_data_fish <- "sample_key"
   select_keys <- "sample_key"
-  if (any(str_detect(data_sample$zonation, "estuarien|lakes|canals"))) {
+  if (any(str_detect(data_sample$indextypology, "estuarien|lakes|canals"))) {
     stopifnot(
       "Argument cluster must be provided for indextypologies lakes, canals or estuarien" # nolint: line_length_linter
       = length(cluster) != 1 || !is.na(cluster)
@@ -144,7 +144,7 @@ calculate_eqr <- function(
     test_index_cluster <- data_sample %>%
       filter(
         is.na(.data$index_cluster),
-        str_detect(.data$zonation, "estuarien|lakes|canals")
+        str_detect(.data$indextypology, "estuarien|lakes|canals")
       )
     if (nrow(test_index_cluster) > 0) {
       stop(
@@ -182,7 +182,7 @@ calculate_eqr <- function(
       group_by(
         .data$sample_key, .data$LocationID, .data$method,
         .data$Stilstaand, .data$tidal, .data$Brak, .data$IndexTypeCode,
-        .data$year, .data$zonation
+        .data$year, .data$indextypology
       ) %>%
       summarise(
         surface = sum(.data$width_transect * .data$length_trajectory),
@@ -198,7 +198,7 @@ calculate_eqr <- function(
       group_by(
         .data$sample_key, .data$LocationID, .data$method,
         .data$Stilstaand, .data$tidal, .data$Brak, .data$IndexTypeCode,
-        .data$year, .data$zonation  #group by year
+        .data$year, .data$indextypology  #group by year
       ) %>%
       summarise(
         surface = sum(.data$surface),
@@ -219,12 +219,12 @@ calculate_eqr <- function(
 
   zero_width <- data_sample %>%
     filter(
-      .data$zonation %in% c("barbeel", "brasem", "brabeel"),
+      .data$indextypology %in% c("barbeel", "brasem", "brabeel"),
       .data$width_river == 0
     )
   if (nrow(zero_width) > 0) {
     warning(
-      "Some records of data_sample from zonation barbeel, brasem or brabeel have a width_river of 0. Scoring of metrics is done supposing the river width is smaller than 3 meters. Please redo the calculation with a valid river width if the river is 3 meter or wider." # nolint: line_length_linter
+      "Some records of data_sample from indextypology barbeel, brasem or brabeel have a width_river of 0. Scoring of metrics is done supposing the river width is smaller than 3 meters. Please redo the calculation with a valid river width if the river is 3 meter or wider." # nolint: line_length_linter
     )
   }
 
@@ -265,7 +265,7 @@ calculate_eqr <- function(
     ) %>%
     gather(
       key = "name", value = "value",
-      -"sample_key", -"zonation", -"LocationID", -"method", -"year"
+      -"sample_key", -"indextypology", -"LocationID", -"method", -"year"
     ) %>%
     nest(sampledata = c("name", "value"))
 
@@ -332,7 +332,7 @@ calculate_eqr <- function(
           metric_name_group =
             c("metric_formula_name", "metric_measures_name")
         ),
-      by = "zonation",
+      by = "indextypology",
       suffix = c("", "_for_metric"), relationship = "many-to-many"
     ) %>%
     filter(
@@ -343,7 +343,7 @@ calculate_eqr <- function(
     problem <- data_sample %>%
       distinct(
         .data$sample_key, .data$LocationID, .data$method, .data$year,
-        .data$zonation
+        .data$indextypology
       ) %>%
       left_join(
         suppressMessages(
@@ -351,8 +351,8 @@ calculate_eqr <- function(
             system.file("extdata/zonation_metric.csv", package = "EQRfishes")
           )
         ) %>%
-          distinct(.data$zonation, .data$method),
-        by = "zonation",
+          distinct(.data$indextypology, .data$method),
+        by = "indextypology",
         suffix = c("", "_for_metric"), relationship = "many-to-many"
       ) %>%
       filter(
@@ -362,7 +362,7 @@ calculate_eqr <- function(
       sprintf(
         "method %s cannot be used to calculate the index %s for sample_key %s,
         only %s is allowed",
-        problem$method, problem$zonation, problem$sample_key,
+        problem$method, problem$indextypology, problem$sample_key,
         problem$method_for_metric
       )
     )
@@ -383,14 +383,14 @@ calculate_eqr <- function(
 
   result_details <- result %>%
     select(
-      "sample_key", "zonation", "LocationID", "year", "sampledata"
+      "sample_key", "indextypology", "LocationID", "year", "sampledata"
     ) %>%
     unnest(cols = c("sampledata")) %>%
     distinct()
 
   result_metrics <- result %>%
     select(
-      "sample_key", "zonation", "LocationID", "year",
+      "sample_key", "indextypology", "LocationID", "year",
       "sampledata", "metric_name", "metric_score_name",
       "method_for_metric", "metric_name_group"
     ) %>%
@@ -418,7 +418,7 @@ calculate_eqr <- function(
         )
     ) %>%
     group_by(
-      .data$sample_key, .data$zonation, .data$LocationID, .data$year,
+      .data$sample_key, .data$indextypology, .data$LocationID, .data$year,
       .data$metric_name, .data$metric_score_name, .data$method_for_metric
     ) %>%
     summarise(
@@ -445,12 +445,12 @@ calculate_eqr <- function(
 
   #for the new method (estuaries, lakes and canals), results are aggregated
   result_metrics_aggregated <- result_metrics %>%
-    filter(str_detect(.data$zonation, "estuarien|lakes|canals")) %>%
+    filter(str_detect(.data$indextypology, "estuarien|lakes|canals")) %>%
     mutate(
       sample_key = substr(.data$sample_key, 1, nchar(.data$sample_key) - 3)
     ) %>%
     group_by(
-      .data$sample_key, .data$zonation, .data$LocationID, .data$year,
+      .data$sample_key, .data$indextypology, .data$LocationID, .data$year,
       .data$metric_name, .data$metric_score_name, .data$method_for_metric
     ) %>%
     summarise(
@@ -476,16 +476,16 @@ calculate_eqr <- function(
     left_join(
       result_metrics_aggregated %>%
         filter(
-          .data$zonation %in%
+          .data$indextypology %in%
             c("estuarien_Schelde_oligohaline", "estuarien_Schelde_mesohaline",
               "estuarien_Schelde_freshwater"),
           .data$metric_name == "MnsTot"
         ) %>%
         select(
-          "sample_key", "zonation", "LocationID", "year",
+          "sample_key", "indextypology", "LocationID", "year",
           "MnsTot" = .data$metric_value
         ),
-      by = c("sample_key", "zonation", "LocationID", "year")
+      by = c("sample_key", "indextypology", "LocationID", "year")
     ) %>%
     mutate(
       metric_score = ifelse(
@@ -498,7 +498,7 @@ calculate_eqr <- function(
 
   if (nrow(result_metrics_aggregated) > 0) {
     result_metrics <- result_metrics %>%
-      filter(!str_detect(.data$zonation, "estuarien|lakes|canals")) %>%
+      filter(!str_detect(.data$indextypology, "estuarien|lakes|canals")) %>%
       mutate(
         sample_key_trim =
           substr(.data$sample_key, 1, nchar(.data$sample_key) - 3)
@@ -535,13 +535,13 @@ calculate_eqr <- function(
   result_eqr <- result_metrics %>%
     left_join(
       ibi_exceptions %>%
-        nest(.by = "zonation", .key = "ibi_exceptions"),
-      by = "zonation",
+        nest(.by = "indextypology", .key = "ibi_exceptions"),
+      by = "indextypology",
       relationship = "many-to-one"
     ) %>%
     mutate(
       calc_method_old =
-        .data$zonation %in% c("brasem", "barbeel", "upstream", "forel",
+        .data$indextypology %in% c("brasem", "barbeel", "upstream", "forel",
                               "vlagzalm")
     ) %>%
     nest(
@@ -555,7 +555,7 @@ calculate_eqr <- function(
           unlist(
             pmap(
               list(
-                .data$zonation, .data$metrics, .data$calc_method_old,
+                .data$indextypology, .data$metrics, .data$calc_method_old,
                 ibi_exceptions
               ),
               calculate_ibi_score
@@ -564,8 +564,8 @@ calculate_eqr <- function(
         ),
       calc_method_old =
         ifelse(
-          grepl("estuarien", .data$zonation) &
-            !.data$zonation == "estuarien_zijrivieren_zoet",
+          grepl("estuarien", .data$indextypology) &
+            !.data$indextypology == "estuarien_zijrivieren_zoet",
           TRUE,
           .data$calc_method_old
         ),
@@ -573,15 +573,16 @@ calculate_eqr <- function(
         unlist(
           pmap(
             list(
-              .data$ibi, .data$metrics, .data$calc_method_old, .data$zonation
+              .data$ibi, .data$metrics, .data$calc_method_old,
+              .data$indextypology
             ),
             standardise_ibi
           )
         ),
       calc_method_old =
         ifelse(
-          grepl("estuarien", .data$zonation) &
-            !.data$zonation == "estuarien_zijrivieren",
+          grepl("estuarien", .data$indextypology) &
+            !.data$indextypology == "estuarien_zijrivieren",
           FALSE,
           .data$calc_method_old
         )
@@ -609,7 +610,7 @@ calculate_eqr <- function(
         ),
       eqr_class =
         ifelse(
-          .data$zonation %in% c("lakes", "brabeel"),
+          .data$indextypology %in% c("lakes", "brabeel"),
           cut(
             .data$std_ibi,
             breaks =
@@ -621,7 +622,7 @@ calculate_eqr <- function(
         ),
       eqr_class =
         ifelse(
-          .data$zonation %in%
+          .data$indextypology %in%
             c("estuarien_Schelde_freshwater", "estuarien_Schelde_oligohaline",
               "estuarien_Schelde_mesohaline"),
           cut(
@@ -635,7 +636,7 @@ calculate_eqr <- function(
         ),
       eqr_class =
         ifelse(
-          .data$zonation == "estuarien_IJzer",
+          .data$indextypology == "estuarien_IJzer",
           cut(
             .data$std_ibi,
             breaks =
@@ -683,7 +684,7 @@ calculate_eqr <- function(
         ),
       ibi_classmin =
         ifelse(
-          grepl("estuarien_Schelde", .data$zonation),
+          grepl("estuarien_Schelde", .data$indextypology),
           as.numeric(
             as.character(
               cut(
@@ -708,7 +709,7 @@ calculate_eqr <- function(
         ),
       ibi_classmin =
         ifelse(
-          .data$zonation == "estuarien_IJzer",
+          .data$indextypology == "estuarien_IJzer",
           as.numeric(
             as.character(
               cut(
@@ -753,7 +754,7 @@ calculate_eqr <- function(
         ),
       ibi_classmax =
         ifelse(
-          grepl("estuarien_Schelde", .data$zonation),
+          grepl("estuarien_Schelde", .data$indextypology),
           as.numeric(
             as.character(
               cut(
@@ -771,7 +772,7 @@ calculate_eqr <- function(
         ),
       ibi_classmax =
         ifelse(
-          .data$zonation == "estuarien_IJzer",
+          .data$indextypology == "estuarien_IJzer",
           as.numeric(
             as.character(
               cut(
@@ -798,31 +799,30 @@ calculate_eqr <- function(
         (.data$nclass * (.data$ibi_classmax - .data$ibi_classmin)),
       eqr =
         ifelse(
-          .data$zonation %in%
+          .data$indextypology %in%
             c("brabeel", "lakes", "bron", "estuarien_zijrivieren_zoet"),
           .data$std_ibi, .data$eqr
         ),
       eqr =
         ifelse(
-          .data$zonation == "bron" & .data$ibi == 4,
+          .data$indextypology == "bron" & .data$ibi == 4,
           0.2,
           .data$eqr
         ),
       eqr =
         ifelse(
-          .data$zonation == "bron" & .data$ibi == 0,
+          .data$indextypology == "bron" & .data$ibi == 0,
           0,
           .data$eqr
         ),
-      eqr =
-        ifelse(
-          .data$zonation == "estuarien_zijrivieren_zoet" & .data$ibi == 0.8,
-          0.05,
-          .data$eqr
-        )
+      eqr = ifelse(
+        .data$indextypology == "estuarien_zijrivieren_zoet" & .data$ibi == 0.8,
+        0.05,
+        .data$eqr
+      )
     ) %>%
     select(
-      select_keys, "zonation", "LocationID", "year", "calc_method_old",
+      select_keys, "indextypology", "LocationID", "year", "calc_method_old",
       "ibi", "eqr_class", "eqr"
     )
 
@@ -836,13 +836,13 @@ calculate_eqr <- function(
       result_metrics %>%
         inner_join(
           ibi_exceptions,
-          by = c("zonation", "metric_name" = "calculated"),
+          by = c("indextypology", "metric_name" = "calculated"),
           relationship = "many-to-many"
         ) %>%
         filter(var_in_interval(.data$metric_value, .data$interval)) %>%
         left_join(
           result_metrics,
-          by = c(select_keys, "zonation", "calculated2" = "metric_name"),
+          by = c(select_keys, "indextypology", "calculated2" = "metric_name"),
           suffix = c("", "2"),
           relationship = "many-to-many"
         ) %>%

@@ -24,7 +24,7 @@ data_sample <-
     tidal = NA,
     Brak = NA,
     LocationID = NA,
-    zonation = c(
+    indextypology = c(
       "brasem", "barbeel", "brabeel", "upstream", "forel", "vlagzalm", "bron",
       "lakes", "lakes", "canals", "canals", "estuarien_IJzer",
       "estuarien_Schelde_freshwater", "estuarien_Schelde_oligohaline",
@@ -38,7 +38,7 @@ data_sample <-
   ) |>
   mutate(
     sample_key = paste0(sample_key_part1, sample_key_part2),
-    IndexTypeCode = .data$zonation
+    IndexTypeCode = .data$indextypology
   )
 data_fish <-
   data.frame(
@@ -157,7 +157,7 @@ describe("IBI and EQR are calculated correctly", {
           grepl("_0soorten", sample_key) | grepl("_0soorten", index_cluster),
           index_cluster != "canals_0soorten",
           !metric_name %in% c("MnsTot", "MniYzer"),
-          !(zonation == "lakes" & metric_name == "MniInd")
+          !(indextypology == "lakes" & metric_name == "MniInd")
         ) |>
         pull(metric_value),
       rep(NA_character_, 74)
@@ -195,7 +195,7 @@ describe("IBI and EQR are calculated correctly", {
             filter(
               grepl("_0soorten", sample_key) |
                 grepl("_0soorten", index_cluster),
-              zonation == "lakes" & metric_name == "MniInd"
+              indextypology == "lakes" & metric_name == "MniInd"
             ) |>
             pull(metric_value)
         )
@@ -250,8 +250,9 @@ describe("IBI and EQR are calculated correctly", {
             c("canals_blankvoorn", "forel_blankvoorn", "vlagzalm_blankvoorn",
               "estuarien_IJzer_blankvoorn", "lakes_blankvoorn"),
           !metric_name == "MnsTot",
-          !(metric_name == "MniInd" & zonation %in% c("brabeel", "upstream")),
-          !(metric_name == "MnsInd" & zonation == "bron")
+          !(metric_name == "MniInd" &
+              indextypology %in% c("brabeel", "upstream")),
+          !(metric_name == "MnsInd" & indextypology == "bron")
         ) |>
         pull(metric_value),
       rep(NA_character_, 50)
@@ -293,7 +294,8 @@ describe("IBI and EQR are calculated correctly", {
             filter(
               grepl("_blankvoorn", sample_key) |
                 grepl("_blankvoorn", index_cluster),
-              metric_name == "MniInd" & zonation %in% c("brabeel", "upstream")
+              metric_name == "MniInd" &
+                indextypology %in% c("brabeel", "upstream")
             ) |>
             pull(metric_value)
         )
@@ -306,7 +308,7 @@ describe("IBI and EQR are calculated correctly", {
             filter(
               grepl("_blankvoorn", sample_key) |
                 grepl("_blankvoorn", index_cluster),
-              metric_name == "MnsInd" & zonation == "bron"
+              metric_name == "MnsInd" & indextypology == "bron"
             ) |>
             pull(metric_value)
         )
@@ -362,8 +364,9 @@ describe("IBI and EQR are calculated correctly", {
               "vlagzalm_blauwbandgrondel", "estuarien_IJzer_blauwbandgrondel"),
           !grepl("estuarien_Schelde_.*_blauwbandgrondel", index_cluster),
           !metric_name == "MnsTot",
-          !(metric_name == "MniInd" & zonation %in% c("upstream", "lakes")),
-          !(metric_name == "MnsInd" & zonation == "bron")
+          !(metric_name == "MniInd" &
+              indextypology %in% c("upstream", "lakes")),
+          !(metric_name == "MnsInd" & indextypology == "bron")
         ) |>
         pull(metric_value),
       rep(NA_character_, 41)
@@ -405,7 +408,8 @@ describe("IBI and EQR are calculated correctly", {
             filter(
               grepl("_blauwbandgrondel", sample_key) |
                 grepl("_blauwbandgrondel", index_cluster),
-              metric_name == "MniInd" & zonation %in% c("upstream", "lakes")
+              metric_name == "MniInd" &
+                indextypology %in% c("upstream", "lakes")
             ) |>
             pull(metric_value)
         )
@@ -418,7 +422,7 @@ describe("IBI and EQR are calculated correctly", {
             filter(
               grepl("_blauwbandgrondel", sample_key) |
                 grepl("_blauwbandgrondel", index_cluster),
-              metric_name == "MnsInd" & zonation == "bron"
+              metric_name == "MnsInd" & indextypology == "bron"
             ) |>
             pull(metric_value)
         )

@@ -30,14 +30,14 @@ determine_zonation_helper(
 }}
 
 \item{version}{'new' version with bron and brabeel, or 'old' version without
-these two zonations?
+these two indextypologies?
 Defaults to 'new'.}
 }
 \value{
-zonation of the focal location(s)
+indextypology of the focal location(s)
 }
 \description{
-This helper function determines the index typology (\code{zonation}) based on the
+This helper function determines the index typology based on the
 given measurements for one location.
 In case the result is "stilstaand" (slope = 0), the index typology can be
 "lakes" or "canals", which should be determined based on the morphology

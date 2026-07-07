@@ -63,19 +63,19 @@ data_fish <- read.csv2(
   system.file("testdata/freshwater_fish_data.csv", package = "EQRfishes")
 )
 # add information on index that should be calculated
-zonation_info <- data.frame(
+index_info <- data.frame(
   order_id = 1:12,
   sample_key = c(
     11652, 13384, 8681, 13282, 13561, 8434, 4550, 11611, 13534, 13512, 8507,
     2258
   ),
-  zonation = c(
+  indextypology = c(
     rep("brabeel", 6), "bron", "upstream", "vlagzalm", rep("brabeel", 2),
     "forel"
   )
 )
 data_sample <- data_sample |>
-  inner_join(zonation_info, by = "sample_key")
+  inner_join(index_info, by = "sample_key")
 # calculate index
 calculate_eqr(data_sample, data_fish)
 calculate_eqr(data_sample, data_fish, output = "metric")

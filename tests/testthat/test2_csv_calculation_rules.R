@@ -63,10 +63,11 @@ calculate_ibi_eqr <-
 #   )
 
 describe("variables exist in dependent tables", {
-  it("data_zonation.zonation -> zonation_metric.zonation", {
+  it("data_zonation.indextypology -> zonation_metric.indextypology", {
     lacking_vars <-
-      unique(data_zonation$zonation)[
-        !unique(data_zonation$zonation) %in% unique(zonation_metric$zonation)
+      unique(data_zonation$indextypology)[
+        !unique(data_zonation$indextypology) %in%
+          unique(zonation_metric$indextypology)
       ]
     lacking_vars <- lacking_vars[lacking_vars != "stilstaand"]
     expect_equal(
@@ -74,7 +75,7 @@ describe("variables exist in dependent tables", {
       info =
         paste(
           paste(lacking_vars, collapse = ", "),
-          "should be added to column zonation in table zonation_metric.csv" # nolint: line_length_linter
+          "should be added to column indextypology in table zonation_metric.csv" # nolint: line_length_linter
         )
     )
   })
@@ -217,41 +218,41 @@ describe("variables exist in dependent tables", {
         )
     )
   })
-  it("calculate_ibi_eqr.zonation <-> zonation_metric.zonation", {
-    lacking_vars <- unique(calculate_ibi_eqr$zonation)[
-      !unique(calculate_ibi_eqr$zonation) %in%
-        unique(zonation_metric$zonation)
+  it("calculate_ibi_eqr.indextypology <-> zonation_metric.indextypology", {
+    lacking_vars <- unique(calculate_ibi_eqr$indextypology)[
+      !unique(calculate_ibi_eqr$indextypology) %in%
+        unique(zonation_metric$indextypology)
     ]
     expect_equal(
       length(lacking_vars), 0,
       info =
         paste(
-          "calculate_ibi_eqr.csv contains information on zonation(s)",
+          "calculate_ibi_eqr.csv contains information on indextypology(s)",
           paste(lacking_vars, collapse = ", "),
-          ", but there is no information on how to calculate the zonation(s) in table zonation_metric.csv" # nolint: line_length_linter
+          ", but there is no information on how to calculate the indextypology(s) in table zonation_metric.csv" # nolint: line_length_linter
         )
     )
   })
   it("calculate_ibi_eqr.calculated -> zonation_metric.metric_name", {
     lacking_vars <- calculate_ibi_eqr %>%
-      select("zonation", "to_calculate", "calculated") %>%
+      select("indextypology", "to_calculate", "calculated") %>%
       filter(!(.data$to_calculate == "EQR" & .data$calculated == "IBI")) %>%
       distinct() %>%
       left_join(
         zonation_metric %>%
-          select("zonation", "metric_name", "metric_measures_name") %>%
+          select("indextypology", "metric_name", "metric_measures_name") %>%
           distinct(),
-        by = c("zonation", "calculated" = "metric_name")
+        by = c("indextypology", "calculated" = "metric_name")
       ) %>%
       filter(
-        is.na(.data$metric_measures_name) & .data$zonation != "(undetermined)"
+        is.na(.data$metric_measures_name) & .data$indextypology != "(undetermined)"
       )
     expect_equal(
       nrow(lacking_vars), 0,
       info =
         paste0(
           "To calculate the IBI of ",
-          lacking_vars$zonation,
+          lacking_vars$indextypology,
           ", the metric ",
           lacking_vars$calculated,
           " should be added to the column metric_name of table zonation_metric.csv (and calculation rules should be provided in other columns)" # nolint: line_length_linter

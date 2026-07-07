@@ -17,103 +17,103 @@ data_sample <- read.csv2(
       )
   )
 
-describe("zonation is determined correctly", {
+describe("indextypology is determined correctly", {
 
   it("brasem en barbeel", {
     expect_equal(
       (determine_zonation(
         data_sample[data_sample$sample_key == 8681, ]
-      ))$zonation,
+      ))$indextypology,
       "brabeel"
     )
     expect_equal(
       (determine_zonation(
         data_sample[data_sample$sample_key == 8681, ], version = "old"
-      ))$zonation,
+      ))$indextypology,
       "barbeel"
     )
     expect_equal(
       (determine_zonation(
         data_sample[data_sample$sample_key == 11652, ]
-      ))$zonation,
+      ))$indextypology,
       "brabeel"
     )
     expect_equal(
       (determine_zonation(
         data_sample[data_sample$sample_key == 11652, ], version = "old"
-      ))$zonation,
+      ))$indextypology,
       "brasem"
     )
     expect_equal(
       (determine_zonation(
         data_sample[data_sample$sample_key == 13384, ]
-      ))$zonation,
+      ))$indextypology,
       "brabeel"
     )
     expect_equal(
       (determine_zonation(
         data_sample[data_sample$sample_key == 13384, ], version = "old"
-      ))$zonation,
+      ))$indextypology,
       "brasem"
     )
     expect_equal(
       (determine_zonation(
         data_sample[data_sample$sample_key == 13282, ]
-      ))$zonation,
+      ))$indextypology,
       "brabeel"
     )
     expect_equal(
       (determine_zonation(
         data_sample[data_sample$sample_key == 13282, ], version = "old"
-      ))$zonation,
+      ))$indextypology,
       "barbeel"
     )
     expect_equal(
       (determine_zonation(
         data_sample[data_sample$sample_key == 13561, ]
-      ))$zonation,
+      ))$indextypology,
       "brabeel"
     )
     expect_equal(
       (determine_zonation(
         data_sample[data_sample$sample_key == 13561, ], version = "old"
-      ))$zonation,
+      ))$indextypology,
       "barbeel"
     )
     expect_equal(
       (determine_zonation(
         data_sample[data_sample$sample_key == 8434, ]
-      ))$zonation,
+      ))$indextypology,
       "brabeel"
     )
     expect_equal(
       (determine_zonation(
         data_sample[data_sample$sample_key == 8434, ], version = "old"
-      ))$zonation,
+      ))$indextypology,
       "barbeel"
     )
     expect_equal(
       (determine_zonation(
         data_sample[data_sample$sample_key == 13512, ]
-      ))$zonation,
+      ))$indextypology,
       "brabeel"
     )
     expect_equal(
       (determine_zonation(
         data_sample[data_sample$sample_key == 13512, ], version = "old"
-      ))$zonation,
+      ))$indextypology,
       "brasem"
     )
     expect_equal(
       (determine_zonation(
         data_sample[data_sample$sample_key == 8507, ]
-      ))$zonation,
+      ))$indextypology,
       "brabeel"
     )
     expect_equal(
       (determine_zonation(
         data_sample[data_sample$sample_key == 8507, ], version = "old"
-      ))$zonation,
+      ))$indextypology,
       "brasem"
     )
   })
@@ -121,37 +121,37 @@ describe("zonation is determined correctly", {
     expect_equal(
       (determine_zonation(
         data_sample[data_sample$sample_key == 4550, ]
-      ))$zonation,
+      ))$indextypology,
       "upstream"
     )
     expect_equal(
       (determine_zonation(
         data_sample[data_sample$sample_key == 4550, ], version = "old"
-      ))$zonation,
+      ))$indextypology,
       "upstream"
     )
     expect_equal(
       (determine_zonation(
         data_sample[data_sample$sample_key == 11611, ]
-      ))$zonation,
+      ))$indextypology,
       "upstream"
     )
     expect_equal(
       (determine_zonation(
         data_sample[data_sample$sample_key == 11611, ], version = "old"
-      ))$zonation,
+      ))$indextypology,
       "upstream"
     )
     expect_equal(
       (determine_zonation(
         data_sample[data_sample$sample_key == 13534, ]
-      ))$zonation,
+      ))$indextypology,
       "vlagzalm"
     )
     expect_equal(
       (determine_zonation(
         data_sample[data_sample$sample_key == 13534, ], version = "old"
-      ))$zonation,
+      ))$indextypology,
       "vlagzalm"
     )
   })

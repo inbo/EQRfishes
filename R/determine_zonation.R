@@ -1,6 +1,6 @@
 #' determine the index typology for records of a dataset
 #'
-#' This function determines the index typology (`zonation`) based on the given
+#' This function determines the index typology based on the given
 #' dataset with measurements.
 #' Recently 2 new index typologies were added: 'bron' (replacing 'upstream' in
 #' rivers up to a width of 2 m) and 'brabeel' (replacing 'brasem' and 'barbeel'
@@ -30,12 +30,12 @@
 #'   - `"SCHZ"` for estuarine Schelde freshwater,
 #'   - `"ZTWZ"` for estuarine tributaries with freshwater
 #' @param version 'new' version with bron and brabeel or 'old' version without
-#' these two zonations?
+#' these two indextypologies?
 #' Defaults to 'new'.
 #' This information will be used if dataset has no column `version` or to
 #' replace NA values in column `version`.
 #'
-#' @return input dataset with additional column `zonation`
+#' @return input dataset with additional column `indextypology`
 #'
 #' @importFrom assertthat has_name
 #' @importFrom dplyr mutate rowwise ungroup
@@ -58,7 +58,7 @@ determine_zonation <-
       ) %>%
       rowwise() %>%
       mutate(
-        zonation =
+        indextypology =
           determine_zonation_helper(
             var_width = .data$width_river, var_slope = .data$slope,
             var_tidal = .data$tidal, var_indextype = .data$IndexTypeCode,

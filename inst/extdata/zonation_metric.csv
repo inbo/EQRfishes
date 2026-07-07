@@ -1,4 +1,4 @@
-zonation;metric_name;method;metric_formula_name;metric_measures_name;metric_score_name
+indextypology;metric_name;method;metric_formula_name;metric_measures_name;metric_score_name
 brasem;MnsTot;E|SN|SF;;MnsTot;SMnsTot_brasem
 brasem;ManTol;E|SN|SF;ManTol;;SManTol
 brasem;ManTyp;E|SN|SF;ManTyp_brasem;;SManTyp_brasem

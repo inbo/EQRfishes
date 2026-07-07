@@ -8,13 +8,13 @@ data_sample <-
 data_fish <-
   read.csv2(system.file("testdata/canals_fish_data.csv", package = "EQRfishes"))
 
-zonation_info <-
+index_info <-
   data.frame(
     sample_key = c(
       13279, 13280, 13285:13292, 13294:13296,
       13207:13217, 13387
     ),
-    zonation = "canals",
+    indextypology = "canals",
     index_cluster = c(
       rep("Kanaal van Bocholt naar Herentals", 13),
       rep("Kanaal Roeselare-Leie", 12)
@@ -22,8 +22,8 @@ zonation_info <-
   )
 data_sample <- data_sample %>%
   inner_join(
-    zonation_info %>%
-      select("sample_key", "zonation"),
+    index_info %>%
+      select("sample_key", "indextypology"),
     by = "sample_key"
   )
 data_fish <- data_fish %>%
@@ -35,7 +35,7 @@ describe("IBI is calculated correctly", {
       results_eqr <- calculate_eqr(
         data_sample,
         data_fish,
-        cluster = zonation_info %>%
+        cluster = index_info %>%
           select("sample_key", "index_cluster")
       ),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ORC.LIM., HYB.HYB., ERI.SIN., ATY.DES." # nolint: line_length_linter
@@ -59,7 +59,7 @@ describe("metrics are calculated correctly", {
         calculate_eqr(
           data_sample,
           data_fish, output = "metric",
-          cluster = zonation_info %>%
+          cluster = index_info %>%
             select("sample_key", "index_cluster")
         )[["metric"]] %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),

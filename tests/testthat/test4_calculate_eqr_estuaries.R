@@ -10,7 +10,7 @@ data_fish <- read.csv2(
   system.file("testdata/estuaries_fish_data.csv", package = "EQRfishes")
 )
 
-zonation_info <-
+index_info <-
   data.frame(
     sample_key = rep(
       c(
@@ -20,7 +20,7 @@ zonation_info <-
       2
     ),
     version = "new",
-    zonation = rep(
+    indextypology = rep(
       c(
         rep("estuarien_Schelde_mesohaline", 2),
         rep("estuarien_Schelde_freshwater", 6),
@@ -53,8 +53,8 @@ zonation_info <-
 
 data_sample <- data_sample %>%
   inner_join(
-    zonation_info %>%
-      select("sample_key", "version", "zonation") %>%
+    index_info %>%
+      select("sample_key", "version", "indextypology") %>%
       distinct(),
     by = "sample_key"
   )
@@ -74,9 +74,9 @@ describe("IBI is calculated correctly", {
     expect_warning(
       results_eqr <- calculate_eqr(
         data_sample %>%
-          filter(zonation == "estuarien_Schelde_freshwater"),
+          filter(indextypology == "estuarien_Schelde_freshwater"),
         data_fish,
-        cluster = zonation_info %>%
+        cluster = index_info %>%
           select("sample_key", "index_cluster")
       ),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., ERI.SIN., CRA.CRA." # nolint: line_length_linter
@@ -94,9 +94,9 @@ describe("IBI is calculated correctly", {
     expect_warning(
       results_eqr <- calculate_eqr(
         data_sample %>%
-          filter(zonation == "estuarien_Schelde_mesohaline"),
+          filter(indextypology == "estuarien_Schelde_mesohaline"),
         data_fish,
-        cluster = zonation_info %>%
+        cluster = index_info %>%
           select("sample_key", "index_cluster")
       ),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., PAL.FFF., CRA.CRA., CAR.MAE., HEM.TAK." # nolint: line_length_linter
@@ -114,9 +114,9 @@ describe("IBI is calculated correctly", {
     expect_warning(
       results_eqr <- calculate_eqr(
         data_sample %>%
-          filter(zonation == "estuarien_Schelde_oligohaline"),
+          filter(indextypology == "estuarien_Schelde_oligohaline"),
         data_fish,
-        cluster = zonation_info %>%
+        cluster = index_info %>%
           select("sample_key", "index_cluster")
       ),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., CRA.CRA., ERI.SIN." # nolint: line_length_linter
@@ -139,9 +139,9 @@ describe("metrics are calculated correctly", {
       result_metrics <-
         calculate_eqr(
           data_sample %>%
-            filter(zonation == "estuarien_Schelde_freshwater"),
+            filter(indextypology == "estuarien_Schelde_freshwater"),
           data_fish, output = "metric",
-          cluster = zonation_info %>%
+          cluster = index_info %>%
             select("sample_key", "index_cluster")
         )[["metric"]] %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
@@ -213,9 +213,9 @@ describe("metrics are calculated correctly", {
       result_metrics <-
         calculate_eqr(
           data_sample %>%
-            filter(zonation == "estuarien_Schelde_mesohaline"),
+            filter(indextypology == "estuarien_Schelde_mesohaline"),
           data_fish, output = "metric",
-          cluster = zonation_info %>%
+          cluster = index_info %>%
             select("sample_key", "index_cluster")
         )[["metric"]] %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
@@ -287,9 +287,9 @@ describe("metrics are calculated correctly", {
       result_metrics <-
         calculate_eqr(
           data_sample %>%
-            filter(zonation == "estuarien_Schelde_oligohaline"),
+            filter(indextypology == "estuarien_Schelde_oligohaline"),
           data_fish, output = "metric",
-          cluster = zonation_info %>%
+          cluster = index_info %>%
             select("sample_key", "index_cluster")
         )[["metric"]] %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),

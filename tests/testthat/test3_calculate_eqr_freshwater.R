@@ -10,7 +10,7 @@ data_fish <- read.csv2(
   system.file("testdata/freshwater_fish_data.csv", package = "EQRfishes")
 )
 
-zonation_info <-
+index_info <-
   data.frame(
     order_id = 1:24,
     sample_key = rep(
@@ -21,7 +21,7 @@ zonation_info <-
       2
     ),
     version = c(rep("new", 12), rep("old", 12)),
-    zonation = c(
+    indextypology = c(
       rep("brabeel", 6), "bron", "upstream", "vlagzalm", rep("brabeel", 2),
       "forel",
       rep("brasem", 2), rep("barbeel", 4), rep("upstream", 2), "vlagzalm",
@@ -34,19 +34,19 @@ data_sample <- data_sample %>%
     width_transect =
       ifelse(width_transect > width_river, width_river, width_transect)
   ) %>%
-  inner_join(zonation_info, by = "sample_key")
+  inner_join(index_info, by = "sample_key")
 order_location <- data_sample %>%
   select(order_id, LocationID, version) %>%
   distinct()
 data_fish <- data_fish %>%
-  filter(sample_key %in% zonation_info$sample_key)
+  filter(sample_key %in% index_info$sample_key)
 
 describe("IBI is calculated correctly", {
   it("brasem en barbeel", {
     expect_warning(
       results_eqr <- calculate_eqr(
         data_sample %>%
-          filter(zonation == "brabeel" & version == "new"),
+          filter(indextypology == "brabeel" & version == "new"),
         data_fish
       ) %>%
         left_join(
@@ -72,7 +72,7 @@ describe("IBI is calculated correctly", {
     expect_warning(
       results_eqr <- calculate_eqr(
         data_sample %>%
-          filter(zonation == "bron" & version == "new"),
+          filter(indextypology == "bron" & version == "new"),
         data_fish
       ),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN." # nolint: line_length_linter
@@ -88,7 +88,7 @@ describe("IBI is calculated correctly", {
     expect_warning(
       results_eqr <- calculate_eqr(
         data_sample %>%
-          filter(zonation == "upstream" & version == "new"),
+          filter(indextypology == "upstream" & version == "new"),
         data_fish
       ),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN." # nolint: line_length_linter
@@ -104,7 +104,7 @@ describe("IBI is calculated correctly", {
     expect_warning(
       results_eqr <- calculate_eqr(
         data_sample %>%
-          filter(zonation == "vlagzalm" & version == "new"),
+          filter(indextypology == "vlagzalm" & version == "new"),
         data_fish
       ),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN." # nolint: line_length_linter
@@ -120,7 +120,7 @@ describe("IBI is calculated correctly", {
     expect_warning(
       results_eqr <- calculate_eqr(
         data_sample %>%
-          filter(zonation == "forel" & version == "old"),
+          filter(indextypology == "forel" & version == "old"),
         data_fish
       ),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN." # nolint: line_length_linter
@@ -138,7 +138,7 @@ describe("IBI is calculated correctly", {
     expect_warning(
       results_eqr <- calculate_eqr(
         data_sample %>%
-          filter(zonation == "brasem" & version == "old"),
+          filter(indextypology == "brasem" & version == "old"),
         data_fish
       ) %>%
         left_join(
@@ -162,7 +162,7 @@ describe("IBI is calculated correctly", {
     expect_warning(
       results_eqr <- calculate_eqr(
         data_sample %>%
-          filter(zonation == "barbeel" & version == "old") %>%
+          filter(indextypology == "barbeel" & version == "old") %>%
           mutate(
             width_transect =
               ifelse(.data$width_transect == 3.7, 3.725, .data$width_transect)
@@ -200,7 +200,7 @@ describe("metrics are calculated correctly", {
       result_metrics <-
         calculate_eqr(
           data_sample %>%
-            filter(zonation == "brabeel" & version == "new"),
+            filter(indextypology == "brabeel" & version == "new"),
           data_fish %>% filter(!is.na(taxoncode)), output = "metric"
         )[["metric"]] %>%
         left_join(
@@ -267,7 +267,7 @@ describe("metrics are calculated correctly", {
     expect_warning(
       result_metrics <- calculate_eqr(
         data_sample %>%
-          filter(zonation == "bron" & version == "new"),
+          filter(indextypology == "bron" & version == "new"),
         data_fish,
         output = "metric"
       )[["metric"]] %>%
@@ -323,7 +323,7 @@ describe("metrics are calculated correctly", {
     expect_warning(
       result_metrics <- calculate_eqr(
         data_sample %>%
-          filter(zonation == "upstream" & version == "new"),
+          filter(indextypology == "upstream" & version == "new"),
         data_fish,
         output = "metric"
       )[["metric"]] %>%
@@ -439,7 +439,7 @@ describe("metrics are calculated correctly", {
     expect_warning(
       result_metrics <- calculate_eqr(
         data_sample %>%
-          filter(zonation == "vlagzalm" & version == "new"),
+          filter(indextypology == "vlagzalm" & version == "new"),
         data_fish,
         output = "metric"
       )[["metric"]] %>%
@@ -515,7 +515,7 @@ describe("metrics are calculated correctly", {
     expect_warning(
       result_metrics <- calculate_eqr(
         data_sample %>%
-          filter(zonation == "forel" & version == "old"),
+          filter(indextypology == "forel" & version == "old"),
         data_fish,
         output = "metric"
       )[["metric"]] %>%
@@ -594,7 +594,7 @@ describe("metrics are calculated correctly", {
       result_metrics <-
         calculate_eqr(
           data_sample %>%
-            filter(zonation == "brasem" & version == "old"),
+            filter(indextypology == "brasem" & version == "old"),
           data_fish %>% filter(!is.na(taxoncode)), output = "metric"
         )[["metric"]] %>%
         left_join(
@@ -692,7 +692,7 @@ describe("metrics are calculated correctly", {
       result_metrics <-
         calculate_eqr(
           data_sample %>%
-            filter(zonation == "barbeel" & version == "old") %>%
+            filter(indextypology == "barbeel" & version == "old") %>%
             mutate(
               width_transect =
                 ifelse(.data$width_transect == 3.7, 3.725, .data$width_transect)

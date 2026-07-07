@@ -106,14 +106,14 @@ The last subtitle always present how to derive the score starting from the calcu
 ## Aggregation of data
 
 For the indexes of freshwater rivers, the index is calculated for each separate sample day, location and method.
-For the other indexes, including lakes, canals and estuarine zonations, data of different sample days and sample locations are aggegated per year and per 'waterbody' before doing the calculation.
+For the other indexes, including lakes, canals and estuarine indextypologies, data of different sample days and sample locations are aggegated per year and per 'waterbody' before doing the calculation.
 A waterbody is for instance a lake or a canal, and fishes are mostly sampled on different locations several times a year.
 These other, mostly newer, indexes often require specific sampling methods for different metrics, the final EQR being a result of metrics calculated using datasets originating from different methods.
 
 ## Calculation of IBI and EQR
 
-For the older indexes, of zonations brasem, barbeel, upstream, forel and vlagzalm, the IBI is calculated as the average of the metric scores (sum of scores divided by the number of scores).
-For the newer indexes (all other zonations), the IBI is calculated as the sum of the metric scores.
+For the older indexes, of indextypologies brasem, barbeel, upstream, forel and vlagzalm, the IBI is calculated as the average of the metric scores (sum of scores divided by the number of scores).
+For the newer indexes (all other indextypologies), the IBI is calculated as the sum of the metric scores.
 But there are a few exceptions to deal with a lack of (typical) species:
 
 ```{r}
@@ -135,16 +135,16 @@ After that, a standardised IBI is calculated.
 For the older indexes, this is $IBI / 5$.
 For the newer indexes, this is
  $(IBI - \frac{n_{metrics}}{c}) / (IBI_{max} - \frac{n_{metrics}}{c})$
-with $c = 1$ for zonation bron and $c = 5$ for all other zonations.
-For the estuarine zonations of IJzer and Schelde, no standardisation is done.
+with $c = 1$ for indextypology bron and $c = 5$ for all other indextypologies.
+For the estuarine indextypologies of IJzer and Schelde, no standardisation is done.
  
 This standardised IBI is used to determine the EQR class, using the below table, where the upper limit
 
 - `std_ibi_old` is used for the older indexes
 - `std_ibi_new` is used for the newer indexes, and
-- `std_ibi_newst` is used for the zonations lakes, brabeel, estuarien_Schelde_freshwater, estuarien_Schelde_oligohaline, estuarien_Schelde_mesohaline
-- `ibi_ijzer` gives the class borders of the non-standardised classes for zonation estuarien_IJzer
-- `ibi_estuarien` gives the class borders of the non-standardised classes for zonations estuarien_Schelde (freshwater, oligohaline and mesohaline)
+- `std_ibi_newst` is used for the indextypologies lakes, brabeel, estuarien_Schelde_freshwater, estuarien_Schelde_oligohaline, estuarien_Schelde_mesohaline
+- `ibi_ijzer` gives the class borders of the non-standardised classes for indextypology estuarien_IJzer
+- `ibi_estuarien` gives the class borders of the non-standardised classes for indextypologies estuarien_Schelde (freshwater, oligohaline and mesohaline)
 
 
 ```{r}
@@ -168,15 +168,15 @@ For the indexes brabeel, lakes, bron and estuarien_zijrivieren_zoet, the standar
 
 Exceptions are:
 
-- if zonation = bron and IBI = 4, EQR = 0.2
-- if zonation = bron and IBI = 0, EQR = 0
-- if zonation = estuarien_zijrivieren_zoet and IBI = 0.8, EQR = 0.05
+- if indextypology = bron and IBI = 4, EQR = 0.2
+- if indextypology = bron and IBI = 0, EQR = 0
+- if indextypology = estuarien_zijrivieren_zoet and IBI = 0.8, EQR = 0.05
 
 ```{r load-sheets}
 zonation_metric <- suppressMessages(
   read_csv2(system.file("extdata/zonation_metric.csv", package = "EQRfishes"))
 ) %>%
-  filter(.data$zonation != "(undetermined)")
+  filter(.data$indextypology != "(undetermined)")
 description_metrics <- suppressMessages(
   read_csv2(
     system.file("extdata/description_metrics.csv", package = "EQRfishes")
@@ -218,11 +218,11 @@ index_overview <- suppressMessages(
 )
 ```
 
-```{r zonations, include=FALSE}
+```{r indextypologies, include=FALSE}
 output <- NULL
-for (var_zonation in unique(zonation_metric$zonation)) {
+for (var_indextypology in unique(zonation_metric$indextypology)) {
   index_information <- index_overview %>%
-    filter(short_name == var_zonation)
+    filter(short_name == var_indextypology)
   output <- c(output, knit_child("_fiche_zonation.Rmd"))
 }
 ```
@@ -241,7 +241,7 @@ cat(output, sep = "\n")
 
 ### `zonation_metric.csv`
 
-This datasheet shows which metrics and metric scores have to be calculated for each zonation, with additional information on where to find the information for calculation of the metric:
+This datasheet shows which metrics and metric scores have to be calculated for each indextypology, with additional information on where to find the information for calculation of the metric:
 
 - column metric_formula_name contains metrics for which the formulas for calculation are added to `calculate_metric_formula.csv`
 - column metric_measures_name contains metrics for which the calculation methods (directly based on measures) are added to `calculate_metric_measures.csv`
@@ -294,5 +294,5 @@ This datasheet mentions the intervals that are used to derive a metric score bas
 This datasheet gives the information to calculate the IBI and EQR:
 
 - for IBI, only exceptions to the normal rule of the average of the metric scores are mentioned
-- EQR calculation is based on IBI and is given for each zonation separately -->
+- EQR calculation is based on IBI and is given for each indextypology separately -->
 

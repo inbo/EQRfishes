@@ -1,4 +1,4 @@
-# This script composes a table for determining the zonation of a sample
+# This script composes a table for determining the indextypology of a sample
 # Last changes added manually, check later what could be taken from DWH
 
 library(RODBC)
@@ -11,7 +11,7 @@ connection_vis <-
   )
 
 query_zonation <-
-  "SELECT hz.Breedte AS width, hz.Helling AS slope, hz.Zonatie AS zonation
+  "SELECT hz.Breedte AS width, hz.Helling AS slope, hz.Zonatie AS indextypology
   FROM DimVisindexHuetZonatie hz
   WHERE hz.Versienummer = 1;"
 
@@ -26,7 +26,7 @@ data_zonation <- data_zonation %>%
   ) %>%
   bind_rows(
     data.frame(
-      zonation = c(rep("estuarien_Schelde", 3), "estuarien_IJzer"),
+      indextypology = c(rep("estuarien_Schelde", 3), "estuarien_IJzer"),
       tidal = TRUE,
       basin =
         c("Benedenscheldebekken", "Netebekken", "Dijlebekken", "IJzerbekken"),

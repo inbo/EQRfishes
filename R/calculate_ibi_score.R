@@ -8,7 +8,7 @@
 #' Distinction between old an new method is made by the absence (old method)
 #' or presence (new method) of a specified method for the calculated methods.
 #'
-#' @param zonation_name zonation of the location
+#' @param zonation_name indextypology of the location
 #' @param metrics calculated metrics and metric scores
 #' @param calc_method_old does the calculation has to be done using the old
 #' method?

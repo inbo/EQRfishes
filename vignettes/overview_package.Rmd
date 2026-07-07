@@ -96,10 +96,10 @@ information (from the sheets) is presented by index typology and metric.
 ### `data_zonation.csv`
 
 This data sheet gives all needed information to determine the index typology
-(`zonation`) of a specific sample location.
+of a specific sample location.
 It is used in function `determine_zonation()`.
 
-```{r zonation}
+```{r indextypology}
 suppressMessages(
   read_csv2(system.file("extdata/data_zonation.csv", package = "EQRfishes"))
 ) %>%
@@ -107,9 +107,9 @@ suppressMessages(
 ```
 
 Graphic presentation of these data for `indextypecode` ZTWA for the new index typology
-(column `zonation` in table):
+(column `indextypology` in table):
 
-```{r zonation-ZTWA}
+```{r indextypology-ZTWA}
 dataset_ztwa <- merge(
   merge(
     data.frame(river_width = seq(0, 110, by = 0.5), x = 0),
@@ -129,23 +129,23 @@ dataset_ztwa <- merge(
     var_in_interval(river_slope, slope)
   )
 dataset_ztwa %>%
-  ggplot(aes(x = river_width, y = river_slope, colour = zonation)) +
+  ggplot(aes(x = river_width, y = river_slope, colour = indextypology)) +
   geom_point()
 ```
 
 Graphic presentation of these data for `indextypecode` ZTWA for the old index typology
-(column `zonation_old` in table):
+(column `indextypology_old` in table):
 
-```{r zonation-ZTWA-old}
+```{r indextypology-ZTWA-old}
 dataset_ztwa %>%
-  ggplot(aes(x = river_width, y = river_slope, colour = zonation_old)) +
+  ggplot(aes(x = river_width, y = river_slope, colour = indextypology_old)) +
   geom_point()
 
 ```
 
 ### `zonation_metric.csv`
 
-This data sheet shows which metrics and metric scores have to be calculated for each index typology (`zonation`), with additional information on where to find the information for calculation of the metric:
+This data sheet shows which metrics and metric scores have to be calculated for each index typology, with additional information on where to find the information for calculation of the metric:
 
 - column `metric_formula_name` contains metrics for which the formulas for calculation are added to [`calculate_metric_formula.csv`](#calculate_metric_formula-csv)
 - column `metric_measures_name` contains metrics for which the calculation methods (directly based on measures) are added to [`calculate_metric_measures.csv`](#calculate_metric_measures-csv)

@@ -28,10 +28,10 @@
 #' @family helper
 #'
 #'
-standardise_ibi <- function(ibi, metrics, calc_method_old, zonation) {
+standardise_ibi <- function(ibi, metrics, calc_method_old, indextypology) {
 
-  c <- ifelse(zonation %in% c("bron", "estuarien_IJzer"), 1, 5)
-  c <- ifelse(grepl("estuarien_Schelde", zonation), 1, c)
+  c <- ifelse(indextypology %in% c("bron", "estuarien_IJzer"), 1, 5)
+  c <- ifelse(grepl("estuarien_Schelde", indextypology), 1, c)
   #this is now always 5, but it would be better to derive this from score.csv!!!!!!!!!!
   metrics2 <- metrics %>%
     select("metric_score_name", "method_for_metric") %>%

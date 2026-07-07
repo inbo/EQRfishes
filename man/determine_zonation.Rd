@@ -24,16 +24,16 @@ determine_zonation(dataset, version = c("new", "old"))
 }}
 
 \item{version}{'new' version with bron and brabeel or 'old' version without
-these two zonations?
+these two indextypologies?
 Defaults to 'new'.
 This information will be used if dataset has no column \code{version} or to
 replace NA values in column \code{version}.}
 }
 \value{
-input dataset with additional column \code{zonation}
+input dataset with additional column \code{indextypology}
 }
 \description{
-This function determines the index typology (\code{zonation}) based on the given
+This function determines the index typology based on the given
 dataset with measurements.
 Recently 2 new index typologies were added: 'bron' (replacing 'upstream' in
 rivers up to a width of 2 m) and 'brabeel' (replacing 'brasem' and 'barbeel'

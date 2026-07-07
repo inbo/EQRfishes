@@ -1,6 +1,6 @@
 #' determine the index typology of one location
 #'
-#' This helper function determines the index typology (`zonation`) based on the
+#' This helper function determines the index typology based on the
 #' given measurements for one location.
 #' In case the result is "stilstaand" (slope = 0), the index typology can be
 #' "lakes" or "canals", which should be determined based on the morphology
@@ -19,10 +19,10 @@
 #'   - `"SCHZ"` for estuarine Schelde freshwater,
 #'   - `"ZTWZ"` for estuarine Schelde freshwater
 #' @param version 'new' version with bron and brabeel, or 'old' version without
-#' these two zonations?
+#' these two indextypologies?
 #' Defaults to 'new'.
 #'
-#' @return zonation of the focal location(s)
+#' @return indextypology of the focal location(s)
 #'
 #' @importFrom readr read_csv2
 #' @importFrom dplyr filter
@@ -68,8 +68,8 @@ determine_zonation_helper <- function(
   }
 
   if (version[1] == "new") {
-    return(data_zonation$zonation)
+    return(data_zonation$indextypology)
   } else {
-    return(data_zonation$zonation_old)
+    return(data_zonation$indextypology_old)
   }
 }

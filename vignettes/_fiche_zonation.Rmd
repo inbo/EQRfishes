@@ -27,20 +27,21 @@ if (!is.na(index_information$add_info)) {
 
 
 ```{r echo=FALSE, include=FALSE, results='asis'}
-output_zonation <- NULL
+output_indextypology <- NULL
 metric_item <- list()
 output_metric <- list()
 formula <- list("")
 metric_list <- zonation_metric %>%
-  filter(.data$zonation == var_zonation)
+  filter(.data$indextypology == var_indextypology)
 for (var_metric in metric_list$metric_name) {
   level <- 2
   metric_item[[level]] <- metric_list %>%
     filter(.data$metric_name == var_metric)
-  output_zonation <- c(output_zonation, knit_child("_fiche_metric.Rmd"))
+  output_indextypology <-
+    c(output_indextypology, knit_child("_fiche_metric.Rmd"))
 }
 ```
 
 ```{r results='asis'}
-cat(output_zonation, sep = "\n")
+cat(output_indextypology, sep = "\n")
 ```
