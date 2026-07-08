@@ -181,7 +181,7 @@ calculate_eqr <- function(
       ) %>%
       group_by(
         .data$sample_key, .data$LocationID, .data$method,
-        .data$Stilstaand, .data$tidal, .data$Brak, .data$IndexTypeCode,
+        .data$Stilstaand, .data$tidal, .data$Brak,
         .data$year, .data$indextypology
       ) %>%
       summarise(
@@ -197,7 +197,7 @@ calculate_eqr <- function(
       ungroup() %>%
       group_by(
         .data$sample_key, .data$LocationID, .data$method,
-        .data$Stilstaand, .data$tidal, .data$Brak, .data$IndexTypeCode,
+        .data$Stilstaand, .data$tidal, .data$Brak,
         .data$year, .data$indextypology  #group by year
       ) %>%
       summarise(
