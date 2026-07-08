@@ -2,8 +2,8 @@
 
 export(calculate_eqr)
 export(calculate_formula)
-export(determine_zonation)
-export(determine_zonation_helper)
+export(determine_indextypology)
+export(determine_indextypology_helper)
 export(var_in_interval)
 importFrom(assertthat,assert_that)
 importFrom(assertthat,has_name)

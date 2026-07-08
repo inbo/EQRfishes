@@ -4,7 +4,7 @@
 #' data and fish data.
 #'
 #' @param data_sample_fish Data on the sample with additional parameters
-#' indextypology (calculated by `calculate_zonation()`) and surface
+#' indextypology (calculated by `determine_indextypology()`) and surface
 #' and `fishdata` included
 #' @param aberant_column_names default column names to refer to the metric names
 #' are `metric_formula_name`, `metric_measures_name` and `metric_score_name`.

@@ -6,7 +6,7 @@
 #' "lakes" or "canals", which should be determined based on the morphology
 #' of the water object.
 #' To determine the index typology of the whole dataset at once, please use
-#' function `determine_zonation()`.
+#' function `determine_indextypology()`.
 #'
 #' @param var_width width of the river at the sample location (meters)
 #' @param var_slope slope of the river at the sample location (per thousand)
@@ -34,7 +34,7 @@
 #'
 #' @examples
 #' library(EQRfishes)
-#' determine_zonation_helper(
+#' determine_indextypology_helper(
 #'   var_width = 3,
 #'   var_slope = 3,
 #'   var_tidal = FALSE,
@@ -42,7 +42,7 @@
 #'   version = "new"
 #' )
 #'
-determine_zonation_helper <- function(
+determine_indextypology_helper <- function(
   var_width, var_slope, var_tidal, var_indextype,
   version = c("new", "old")
 ) {

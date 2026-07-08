@@ -80,8 +80,8 @@ information %>%
   )
 ```
 
-Function `determine_zonation()` is less complicated: it only calls its helper
-function `determine_zonation_helper()` that does the job for 1 sample location,
+Function `determine_indextypology()` is less complicated: it only calls its helper
+function `determine_indextypology_helper()` that does the job for 1 sample location,
 and function `var_in_interval()` that checks if given data are within
 the intervals given in [`data_zonation.csv`](#data_zonation-csv).
 
@@ -97,7 +97,7 @@ information (from the sheets) is presented by index typology and metric.
 
 This data sheet gives all needed information to determine the index typology
 of a specific sample location.
-It is used in function `determine_zonation()`.
+It is used in function `determine_indextypology()`.
 
 ```{r indextypology}
 suppressMessages(

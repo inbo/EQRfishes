@@ -30,6 +30,6 @@ var_in_interval(5, "[1,5]")
 \seealso{
 Other helper:
 \code{\link[=calculate_formula]{calculate_formula()}},
-\code{\link[=determine_zonation_helper]{determine_zonation_helper()}}
+\code{\link[=determine_indextypology_helper]{determine_indextypology_helper()}}
 }
 \concept{helper}

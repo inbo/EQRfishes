@@ -45,7 +45,7 @@
 #' @export
 #' @family main
 #'
-determine_zonation <-
+determine_indextypology <-
   function(dataset, version = c("new", "old")) {
 
     match.arg(version)
@@ -59,7 +59,7 @@ determine_zonation <-
       rowwise() %>%
       mutate(
         indextypology =
-          determine_zonation_helper(
+          determine_indextypology_helper(
             var_width = .data$width_river, var_slope = .data$slope,
             var_tidal = .data$tidal, var_indextype = .data$index_type_code,
             version = .data$version
