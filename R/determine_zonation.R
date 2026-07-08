@@ -22,7 +22,7 @@
 #' - `width_river` width of the river at the sample location (meters),
 #' - `slope` slope of the river at the sample location (per thousand),
 #' - `tidal` tidal effect present (TRUE) or absent (FALSE)?
-#' - `IndexTypeCode` type based on salinity of the sample location:
+#' - `index_type_code` type based on salinity of the sample location:
 #'   - `"ZTWA"` for freshwater,
 #'   - `"YZRP"` for estuarine Ijzer,
 #'   - `"SCHM"` for estuarine Schelde mesohaline,
@@ -61,7 +61,7 @@ determine_zonation <-
         indextypology =
           determine_zonation_helper(
             var_width = .data$width_river, var_slope = .data$slope,
-            var_tidal = .data$tidal, var_indextype = .data$IndexTypeCode,
+            var_tidal = .data$tidal, var_indextype = .data$index_type_code,
             version = .data$version
           )
       ) %>%

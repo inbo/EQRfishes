@@ -1,4 +1,4 @@
-"sample_key";"LocationID";"width_transect";"length_trajectory";"width_river";"slope";"n_fyke_nets";"n_days";"method";"Stilstaand";"tidal";"Bekken";"Brak";"IndexTypeCode";"Projectcode";"year";"season"
+"sample_key";"LocationID";"width_transect";"length_trajectory";"width_river";"slope";"n_fyke_nets";"n_days";"method";"Stilstaand";"tidal";"Bekken";"Brak";"index_type_code";"Projectcode";"year";"season"
 2258;1226;4;100;6,5;10,14;NA;NA;"EW2";0;0;"Dijlebekken";0;"forel";"Visbestand";1994;"spring"
 4550;1233;1,1;100;3,4;5;NA;NA;"EW1";0;0;"Dijlebekken";0;"upstream";"Visbestand";2012;"spring"
 8434;4515;3,7;100;3,73;2,55;NA;NA;"EW2";0;0;"Dijlebekken";0;"brabeel";"Ref";2013;"spring"

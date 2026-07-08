@@ -38,7 +38,7 @@ data_sample <-
   ) |>
   mutate(
     sample_key = paste0(sample_key_part1, sample_key_part2),
-    IndexTypeCode = .data$indextypology
+    index_type_code = .data$indextypology
   )
 data_fish <-
   data.frame(

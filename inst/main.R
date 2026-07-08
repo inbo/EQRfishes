@@ -12,7 +12,7 @@ library(tidyverse)
 results_eqr_yzer <-
   calculate_eqr(
     data_sample_new %>%
-      filter(.data$IndexTypeCode == "YZRP"),
+      filter(.data$index_type_code == "YZRP"),
     data_fish %>%
       mutate(
         sample_key = .data$sample_key_new,

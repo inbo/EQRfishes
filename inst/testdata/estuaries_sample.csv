@@ -1,4 +1,4 @@
-"sample_key";"LocationID";"width_transect";"length_trajectory";"width_river";"slope";"n_fyke_nets";"n_days";"method";"Stilstaand";"tidal";"Bekken";"Brak";"IndexTypeCode";"Projectcode";"year";"season"
+"sample_key";"LocationID";"width_transect";"length_trajectory";"width_river";"slope";"n_fyke_nets";"n_days";"method";"Stilstaand";"tidal";"Bekken";"Brak";"index_type_code";"Projectcode";"year";"season"
 9877;4523;NA;NA;1400;0;2;1;"SF";0;0;"Beneden-Scheldebekken";0;"mesoschelde";"Estuaria vnf13";2017;"summer"
 9878;4523;NA;NA;1400;0;2;1;"SF";0;0;"Beneden-Scheldebekken";0;"mesoschelde";"Estuaria vnf13";2017;"summer"
 9900;1338;NA;NA;135;0;2;1;"SF";0;0;"Beneden-Scheldebekken";0;"freshschelde";"Estuaria vnf13";2017;"autumn"

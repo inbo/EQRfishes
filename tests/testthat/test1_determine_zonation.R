@@ -8,12 +8,12 @@ data_sample <- read.csv2(
   system.file("testdata/freshwater_sample.csv", package = "EQRfishes")
 ) %>%
   mutate(
-    IndexTypeCode =
+    index_type_code =
       ifelse(
-        IndexTypeCode %in% c("brabeel", "brasem", "barbeel", "forel",
+        index_type_code %in% c("brabeel", "brasem", "barbeel", "forel",
                              "vlagzalm", "upstream", "bron"),
         "ZTWA",
-        IndexTypeCode
+        index_type_code
       )
   )
 

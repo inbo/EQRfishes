@@ -12,7 +12,7 @@ determine_zonation(dataset, version = c("new", "old"))
 \item \code{width_river} width of the river at the sample location (meters),
 \item \code{slope} slope of the river at the sample location (per thousand),
 \item \code{tidal} tidal effect present (TRUE) or absent (FALSE)?
-\item \code{IndexTypeCode} type based on salinity of the sample location:
+\item \code{index_type_code} type based on salinity of the sample location:
 \itemize{
 \item \code{"ZTWA"} for freshwater,
 \item \code{"YZRP"} for estuarine Ijzer,
