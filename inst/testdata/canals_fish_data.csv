@@ -1,4 +1,4 @@
-"sample_key";"record_id";"taxoncode";"number";"length";"weight"
+"sample_id";"record_id";"taxoncode";"number";"length";"weight"
 13207;1157392;"CYP.CAR.";1;72,6;7700
 13207;1157395;"NEO.MEL.";1;6,4;3,3
 13207;1157396;"ANG.ANG.";1;74;677,7

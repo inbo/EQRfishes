@@ -1,4 +1,4 @@
-"sample_key";"LocationID";"width_transect";"length_trajectory";"width_river";"slope";"n_fyke_nets";"n_days";"method";"Stilstaand";"tidal";"Bekken";"Brak";"index_type_code";"Projectcode";"year";"season"
+"sample_id";"LocationID";"width_transect";"length_trajectory";"width_river";"slope";"n_fyke_nets";"n_days";"method";"Stilstaand";"tidal";"Bekken";"Brak";"index_type_code";"Projectcode";"year";"season"
 13207;252;NA;NA;231;0;2;2;"SF";0;0;"Leiebekken";0;"canals";"Ref";2020;"autumn"
 13208;252;2,5;250;231;0;NA;NA;"EB2";0;0;"Leiebekken";0;"canals";"Ref";2020;"autumn"
 13209;254;2,5;250;107;0;NA;NA;"EB2";0;0;"Leiebekken";0;"canals";"Ref";2020;"autumn"

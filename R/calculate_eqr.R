@@ -8,7 +8,7 @@
 #' characteristics including zonation (= index typology, which can be calculated
 #' using function `determine_zonation()`)
 #' @param data_fish Measurements on fish: dataframe with columns
-#'   - `sample_key` (reference to `data_sample`),
+#'   - `sample_id` (reference to `data_sample`),
 #'   - `record_id`: unique id for each row,
 #'   - `taxoncode`: abbreviation of scientific fish name,
 #'   - `number` of individuals for this record (1 if each separate fish is
@@ -25,7 +25,7 @@
 #'       one with the IBI and EQR, a second with the results for each metric
 #'       and a third with all calculated values
 #'   }
-#' @param cluster Table with columns `sample_key` and `index_cluster`
+#' @param cluster Table with columns `sample_id` and `index_cluster`
 #' that indicates how samples should be clustered into a 'waterbody'
 #' in case of the index typologies lakes, canals and estuarine zonations.
 #' Defaults to NA, because it is not needed in case of freshwater rivers.
@@ -60,7 +60,7 @@
 #' # add information on index that should be calculated
 #' index_info <- data.frame(
 #'   order_id = 1:12,
-#'   sample_key = c(
+#'   sample_id = c(
 #'     11652, 13384, 8681, 13282, 13561, 8434, 4550, 11611, 13534, 13512, 8507,
 #'     2258
 #'   ),
@@ -70,7 +70,7 @@
 #'   )
 #' )
 #' data_sample <- data_sample |>
-#'   inner_join(index_info, by = "sample_key")
+#'   inner_join(index_info, by = "sample_id")
 #' # calculate index
 #' calculate_eqr(data_sample, data_fish)
 #' calculate_eqr(data_sample, data_fish, output = "metric")
@@ -83,7 +83,7 @@
 #'   system.file("testdata/kallemoeie_fish_data.csv", package = "EQRfishes")
 #' )
 #' cluster <- data.frame(
-#'   sample_key = c("Kallemoeie_e", "Kallemoeie_f"),
+#'   sample_id = c("Kallemoeie_e", "Kallemoeie_f"),
 #'   index_cluster = "Kallemoeie"
 #' )
 #'
@@ -96,14 +96,14 @@ calculate_eqr <- function(
 
   # make sure data_fish has all columns present, and remove additional columns
   # (these can cause problems if fish data are nested)
-  assert_that(has_name(data_fish, "sample_key"))
+  assert_that(has_name(data_fish, "sample_id"))
   assert_that(has_name(data_fish, "record_id"))
   assert_that(has_name(data_fish, "taxoncode"))
   assert_that(has_name(data_fish, "number"))
   assert_that(has_name(data_fish, "length"))
   assert_that(has_name(data_fish, "weight"))
   data_fish <- data_fish %>%
-    select("sample_key", "record_id", "taxoncode", "number", "length", "weight")
+    select("sample_id", "record_id", "taxoncode", "number", "length", "weight")
 
   match.arg(output)
 
@@ -115,24 +115,24 @@ calculate_eqr <- function(
         ifelse(str_detect(.data$method, "^SF"), "SF", .data$method)
     )
 
-  join_data_fish <- "sample_key"
-  select_keys <- "sample_key"
+  join_data_fish <- "sample_id"
+  select_keys <- "sample_id"
   if (any(str_detect(data_sample$indextypology, "estuarien|lakes|canals"))) {
     stopifnot(
       "Argument cluster must be provided for indextypologies lakes, canals or estuarien" # nolint: line_length_linter
       = length(cluster) != 1 || !is.na(cluster)
     )
-    assert_that(has_name(cluster, c("sample_key", "index_cluster")))
+    assert_that(has_name(cluster, c("sample_id", "index_cluster")))
     data_sample <- data_sample %>%
       left_join(
         cluster,
-        by = "sample_key"
+        by = "sample_id"
       ) %>%
       mutate(
-        sample_key_replace =
+        sample_id_replace =
           ifelse(
             is.na(.data$index_cluster),
-            .data$sample_key,
+            .data$sample_id,
             paste(
               .data$index_cluster,
               #paste method 2 times to end with at least 2 characters
@@ -149,8 +149,8 @@ calculate_eqr <- function(
     if (nrow(test_index_cluster) > 0) {
       stop(
         sprintf(
-          "Argument cluster must contain all sample keys with indextypologies lakes, canals or estuarien (not provided for sample_key %s)", # nolint: line_length_linter
-          paste(unique(test_index_cluster$sample_key), collapse = ", ")
+          "Argument cluster must contain all sample id's with indextypologies lakes, canals or estuarien (not provided for sample_id %s)", # nolint: line_length_linter
+          paste(unique(test_index_cluster$sample_id), collapse = ", ")
         )
       )
     }
@@ -158,23 +158,23 @@ calculate_eqr <- function(
       inner_join(
         data_sample %>%
           select(
-            "sample_key_replace", "method", "sample_key"
+            "sample_id_replace", "method", "sample_id"
           ) %>%
           distinct(),
-        by = "sample_key"
+        by = "sample_id"
       ) %>%
       mutate(
-        sample_key = .data$sample_key_replace,
-        sample_key_replace = NULL
+        sample_id = .data$sample_id_replace,
+        sample_id_replace = NULL
       )
-    join_data_fish <- c("sample_key", "method")
-    select_keys <- c("sample_key", "index_cluster")
+    join_data_fish <- c("sample_id", "method")
+    select_keys <- c("sample_id", "index_cluster")
     data_sample <- data_sample %>%
       mutate(
-        sample_key = .data$sample_key_replace
+        sample_id = .data$sample_id_replace
       ) %>%
       group_by(
-        .data$sample_key, .data$method,
+        .data$sample_id, .data$method,
         .data$year, .data$indextypology
       ) %>%
       summarise(
@@ -189,7 +189,7 @@ calculate_eqr <- function(
       ) %>%
       ungroup() %>%
       group_by(
-        .data$sample_key, .data$method,
+        .data$sample_id, .data$method,
         .data$year, .data$indextypology  #group by year
       ) %>%
       summarise(
@@ -244,7 +244,7 @@ calculate_eqr <- function(
         ),
       surface = as.character(.data$surface),
       n_fyke_days = as.character(.data$n_fyke_nets * .data$n_days),
-      sample_key = as.character(.data$sample_key),
+      sample_id = as.character(.data$sample_id),
       width_transect = as.character(.data$width_transect),
       length_trajectory = as.character(.data$length_trajectory),
       width_river = as.character(.data$width_river),
@@ -254,7 +254,7 @@ calculate_eqr <- function(
     ) %>%
     gather(
       key = "name", value = "value",
-      -"sample_key", -"indextypology", -"method", -"year"
+      -"sample_id", -"indextypology", -"method", -"year"
     ) %>%
     nest(sampledata = c("name", "value"))
 
@@ -302,7 +302,7 @@ calculate_eqr <- function(
       !is.na(.data$taxoncode),
       !.data$taxoncode %in% no_fish$taxoncode
     ) %>%
-    mutate(sample_key = as.character(.data$sample_key)) %>%
+    mutate(sample_id = as.character(.data$sample_id)) %>%
     nest(
       fishdata =
         c("record_id", "taxoncode", "number", "length",
@@ -331,7 +331,7 @@ calculate_eqr <- function(
   if (nrow(result) == 0) {
     problem <- data_sample %>%
       distinct(
-        .data$sample_key, .data$method, .data$year,
+        .data$sample_id, .data$method, .data$year,
         .data$indextypology
       ) %>%
       left_join(
@@ -351,9 +351,9 @@ calculate_eqr <- function(
       )
     stop(
       sprintf(
-        "method %s cannot be used to calculate the index %s for sample_key %s,
+        "method %s cannot be used to calculate the index %s for sample_id %s,
         only %s is allowed",
-        problem$method, problem$indextypology, problem$sample_key,
+        problem$method, problem$indextypology, problem$sample_id,
         problem$method_for_metric
       )
     )
@@ -364,7 +364,7 @@ calculate_eqr <- function(
       by = join_data_fish
     ) %>%
     mutate(
-      row_id = seq_along(.data$sample_key)
+      row_id = seq_along(.data$sample_id)
     ) %>%
     arrange(.data$row_id) %>%
     mutate(
@@ -374,14 +374,14 @@ calculate_eqr <- function(
 
   result_details <- result %>%
     select(
-      "sample_key", "indextypology", "year", "sampledata"
+      "sample_id", "indextypology", "year", "sampledata"
     ) %>%
     unnest(cols = c("sampledata")) %>%
     distinct()
 
   result_metrics <- result %>%
     select(
-      "sample_key", "indextypology", "year",
+      "sample_id", "indextypology", "year",
       "sampledata", "metric_name", "metric_score_name",
       "method_for_metric", "metric_name_group"
     ) %>%
@@ -409,7 +409,7 @@ calculate_eqr <- function(
         )
     ) %>%
     group_by(
-      .data$sample_key, .data$indextypology, .data$year,
+      .data$sample_id, .data$indextypology, .data$year,
       .data$metric_name, .data$metric_score_name, .data$method_for_metric
     ) %>%
     summarise(
@@ -438,10 +438,10 @@ calculate_eqr <- function(
   result_metrics_aggregated <- result_metrics %>%
     filter(str_detect(.data$indextypology, "estuarien|lakes|canals")) %>%
     mutate(
-      sample_key = substr(.data$sample_key, 1, nchar(.data$sample_key) - 3)
+      sample_id = substr(.data$sample_id, 1, nchar(.data$sample_id) - 3)
     ) %>%
     group_by(
-      .data$sample_key, .data$indextypology, .data$year,
+      .data$sample_id, .data$indextypology, .data$year,
       .data$metric_name, .data$metric_score_name, .data$method_for_metric
     ) %>%
     summarise(
@@ -473,41 +473,41 @@ calculate_eqr <- function(
           .data$metric_name == "MnsTot"
         ) %>%
         select(
-          "sample_key", "indextypology", "year",
+          "sample_id", "indextypology", "year",
           "MnsTot" = .data$metric_value
         ),
-      by = c("sample_key", "indextypology", "year")
+      by = c("sample_id", "indextypology", "year")
     ) %>%
     mutate(
       metric_score = ifelse(
         !is.na(.data$MnsTot) & .data$MnsTot == 0, "0", .data$metric_score
       ),
       MnsTot = NULL,
-      index_cluster = .data$sample_key,
-      sample_key = NULL
+      index_cluster = .data$sample_id,
+      sample_id = NULL
     )
 
   if (nrow(result_metrics_aggregated) > 0) {
     result_metrics <- result_metrics %>%
       filter(!str_detect(.data$indextypology, "estuarien|lakes|canals")) %>%
       mutate(
-        sample_key_trim =
-          substr(.data$sample_key, 1, nchar(.data$sample_key) - 3)
+        sample_id_trim =
+          substr(.data$sample_id, 1, nchar(.data$sample_id) - 3)
       ) %>%
       left_join(
         cluster %>%
           mutate(
-            sample_key = as.character(.data$sample_key)
+            sample_id = as.character(.data$sample_id)
           ),
-        by = c("sample_key_trim" = "sample_key")
+        by = c("sample_id_trim" = "sample_id")
       ) %>%
       mutate(
-        sample_key = ifelse(
+        sample_id = ifelse(
           !is.na(.data$index_cluster),
-          .data$sample_key_trim,
-          .data$sample_key
+          .data$sample_id_trim,
+          .data$sample_id
         ),
-        sample_key_trim = NULL
+        sample_id_trim = NULL
       ) %>%
       bind_rows(result_metrics_aggregated)
   }

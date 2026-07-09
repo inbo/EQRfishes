@@ -15,7 +15,7 @@ results_eqr_yzer <-
       filter(.data$index_type_code == "YZRP"),
     data_fish %>%
       mutate(
-        sample_key = .data$sample_key_new,
-        sample_key_new = NULL
+        sample_id = .data$sample_id_new,
+        sample_id_new = NULL
       )
   )

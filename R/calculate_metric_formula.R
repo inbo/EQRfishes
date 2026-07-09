@@ -83,7 +83,7 @@ calculate_metric_formula <- function(
     ) %>%
     unnest(cols = "sampledata") %>%
     select(
-      "sample_key", "metric_name", "metric_formula_name",
+      "sample_id", "metric_name", "metric_formula_name",
       "formula", "metric_measures_name", "metric_score_name",
       "row_id", "name", "value"
     ) %>%

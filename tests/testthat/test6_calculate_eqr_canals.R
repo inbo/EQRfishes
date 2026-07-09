@@ -10,7 +10,7 @@ data_fish <-
 
 index_info <-
   data.frame(
-    sample_key = c(
+    sample_id = c(
       13279, 13280, 13285:13292, 13294:13296,
       13207:13217, 13387
     ),
@@ -23,11 +23,11 @@ index_info <-
 data_sample <- data_sample %>%
   inner_join(
     index_info %>%
-      select("sample_key", "indextypology"),
-    by = "sample_key"
+      select("sample_id", "indextypology"),
+    by = "sample_id"
   )
 data_fish <- data_fish %>%
-  filter(!is.na(sample_key))
+  filter(!is.na(sample_id))
 
 describe("IBI is calculated correctly", {
   it("canals", {
@@ -36,7 +36,7 @@ describe("IBI is calculated correctly", {
         data_sample,
         data_fish,
         cluster = index_info %>%
-          select("sample_key", "index_cluster")
+          select("sample_id", "index_cluster")
       ),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ORC.LIM., HYB.HYB., ERI.SIN., ATY.DES." # nolint: line_length_linter
     )
@@ -60,7 +60,7 @@ describe("metrics are calculated correctly", {
           data_sample,
           data_fish, output = "metric",
           cluster = index_info %>%
-            select("sample_key", "index_cluster")
+            select("sample_id", "index_cluster")
         )[["metric"]] %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ORC.LIM., HYB.HYB., ERI.SIN., ATY.DES." # nolint: line_length_linter

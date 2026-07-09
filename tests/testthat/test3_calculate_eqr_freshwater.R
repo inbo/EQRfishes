@@ -13,7 +13,7 @@ data_fish <- read.csv2(
 index_info <-
   data.frame(
     order_id = 1:24,
-    sample_key = rep(
+    sample_id = rep(
       c(
         11652, 13384, 8681, 13282, 13561, 8434, 4550, 11611, 13534, 13512,
         8507, 2258
@@ -34,13 +34,13 @@ data_sample <- data_sample %>%
     width_transect =
       ifelse(width_transect > width_river, width_river, width_transect)
   ) %>%
-  inner_join(index_info, by = "sample_key")
+  inner_join(index_info, by = "sample_id")
 order_location <- data_sample %>%
-  select(order_id, sample_key, version) %>%
-  mutate(sample_key = as.character(sample_key)) %>%
+  select(order_id, sample_id, version) %>%
+  mutate(sample_id = as.character(sample_id)) %>%
   distinct()
 data_fish <- data_fish %>%
-  filter(sample_key %in% index_info$sample_key)
+  filter(sample_id %in% index_info$sample_id)
 
 describe("IBI is calculated correctly", {
   it("brasem en barbeel", {
@@ -53,7 +53,7 @@ describe("IBI is calculated correctly", {
         left_join(
           order_location %>%
             filter(version == "new"),
-          by = "sample_key"
+          by = "sample_id"
         ) %>%
         arrange(order_id),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN." # nolint: line_length_linter
@@ -145,7 +145,7 @@ describe("IBI is calculated correctly", {
         left_join(
           order_location %>%
             filter(version == "old"),
-          by = "sample_key"
+          by = "sample_id"
         ) %>%
         arrange(order_id),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN." # nolint: line_length_linter
@@ -178,7 +178,7 @@ describe("IBI is calculated correctly", {
         left_join(
           order_location %>%
             filter(version == "old"),
-          by = "sample_key"
+          by = "sample_id"
         ) %>%
         arrange(order_id),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN." # nolint: line_length_linter
@@ -207,7 +207,7 @@ describe("metrics are calculated correctly", {
         left_join(
           order_location %>%
             filter(version == "new"),
-          by = "sample_key"
+          by = "sample_id"
         ) %>%
         arrange(order_id) %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
@@ -275,7 +275,7 @@ describe("metrics are calculated correctly", {
         left_join(
           order_location %>%
             filter(version == "new"),
-          by = "sample_key"
+          by = "sample_id"
         ) %>%
         arrange(order_id) %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
@@ -331,7 +331,7 @@ describe("metrics are calculated correctly", {
         left_join(
           order_location %>%
             filter(version == "new"),
-          by = "sample_key"
+          by = "sample_id"
         ) %>%
         arrange(order_id) %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
@@ -447,7 +447,7 @@ describe("metrics are calculated correctly", {
         left_join(
           order_location %>%
             filter(version == "new"),
-          by = "sample_key"
+          by = "sample_id"
         ) %>%
         arrange(order_id) %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
@@ -523,7 +523,7 @@ describe("metrics are calculated correctly", {
         left_join(
           order_location %>%
             filter(version == "new"),
-          by = "sample_key"
+          by = "sample_id"
         ) %>%
         arrange(order_id) %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
@@ -601,7 +601,7 @@ describe("metrics are calculated correctly", {
         left_join(
           order_location %>%
             filter(version == "old"),
-          by = "sample_key"
+          by = "sample_id"
         ) %>%
         arrange(order_id) %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
@@ -709,7 +709,7 @@ describe("metrics are calculated correctly", {
         left_join(
           order_location %>%
             filter(version == "old"),
-          by = "sample_key"
+          by = "sample_id"
         ) %>%
         arrange(order_id) %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),

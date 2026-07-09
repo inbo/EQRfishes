@@ -12,7 +12,7 @@ data_fish <- read.csv2(
 
 index_info <-
   data.frame(
-    sample_key = rep(
+    sample_id = rep(
       c(
         9877, 9878, 9900:9903, 9906, 9907, 10260:10266, 10268, 10269,
         10276, 10277, 10347:10356, 10392, 10393, 10398:10401, 11274
@@ -54,9 +54,9 @@ index_info <-
 data_sample <- data_sample %>%
   inner_join(
     index_info %>%
-      select("sample_key", "version", "indextypology") %>%
+      select("sample_id", "version", "indextypology") %>%
       distinct(),
-    by = "sample_key"
+    by = "sample_id"
   )
 data_fish <- data_fish %>%
   mutate(
@@ -66,7 +66,7 @@ data_fish <- data_fish %>%
         0, .data$number
       )
   ) %>%
-  filter(!is.na(sample_key), number > 0)
+  filter(!is.na(sample_id), number > 0)
 
 # Metrieken aangepast van 0-5 naar 0-1, dus waarschijnlijk moet EQR-berekening hier ook aan aangepast worden
 describe("IBI is calculated correctly", {
@@ -77,7 +77,7 @@ describe("IBI is calculated correctly", {
           filter(indextypology == "estuarien_Schelde_freshwater"),
         data_fish,
         cluster = index_info %>%
-          select("sample_key", "index_cluster")
+          select("sample_id", "index_cluster")
       ),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., ERI.SIN., CRA.CRA." # nolint: line_length_linter
     )
@@ -97,7 +97,7 @@ describe("IBI is calculated correctly", {
           filter(indextypology == "estuarien_Schelde_mesohaline"),
         data_fish,
         cluster = index_info %>%
-          select("sample_key", "index_cluster")
+          select("sample_id", "index_cluster")
       ),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., PAL.FFF., CRA.CRA., CAR.MAE., HEM.TAK." # nolint: line_length_linter
     )
@@ -117,7 +117,7 @@ describe("IBI is calculated correctly", {
           filter(indextypology == "estuarien_Schelde_oligohaline"),
         data_fish,
         cluster = index_info %>%
-          select("sample_key", "index_cluster")
+          select("sample_id", "index_cluster")
       ),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., CRA.CRA., ERI.SIN." # nolint: line_length_linter
     )
@@ -142,7 +142,7 @@ describe("metrics are calculated correctly", {
             filter(indextypology == "estuarien_Schelde_freshwater"),
           data_fish, output = "metric",
           cluster = index_info %>%
-            select("sample_key", "index_cluster")
+            select("sample_id", "index_cluster")
         )[["metric"]] %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., ERI.SIN., CRA.CRA." # nolint: line_length_linter
@@ -216,7 +216,7 @@ describe("metrics are calculated correctly", {
             filter(indextypology == "estuarien_Schelde_mesohaline"),
           data_fish, output = "metric",
           cluster = index_info %>%
-            select("sample_key", "index_cluster")
+            select("sample_id", "index_cluster")
         )[["metric"]] %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., PAL.FFF., CRA.CRA., CAR.MAE., HEM.TAK." # nolint: line_length_linter
@@ -290,7 +290,7 @@ describe("metrics are calculated correctly", {
             filter(indextypology == "estuarien_Schelde_oligohaline"),
           data_fish, output = "metric",
           cluster = index_info %>%
-            select("sample_key", "index_cluster")
+            select("sample_id", "index_cluster")
         )[["metric"]] %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., CRA.CRA., ERI.SIN." # nolint: line_length_linter

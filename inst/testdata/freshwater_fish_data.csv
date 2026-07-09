@@ -1,4 +1,4 @@
-"sample_key";"record_id";"taxoncode";"number";"length";"weight"
+"sample_id";"record_id";"taxoncode";"number";"length";"weight"
 2258;172812;"GAS.ACU.";1;5,3;1,2
 2258;172768;"LEU.DEL.";1;7,3;3
 2258;172773;"LEU.DEL.";1;5,8;1,4

@@ -9,7 +9,7 @@ connection_vis <-
   )
 
 query_sample <-
-  "SELECT dw.Begindatum, dw.Einddatum, dw.WaarnemingKey as sample_key,
+  "SELECT dw.Begindatum, dw.Einddatum, dw.WaarnemingKey as sample_id,
     dw.GebiedID AS LocationID,
     dw.BreedteTransect AS width_transect, dw.LengteTraject AS length_trajectory,
     dG.Breedte AS width_river, dG.Helling AS slope,
@@ -93,7 +93,7 @@ data_sample <- data_sample %>%
 data_fish <- data_fish %>%
   spread(key = .data$Variabelecode, value = .data$Waarde) %>%
   transmute(
-    sample_key = .data$WaarnemingKey, record_id = .data$MetingID,
+    sample_id = .data$WaarnemingKey, record_id = .data$MetingID,
     taxoncode = .data$Taxoncode,
     number = .data$TAXONAANTAL,
     length = .data$TAXONLEN,
@@ -103,7 +103,7 @@ save(data_sample, data_fish, file = "inst/extrafiles/visdata.Rdata")
 
 data_sample_freshwater <- data_sample %>%
   filter(
-    .data$sample_key %in%
+    .data$sample_id %in%
       c(
         2258, 4550, 8434, 8507, 8681, 11611, 11652, 13282, 13384, 13512, 13534,
         13561
@@ -115,7 +115,7 @@ write.csv2(
 )
 data_fish_freshwater <- data_fish %>%
   filter(
-    .data$sample_key %in%
+    .data$sample_id %in%
       c(
         2258, 4550, 8434, 8507, 8681, 11611, 11652, 13282, 13384, 13512, 13534,
         13561
@@ -128,7 +128,7 @@ write.csv2(
 
 data_sample_estuaries <- data_sample %>%
   filter(
-    .data$sample_key %in%
+    .data$sample_id %in%
       c(
         9877, 9878, 9900:9903, 9906, 9907, 10260:10266, 10268, 10269, 10276,
         10277, 10347:10356, 10392, 10393, 10398:10401, 11274
@@ -140,7 +140,7 @@ write.csv2(
 )
 data_fish_estuaries <- data_fish %>%
   filter(
-    .data$sample_key %in%
+    .data$sample_id %in%
       c(
         9877, 9878, 9900:9903, 9906, 9907, 10260:10266, 10268, 10269, 10276,
         10277, 10347:10356, 10392, 10393, 10398:10401, 11274
@@ -153,7 +153,7 @@ write.csv2(
 
 data_sample_canals <- data_sample %>%
   filter(
-    .data$sample_key %in%
+    .data$sample_id %in%
       c(13207:13217, 13279, 13280, 13285:13292, 13294:13296, 13387)
   )
 write.csv2(
@@ -162,7 +162,7 @@ write.csv2(
 )
 data_fish_canals <- data_fish %>%
   filter(
-    .data$sample_key %in%
+    .data$sample_id %in%
       c(13207:13217, 13279, 13280, 13285:13292, 13294:13296, 13387)
   )
 write.csv2(

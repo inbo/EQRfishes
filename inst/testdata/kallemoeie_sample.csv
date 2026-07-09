@@ -1,3 +1,3 @@
-sample_key;LocationID;method;Stilstaand;tidal;Bekken;Brak;index_type_code;indextypology;year;length_trajectory;n_fyke_nets;n_days;width_river;slope;width_transect
+sample_id;LocationID;method;Stilstaand;tidal;Bekken;Brak;index_type_code;indextypology;year;length_trajectory;n_fyke_nets;n_days;width_river;slope;width_transect
 Kallemoeie_e;Kallemoeie;E;1;0;;0;lakes;lakes;2003;2270;;;;0;2,5
 Kallemoeie_f;Kallemoeie;SF;1;0;;0;lakes;lakes;2003;800;20;2;40;0;

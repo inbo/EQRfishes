@@ -126,7 +126,7 @@ calculate_metric <- function(
     unnest(cols = "sampledata") %>%
     distinct() %>%
     select(
-      "sample_key", "indextypology", "metric_name", "metric_score_name",
+      "sample_id", "indextypology", "metric_name", "metric_score_name",
       "row_id", "name", "value"
     ) %>%
     nest(sampledata = c("name", "value")) %>%

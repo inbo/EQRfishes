@@ -1,4 +1,4 @@
-record_id;sample_key;taxoncode;number;length;weight
+record_id;sample_id;taxoncode;number;length;weight
 1;Kallemoeie_e;PUN.PUN.;1;4,4;0,8
 2;Kallemoeie_e;PUN.PUN.;1;5,1;1,5
 3;Kallemoeie_e;PUN.PUN.;1;4,7;1,3

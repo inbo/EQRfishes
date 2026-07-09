@@ -5,7 +5,7 @@ library(tidyr)
 
 data_sample <-
   data.frame(
-    sample_key_part1 = c(
+    sample_id_part1 = c(
       "brasem", "barbeel", "brabeel", "upstream", "forel", "vlagzalm", "bron",
       "lakes_f", "lakes_e", "canals_f", "canals_e", "estuarien_IJzer",
       "estuarien_Schelde_freshwater", "estuarien_Schelde_oligohaline",
@@ -33,16 +33,16 @@ data_sample <-
   ) |>
   merge(
     y = data.frame(
-      sample_key_part2 = c("_0soorten", "_blankvoorn", "_blauwbandgrondel")
+      sample_id_part2 = c("_0soorten", "_blankvoorn", "_blauwbandgrondel")
     )
   ) |>
   mutate(
-    sample_key = paste0(sample_key_part1, sample_key_part2),
+    sample_id = paste0(sample_id_part1, sample_id_part2),
     index_type_code = .data$indextypology
   )
 data_fish <-
   data.frame(
-    sample_key = c("blankvoorn", "blauwbandgrondel"),
+    sample_id = c("blankvoorn", "blauwbandgrondel"),
     taxoncode = c("RUT.RUT.", "PSE.PAR."),
     number = 1,
     length = c(8, 5.3),
@@ -50,23 +50,23 @@ data_fish <-
   ) |>
   merge(
     y = data_sample |>
-      distinct(.data$sample_key_part1)
+      distinct(.data$sample_id_part1)
   ) |>
   mutate(
-    sample_key = paste(sample_key_part1, sample_key, sep = "_"),
-    sample_key_part1 = NULL,
+    sample_id = paste(sample_id_part1, sample_id, sep = "_"),
+    sample_id_part1 = NULL,
     record_id = seq_len(n())
   )
 
 cluster <- data_sample |>
-  select("sample_key") |>
+  select("sample_id") |>
   mutate(
-    index_cluster = .data$sample_key,
+    index_cluster = .data$sample_id,
     index_cluster = gsub("(\\w*)_[ef]_(.*)", "\\1_\\2", .data$index_cluster)
   )
 
 data_sample <- data_sample |>
-  select(-"sample_key_part1", -"sample_key_part2")
+  select(-"sample_id_part1", -"sample_id_part2")
 
 
 describe("IBI and EQR are calculated correctly", {
@@ -84,7 +84,7 @@ describe("IBI and EQR are calculated correctly", {
     expect_equal(
       results_eqr[["eqr"]] |>
         filter(
-          grepl("_0soorten", sample_key) | grepl("_0soorten", index_cluster)
+          grepl("_0soorten", sample_id) | grepl("_0soorten", index_cluster)
         ) |>
         pull(eqr),
       c(rep(0.0, 14))
@@ -92,7 +92,7 @@ describe("IBI and EQR are calculated correctly", {
     expect_equal(
       results_eqr[["eqr"]] |>
         filter(
-          grepl("_blankvoorn", sample_key) | grepl("_blankvoorn", index_cluster)
+          grepl("_blankvoorn", sample_id) | grepl("_blankvoorn", index_cluster)
         ) |>
         pull(eqr),
       c(0.2, 0.17, rep(0.2, 5), 0.0, 0.1923077, rep(0.1, 3), 0.01, 0.1)
@@ -100,7 +100,7 @@ describe("IBI and EQR are calculated correctly", {
     expect_equal(
       results_eqr[["eqr"]] |>
         filter(
-          grepl("_blauwbandgrondel", sample_key) |
+          grepl("_blauwbandgrondel", sample_id) |
             grepl("_blauwbandgrondel", index_cluster)
         ) |>
         pull(eqr),
@@ -109,7 +109,7 @@ describe("IBI and EQR are calculated correctly", {
     expect_equal(
       results_eqr[["eqr"]] |>
         filter(
-          grepl("_0soorten", sample_key) | grepl("_0soorten", index_cluster)
+          grepl("_0soorten", sample_id) | grepl("_0soorten", index_cluster)
         ) |>
         pull(ibi),
       c(0.0, 1.0, rep(0.0, 5), 1.0, rep(0.0, 4), 0.8, 1.2)
@@ -117,7 +117,7 @@ describe("IBI and EQR are calculated correctly", {
     expect_equal(
       results_eqr[["eqr"]] |>
         filter(
-          grepl("_blankvoorn", sample_key) | grepl("_blankvoorn", index_cluster)
+          grepl("_blankvoorn", sample_id) | grepl("_blankvoorn", index_cluster)
         ) |>
         pull(ibi),
       c(1, 5.08, 1.0, 4.0, rep(1.0, 5), rep(0.96, 3), 0.832, 1.6)
@@ -125,7 +125,7 @@ describe("IBI and EQR are calculated correctly", {
     expect_equal(
       results_eqr[["eqr"]] |>
         filter(
-          grepl("_blauwbandgrondel", sample_key) |
+          grepl("_blauwbandgrondel", sample_id) |
             grepl("_blauwbandgrondel", index_cluster)
         ) |>
         pull(ibi),
@@ -134,7 +134,7 @@ describe("IBI and EQR are calculated correctly", {
     expect_equal(
       results_eqr[["metric"]] |>
         filter(
-          grepl("_0soorten", sample_key) | grepl("_0soorten", index_cluster),
+          grepl("_0soorten", sample_id) | grepl("_0soorten", index_cluster),
           index_cluster != "canals_0soorten"
         ) |>
         pull(metric_score),
@@ -154,7 +154,7 @@ describe("IBI and EQR are calculated correctly", {
     expect_equal(
       results_eqr[["metric"]] |>
         filter(
-          grepl("_0soorten", sample_key) | grepl("_0soorten", index_cluster),
+          grepl("_0soorten", sample_id) | grepl("_0soorten", index_cluster),
           index_cluster != "canals_0soorten",
           !metric_name %in% c("MnsTot", "MniYzer"),
           !(indextypology == "lakes" & metric_name == "MniInd")
@@ -167,7 +167,7 @@ describe("IBI and EQR are calculated correctly", {
         !is.na(
           results_eqr[["metric"]] |>
             filter(
-              grepl("_0soorten", sample_key) |
+              grepl("_0soorten", sample_id) |
                 grepl("_0soorten", index_cluster),
               index_cluster == "canals_0soorten"
             ) |>
@@ -180,7 +180,7 @@ describe("IBI and EQR are calculated correctly", {
         !is.na(
           results_eqr[["metric"]] |>
             filter(
-              grepl("_0soorten", sample_key) |
+              grepl("_0soorten", sample_id) |
                 grepl("_0soorten", index_cluster),
               metric_name %in% c("MnsTot", "MniYzer")
             ) |>
@@ -193,7 +193,7 @@ describe("IBI and EQR are calculated correctly", {
         !is.na(
           results_eqr[["metric"]] |>
             filter(
-              grepl("_0soorten", sample_key) |
+              grepl("_0soorten", sample_id) |
                 grepl("_0soorten", index_cluster),
               indextypology == "lakes" & metric_name == "MniInd"
             ) |>
@@ -204,7 +204,7 @@ describe("IBI and EQR are calculated correctly", {
     expect_equal(
       results_eqr[["metric"]] |>
         filter(
-          grepl("_blankvoorn", sample_key) |
+          grepl("_blankvoorn", sample_id) |
             grepl("_blankvoorn", index_cluster),
           !index_cluster %in%
             c("canals_blankvoorn", "forel_blankvoorn", "vlagzalm_blankvoorn",
@@ -216,7 +216,7 @@ describe("IBI and EQR are calculated correctly", {
     expect_equal(
       results_eqr[["metric"]] |>
         filter(
-          grepl("_blankvoorn", sample_key) |
+          grepl("_blankvoorn", sample_id) |
             grepl("_blankvoorn", index_cluster),
           index_cluster == "estuarien_IJzer_blankvoorn",
           metric_name == "MniYzer"
@@ -229,7 +229,7 @@ describe("IBI and EQR are calculated correctly", {
         !is.na(
           results_eqr[["metric"]] |>
             filter(
-              grepl("_blankvoorn", sample_key) |
+              grepl("_blankvoorn", sample_id) |
                 grepl("_blankvoorn", index_cluster),
               index_cluster %in%
                 c("canals_blankvoorn", "forel_blankvoorn",
@@ -244,7 +244,7 @@ describe("IBI and EQR are calculated correctly", {
     expect_equal(
       results_eqr[["metric"]] |>
         filter(
-          grepl("_blankvoorn", sample_key) |
+          grepl("_blankvoorn", sample_id) |
             grepl("_blankvoorn", index_cluster),
           !index_cluster %in%
             c("canals_blankvoorn", "forel_blankvoorn", "vlagzalm_blankvoorn",
@@ -262,7 +262,7 @@ describe("IBI and EQR are calculated correctly", {
         !is.na(
           results_eqr[["metric"]] |>
             filter(
-              grepl("_blankvoorn", sample_key) |
+              grepl("_blankvoorn", sample_id) |
                 grepl("_blankvoorn", index_cluster),
               index_cluster %in%
                 c("canals_blankvoorn", "forel_blankvoorn",
@@ -279,7 +279,7 @@ describe("IBI and EQR are calculated correctly", {
         !is.na(
           results_eqr[["metric"]] |>
             filter(
-              grepl("_blankvoorn", sample_key) |
+              grepl("_blankvoorn", sample_id) |
                 grepl("_blankvoorn", index_cluster),
               metric_name == "MnsTot"
             ) |>
@@ -292,7 +292,7 @@ describe("IBI and EQR are calculated correctly", {
         !is.na(
           results_eqr[["metric"]] |>
             filter(
-              grepl("_blankvoorn", sample_key) |
+              grepl("_blankvoorn", sample_id) |
                 grepl("_blankvoorn", index_cluster),
               metric_name == "MniInd" &
                 indextypology %in% c("brabeel", "upstream")
@@ -306,7 +306,7 @@ describe("IBI and EQR are calculated correctly", {
         !is.na(
           results_eqr[["metric"]] |>
             filter(
-              grepl("_blankvoorn", sample_key) |
+              grepl("_blankvoorn", sample_id) |
                 grepl("_blankvoorn", index_cluster),
               metric_name == "MnsInd" & indextypology == "bron"
             ) |>
@@ -317,7 +317,7 @@ describe("IBI and EQR are calculated correctly", {
     expect_equal(
       results_eqr[["metric"]] |>
         filter(
-          grepl("_blauwbandgrondel", sample_key) |
+          grepl("_blauwbandgrondel", sample_id) |
             grepl("_blauwbandgrondel", index_cluster),
           !index_cluster %in%
             c("canals_blauwbandgrondel", "forel_blauwbandgrondel",
@@ -329,7 +329,7 @@ describe("IBI and EQR are calculated correctly", {
     expect_equal(
       results_eqr[["metric"]] |>
         filter(
-          grepl("_blauwbandgrondel", sample_key) |
+          grepl("_blauwbandgrondel", sample_id) |
             grepl("_blauwbandgrondel", index_cluster),
           index_cluster == "estuarien_IJzer_blauwbandgrondel",
           metric_name == "MniYzer"
@@ -342,7 +342,7 @@ describe("IBI and EQR are calculated correctly", {
         !is.na(
           results_eqr[["metric"]] |>
             filter(
-              grepl("_blauwbandgrondel", sample_key) |
+              grepl("_blauwbandgrondel", sample_id) |
                 grepl("_blauwbandgrondel", index_cluster),
               index_cluster %in%
                 c("canals_blauwbandgrondel", "forel_blauwbandgrondel",
@@ -357,7 +357,7 @@ describe("IBI and EQR are calculated correctly", {
     expect_equal(
       results_eqr[["metric"]] |>
         filter(
-          grepl("_blauwbandgrondel", sample_key) |
+          grepl("_blauwbandgrondel", sample_id) |
             grepl("_blauwbandgrondel", index_cluster),
           !index_cluster %in%
             c("canals_blauwbandgrondel", "forel_blauwbandgrondel",
@@ -376,7 +376,7 @@ describe("IBI and EQR are calculated correctly", {
         !is.na(
           results_eqr[["metric"]] |>
             filter(
-              grepl("_blauwbandgrondel", sample_key) |
+              grepl("_blauwbandgrondel", sample_id) |
                 grepl("_blauwbandgrondel", index_cluster),
               index_cluster %in%
                 c("canals_blauwbandgrondel", "forel_blauwbandgrondel",
@@ -393,7 +393,7 @@ describe("IBI and EQR are calculated correctly", {
         !is.na(
           results_eqr[["metric"]] |>
             filter(
-              grepl("_blauwbandgrondel", sample_key) |
+              grepl("_blauwbandgrondel", sample_id) |
                 grepl("_blauwbandgrondel", index_cluster),
               metric_name == "MnsTot"
             ) |>
@@ -406,7 +406,7 @@ describe("IBI and EQR are calculated correctly", {
         !is.na(
           results_eqr[["metric"]] |>
             filter(
-              grepl("_blauwbandgrondel", sample_key) |
+              grepl("_blauwbandgrondel", sample_id) |
                 grepl("_blauwbandgrondel", index_cluster),
               metric_name == "MniInd" &
                 indextypology %in% c("upstream", "lakes")
@@ -420,7 +420,7 @@ describe("IBI and EQR are calculated correctly", {
         !is.na(
           results_eqr[["metric"]] |>
             filter(
-              grepl("_blauwbandgrondel", sample_key) |
+              grepl("_blauwbandgrondel", sample_id) |
                 grepl("_blauwbandgrondel", index_cluster),
               metric_name == "MnsInd" & indextypology == "bron"
             ) |>
@@ -433,13 +433,13 @@ describe("IBI and EQR are calculated correctly", {
 describe("mix of clustered and not clustered", {
   it("correct presentation", {
     data_sample <- data_sample |>
-      filter(grepl("bron", sample_key) | grepl("lakes", sample_key))
+      filter(grepl("bron", sample_id) | grepl("lakes", sample_id))
     data_fish <- data_fish |>
-      filter(grepl("bron", sample_key) | grepl("lakes", sample_key))
+      filter(grepl("bron", sample_id) | grepl("lakes", sample_id))
     cluster1 <- cluster |>
-      filter(grepl("bron", sample_key) | grepl("lakes", sample_key))
+      filter(grepl("bron", sample_id) | grepl("lakes", sample_id))
     cluster2 <- cluster |>
-      filter(grepl("lakes", sample_key))
+      filter(grepl("lakes", sample_id))
     expect_warning(
       results_eqr1 <- calculate_eqr(
         data_sample,

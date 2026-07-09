@@ -18,7 +18,7 @@ using function \code{determine_zonation()})}
 
 \item{data_fish}{Measurements on fish: dataframe with columns
 \itemize{
-\item \code{sample_key} (reference to \code{data_sample}),
+\item \code{sample_id} (reference to \code{data_sample}),
 \item \code{record_id}: unique id for each row,
 \item \code{taxoncode}: abbreviation of scientific fish name,
 \item \code{number} of individuals for this record (1 if each separate fish is
@@ -38,7 +38,7 @@ one with the IBI and EQR, a second with the results for each metric
 and a third with all calculated values
 }}
 
-\item{cluster}{Table with columns \code{sample_key} and \code{index_cluster}
+\item{cluster}{Table with columns \code{sample_id} and \code{index_cluster}
 that indicates how samples should be clustered into a 'waterbody'
 in case of the index typologies lakes, canals and estuarine zonations.
 Defaults to NA, because it is not needed in case of freshwater rivers.}
@@ -50,7 +50,7 @@ if parameter output is specified
 \description{
 Main function of this package, which calculates the Ecological Quality Ratio
 (EQR) based on 2 tables of data.
-Each table must contain a sample_key!
+Each table must contain a sample_id!
 }
 \examples{
 library(dplyr)
@@ -65,7 +65,7 @@ data_fish <- read.csv2(
 # add information on index that should be calculated
 index_info <- data.frame(
   order_id = 1:12,
-  sample_key = c(
+  sample_id = c(
     11652, 13384, 8681, 13282, 13561, 8434, 4550, 11611, 13534, 13512, 8507,
     2258
   ),
@@ -75,7 +75,7 @@ index_info <- data.frame(
   )
 )
 data_sample <- data_sample |>
-  inner_join(index_info, by = "sample_key")
+  inner_join(index_info, by = "sample_id")
 # calculate index
 calculate_eqr(data_sample, data_fish)
 calculate_eqr(data_sample, data_fish, output = "metric")
@@ -88,7 +88,7 @@ data_fish <- read.csv2(
   system.file("testdata/kallemoeie_fish_data.csv", package = "EQRfishes")
 )
 cluster <- data.frame(
-  sample_key = c("Kallemoeie_e", "Kallemoeie_f"),
+  sample_id = c("Kallemoeie_e", "Kallemoeie_f"),
   index_cluster = "Kallemoeie"
 )
 

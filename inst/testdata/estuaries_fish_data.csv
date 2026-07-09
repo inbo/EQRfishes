@@ -1,4 +1,4 @@
-"sample_key";"record_id";"taxoncode";"number";"length";"weight"
+"sample_id";"record_id";"taxoncode";"number";"length";"weight"
 9903;897530;"ABR.BRA.";1;41,1;862,6
 10398;898240;"POM.MIC.";1;4,1;1,3
 9903;897561;"GAS.ACU.";1;4;0,6

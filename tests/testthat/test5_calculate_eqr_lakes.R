@@ -18,7 +18,7 @@ data_fish <-
   )
 cluster <-
   data.frame(
-    sample_key = c("Kallemoeie_e", "Kallemoeie_f"),
+    sample_id = c("Kallemoeie_e", "Kallemoeie_f"),
     index_cluster = "Kallemoeie"
   )
 
