@@ -36,7 +36,8 @@ data_sample <- data_sample %>%
   ) %>%
   inner_join(index_info, by = "sample_key")
 order_location <- data_sample %>%
-  select(order_id, LocationID, version) %>%
+  select(order_id, sample_key, version) %>%
+  mutate(sample_key = as.character(sample_key)) %>%
   distinct()
 data_fish <- data_fish %>%
   filter(sample_key %in% index_info$sample_key)
@@ -52,7 +53,7 @@ describe("IBI is calculated correctly", {
         left_join(
           order_location %>%
             filter(version == "new"),
-          by = "LocationID"
+          by = "sample_key"
         ) %>%
         arrange(order_id),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN." # nolint: line_length_linter
@@ -144,7 +145,7 @@ describe("IBI is calculated correctly", {
         left_join(
           order_location %>%
             filter(version == "old"),
-          by = "LocationID"
+          by = "sample_key"
         ) %>%
         arrange(order_id),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN." # nolint: line_length_linter
@@ -177,7 +178,7 @@ describe("IBI is calculated correctly", {
         left_join(
           order_location %>%
             filter(version == "old"),
-          by = "LocationID"
+          by = "sample_key"
         ) %>%
         arrange(order_id),
       "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN." # nolint: line_length_linter
@@ -206,7 +207,7 @@ describe("metrics are calculated correctly", {
         left_join(
           order_location %>%
             filter(version == "new"),
-          by = "LocationID"
+          by = "sample_key"
         ) %>%
         arrange(order_id) %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
@@ -274,7 +275,7 @@ describe("metrics are calculated correctly", {
         left_join(
           order_location %>%
             filter(version == "new"),
-          by = "LocationID"
+          by = "sample_key"
         ) %>%
         arrange(order_id) %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
@@ -330,7 +331,7 @@ describe("metrics are calculated correctly", {
         left_join(
           order_location %>%
             filter(version == "new"),
-          by = "LocationID"
+          by = "sample_key"
         ) %>%
         arrange(order_id) %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
@@ -446,7 +447,7 @@ describe("metrics are calculated correctly", {
         left_join(
           order_location %>%
             filter(version == "new"),
-          by = "LocationID"
+          by = "sample_key"
         ) %>%
         arrange(order_id) %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
@@ -522,7 +523,7 @@ describe("metrics are calculated correctly", {
         left_join(
           order_location %>%
             filter(version == "new"),
-          by = "LocationID"
+          by = "sample_key"
         ) %>%
         arrange(order_id) %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
@@ -600,7 +601,7 @@ describe("metrics are calculated correctly", {
         left_join(
           order_location %>%
             filter(version == "old"),
-          by = "LocationID"
+          by = "sample_key"
         ) %>%
         arrange(order_id) %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
@@ -708,7 +709,7 @@ describe("metrics are calculated correctly", {
         left_join(
           order_location %>%
             filter(version == "old"),
-          by = "LocationID"
+          by = "sample_key"
         ) %>%
         arrange(order_id) %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),

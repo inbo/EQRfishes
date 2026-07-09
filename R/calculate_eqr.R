@@ -171,16 +171,10 @@ calculate_eqr <- function(
     select_keys <- c("sample_key", "index_cluster")
     data_sample <- data_sample %>%
       mutate(
-        sample_key = .data$sample_key_replace,
-        LocationID =
-          ifelse(
-            is.na(.data$index_cluster),
-            .data$LocationID,
-            NA
-          )
+        sample_key = .data$sample_key_replace
       ) %>%
       group_by(
-        .data$sample_key, .data$LocationID, .data$method,
+        .data$sample_key, .data$method,
         .data$Stilstaand, .data$tidal, .data$Brak,
         .data$year, .data$indextypology
       ) %>%
@@ -196,7 +190,7 @@ calculate_eqr <- function(
       ) %>%
       ungroup() %>%
       group_by(
-        .data$sample_key, .data$LocationID, .data$method,
+        .data$sample_key, .data$method,
         .data$Stilstaand, .data$tidal, .data$Brak,
         .data$year, .data$indextypology  #group by year
       ) %>%
@@ -265,7 +259,7 @@ calculate_eqr <- function(
     ) %>%
     gather(
       key = "name", value = "value",
-      -"sample_key", -"indextypology", -"LocationID", -"method", -"year"
+      -"sample_key", -"indextypology", -"method", -"year"
     ) %>%
     nest(sampledata = c("name", "value"))
 
@@ -342,7 +336,7 @@ calculate_eqr <- function(
   if (nrow(result) == 0) {
     problem <- data_sample %>%
       distinct(
-        .data$sample_key, .data$LocationID, .data$method, .data$year,
+        .data$sample_key, .data$method, .data$year,
         .data$indextypology
       ) %>%
       left_join(
@@ -385,14 +379,14 @@ calculate_eqr <- function(
 
   result_details <- result %>%
     select(
-      "sample_key", "indextypology", "LocationID", "year", "sampledata"
+      "sample_key", "indextypology", "year", "sampledata"
     ) %>%
     unnest(cols = c("sampledata")) %>%
     distinct()
 
   result_metrics <- result %>%
     select(
-      "sample_key", "indextypology", "LocationID", "year",
+      "sample_key", "indextypology", "year",
       "sampledata", "metric_name", "metric_score_name",
       "method_for_metric", "metric_name_group"
     ) %>%
@@ -420,7 +414,7 @@ calculate_eqr <- function(
         )
     ) %>%
     group_by(
-      .data$sample_key, .data$indextypology, .data$LocationID, .data$year,
+      .data$sample_key, .data$indextypology, .data$year,
       .data$metric_name, .data$metric_score_name, .data$method_for_metric
     ) %>%
     summarise(
@@ -452,7 +446,7 @@ calculate_eqr <- function(
       sample_key = substr(.data$sample_key, 1, nchar(.data$sample_key) - 3)
     ) %>%
     group_by(
-      .data$sample_key, .data$indextypology, .data$LocationID, .data$year,
+      .data$sample_key, .data$indextypology, .data$year,
       .data$metric_name, .data$metric_score_name, .data$method_for_metric
     ) %>%
     summarise(
@@ -484,10 +478,10 @@ calculate_eqr <- function(
           .data$metric_name == "MnsTot"
         ) %>%
         select(
-          "sample_key", "indextypology", "LocationID", "year",
+          "sample_key", "indextypology", "year",
           "MnsTot" = .data$metric_value
         ),
-      by = c("sample_key", "indextypology", "LocationID", "year")
+      by = c("sample_key", "indextypology", "year")
     ) %>%
     mutate(
       metric_score = ifelse(
@@ -824,7 +818,7 @@ calculate_eqr <- function(
       )
     ) %>%
     select(
-      select_keys, "indextypology", "LocationID", "year", "calc_method_old",
+      select_keys, "indextypology", "year", "calc_method_old",
       "ibi", "eqr_class", "eqr"
     )
 
