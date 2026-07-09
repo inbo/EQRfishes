@@ -21,7 +21,6 @@
 #'
 #' - `width_river` width of the river at the sample location (meters),
 #' - `slope` slope of the river at the sample location (per thousand),
-#' - `tidal` tidal effect present (TRUE) or absent (FALSE)?
 #' - `index_type_code` type based on salinity of the sample location:
 #'   - `"ZTWA"` for freshwater,
 #'   - `"YZRP"` for estuarine Ijzer,
@@ -61,7 +60,7 @@ determine_indextypology <-
         indextypology =
           determine_indextypology_helper(
             var_width = .data$width_river, var_slope = .data$slope,
-            var_tidal = .data$tidal, var_indextype = .data$index_type_code,
+            var_indextype = .data$index_type_code,
             version = .data$version
           )
       ) %>%

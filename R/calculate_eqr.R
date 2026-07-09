@@ -175,7 +175,6 @@ calculate_eqr <- function(
       ) %>%
       group_by(
         .data$sample_key, .data$method,
-        .data$Stilstaand, .data$tidal, .data$Brak,
         .data$year, .data$indextypology
       ) %>%
       summarise(
@@ -191,7 +190,6 @@ calculate_eqr <- function(
       ungroup() %>%
       group_by(
         .data$sample_key, .data$method,
-        .data$Stilstaand, .data$tidal, .data$Brak,
         .data$year, .data$indextypology  #group by year
       ) %>%
       summarise(
@@ -252,10 +250,7 @@ calculate_eqr <- function(
       width_river = as.character(.data$width_river),
       slope = as.character(.data$slope),
       n_fyke_nets = as.character(.data$n_fyke_nets),
-      n_days = as.character(.data$n_days),
-      Stilstaand = as.character(.data$Stilstaand),
-      tidal = as.character(.data$tidal),
-      Brak = as.character(.data$Brak)
+      n_days = as.character(.data$n_days)
     ) %>%
     gather(
       key = "name", value = "value",

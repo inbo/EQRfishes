@@ -1,44 +1,44 @@
-width;slope;indextypology;indextypology_old;tidal;indextypecode
-[0,1];]0.00,1.25[;brabeel;brasem;FALSE;ZTWA
-[0,1];[1.25,3.00[;brabeel;barbeel;FALSE;ZTWA
-]1, [;[0,0];stilstaand;stilstaand;FALSE;ZTWA
-]1,5[;]0.00,1.00[;brabeel;brasem;FALSE;ZTWA
-]1,4.5[;[1.00,3.00[;brabeel;barbeel;FALSE;ZTWA
-[0,2];[3.00, [;bron;upstream;FALSE;ZTWA
-]2,4.5[;[3.00, [;upstream;upstream;FALSE;ZTWA
-[4.5,5[;[1.00,2.70[;brabeel;barbeel;FALSE;ZTWA
-[4.5,10[;[2.70,7.00[;vlagzalm;vlagzalm;FALSE;ZTWA
-[4.5,10[;[7.00, [;forel;forel;FALSE;ZTWA
-[5,15[;]0.00,0.70[;brabeel;brasem;FALSE;ZTWA
-[5,10[;[0.70,2.70[;brabeel;barbeel;FALSE;ZTWA
-[10,15[;[0.70,2.30[;brabeel;barbeel;FALSE;ZTWA
-[10,15[;[2.30,6.50[;vlagzalm;vlagzalm;FALSE;ZTWA
-[10,15[;[6.50, [;forel;forel;FALSE;ZTWA
-[15,20[;]0.00,0.60[;brabeel;brasem;FALSE;ZTWA
-[15,20[;[0.60,2.00[;brabeel;barbeel;FALSE;ZTWA
-[15,20[;[2.00,6.00[;vlagzalm;vlagzalm;FALSE;ZTWA
-[15,20[;[6.00, [;forel;forel;FALSE;ZTWA
-[20,30[;]0.00,0.50[;brabeel;brasem;FALSE;ZTWA
-[20,25[;[0.50,2.00[;brabeel;barbeel;FALSE;ZTWA
-[20,25[;[2.00,5.70[;vlagzalm;vlagzalm;FALSE;ZTWA
-[20,25[;[5.70, [;forel;forel;FALSE;ZTWA
-[25,30[;[0.50,1.75[;brabeel;barbeel;FALSE;ZTWA
-[25,30[;[1.75,5.50[;vlagzalm;vlagzalm;FALSE;ZTWA
-[25,30[;[5.50, [;forel;forel;FALSE;ZTWA
-[30,60[;]0.00,0.45[;brasem;brasem;FALSE;ZTWA
-[30,60[;[0.45,1.50[;barbeel;barbeel;FALSE;ZTWA
-[30,60[;[1.50,5.00[;vlagzalm;vlagzalm;FALSE;ZTWA
-[30,60[;[5.00, [;forel;forel;FALSE;ZTWA
-[60,100[;]0.00,0.33[;brasem;brasem;FALSE;ZTWA
-[60,100[;[0.33,1.25[;barbeel;barbeel;FALSE;ZTWA
-[60,100[;[1.25,4.50[;vlagzalm;vlagzalm;FALSE;ZTWA
-[60,100[;[4.50, [;forel;forel;FALSE;ZTWA
-[100, [;]0.00,0.25[;brasem;brasem;FALSE;ZTWA
-[100, [;[0.25, [;barbeel;barbeel;FALSE;ZTWA
-NA;NA;estuarien_Schelde_mesohaline;estuarien_Schelde_mesohaline;TRUE;SCHM
-NA;NA;estuarien_Schelde_oligohaline;estuarien_Schelde_oligohaline;TRUE;SCHO
-NA;NA;estuarien_Schelde_freshwater;estuarien_Schelde_freshwater;TRUE;SCHZ
-NA;NA;estuarien_zijrivieren_zoet;estuarien_zijrivieren_zoet;TRUE;ZTWZ
-NA;NA;estuarien_IJzer;estuarien_IJzer;TRUE;YZRP
-NA;NA;canals;canals;FALSE;CANA
-NA;NA;lakes;lakes;FALSE;ENCL
+width;slope;indextypology;indextypology_old;indextypecode
+[0,1];]0.00,1.25[;brabeel;brasem;ZTWA
+[0,1];[1.25,3.00[;brabeel;barbeel;ZTWA
+]1, [;[0,0];stilstaand;stilstaand;ZTWA
+]1,5[;]0.00,1.00[;brabeel;brasem;ZTWA
+]1,4.5[;[1.00,3.00[;brabeel;barbeel;ZTWA
+[0,2];[3.00, [;bron;upstream;ZTWA
+]2,4.5[;[3.00, [;upstream;upstream;ZTWA
+[4.5,5[;[1.00,2.70[;brabeel;barbeel;ZTWA
+[4.5,10[;[2.70,7.00[;vlagzalm;vlagzalm;ZTWA
+[4.5,10[;[7.00, [;forel;forel;ZTWA
+[5,15[;]0.00,0.70[;brabeel;brasem;ZTWA
+[5,10[;[0.70,2.70[;brabeel;barbeel;ZTWA
+[10,15[;[0.70,2.30[;brabeel;barbeel;ZTWA
+[10,15[;[2.30,6.50[;vlagzalm;vlagzalm;ZTWA
+[10,15[;[6.50, [;forel;forel;ZTWA
+[15,20[;]0.00,0.60[;brabeel;brasem;ZTWA
+[15,20[;[0.60,2.00[;brabeel;barbeel;ZTWA
+[15,20[;[2.00,6.00[;vlagzalm;vlagzalm;ZTWA
+[15,20[;[6.00, [;forel;forel;ZTWA
+[20,30[;]0.00,0.50[;brabeel;brasem;ZTWA
+[20,25[;[0.50,2.00[;brabeel;barbeel;ZTWA
+[20,25[;[2.00,5.70[;vlagzalm;vlagzalm;ZTWA
+[20,25[;[5.70, [;forel;forel;ZTWA
+[25,30[;[0.50,1.75[;brabeel;barbeel;ZTWA
+[25,30[;[1.75,5.50[;vlagzalm;vlagzalm;ZTWA
+[25,30[;[5.50, [;forel;forel;ZTWA
+[30,60[;]0.00,0.45[;brasem;brasem;ZTWA
+[30,60[;[0.45,1.50[;barbeel;barbeel;ZTWA
+[30,60[;[1.50,5.00[;vlagzalm;vlagzalm;ZTWA
+[30,60[;[5.00, [;forel;forel;ZTWA
+[60,100[;]0.00,0.33[;brasem;brasem;ZTWA
+[60,100[;[0.33,1.25[;barbeel;barbeel;ZTWA
+[60,100[;[1.25,4.50[;vlagzalm;vlagzalm;ZTWA
+[60,100[;[4.50, [;forel;forel;ZTWA
+[100, [;]0.00,0.25[;brasem;brasem;ZTWA
+[100, [;[0.25, [;barbeel;barbeel;ZTWA
+NA;NA;estuarien_Schelde_mesohaline;estuarien_Schelde_mesohaline;SCHM
+NA;NA;estuarien_Schelde_oligohaline;estuarien_Schelde_oligohaline;SCHO
+NA;NA;estuarien_Schelde_freshwater;estuarien_Schelde_freshwater;SCHZ
+NA;NA;estuarien_zijrivieren_zoet;estuarien_zijrivieren_zoet;ZTWZ
+NA;NA;estuarien_IJzer;estuarien_IJzer;YZRP
+NA;NA;canals;canals;CANA
+NA;NA;lakes;lakes;ENCL
