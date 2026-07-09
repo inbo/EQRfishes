@@ -225,7 +225,7 @@ output <- NULL
 for (var_indextypology in unique(indextypology_metric$indextypology)) {
   index_information <- index_overview %>%
     filter(short_name == var_indextypology)
-  output <- c(output, knit_child("_fiche_zonation.Rmd"))
+  output <- c(output, knit_child("_fiche_indextypology.Rmd"))
 }
 ```
 
