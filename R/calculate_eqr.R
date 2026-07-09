@@ -557,7 +557,7 @@ calculate_eqr <- function(
           unlist(
             pmap(
               list(
-                .data$indextypology, .data$metrics, .data$calc_method_old,
+                .data$metrics, .data$calc_method_old,
                 ibi_exceptions
               ),
               calculate_ibi_score

@@ -8,7 +8,6 @@
 #' Distinction between old an new method is made by the absence (old method)
 #' or presence (new method) of a specified method for the calculated methods.
 #'
-#' @param zonation_name indextypology of the location
 #' @param metrics calculated metrics and metric scores
 #' @param calc_method_old does the calculation has to be done using the old
 #' method?
@@ -24,7 +23,7 @@
 #'
 #'
 calculate_ibi_score <- function(
-  zonation_name, metrics, calc_method_old, ibi_exceptions
+  metrics, calc_method_old, ibi_exceptions
 ) {
 
   if (!is.null(ibi_exceptions)) {
