@@ -4,15 +4,17 @@ library(readr)
 library(dplyr)
 library(tidyr)
 
-data_zonation <-
-  suppressMessages(
-    read_csv2(system.file("extdata/data_zonation.csv", package = "EQRfishes"))
+data_indextypology <- suppressMessages(
+  read_csv2(
+    system.file("extdata/data_indextypology.csv", package = "EQRfishes")
   )
+)
 
-zonation_metric <-
-  suppressMessages(
-    read_csv2(system.file("extdata/zonation_metric.csv", package = "EQRfishes"))
+indextypology_metric <- suppressMessages(
+  read_csv2(
+    system.file("extdata/indextypology_metric.csv", package = "EQRfishes")
   )
+)
 
 calculate_metric_formula <-
   suppressMessages(
@@ -63,11 +65,11 @@ calculate_ibi_eqr <-
 #   )
 
 describe("variables exist in dependent tables", {
-  it("data_zonation.indextypology -> zonation_metric.indextypology", {
+  it("data_indextypology.indextypology -> indextypology_metric.indextypology", {
     lacking_vars <-
-      unique(data_zonation$indextypology)[
-        !unique(data_zonation$indextypology) %in%
-          unique(zonation_metric$indextypology)
+      unique(data_indextypology$indextypology)[
+        !unique(data_indextypology$indextypology) %in%
+          unique(indextypology_metric$indextypology)
       ]
     lacking_vars <- lacking_vars[lacking_vars != "stilstaand"]
     expect_equal(
@@ -75,13 +77,13 @@ describe("variables exist in dependent tables", {
       info =
         paste(
           paste(lacking_vars, collapse = ", "),
-          "should be added to column indextypology in table zonation_metric.csv" # nolint: line_length_linter
+          "should be added to column indextypology in table indextypology_metric.csv" # nolint: line_length_linter
         )
     )
   })
-  it("zonation_metric.metric_formula_name -> calculate_metric_formula.metric_formula_name", { # nolint: line_length_linter
-    lacking_vars <- unique(zonation_metric$metric_formula_name)[
-      !unique(zonation_metric$metric_formula_name) %in%
+  it("indextypology_metric.metric_formula_name -> calculate_metric_formula.metric_formula_name", { # nolint: line_length_linter
+    lacking_vars <- unique(indextypology_metric$metric_formula_name)[
+      !unique(indextypology_metric$metric_formula_name) %in%
         unique(calculate_metric_formula$metric_formula_name)
     ]
     lacking_vars <- lacking_vars[!is.na(lacking_vars)]
@@ -94,9 +96,9 @@ describe("variables exist in dependent tables", {
         )
     )
   })
-  it("zonation_metric.metric_measures_name -> calculate_metric_measures.metric_measures_name", { # nolint: line_length_linter
-    lacking_vars <- unique(zonation_metric$metric_measures_name)[
-      !unique(zonation_metric$metric_measures_name) %in%
+  it("indextypology_metric.metric_measures_name -> calculate_metric_measures.metric_measures_name", { # nolint: line_length_linter
+    lacking_vars <- unique(indextypology_metric$metric_measures_name)[
+      !unique(indextypology_metric$metric_measures_name) %in%
         unique(calculate_metric_measures$metric_measures_name)
     ]
     lacking_vars <- lacking_vars[!is.na(lacking_vars)]
@@ -109,9 +111,9 @@ describe("variables exist in dependent tables", {
         )
     )
   })
-  it("zonation_metric.metric_score_name -> calculate_metric_score.metric_score", { # nolint: line_length_linter
-    lacking_vars <- unique(zonation_metric$metric_score_name)[
-      !unique(zonation_metric$metric_score_name) %in%
+  it("indextypology_metric.metric_score_name -> calculate_metric_score.metric_score", { # nolint: line_length_linter
+    lacking_vars <- unique(indextypology_metric$metric_score_name)[
+      !unique(indextypology_metric$metric_score_name) %in%
         unique(calculate_metric_score$metric_score)
     ]
     lacking_vars <- lacking_vars[!is.na(lacking_vars)]
@@ -178,7 +180,7 @@ describe("variables exist in dependent tables", {
       select(-"magweg") %>%
       distinct() %>%
       left_join(
-        zonation_metric %>%
+        indextypology_metric %>%
           transmute(
             metric_score = .data$metric_score_name,
             metric_source =
@@ -213,15 +215,15 @@ describe("variables exist in dependent tables", {
       nrow(lacking_vars), 0,
       info =
         paste(
-          "To calculate the scores in parentheses, the following metrics should be added to columns metric_formula_name or metric_measures_name of table zonation_metric.csv or to columns submetric_formula_name or submetric_measures_name of table calculate_metric_formula.csv: ", # nolint: line_length_linter
+          "To calculate the scores in parentheses, the following metrics should be added to columns metric_formula_name or metric_measures_name of table indextypology_metric.csv or to columns submetric_formula_name or submetric_measures_name of table calculate_metric_formula.csv: ", # nolint: line_length_linter
           paste(lacking_vars$metric_for_score, collapse = ", ")
         )
     )
   })
-  it("calculate_ibi_eqr.indextypology <-> zonation_metric.indextypology", {
+  it("calculate_ibi_eqr.indextypology <-> indextypology_metric.indextypology", {
     lacking_vars <- unique(calculate_ibi_eqr$indextypology)[
       !unique(calculate_ibi_eqr$indextypology) %in%
-        unique(zonation_metric$indextypology)
+        unique(indextypology_metric$indextypology)
     ]
     expect_equal(
       length(lacking_vars), 0,
@@ -229,17 +231,17 @@ describe("variables exist in dependent tables", {
         paste(
           "calculate_ibi_eqr.csv contains information on indextypology(s)",
           paste(lacking_vars, collapse = ", "),
-          ", but there is no information on how to calculate the indextypology(s) in table zonation_metric.csv" # nolint: line_length_linter
+          ", but there is no information on how to calculate the indextypology(s) in table indextypology_metric.csv" # nolint: line_length_linter
         )
     )
   })
-  it("calculate_ibi_eqr.calculated -> zonation_metric.metric_name", {
+  it("calculate_ibi_eqr.calculated -> indextypology_metric.metric_name", {
     lacking_vars <- calculate_ibi_eqr %>%
       select("indextypology", "to_calculate", "calculated") %>%
       filter(!(.data$to_calculate == "EQR" & .data$calculated == "IBI")) %>%
       distinct() %>%
       left_join(
-        zonation_metric %>%
+        indextypology_metric %>%
           select("indextypology", "metric_name", "metric_measures_name") %>%
           distinct(),
         by = c("indextypology", "calculated" = "metric_name")
@@ -255,7 +257,7 @@ describe("variables exist in dependent tables", {
           lacking_vars$indextypology,
           ", the metric ",
           lacking_vars$calculated,
-          " should be added to the column metric_name of table zonation_metric.csv (and calculation rules should be provided in other columns)" # nolint: line_length_linter
+          " should be added to the column metric_name of table indextypology_metric.csv (and calculation rules should be provided in other columns)" # nolint: line_length_linter
         )
     )
   })

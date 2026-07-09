@@ -45,7 +45,7 @@ information <- tribble(
   ~Title, ~X, ~Y, ~Hjust, ~Vjust, ~Tekst,
   "calculate_eqr()", -1, 0, 0, 0.5, "score.csv",
   "calculate_metric()", 0, -2, 0, 0.5,
-  "zonation_metric.csv, data_taxonmetrics.csv",
+  "indextypology_metric.csv, data_taxonmetrics.csv",
   "calculate_metric_formula()", 1, -4, 0, 0.5, "calculate_metric_formula.csv",
   "calculate_metric()", 2, -6, 0, 0.5, "",
   "...", 3, -8, 0, 0.5, "",
@@ -83,7 +83,7 @@ information %>%
 Function `determine_indextypology()` is less complicated: it only calls its helper
 function `determine_indextypology_helper()` that does the job for 1 sample location,
 and function `var_in_interval()` that checks if given data are within
-the intervals given in [`data_zonation.csv`](#data_zonation-csv).
+the intervals given in [`data_indextypology.csv`](#data_indextypology-csv).
 
 ## Overview information on calculations
 
@@ -93,7 +93,7 @@ For reconstructing the calculations, take a look at
 `vignette("overview_calculations", package = "EQRfishes")`, where the same
 information (from the sheets) is presented by index typology and metric.
 
-### `data_zonation.csv`
+### `data_indextypology.csv`
 
 This data sheet gives all needed information to determine the index typology
 of a specific sample location.
@@ -101,7 +101,9 @@ It is used in function `determine_indextypology()`.
 
 ```{r indextypology}
 suppressMessages(
-  read_csv2(system.file("extdata/data_zonation.csv", package = "EQRfishes"))
+  read_csv2(
+    system.file("extdata/data_indextypology.csv", package = "EQRfishes")
+  )
 ) %>%
   datatable()
 ```
@@ -117,7 +119,9 @@ dataset_ztwa <- merge(
     by = "x"
   ),
   suppressMessages(
-    read_csv2(system.file("extdata/data_zonation.csv", package = "EQRfishes"))
+    read_csv2(
+      system.file("extdata/data_indextypology.csv", package = "EQRfishes")
+    )
   ) %>%
     filter(.data$indextypecode == "ZTWA") %>%
     select(-"tidal", -"indextypecode") %>%
@@ -143,7 +147,7 @@ dataset_ztwa %>%
 
 ```
 
-### `zonation_metric.csv`
+### `indextypology_metric.csv`
 
 This data sheet shows which metrics and metric scores have to be calculated for each index typology, with additional information on where to find the information for calculation of the metric:
 
@@ -157,9 +161,11 @@ Calculations will only be done on data collected with the mentioned method(s).
 For some index typologies, metrics MniInd or MnsTot are added without `metric_score_name`.
 Here the metric score is not used to calculate the IBI, but it is used to give IBI a low value if the number of individuals or species is too low to calculate the IBI and EQR (see [`calculate_ibi_eqr.csv`](#calculate_ibi_eqr-csv)).
 
-```{r zonation_metric}
+```{r indextypology_metric}
 suppressMessages(
-  read_csv2(system.file("extdata/zonation_metric.csv", package = "EQRfishes"))
+  read_csv2(
+    system.file("extdata/indextypology_metric.csv", package = "EQRfishes")
+  )
 ) %>%
   datatable()
 ```

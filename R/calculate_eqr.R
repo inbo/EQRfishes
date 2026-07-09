@@ -325,7 +325,7 @@ calculate_eqr <- function(
     left_join(
       suppressMessages(
         read_csv2(
-          system.file("extdata/zonation_metric.csv", package = "EQRfishes")
+          system.file("extdata/indextypology_metric.csv", package = "EQRfishes")
         )
       ) %>%
         nest(
@@ -348,7 +348,9 @@ calculate_eqr <- function(
       left_join(
         suppressMessages(
           read_csv2(
-            system.file("extdata/zonation_metric.csv", package = "EQRfishes")
+            system.file(
+              "extdata/indextypology_metric.csv", package = "EQRfishes"
+            )
           )
         ) %>%
           distinct(.data$indextypology, .data$method),

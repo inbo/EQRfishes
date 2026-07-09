@@ -10,17 +10,17 @@ connection_vis <-
     "Driver=SQL Server;Server=INBO-SQL08-PRD.inbo.be;Database=W0001_00_Vis;Trusted_Connection=Yes;" # nolint: line_length_linter
   )
 
-query_zonation <-
+query_indextypology <-
   "SELECT hz.Breedte AS width, hz.Helling AS slope, hz.Zonatie AS indextypology
   FROM DimVisindexHuetZonatie hz
   WHERE hz.Versienummer = 1;"
 
-data_zonation <-
-  sqlQuery(connection_vis, query_zonation, stringsAsFactors = FALSE)
+data_indextypology <-
+  sqlQuery(connection_vis, query_indextypology, stringsAsFactors = FALSE)
 
 odbcClose(connection_vis)
 
-data_zonation <- data_zonation %>%
+data_indextypology <- data_indextypology %>%
   mutate(
     tidal = FALSE
   ) %>%
@@ -34,4 +34,4 @@ data_zonation <- data_zonation %>%
     )
   )
 
-write_csv2(data_zonation, "inst/extdata/data_zonation.csv")
+write_csv2(data_indextypology, "inst/extdata/data_indextypology.csv")

@@ -31,7 +31,7 @@ output_indextypology <- NULL
 metric_item <- list()
 output_metric <- list()
 formula <- list("")
-metric_list <- zonation_metric %>%
+metric_list <- indextypology_metric %>%
   filter(.data$indextypology == var_indextypology)
 for (var_metric in metric_list$metric_name) {
   level <- 2

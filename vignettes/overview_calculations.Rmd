@@ -173,8 +173,10 @@ Exceptions are:
 - if indextypology = estuarien_zijrivieren_zoet and IBI = 0.8, EQR = 0.05
 
 ```{r load-sheets}
-zonation_metric <- suppressMessages(
-  read_csv2(system.file("extdata/zonation_metric.csv", package = "EQRfishes"))
+indextypology_metric <- suppressMessages(
+  read_csv2(
+    system.file("extdata/indextypology_metric.csv", package = "EQRfishes")
+  )
 ) %>%
   filter(.data$indextypology != "(undetermined)")
 description_metrics <- suppressMessages(
@@ -220,7 +222,7 @@ index_overview <- suppressMessages(
 
 ```{r indextypologies, include=FALSE}
 output <- NULL
-for (var_indextypology in unique(zonation_metric$indextypology)) {
+for (var_indextypology in unique(indextypology_metric$indextypology)) {
   index_information <- index_overview %>%
     filter(short_name == var_indextypology)
   output <- c(output, knit_child("_fiche_zonation.Rmd"))
@@ -239,7 +241,7 @@ cat(output, sep = "\n")
 ## Overview information on calculations
 
 
-### `zonation_metric.csv`
+### `indextypology_metric.csv`
 
 This datasheet shows which metrics and metric scores have to be calculated for each indextypology, with additional information on where to find the information for calculation of the metric:
 

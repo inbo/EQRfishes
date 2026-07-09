@@ -48,28 +48,30 @@ determine_indextypology_helper <- function(
 ) {
 
   match.arg(version)
-  data_zonation <-
+  data_indextypology <-
     suppressMessages(
-      read_csv2(system.file("extdata/data_zonation.csv", package = "EQRfishes"))
+      read_csv2(
+        system.file("extdata/data_indextypology.csv", package = "EQRfishes")
+      )
     )
-  data_zonation <- data_zonation %>%
+  data_indextypology <- data_indextypology %>%
     filter(
       .data$indextypecode == var_indextype
     )
   if (var_indextype == "ZTWA") {
-    data_zonation <- data_zonation %>%
+    data_indextypology <- data_indextypology %>%
       filter(
         var_in_interval(var_width, .data$width),
         var_in_interval(var_slope, .data$slope)
       )
   }
-  if (nrow(data_zonation) == 0) {
+  if (nrow(data_indextypology) == 0) {
     return("(undetermined)")
   }
 
   if (version[1] == "new") {
-    return(data_zonation$indextypology)
+    return(data_indextypology$indextypology)
   } else {
-    return(data_zonation$indextypology_old)
+    return(data_indextypology$indextypology_old)
   }
 }
