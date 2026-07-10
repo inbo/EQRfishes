@@ -11,7 +11,6 @@ determine_indextypology(dataset, version = c("new", "old"))
 \itemize{
 \item \code{width_river} width of the river at the sample location (meters),
 \item \code{slope} slope of the river at the sample location (per thousand),
-\item \code{tidal} tidal effect present (TRUE) or absent (FALSE)?
 \item \code{index_type_code} type based on salinity of the sample location:
 \itemize{
 \item \code{"ZTWA"} for freshwater,

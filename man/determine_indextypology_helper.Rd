@@ -7,7 +7,6 @@
 determine_indextypology_helper(
   var_width,
   var_slope,
-  var_tidal,
   var_indextype,
   version = c("new", "old")
 )
@@ -16,8 +15,6 @@ determine_indextypology_helper(
 \item{var_width}{width of the river at the sample location (meters)}
 
 \item{var_slope}{slope of the river at the sample location (per thousand)}
-
-\item{var_tidal}{tidal effect present (TRUE) or absent (FALSE)?}
 
 \item{var_indextype}{type based on salinity of the sample location:
 \itemize{
@@ -50,7 +47,6 @@ library(EQRfishes)
 determine_indextypology_helper(
   var_width = 3,
   var_slope = 3,
-  var_tidal = FALSE,
   var_indextype = "ZTWA",
   version = "new"
 )

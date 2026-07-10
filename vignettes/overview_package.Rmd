@@ -124,7 +124,7 @@ dataset_ztwa <- merge(
     )
   ) %>%
     filter(.data$indextypecode == "ZTWA") %>%
-    select(-"tidal", -"indextypecode") %>%
+    select(-"indextypecode") %>%
     mutate(x = 0),
   by = "x"
 ) %>%
