@@ -338,17 +338,6 @@ calculate_eqr <- function(
       )
   }
 
-  zero_width <- data_sample %>%
-    filter(
-      .data$indextypology %in% c("barbeel", "brasem", "brabeel"),
-      .data$width_river == 0
-    )
-  if (nrow(zero_width) > 0) {
-    warning(
-      "Some records of data_sample from indextypology barbeel, brasem or brabeel have a width_river of 0. Scoring of metrics is done supposing the river width is smaller than 3 meters. Please redo the calculation with a valid river width if the river is 3 meter or wider." # nolint: line_length_linter
-    )
-  }
-
   data_sample <- data_sample %>%
     mutate(
       surface =
