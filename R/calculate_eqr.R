@@ -2,19 +2,70 @@
 #'
 #' Main function of this package, which calculates the Ecological Quality Ratio
 #' (EQR) based on 2 tables of data.
-#' Each table must contain a sample_key!
+#' Each table must contain a `sample_id`!
 #'
-#' @param data_sample Data on the sample: date, method, location and location
-#' characteristics including zonation (= index typology, which can be calculated
-#' using function `determine_zonation()`)
+#' @param data_sample Data on the sample with at least columns:
+#'   \itemize{
+#'     \item `sample_id`: unique id for each row, that should be referred to in
+#'     `data_fish` (and `cluster`),
+#'     \item `indextypology`: index that should be used for the calculation,
+#'       which can be calculated using function `determine_indextypology()`.
+#'       Possible values are `fish-based bream IBI` (or Dutch `brasem index`),
+#'       `fish-based barbel IBI` (or Dutch `barbeel index`),
+#'       `fish-based lowland IBI`
+#'         (or Dutch `brasem & barbeel index versie 2021`),
+#'       `fish-based upstream IBI` (or Dutch `bovenstroomse index`),
+#'       `fish-based trout IBI` (or Dutch `forel index`),
+#'       `fish-based grayling IBI` (or Dutch `vlagzalm index`),
+#'       `fish-based river source IBI` (or Dutch `bron index`),
+#'       `fish-based lakes IBI` (or Dutch `meren index`),
+#'       `fish-based canals IBI` (or Dutch `kanaal index`),
+#'       `fish-based IJzer estuarine index` (or Dutch `IJzer estuariene index`),
+#'       `fish-based estuarine Schelde freshwater index`
+#'         (or Dutch `estuariene Schelde zoetwater index`),
+#'       `fish-based estuarine Schelde oligohaline index`
+#'         (or Dutch `estuariene Schelde oligohaliene index`),
+#'       `fish-based estuarine Schelde mesohaline index`
+#'         (or Dutch `estuariene Schelde mesohaliene index`) and
+#'       `fish-based estuarine tribuataries river Schelde index`
+#'         (or Dutch `getijgebonden zijrivieren zoet index`).
+#'       (Also Dutch names and abbreviations are accepted.)
+#'     \item `method`: method used for the sampling, possible values are
+#'      `E` (electrofishing), `SF` (fyke fishing) and `SN` (trawling)
+#'      (or methods starting with `E` or `SF`).
+#'      There should be a separate row (and different `sample_id`) for each
+#'      method, so measures taken with different methods on the same spot
+#'      are considered to be different samples.
+#'     \item `year`: year of sampling
+#'   }
+#' For some indextypologies, additional columns are needed:
+#'   \itemize{
+#'     \item `width_transect` and `length_trajectory` in meter for
+#'       electrofishing in `fish-based bream IBI`, `fish-based barbel IBI`,
+#'       `fish-based upstream IBI` and `fish-based canals IBI`
+#'     \item `width_river` in meter for `fish-based bream IBI`,
+#'       `fish-based barbel IBI` and `fish-based lowland IBI`
+#'     \item `slope` in per thousand for `fish-based upstream IBI`
+#'     \item `n_fyke_nets` (number of nets) for fyke fishing in
+#'       `fish-based bream IBI`, `fish-based barbel IBI`,
+#'       `fish-based estuarine Schelde freshwater index` and
+#'       `fish-based estuarine Schelde oligohaline index`
+#'     \item `n_days` (number of days that the given number of nets was placed)
+#'       for fyke fishing in `fish-based estuarine Schelde freshwater index` and
+#'       `fish-based estuarine Schelde oligohaline index`
+#'     \item `season` in which the sampling took place, possible values are
+#'       `spring`, `summer` or `autumn` (samples in `winter` are not scored),
+#'       only needed for `fish-based lowland IBI`
+#'   }
 #' @param data_fish Measurements on fish: dataframe with columns
 #'   - `sample_id` (reference to `data_sample`),
 #'   - `record_id`: unique id for each row,
 #'   - `taxoncode`: abbreviation of scientific fish name,
 #'   - `number` of individuals for this record (1 if each separate fish is
 #'     measured),
-#'   - `length` of the fish in cm (NA if `number` > 1),
-#'   - `weight` of the fish in g (total weight if `number` > 1)
+#'   - `length` of the fish in centimeters (should be `NA` (not available) if
+#'   `number` > 1),
+#'   - `weight` of the fish in gram (total weight of all fish if `number` > 1)
 #' @param output Which output do you wish?
 #'   \itemize{
 #'     \item \strong{EQR} (default) only gives the main result:
@@ -28,7 +79,8 @@
 #' @param cluster Table with columns `sample_id` and `index_cluster`
 #' that indicates how samples should be clustered into a 'waterbody'
 #' in case of the index typologies lakes, canals and estuarine zonations.
-#' Defaults to NA, because it is not needed in case of freshwater rivers.
+#' Defaults to `NA` (not available), because this input is not needed in case of
+#' freshwater rivers.
 #'
 #' @return Dataframe with calculated EQR for each sample, or list of dataframes
 #' if parameter output is specified

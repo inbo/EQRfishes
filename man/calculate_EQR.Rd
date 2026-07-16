@@ -12,9 +12,59 @@ calculate_eqr(
 )
 }
 \arguments{
-\item{data_sample}{Data on the sample: date, method, location and location
-characteristics including zonation (= index typology, which can be calculated
-using function \code{determine_zonation()})}
+\item{data_sample}{Data on the sample with at least columns:
+\itemize{
+\item \code{sample_id}: unique id for each row, that should be referred to in
+\code{data_fish} (and \code{cluster}),
+\item \code{indextypology}: index that should be used for the calculation,
+which can be calculated using function \code{determine_indextypology()}.
+Possible values are \verb{fish-based bream IBI} (or Dutch \verb{brasem index}),
+\verb{fish-based barbel IBI} (or Dutch \verb{barbeel index}),
+\verb{fish-based lowland IBI}
+(or Dutch \verb{brasem & barbeel index versie 2021}),
+\verb{fish-based upstream IBI} (or Dutch \verb{bovenstroomse index}),
+\verb{fish-based trout IBI} (or Dutch \verb{forel index}),
+\verb{fish-based grayling IBI} (or Dutch \verb{vlagzalm index}),
+\verb{fish-based river source IBI} (or Dutch \verb{bron index}),
+\verb{fish-based lakes IBI} (or Dutch \verb{meren index}),
+\verb{fish-based canals IBI} (or Dutch \verb{kanaal index}),
+\verb{fish-based IJzer estuarine index} (or Dutch \verb{IJzer estuariene index}),
+\verb{fish-based estuarine Schelde freshwater index}
+(or Dutch \verb{estuariene Schelde zoetwater index}),
+\verb{fish-based estuarine Schelde oligohaline index}
+(or Dutch \verb{estuariene Schelde oligohaliene index}),
+\verb{fish-based estuarine Schelde mesohaline index}
+(or Dutch \verb{estuariene Schelde mesohaliene index}) and
+\verb{fish-based estuarine tribuataries river Schelde index}
+(or Dutch \verb{getijgebonden zijrivieren zoet index}).
+(Also Dutch names and abbreviations are accepted.)
+\item \code{method}: method used for the sampling, possible values are
+\code{E} (electrofishing), \code{SF} (fyke fishing) and \code{SN} (trawling)
+(or methods starting with \code{E} or \code{SF}).
+There should be a separate row (and different \code{sample_id}) for each
+method, so measures taken with different methods on the same spot
+are considered to be different samples.
+\item \code{year}: year of sampling
+}
+For some indextypologies, additional columns are needed:
+\itemize{
+\item \code{width_transect} and \code{length_trajectory} in meter for
+electrofishing in \verb{fish-based bream IBI}, \verb{fish-based barbel IBI},
+\verb{fish-based upstream IBI} and \verb{fish-based canals IBI}
+\item \code{width_river} in meter for \verb{fish-based bream IBI},
+\verb{fish-based barbel IBI} and \verb{fish-based lowland IBI}
+\item \code{slope} in per thousand for \verb{fish-based upstream IBI}
+\item \code{n_fyke_nets} (number of nets) for fyke fishing in
+\verb{fish-based bream IBI}, \verb{fish-based barbel IBI},
+\verb{fish-based estuarine Schelde freshwater index} and
+\verb{fish-based estuarine Schelde oligohaline index}
+\item \code{n_days} (number of days that the given number of nets was placed)
+for fyke fishing in \verb{fish-based estuarine Schelde freshwater index} and
+\verb{fish-based estuarine Schelde oligohaline index}
+\item \code{season} in which the sampling took place, possible values are
+\code{spring}, \code{summer} or \code{autumn} (samples in \code{winter} are not scored),
+only needed for \verb{fish-based lowland IBI}
+}}
 
 \item{data_fish}{Measurements on fish: dataframe with columns
 \itemize{
@@ -23,8 +73,9 @@ using function \code{determine_zonation()})}
 \item \code{taxoncode}: abbreviation of scientific fish name,
 \item \code{number} of individuals for this record (1 if each separate fish is
 measured),
-\item \code{length} of the fish in cm (NA if \code{number} > 1),
-\item \code{weight} of the fish in g (total weight if \code{number} > 1)
+\item \code{length} of the fish in centimeters (should be \code{NA} (not available) if
+\code{number} > 1),
+\item \code{weight} of the fish in gram (total weight of all fish if \code{number} > 1)
 }}
 
 \item{output}{Which output do you wish?
@@ -41,7 +92,8 @@ and a third with all calculated values
 \item{cluster}{Table with columns \code{sample_id} and \code{index_cluster}
 that indicates how samples should be clustered into a 'waterbody'
 in case of the index typologies lakes, canals and estuarine zonations.
-Defaults to NA, because it is not needed in case of freshwater rivers.}
+Defaults to \code{NA} (not available), because this input is not needed in case of
+freshwater rivers.}
 }
 \value{
 Dataframe with calculated EQR for each sample, or list of dataframes
@@ -50,7 +102,7 @@ if parameter output is specified
 \description{
 Main function of this package, which calculates the Ecological Quality Ratio
 (EQR) based on 2 tables of data.
-Each table must contain a sample_id!
+Each table must contain a \code{sample_id}!
 }
 \examples{
 library(dplyr)
