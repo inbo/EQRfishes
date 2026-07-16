@@ -23,97 +23,97 @@ describe("indextypology is determined correctly", {
     expect_equal(
       (determine_indextypology(
         data_sample[data_sample$sample_id == 8681, ]
-      ))$indextypology,
+      ))$indextypology_short,
       "brabeel"
     )
     expect_equal(
       (determine_indextypology(
         data_sample[data_sample$sample_id == 8681, ], version = "old"
-      ))$indextypology,
+      ))$indextypology_short,
       "barbeel"
     )
     expect_equal(
       (determine_indextypology(
         data_sample[data_sample$sample_id == 11652, ]
-      ))$indextypology,
+      ))$indextypology_short,
       "brabeel"
     )
     expect_equal(
       (determine_indextypology(
         data_sample[data_sample$sample_id == 11652, ], version = "old"
-      ))$indextypology,
+      ))$indextypology_short,
       "brasem"
     )
     expect_equal(
       (determine_indextypology(
         data_sample[data_sample$sample_id == 13384, ]
       ))$indextypology,
-      "brabeel"
+      "fish-based lowland IBI"
     )
     expect_equal(
       (determine_indextypology(
         data_sample[data_sample$sample_id == 13384, ], version = "old"
       ))$indextypology,
-      "brasem"
+      "fish-based bream IBI"
     )
     expect_equal(
       (determine_indextypology(
         data_sample[data_sample$sample_id == 13282, ]
       ))$indextypology,
-      "brabeel"
+      "fish-based lowland IBI"
     )
     expect_equal(
       (determine_indextypology(
         data_sample[data_sample$sample_id == 13282, ], version = "old"
       ))$indextypology,
-      "barbeel"
+      "fish-based barbel IBI"
     )
     expect_equal(
       (determine_indextypology(
         data_sample[data_sample$sample_id == 13561, ]
-      ))$indextypology,
+      ))$indextypology_short,
       "brabeel"
     )
     expect_equal(
       (determine_indextypology(
         data_sample[data_sample$sample_id == 13561, ], version = "old"
-      ))$indextypology,
+      ))$indextypology_short,
       "barbeel"
     )
     expect_equal(
       (determine_indextypology(
         data_sample[data_sample$sample_id == 8434, ]
-      ))$indextypology,
+      ))$indextypology_short,
       "brabeel"
     )
     expect_equal(
       (determine_indextypology(
         data_sample[data_sample$sample_id == 8434, ], version = "old"
-      ))$indextypology,
+      ))$indextypology_short,
       "barbeel"
     )
     expect_equal(
       (determine_indextypology(
         data_sample[data_sample$sample_id == 13512, ]
-      ))$indextypology,
+      ))$indextypology_short,
       "brabeel"
     )
     expect_equal(
       (determine_indextypology(
         data_sample[data_sample$sample_id == 13512, ], version = "old"
-      ))$indextypology,
+      ))$indextypology_short,
       "brasem"
     )
     expect_equal(
       (determine_indextypology(
         data_sample[data_sample$sample_id == 8507, ]
-      ))$indextypology,
+      ))$indextypology_short,
       "brabeel"
     )
     expect_equal(
       (determine_indextypology(
         data_sample[data_sample$sample_id == 8507, ], version = "old"
-      ))$indextypology,
+      ))$indextypology_short,
       "brasem"
     )
   })
@@ -121,38 +121,38 @@ describe("indextypology is determined correctly", {
     expect_equal(
       (determine_indextypology(
         data_sample[data_sample$sample_id == 4550, ]
-      ))$indextypology,
+      ))$indextypology_short,
       "upstream"
     )
     expect_equal(
       (determine_indextypology(
         data_sample[data_sample$sample_id == 4550, ], version = "old"
-      ))$indextypology,
+      ))$indextypology_short,
       "upstream"
     )
     expect_equal(
       (determine_indextypology(
         data_sample[data_sample$sample_id == 11611, ]
       ))$indextypology,
-      "upstream"
+      "fish-based upstream IBI"
     )
     expect_equal(
       (determine_indextypology(
         data_sample[data_sample$sample_id == 11611, ], version = "old"
       ))$indextypology,
-      "upstream"
+      "fish-based upstream IBI"
     )
     expect_equal(
       (determine_indextypology(
         data_sample[data_sample$sample_id == 13534, ]
-      ))$indextypology,
+      ))$indextypology_short,
       "vlagzalm"
     )
     expect_equal(
       (determine_indextypology(
         data_sample[data_sample$sample_id == 13534, ], version = "old"
       ))$indextypology,
-      "vlagzalm"
+      "fish-based grayling IBI"
     )
   })
 })

@@ -94,6 +94,65 @@ calculate_eqr <- function(
   data_sample, data_fish, output = c("EQR", "metric", "detail"), cluster = NA
 ) {
 
+  stopifnot(inherits(data_sample, "data.frame"))
+  assert_that(has_name(data_sample, "indextypology"))
+  stopifnot(is.character(data_sample$indextypology))
+  if (has_name(data_sample, "indextypology_short")) {
+    # remove column with this name to avoid problems
+    # other (unneeded) columns disappear as well, change this if others are kept
+    data_sample$indextypology_short <- NULL
+  }
+  index_names <- suppressMessages(
+    read_csv2(
+      system.file(
+        "extdata/index_names_english_dutch.csv", package = "EQRfishes"
+      )
+    )
+  )
+  data_sample <- data_sample |>
+    left_join(
+      index_names |>
+        select("short_name_e" = "short_name", "indextypology" = "english_name"),
+      by = "indextypology"
+    ) |>
+    left_join(
+      index_names |>
+        select("short_name_d" = "short_name", "indextypology" = "dutch_name"),
+      by = "indextypology"
+    ) |>
+    mutate(
+      indextypology_short = ifelse(
+        .data$indextypology %in% index_names$short_name,
+        .data$indextypology,
+        ifelse(
+          .data$indextypology %in% index_names$english_name,
+          .data$short_name_e,
+          ifelse(
+            .data$indextypology %in% index_names$dutch_name,
+            .data$short_name_d,
+            NA
+          )
+        )
+      ),
+      short_name_d = NULL,
+      short_name_e = NULL
+    )
+
+  if (any(is.na(data_sample$indextypology_short))) {
+    invalid <- paste(
+      unique(
+        data_sample[is.na(data_sample$indextypology_short), "indextypology"]
+      ),
+      collapse = ", "
+    )
+    stop(
+      paste(
+        "indextypology", invalid,
+        "is (are) invalid, please replace in data_sample"
+      )
+    )
+  }
+
   # make sure data_fish has all columns present, and remove additional columns
   # (these can cause problems if fish data are nested)
   assert_that(has_name(data_fish, "sample_id"))
@@ -117,7 +176,9 @@ calculate_eqr <- function(
 
   join_data_fish <- "sample_id"
   select_keys <- "sample_id"
-  if (any(str_detect(data_sample$indextypology, "estuarien|lakes|canals"))) {
+  if (
+    any(str_detect(data_sample$indextypology_short, "estuarien|lakes|canals"))
+  ) {
     stopifnot(
       "Argument cluster must be provided for indextypologies lakes, canals or estuarien" # nolint: line_length_linter
       = length(cluster) != 1 || !is.na(cluster)
@@ -144,7 +205,7 @@ calculate_eqr <- function(
     test_index_cluster <- data_sample %>%
       filter(
         is.na(.data$index_cluster),
-        str_detect(.data$indextypology, "estuarien|lakes|canals")
+        str_detect(.data$indextypology_short, "estuarien|lakes|canals")
       )
     if (nrow(test_index_cluster) > 0) {
       stop(
@@ -175,7 +236,7 @@ calculate_eqr <- function(
       ) %>%
       group_by(
         .data$sample_id, .data$method,
-        .data$year, .data$indextypology
+        .data$year, .data$indextypology, .data$indextypology_short
       ) %>%
       summarise(
         surface = sum(.data$width_transect * .data$length_trajectory),
@@ -189,8 +250,8 @@ calculate_eqr <- function(
       ) %>%
       ungroup() %>%
       group_by(
-        .data$sample_id, .data$method,
-        .data$year, .data$indextypology  #group by year
+        .data$sample_id, .data$method, .data$year,  # group by year
+        .data$indextypology, .data$indextypology_short
       ) %>%
       summarise(
         surface = sum(.data$surface),
@@ -254,7 +315,7 @@ calculate_eqr <- function(
     ) %>%
     gather(
       key = "name", value = "value",
-      -"sample_id", -"indextypology", -"method", -"year"
+      -"sample_id", -"indextypology", -"indextypology_short", -"method", -"year"
     ) %>%
     nest(sampledata = c("name", "value"))
 
@@ -321,7 +382,7 @@ calculate_eqr <- function(
           metric_name_group =
             c("metric_formula_name", "metric_measures_name")
         ),
-      by = "indextypology",
+      by = c("indextypology_short" = "indextypology"),
       suffix = c("", "_for_metric"), relationship = "many-to-many"
     ) %>%
     filter(
@@ -332,7 +393,7 @@ calculate_eqr <- function(
     problem <- data_sample %>%
       distinct(
         .data$sample_id, .data$method, .data$year,
-        .data$indextypology
+        .data$indextypology, .data$indextypology_short
       ) %>%
       left_join(
         suppressMessages(
@@ -343,7 +404,7 @@ calculate_eqr <- function(
           )
         ) %>%
           distinct(.data$indextypology, .data$method),
-        by = "indextypology",
+        by = c("indextypology_short" = "indextypology"),
         suffix = c("", "_for_metric"), relationship = "many-to-many"
       ) %>%
       filter(
@@ -381,7 +442,7 @@ calculate_eqr <- function(
 
   result_metrics <- result %>%
     select(
-      "sample_id", "indextypology", "year",
+      "sample_id", "indextypology", "indextypology_short", "year",
       "sampledata", "metric_name", "metric_score_name",
       "method_for_metric", "metric_name_group"
     ) %>%
@@ -410,7 +471,8 @@ calculate_eqr <- function(
     ) %>%
     group_by(
       .data$sample_id, .data$indextypology, .data$year,
-      .data$metric_name, .data$metric_score_name, .data$method_for_metric
+      .data$metric_name, .data$metric_score_name, .data$method_for_metric,
+      .data$indextypology_short
     ) %>%
     summarise(
       metric_name_ext =
@@ -436,13 +498,14 @@ calculate_eqr <- function(
 
   #for the new method (estuaries, lakes and canals), results are aggregated
   result_metrics_aggregated <- result_metrics %>%
-    filter(str_detect(.data$indextypology, "estuarien|lakes|canals")) %>%
+    filter(str_detect(.data$indextypology_short, "estuarien|lakes|canals")) %>%
     mutate(
       sample_id = substr(.data$sample_id, 1, nchar(.data$sample_id) - 3)
     ) %>%
     group_by(
       .data$sample_id, .data$indextypology, .data$year,
-      .data$metric_name, .data$metric_score_name, .data$method_for_metric
+      .data$metric_name, .data$metric_score_name, .data$method_for_metric,
+      .data$indextypology_short
     ) %>%
     summarise(
       metric_value =
@@ -467,16 +530,16 @@ calculate_eqr <- function(
     left_join(
       result_metrics_aggregated %>%
         filter(
-          .data$indextypology %in%
+          .data$indextypology_short %in%
             c("estuarien_Schelde_oligohaline", "estuarien_Schelde_mesohaline",
               "estuarien_Schelde_freshwater"),
           .data$metric_name == "MnsTot"
         ) %>%
         select(
-          "sample_id", "indextypology", "year",
+          "sample_id", "indextypology_short", "year",
           "MnsTot" = .data$metric_value
         ),
-      by = c("sample_id", "indextypology", "year")
+      by = c("sample_id", "indextypology_short", "year")
     ) %>%
     mutate(
       metric_score = ifelse(
@@ -489,7 +552,9 @@ calculate_eqr <- function(
 
   if (nrow(result_metrics_aggregated) > 0) {
     result_metrics <- result_metrics %>%
-      filter(!str_detect(.data$indextypology, "estuarien|lakes|canals")) %>%
+      filter(
+        !str_detect(.data$indextypology_short, "estuarien|lakes|canals")
+      ) %>%
       mutate(
         sample_id_trim =
           substr(.data$sample_id, 1, nchar(.data$sample_id) - 3)
@@ -527,13 +592,13 @@ calculate_eqr <- function(
     left_join(
       ibi_exceptions %>%
         nest(.by = "indextypology", .key = "ibi_exceptions"),
-      by = "indextypology",
+      by = c("indextypology_short" = "indextypology"),
       relationship = "many-to-one"
     ) %>%
     mutate(
       calc_method_old =
-        .data$indextypology %in% c("brasem", "barbeel", "upstream", "forel",
-                              "vlagzalm")
+        .data$indextypology_short %in% c("brasem", "barbeel", "upstream",
+                                         "forel", "vlagzalm")
     ) %>%
     nest(
       metrics =
@@ -555,7 +620,7 @@ calculate_eqr <- function(
         ),
       calc_method_old =
         ifelse(
-          grepl("estuarien", .data$indextypology) &
+          grepl("estuarien", .data$indextypology_short) &
             !.data$indextypology == "estuarien_zijrivieren_zoet",
           TRUE,
           .data$calc_method_old
@@ -565,15 +630,15 @@ calculate_eqr <- function(
           pmap(
             list(
               .data$ibi, .data$metrics, .data$calc_method_old,
-              .data$indextypology
+              .data$indextypology_short
             ),
             standardise_ibi
           )
         ),
       calc_method_old =
         ifelse(
-          grepl("estuarien", .data$indextypology) &
-            !.data$indextypology == "estuarien_zijrivieren",
+          grepl("estuarien", .data$indextypology_short) &
+            !.data$indextypology_short == "estuarien_zijrivieren",
           FALSE,
           .data$calc_method_old
         )
@@ -601,7 +666,7 @@ calculate_eqr <- function(
         ),
       eqr_class =
         ifelse(
-          .data$indextypology %in% c("lakes", "brabeel"),
+          .data$indextypology_short %in% c("lakes", "brabeel"),
           cut(
             .data$std_ibi,
             breaks =
@@ -613,7 +678,7 @@ calculate_eqr <- function(
         ),
       eqr_class =
         ifelse(
-          .data$indextypology %in%
+          .data$indextypology_short %in%
             c("estuarien_Schelde_freshwater", "estuarien_Schelde_oligohaline",
               "estuarien_Schelde_mesohaline"),
           cut(
@@ -627,7 +692,7 @@ calculate_eqr <- function(
         ),
       eqr_class =
         ifelse(
-          .data$indextypology == "estuarien_IJzer",
+          .data$indextypology_short == "estuarien_IJzer",
           cut(
             .data$std_ibi,
             breaks =
@@ -675,7 +740,7 @@ calculate_eqr <- function(
         ),
       ibi_classmin =
         ifelse(
-          grepl("estuarien_Schelde", .data$indextypology),
+          grepl("estuarien_Schelde", .data$indextypology_short),
           as.numeric(
             as.character(
               cut(
@@ -745,7 +810,7 @@ calculate_eqr <- function(
         ),
       ibi_classmax =
         ifelse(
-          grepl("estuarien_Schelde", .data$indextypology),
+          grepl("estuarien_Schelde", .data$indextypology_short),
           as.numeric(
             as.character(
               cut(
@@ -763,7 +828,7 @@ calculate_eqr <- function(
         ),
       ibi_classmax =
         ifelse(
-          .data$indextypology == "estuarien_IJzer",
+          .data$indextypology_short == "estuarien_IJzer",
           as.numeric(
             as.character(
               cut(
@@ -790,24 +855,25 @@ calculate_eqr <- function(
         (.data$nclass * (.data$ibi_classmax - .data$ibi_classmin)),
       eqr =
         ifelse(
-          .data$indextypology %in%
+          .data$indextypology_short %in%
             c("brabeel", "lakes", "bron", "estuarien_zijrivieren_zoet"),
           .data$std_ibi, .data$eqr
         ),
       eqr =
         ifelse(
-          .data$indextypology == "bron" & .data$ibi == 4,
+          .data$indextypology_short == "bron" & .data$ibi == 4,
           0.2,
           .data$eqr
         ),
       eqr =
         ifelse(
-          .data$indextypology == "bron" & .data$ibi == 0,
+          .data$indextypology_short == "bron" & .data$ibi == 0,
           0,
           .data$eqr
         ),
       eqr = ifelse(
-        .data$indextypology == "estuarien_zijrivieren_zoet" & .data$ibi == 0.8,
+        .data$indextypology_short == "estuarien_zijrivieren_zoet" &
+          .data$ibi == 0.8,
         0.05,
         .data$eqr
       )
@@ -827,13 +893,16 @@ calculate_eqr <- function(
       result_metrics %>%
         inner_join(
           ibi_exceptions,
-          by = c("indextypology", "metric_name" = "calculated"),
+          by = c(
+            "indextypology_short" = "indextypology",
+            "metric_name" = "calculated"
+          ),
           relationship = "many-to-many"
         ) %>%
         filter(var_in_interval(.data$metric_value, .data$interval)) %>%
         left_join(
           result_metrics,
-          by = c(select_keys, "indextypology", "calculated2" = "metric_name"),
+          by = c(select_keys, "indextypology", "indextypology_short", "calculated2" = "metric_name"),
           suffix = c("", "2"),
           relationship = "many-to-many"
         ) %>%
@@ -880,7 +949,8 @@ calculate_eqr <- function(
       ibi_exception = NULL,
       metric_name_calc1 = NULL,
       metric_name_calc2 = NULL
-    )
+    ) %>%
+    select(-.data$indextypology_short)
 
   if (output == "metric") {
     return(

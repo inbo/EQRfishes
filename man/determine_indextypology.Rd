@@ -22,26 +22,31 @@ determine_indextypology(dataset, version = c("new", "old"))
 }
 }}
 
-\item{version}{'new' version with bron and brabeel or 'old' version without
-these two indextypologies?
+\item{version}{'new' version with fish-based river source IBI and
+fish-based lowland IBI or 'old' version without these two indextypologies?
 Defaults to 'new'.
 This information will be used if dataset has no column \code{version} or to
 replace NA values in column \code{version}.}
 }
 \value{
-input dataset with additional column \code{indextypology}
+input dataset with additional columns \code{indextypology},
+\code{indextypology_short} and \code{indextypology_dutch}.
+(Any of these columns can be used in \code{calculate_eqr()}, but the column name
+must be (changed to) \code{indextypology})
 }
 \description{
 This function determines the index typology based on the given
 dataset with measurements.
-Recently 2 new index typologies were added: 'bron' (replacing 'upstream' in
-rivers up to a width of 2 m) and 'brabeel' (replacing 'brasem' and 'barbeel'
-in rivers up to a width of 30 m), and both versions are available here:
+Recently 2 new index typologies were added: 'fish-based river source IBI'
+(replacing 'fish-based upstream IBI' in rivers up to a width of 2 m) and
+'fish-based lowland IBI' (replacing 'fish-based bream IBI' and
+'fish-based barbel IBI' in rivers up to a width of 30 m),
+and both versions are available here:
 \itemize{
-\item \strong{new} (default) uses the new version with 'bron' and
-'brabeel' included,
-\item \strong{old} uses the version before 'bron' and 'brabeel' were
-added
+\item \strong{new} (default) uses the new version with
+'fish-based river source IBI' and 'fish-based lowland IBI' included,
+\item \strong{old} uses the version before 'fish-based river source IBI'
+and 'fish-based lowland IBI' were added
 }
 This version can be indicated on the level of the individual records in the
 dataset as an additional column or on the level of the whole dataset by using

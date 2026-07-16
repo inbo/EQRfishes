@@ -17,7 +17,8 @@
 #'   - `"SCHO"` for estuarine Schelde oligohaline,
 #'   - `"SCHZ"` for estuarine Schelde freshwater,
 #'   - `"ZTWZ"` for estuarine Schelde freshwater
-#' @param version 'new' version with bron and brabeel, or 'old' version without
+#' @param version 'new' version with `fish-based river source IBI` and
+#' `fish-based lowland IBI`, or 'old' version without
 #' these two indextypologies?
 #' Defaults to 'new'.
 #'

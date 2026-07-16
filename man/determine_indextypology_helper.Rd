@@ -26,7 +26,8 @@ determine_indextypology_helper(
 \item \code{"ZTWZ"} for estuarine Schelde freshwater
 }}
 
-\item{version}{'new' version with bron and brabeel, or 'old' version without
+\item{version}{'new' version with \verb{fish-based river source IBI} and
+\verb{fish-based lowland IBI}, or 'old' version without
 these two indextypologies?
 Defaults to 'new'.}
 }

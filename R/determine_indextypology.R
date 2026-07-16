@@ -2,14 +2,16 @@
 #'
 #' This function determines the index typology based on the given
 #' dataset with measurements.
-#' Recently 2 new index typologies were added: 'bron' (replacing 'upstream' in
-#' rivers up to a width of 2 m) and 'brabeel' (replacing 'brasem' and 'barbeel'
-#' in rivers up to a width of 30 m), and both versions are available here:
+#' Recently 2 new index typologies were added: 'fish-based river source IBI'
+#' (replacing 'fish-based upstream IBI' in rivers up to a width of 2 m) and
+#' 'fish-based lowland IBI' (replacing 'fish-based bream IBI' and
+#' 'fish-based barbel IBI' in rivers up to a width of 30 m),
+#' and both versions are available here:
 #'   \itemize{
-#'     \item \strong{new} (default) uses the new version with 'bron' and
-#'     'brabeel' included,
-#'     \item \strong{old} uses the version before 'bron' and 'brabeel' were
-#'     added
+#'     \item \strong{new} (default) uses the new version with
+#'     'fish-based river source IBI' and 'fish-based lowland IBI' included,
+#'     \item \strong{old} uses the version before 'fish-based river source IBI'
+#'     and 'fish-based lowland IBI' were added
 #'   }
 #' This version can be indicated on the level of the individual records in the
 #' dataset as an additional column or on the level of the whole dataset by using
@@ -28,13 +30,16 @@
 #'   - `"SCHO"` for estuarine Schelde oligohaline,
 #'   - `"SCHZ"` for estuarine Schelde freshwater,
 #'   - `"ZTWZ"` for estuarine tributaries with freshwater
-#' @param version 'new' version with bron and brabeel or 'old' version without
-#' these two indextypologies?
+#' @param version 'new' version with fish-based river source IBI and
+#' fish-based lowland IBI or 'old' version without these two indextypologies?
 #' Defaults to 'new'.
 #' This information will be used if dataset has no column `version` or to
 #' replace NA values in column `version`.
 #'
-#' @return input dataset with additional column `indextypology`
+#' @return input dataset with additional columns `indextypology`,
+#' `indextypology_short` and `indextypology_dutch`.
+#' (Any of these columns can be used in `calculate_eqr()`, but the column name
+#' must be (changed to) `indextypology`)
 #'
 #' @importFrom assertthat has_name
 #' @importFrom dplyr mutate rowwise ungroup
@@ -57,7 +62,7 @@ determine_indextypology <-
       ) %>%
       rowwise() %>%
       mutate(
-        indextypology =
+        indextypology_short =
           determine_indextypology_helper(
             var_width = .data$width_river, var_slope = .data$slope,
             var_indextype = .data$index_type_code,
@@ -65,5 +70,21 @@ determine_indextypology <-
           )
       ) %>%
       ungroup()
+
+    # add English and Dutch names
+    translations <- suppressMessages(
+      read_csv2(
+        system.file(
+          "extdata/index_names_english_dutch.csv", package = "EQRfishes"
+        )
+      )
+    ) %>%
+      select(
+        "indextypology" = "english_name",
+        "indextypology_short" = "short_name",
+        "indextypology_dutch" = "dutch_name"
+      )
+    dataset <- dataset %>%
+      left_join(translations, by = c("indextypology_short"))
     return(dataset)
   }
