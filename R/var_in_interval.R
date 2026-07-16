@@ -24,7 +24,19 @@ var_in_interval <- function(variable, interval) {
     return(FALSE)
   }
 
-  if (all(is.na(as.numeric(variable)) & typeof(variable) == "character")) {
+  is_nonnumeric_string <- function(variable) {
+    variable_numeric <- tryCatch(
+      as.numeric(variable),
+      warning = function(w) {
+        w <- w[!grepl("NAs introduced by coercion", w)]
+        if (length(w) > 0) {
+          warning(w$message)
+        }
+      }
+    )
+    return(all(is.na(variable_numeric)) & typeof(variable) == "character")
+  }
+  if (is_nonnumeric_string(variable)) {
     return(variable == interval)
   }
 
