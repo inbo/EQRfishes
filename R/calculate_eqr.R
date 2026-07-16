@@ -153,14 +153,30 @@ calculate_eqr <- function(
     )
   }
 
+  do.call(
+    rbind,
+    by(
+      data_sample,
+      data_sample$indextypology_short,
+      function(x) validate(new_sample(x))
+    )
+  )
+
   # make sure data_fish has all columns present, and remove additional columns
   # (these can cause problems if fish data are nested)
   assert_that(has_name(data_fish, "sample_id"))
   assert_that(has_name(data_fish, "record_id"))
   assert_that(has_name(data_fish, "taxoncode"))
   assert_that(has_name(data_fish, "number"))
+  assert_that(
+    inherits(data_fish$number, "integer") |
+      inherits(data_fish$number, "numeric")
+  )
+  assert_that(all(is.na(data_fish$number) | data_fish$number >= 0))
   assert_that(has_name(data_fish, "length"))
+  assert_that(is.numeric(data_fish$length))
   assert_that(has_name(data_fish, "weight"))
+  assert_that(is.numeric(data_fish$length))
   data_fish <- data_fish %>%
     select("sample_id", "record_id", "taxoncode", "number", "length", "weight")
 
