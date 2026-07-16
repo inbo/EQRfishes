@@ -484,10 +484,8 @@ calculate_eqr <- function(
     mutate(
       row_id = seq_along(.data$sample_id)
     ) %>%
-    arrange(.data$row_id) %>%
-    mutate(
-      sampledata = calculate_metric(., specieslist = data_taxonmetrics)
-    )
+    arrange(.data$row_id)
+  result$sampledata <- calculate_metric(result, specieslist = data_taxonmetrics)
   rm(data_taxonmetrics)
 
   result_details <- result %>%
