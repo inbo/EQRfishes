@@ -2,7 +2,7 @@ short_name;dutch_name;english_name;IsHuetzone;IsTidal;indexTypeCode;reference;ad
 barbeel;barbeel index;fish-based barbel IBI;1;0;ZTWA;@belpaire_index_2000;
 brasem;brasem index;fish-based bream IBI;1;0;ZTWA;@belpaire_index_2000;
 forel;forel index;fish-based trout IBI;1;0;ZTWA;based on @breine_fish-based_2004;
-stilstaand;stilstaand index;;1;0;ZTWA;;
+stilstaand;stilstaand index;fish-based canals or lakes IBI;1;0;ZTWA;;
 upstream;bovenstroomse index;fish-based upstream IBI;1;0;ZTWA;@breine_fish-based_2004;
 vlagzalm;vlagzalm index;fish-based grayling IBI;1;0;ZTWA;based on @breine_fish-based_2004;
 bron;bron index;fish-based river source IBI;1;0;ZTWA;@breine_een_2018;

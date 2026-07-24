@@ -155,4 +155,28 @@ describe("indextypology is determined correctly", {
       "fish-based grayling IBI"
     )
   })
+  it("stilstaand", {
+    data_sample <- data.frame(
+      width_river = 5,
+      slope = 0,
+      index_type_code = "ZTWA",
+      version = c("old", "new")
+    )
+    expect_warning(
+      typology <- determine_indextypology(data_sample),
+      regexp = "If the indextypology mentions 'fish-based canals or lakes IBI',"
+    )
+    expect_equal(
+      typology,
+      data_sample |>
+        bind_cols(
+          data.frame(
+            indextypology_short = rep("stilstaand", 2),
+            indextypology = rep("fish-based canals or lakes IBI", 2),
+            indextypology_dutch = "stilstaand index"
+          )
+        ) |>
+        as_tibble()
+    )
+  })
 })

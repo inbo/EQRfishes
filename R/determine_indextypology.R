@@ -70,6 +70,15 @@ determine_indextypology <-
           )
       ) %>%
       ungroup()
+    if (any("stilstaand" %in% dataset$indextypology_short)) {
+      warning(
+        paste(
+          "If the indextypology mentions 'fish-based canals or lakes IBI',",
+          "replace by either 'fish-based canals IBI' or 'fish-based lakes IBI",
+          "based on the morphology of the water reservoir."
+        )
+      )
+    }
 
     # add English and Dutch names
     translations <- suppressMessages(
