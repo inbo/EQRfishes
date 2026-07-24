@@ -62,8 +62,7 @@ calculate_ibi_eqr <-
 #     read_csv2(system.file("extdata/score.csv", package = "EQRfishes"))
 #   )
 
-describe("variables exist in dependent tables", {
-  it("data_indextypology.indextypology -> indextypology_metric.indextypology", {
+test_that("variables exist in dependent tables: data_indextypology.indextypology -> indextypology_metric.indextypology", {  # nolint: line_length_linter
     lacking_vars <-
       unique(data_indextypology$indextypology)[
         !unique(data_indextypology$indextypology) %in%
@@ -78,8 +77,8 @@ describe("variables exist in dependent tables", {
           "should be added to column indextypology in table indextypology_metric.csv" # nolint: line_length_linter
         )
     )
-  })
-  it("indextypology_metric.metric_formula_name -> calculate_metric_formula.metric_formula_name", { # nolint: line_length_linter
+})
+test_that("variables exist in dependent tables: indextypology_metric.metric_formula_name -> calculate_metric_formula.metric_formula_name", { # nolint: line_length_linter
     lacking_vars <- unique(indextypology_metric$metric_formula_name)[
       !unique(indextypology_metric$metric_formula_name) %in%
         unique(calculate_metric_formula$metric_formula_name)
@@ -93,8 +92,8 @@ describe("variables exist in dependent tables", {
           "should be added to column metric_formula_name in table calculate_metric_formula.csv" # nolint: line_length_linter
         )
     )
-  })
-  it("indextypology_metric.metric_measures_name -> calculate_metric_measures.metric_measures_name", { # nolint: line_length_linter
+})
+test_that("variables exist in dependent tables: indextypology_metric.metric_measures_name -> calculate_metric_measures.metric_measures_name", { # nolint: line_length_linter
     lacking_vars <- unique(indextypology_metric$metric_measures_name)[
       !unique(indextypology_metric$metric_measures_name) %in%
         unique(calculate_metric_measures$metric_measures_name)
@@ -108,8 +107,8 @@ describe("variables exist in dependent tables", {
           "should be added to column metric_measures_name in table calculate_metric_measures.csv" # nolint: line_length_linter
         )
     )
-  })
-  it("indextypology_metric.metric_score_name -> calculate_metric_score.metric_score", { # nolint: line_length_linter
+})
+test_that("variables exist in dependent tables: indextypology_metric.metric_score_name -> calculate_metric_score.metric_score", { # nolint: line_length_linter
     lacking_vars <- unique(indextypology_metric$metric_score_name)[
       !unique(indextypology_metric$metric_score_name) %in%
         unique(calculate_metric_score$metric_score)
@@ -123,8 +122,8 @@ describe("variables exist in dependent tables", {
           "should be added to column metric_score in table calculate_metric_score.csv" # nolint: line_length_linter
         )
     )
-  })
-  it("calculate_metric_formula.submetric_formula_name -> calculate_metric_formula.metric_formula_name", { # nolint: line_length_linter
+})
+test_that("variables exist in dependent tables: calculate_metric_formula.submetric_formula_name -> calculate_metric_formula.metric_formula_name", { # nolint: line_length_linter
     lacking_vars <- unique(calculate_metric_formula$submetric_formula_name)[
       !unique(calculate_metric_formula$submetric_formula_name) %in%
         unique(calculate_metric_formula$metric_formula_name)
@@ -138,8 +137,8 @@ describe("variables exist in dependent tables", {
           "should be added to column metric_formula_name in table calculate_metric_formula.csv" # nolint: line_length_linter
         )
     )
-  })
-  it("calculate_metric_formula.submetric_measures_name -> calculate_metric_measures.metric_measures_name", { # nolint: line_length_linter
+})
+test_that("variables exist in dependent tables: calculate_metric_formula.submetric_measures_name -> calculate_metric_measures.metric_measures_name", { # nolint: line_length_linter
     lacking_vars <- unique(calculate_metric_formula$submetric_measures_name)[
       !unique(calculate_metric_formula$submetric_measures_name) %in%
         unique(calculate_metric_measures$metric_measures_name)
@@ -153,8 +152,8 @@ describe("variables exist in dependent tables", {
           "should be added to column metric_measures_name in table calculate_metric_measures.csv" # nolint: line_length_linter
         )
     )
-  })
-  it("calculate_metric_formula.submetric_score_name -> calculate_metric_score.metric_score", { # nolint: line_length_linter
+})
+test_that("variables exist in dependent tables: calculate_metric_formula.submetric_score_name -> calculate_metric_score.metric_score", { # nolint: line_length_linter
     lacking_vars <- unique(calculate_metric_formula$submetric_score_name)[
       !unique(calculate_metric_formula$submetric_score_name) %in%
         unique(calculate_metric_score$metric_score)
@@ -168,8 +167,8 @@ describe("variables exist in dependent tables", {
           "should be added to column metric_score in table calculate_metric_score.csv" # nolint: line_length_linter
         )
     )
-  })
-  it("calculate_metric_score.metric -> ...", {
+})
+test_that("variables exist in dependent tables: calculate_metric_score.metric -> ...", {  # nolint: line_length_linter
     lacking_vars <- calculate_metric_score %>%
       select("metric_score", "metric", "add_category") %>%
       gather(
@@ -217,8 +216,8 @@ describe("variables exist in dependent tables", {
           paste(lacking_vars$metric_for_score, collapse = ", ")
         )
     )
-  })
-  it("calculate_ibi_eqr.indextypology <-> indextypology_metric.indextypology", {
+})
+test_that("variables exist in dependent tables: calculate_ibi_eqr.indextypology <-> indextypology_metric.indextypology", {  # nolint: line_length_linter
     lacking_vars <- unique(calculate_ibi_eqr$indextypology)[
       !unique(calculate_ibi_eqr$indextypology) %in%
         unique(indextypology_metric$indextypology)
@@ -232,8 +231,8 @@ describe("variables exist in dependent tables", {
           ", but there is no information on how to calculate the indextypology(s) in table indextypology_metric.csv" # nolint: line_length_linter
         )
     )
-  })
-  it("calculate_ibi_eqr.calculated -> indextypology_metric.metric_name", {
+})
+test_that("variables exist in dependent tables: calculate_ibi_eqr.calculated -> indextypology_metric.metric_name", {  # nolint: line_length_linter
     lacking_vars <- calculate_ibi_eqr %>%
       select("indextypology", "to_calculate", "calculated") %>%
       filter(!(.data$to_calculate == "EQR" & .data$calculated == "IBI")) %>%
@@ -259,20 +258,16 @@ describe("variables exist in dependent tables", {
           " should be added to the column metric_name of table indextypology_metric.csv (and calculation rules should be provided in other columns)" # nolint: line_length_linter
         )
     )
-  })
 })
 
-describe("all variables in formulas exist in tables", {
-  it("items in formula are added as submetric variable in table calculate_metric_formula.csv", { # nolint: line_length_linter
+test_that("all variables in formulas exist in tables: items in formula are added as submetric variable in table calculate_metric_formula.csv", { # nolint: line_length_linter
 
-  })
-  it("items in calculate_metric_measures.csv exists in table data_taxonmetrics.csv", { # nolint: line_length_linter
+})
+test_that("all variables in formulas exist in tables: items in calculate_metric_measures.csv exists in table data_taxonmetrics.csv", { # nolint: line_length_linter
 
-  })
 })
 
-describe("items in calculate_metric_measures.csv have valable names", {
-  it("the calculation of metric_type is added to calculate_metric_measures.R", {
+test_that("items in calculate_metric_measures.csv have valable names: the calculation of metric_type is added to calculate_metric_measures.R", {  # nolint: line_length_linter
     problems <-
       unique(calculate_metric_measures$metric_type)[
         !unique(calculate_metric_measures$metric_type) %in% c(
@@ -292,21 +287,19 @@ describe("items in calculate_metric_measures.csv have valable names", {
           "(these names are added to column metric_type in table calculate_metric_score.csv)" # nolint: line_length_linter
         )
     )
-  })
-  it("null_to_0 only contains 0 and 1", {
+})
+test_that("items in calculate_metric_measures.csv have valable names: null_to_0 only contains 0 and 1", {  #nolint: line_length_linter
     stopifnot(
       all(calculate_metric_measures$null_to_0 %in% c(0, 1, NA))
     )
-  })
-  it("only_individual_measures only contains 0 and 1", {
+})
+test_that("items in calculate_metric_measures.csv have valable names: only_individual_measures only contains 0 and 1", {  # nolint: line_length_linter
     stopifnot(
       all(calculate_metric_measures$only_individual_measures %in% c(0, 1, NA))
     )
-  })
 })
 
-describe("intervals are correct", {
-  it("string is correctly noted", {
+test_that("intervals are correct: string is correctly noted", {
     wrong_interval <- calculate_metric_score %>%
       select("value_metric") %>%
       distinct() %>%
@@ -450,8 +443,7 @@ describe("intervals are correct", {
           paste(wrong_interval$interval, collapse = ", ")
         )
     )
-  })
-  it("intervals cover all possible values", {
+})
+test_that("intervals are correct: intervals cover all possible values", {
 
-  })
 })

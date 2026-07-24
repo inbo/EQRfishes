@@ -20,15 +20,14 @@ cluster <-
     index_cluster = "Kallemoeie"
   )
 
-describe("IBI is calculated correctly", {
-  it("lakes", {
-    expect_no_warning(
+test_that("IBI is calculated correctly for lakes", {
+    expect_no_warning( {
       results_eqr <- calculate_eqr(
         data_sample,
         data_fish,
         cluster = cluster
       )
-    ) #verschillende samples van locatie moeten samengenomen worden!
+    }) #verschillende samples van locatie moeten samengenomen worden!
 
     expect_equal(
       results_eqr$ibi,
@@ -38,19 +37,17 @@ describe("IBI is calculated correctly", {
       results_eqr$eqr,
       0.45
     )
-  })
 })
 
-describe("metrics are calculated correctly", {
-  it("lakes", {
-    expect_no_warning(
+test_that("metrics are calculated correctly for lakes", {
+    expect_no_warning( {
       result_metrics <-
         calculate_eqr(
           data_sample,
           data_fish, output = "metric", cluster = cluster
         )[["metric"]] %>%
         mutate(metric_value = as.character(round(as.numeric(metric_value), 3)))
-    )
+    })
     expect_equal(
       (result_metrics %>%
          filter(metric_name == "MpiSpa"))$metric_value,
@@ -111,5 +108,4 @@ describe("metrics are calculated correctly", {
          filter(metric_name == "ManTol"))$metric_score,
       "0.2"
     )
-  })
 })

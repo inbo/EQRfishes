@@ -27,8 +27,7 @@ data_sample <- data_sample %>%
 data_fish <- data_fish %>%
   filter(!is.na(sample_id))
 
-describe("IBI is calculated correctly", {
-  it("canals", {
+test_that("IBI is calculated correctly for canals", {
     expect_warning(
       results_eqr <- calculate_eqr(
         data_sample,
@@ -47,11 +46,9 @@ describe("IBI is calculated correctly", {
       results_eqr$eqr,
       c(0.77941177, 0.5882353)
     )
-  })
 })
 
-describe("metrics are calculated correctly", {
-  it("canals", {
+test_that("metrics are calculated correctly for canals", {
     expect_warning(
       result_metrics <-
         calculate_eqr(
@@ -113,5 +110,4 @@ describe("metrics are calculated correctly", {
          filter(metric_name == "BenWei"))$metric_score,
       c("0.6", "0.2")
     )
-  })
 })

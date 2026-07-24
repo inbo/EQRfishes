@@ -66,9 +66,7 @@ cluster <- data_sample |>
 data_sample <- data_sample |>
   select(-"sample_id_part1", -"sample_id_part2")
 
-
-describe("IBI and EQR are calculated correctly", {
-  it("IBI and EQR", {
+test_that("IBI and EQR are calculated correctly", {
     expect_warning(
       results_eqr <- calculate_eqr(
         data_sample,
@@ -426,10 +424,8 @@ describe("IBI and EQR are calculated correctly", {
         )
       )
     )
-  })
 })
-describe("mix of clustered and not clustered", {
-  it("correct presentation", {
+describe("mix of clustered and not clustered: correct presentation", {
     data_sample <- data_sample |>
       filter(grepl("bron", sample_id) | grepl("lakes", sample_id))
     data_fish <- data_fish |>
@@ -464,5 +460,4 @@ describe("mix of clustered and not clustered", {
         ),
       results_eqr2[["eqr"]]
     )
-  })
 })

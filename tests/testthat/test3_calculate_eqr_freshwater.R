@@ -40,8 +40,7 @@ order_location <- data_sample %>%
 data_fish <- data_fish %>%
   filter(sample_id %in% index_info$sample_id)
 
-describe("IBI is calculated correctly", {
-  it("brasem en barbeel", {
+test_that("IBI is calculated correctly for brasem en barbeel", {
     expect_warning(
       results_eqr <- calculate_eqr(
         data_sample %>%
@@ -66,8 +65,8 @@ describe("IBI is calculated correctly", {
       c(0.17, 0.291666666666667, 0.7916666666666666667, 0.3333333333333333,
         0.17, 0.45833333333333333333, 0.45833333333333333333, 0.17)
     )
-  })
-  it("upstream", {
+})
+test_that("IBI is calculated correctly for upstream", {
     expect_warning(
       results_eqr <- calculate_eqr(
         data_sample %>%
@@ -132,8 +131,8 @@ describe("IBI is calculated correctly", {
       results_eqr$eqr,
       0.433333333333333333
     )
-  })
-  it("brasem en barbeel old", {
+})
+test_that("IBI is calculated correctly for brasem en barbeel old", {
     expect_warning(
       results_eqr <- calculate_eqr(
         data_sample %>%
@@ -190,11 +189,9 @@ describe("IBI is calculated correctly", {
       results_eqr$eqr,
       c(0.65, 0.55, 0.475, 0.4)
     )
-  })
 })
 
-describe("metrics are calculated correctly", {
-  it("brasem en barbeel", {
+test_that("metrics are calculated correctly for brasem en barbeel", {
     expect_warning(
       result_metrics <-
         calculate_eqr(
@@ -261,8 +258,8 @@ describe("metrics are calculated correctly", {
          filter(metric_name == "MpsRekr"))$metric_score,
       c("0", "3", "3", "4", "2", "3", "1", "4")
     )
-  })
-  it("upstream", {
+})
+test_that("metrics are calculated correctly for upstream", {
     expect_warning(
       result_metrics <- calculate_eqr(
         data_sample %>%
@@ -587,8 +584,8 @@ describe("metrics are calculated correctly", {
          filter(metric_name == "Manmigw"))$metric_value,
       "2"
     )
-  })
-  it("brasem old", {
+})
+test_that("metrics are calculated correctly for brasem old", {
     expect_warning(
       result_metrics <-
         calculate_eqr(
@@ -685,8 +682,8 @@ describe("metrics are calculated correctly", {
          filter(metric_name == "MpsRekr"))$metric_score,
       c("1", "2", "1", "2")
     )
-  })
-  it("barbeel old", {
+})
+test_that("metrics are calculated correctly for barbeel old", {
     expect_warning(
       result_metrics <-
         calculate_eqr(
@@ -793,5 +790,4 @@ describe("metrics are calculated correctly", {
          filter(metric_name == "MpsRekr"))$metric_score,
       c("1", "2", "1", "2")
     )
-  })
 })

@@ -67,8 +67,7 @@ data_fish <- data_fish %>%
   filter(!is.na(sample_id), number > 0)
 
 # Metrieken aangepast van 0-5 naar 0-1, dus waarschijnlijk moet EQR-berekening hier ook aan aangepast worden
-describe("IBI is calculated correctly", {
-  it("estuarien freshwater", {
+test_that("IBI is calculated correctly for estuarien freshwater", {
     expect_warning(
       results_eqr <- calculate_eqr(
         data_sample %>%
@@ -87,8 +86,8 @@ describe("IBI is calculated correctly", {
       results_eqr$eqr,
       c(0.4166666666667, 0.333333333, 0.41666666667)
     )
-  })
-  it("estuarien mesohaline", {
+})
+test_that("IBI is calculated correctly for estuarien mesohaline", {
     expect_warning(
       results_eqr <- calculate_eqr(
         data_sample %>%
@@ -107,8 +106,8 @@ describe("IBI is calculated correctly", {
       results_eqr$eqr,
       c(0.5, 0.5)
     )
-  })
-  it("estuarien oligohaline", {
+})
+test_that("IBI is calculated correctly for estuarien oligohaline", {
     expect_warning(
       results_eqr <- calculate_eqr(
         data_sample %>%
@@ -128,11 +127,9 @@ describe("IBI is calculated correctly", {
       results_eqr$eqr,
       c(0.25, 0.25, 0.33333333)
     )
-  })
 })
 
-describe("metrics are calculated correctly", {
-  it("estuarien freshwater", {
+test_that("metrics are calculated correctly for estuarien freshwater", {
     expect_warning(
       result_metrics <-
         calculate_eqr(
@@ -205,8 +202,8 @@ describe("metrics are calculated correctly", {
          filter(metric_name == "MpiBen"))$metric_score,
       c("0.8", "0.4", "0.6")
     )
-  })
-  it("estuarien mesohaline", {
+})
+test_that("metrics are calculated correctly for estuarien mesohaline", {
     expect_warning(
       result_metrics <-
         calculate_eqr(
@@ -279,8 +276,8 @@ describe("metrics are calculated correctly", {
          filter(metric_name == "MnsMms"))$metric_score,
       c("0.6", "0.6")
     )
-  })
-  it("estuarien oligohaline", {
+})
+test_that("metrics are calculated correctly for estuarien oligohaline", {
     expect_warning(
       result_metrics <-
         calculate_eqr(
@@ -353,5 +350,4 @@ describe("metrics are calculated correctly", {
          filter(metric_name == "MnsErs"))$metric_score,
       c("0.6", "0.4", "0.6")
     )
-  })
 })

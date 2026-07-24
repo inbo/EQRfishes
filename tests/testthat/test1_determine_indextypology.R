@@ -15,9 +15,7 @@ data_sample <- read.csv2(
       )
   )
 
-describe("indextypology is determined correctly", {
-
-  it("brasem en barbeel", {
+test_that("indextypology is determined correctly for brasem en barbeel", {
     expect_equal(
       (determine_indextypology(
         data_sample[data_sample$sample_id == 8681, ]
@@ -114,8 +112,8 @@ describe("indextypology is determined correctly", {
       ))$indextypology_short,
       "brasem"
     )
-  })
-  it("upstream", {
+})
+test_that("indextypology is determined correctly for upstream", {
     expect_equal(
       (determine_indextypology(
         data_sample[data_sample$sample_id == 4550, ]
@@ -152,8 +150,8 @@ describe("indextypology is determined correctly", {
       ))$indextypology,
       "fish-based grayling IBI"
     )
-  })
-  it("stilstaand", {
+})
+test_that("indextypology is determined correctly for stilstaand", {
     data_sample <- data.frame(
       width_river = 5,
       slope = 0,
@@ -176,5 +174,4 @@ describe("indextypology is determined correctly", {
         ) |>
         as_tibble()
     )
-  })
 })
