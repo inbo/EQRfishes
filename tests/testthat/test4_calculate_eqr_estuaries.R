@@ -68,286 +68,286 @@ data_fish <- data_fish %>%
 
 # Metrieken aangepast van 0-5 naar 0-1, dus waarschijnlijk moet EQR-berekening hier ook aan aangepast worden
 test_that("IBI is calculated correctly for estuarien freshwater", {
-    expect_warning(
-      results_eqr <- calculate_eqr(
-        data_sample %>%
-          filter(indextypology == "estuarien_Schelde_freshwater"),
-        data_fish,
-        cluster = index_info %>%
-          select("sample_id", "index_cluster")
-      ),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., ERI.SIN., CRA.CRA." # nolint: line_length_linter
-    )
-    expect_equal(
-      results_eqr$ibi,
-      c(3.2, 2.8, 3.2)
-    )
-    expect_equal(
-      results_eqr$eqr,
-      c(0.4166666666667, 0.333333333, 0.41666666667)
-    )
+  expect_warning(
+    results_eqr <- calculate_eqr(
+      data_sample %>%
+        filter(indextypology == "estuarien_Schelde_freshwater"),
+      data_fish,
+      cluster = index_info %>%
+        select("sample_id", "index_cluster")
+    ),
+    "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., ERI.SIN., CRA.CRA." # nolint: line_length_linter
+  )
+  expect_equal(
+    results_eqr$ibi,
+    c(3.2, 2.8, 3.2)
+  )
+  expect_equal(
+    results_eqr$eqr,
+    c(0.4166666666667, 0.333333333, 0.41666666667)
+  )
 })
 test_that("IBI is calculated correctly for estuarien mesohaline", {
-    expect_warning(
-      results_eqr <- calculate_eqr(
-        data_sample %>%
-          filter(indextypology == "estuarien_Schelde_mesohaline"),
-        data_fish,
-        cluster = index_info %>%
-          select("sample_id", "index_cluster")
-      ),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., PAL.FFF., CRA.CRA., CAR.MAE., HEM.TAK." # nolint: line_length_linter
-    )
-    expect_equal(
-      results_eqr$ibi,
-      c(3.6, 3.6)
-    )
-    expect_equal(
-      results_eqr$eqr,
-      c(0.5, 0.5)
-    )
+  expect_warning(
+    results_eqr <- calculate_eqr(
+      data_sample %>%
+        filter(indextypology == "estuarien_Schelde_mesohaline"),
+      data_fish,
+      cluster = index_info %>%
+        select("sample_id", "index_cluster")
+    ),
+    "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., PAL.FFF., CRA.CRA., CAR.MAE., HEM.TAK." # nolint: line_length_linter
+  )
+  expect_equal(
+    results_eqr$ibi,
+    c(3.6, 3.6)
+  )
+  expect_equal(
+    results_eqr$eqr,
+    c(0.5, 0.5)
+  )
 })
 test_that("IBI is calculated correctly for estuarien oligohaline", {
-    expect_warning(
-      results_eqr <- calculate_eqr(
-        data_sample %>%
-          filter(indextypology == "estuarien_Schelde_oligohaline"),
-        data_fish,
-        cluster = index_info %>%
-          select("sample_id", "index_cluster")
-      ),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., CRA.CRA., ERI.SIN." # nolint: line_length_linter
-    )
+  expect_warning(
+    results_eqr <- calculate_eqr(
+      data_sample %>%
+        filter(indextypology == "estuarien_Schelde_oligohaline"),
+      data_fish,
+      cluster = index_info %>%
+        select("sample_id", "index_cluster")
+    ),
+    "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., CRA.CRA., ERI.SIN." # nolint: line_length_linter
+  )
 
-    expect_equal(
-      results_eqr$ibi,
-      c(2.4, 2.4, 2.8)
-    )
-    expect_equal(
-      results_eqr$eqr,
-      c(0.25, 0.25, 0.33333333)
-    )
+  expect_equal(
+    results_eqr$ibi,
+    c(2.4, 2.4, 2.8)
+  )
+  expect_equal(
+    results_eqr$eqr,
+    c(0.25, 0.25, 0.33333333)
+  )
 })
 
 test_that("metrics are calculated correctly for estuarien freshwater", {
-    expect_warning(
-      result_metrics <-
-        calculate_eqr(
-          data_sample %>%
-            filter(indextypology == "estuarien_Schelde_freshwater"),
-          data_fish, output = "metric",
-          cluster = index_info %>%
-            select("sample_id", "index_cluster")
-        )[["metric"]] %>%
-        mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., ERI.SIN., CRA.CRA." # nolint: line_length_linter
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MnsTot"))$metric_value,
-      c("14", "12", "16")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MnsTot"))$metric_score,
-      c("0.6", "0.6", "0.8")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MniInd"))$metric_value,
-      c("67.667", "191", "108.778")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MniInd"))$metric_score,
-      c("0.4", "1", "0.6")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MpiDia"))$metric_value,
-      c("26.478", "14.398", "19.408")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MpiDia"))$metric_score,
-      c("0.8", "0.4", "0.6")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MpiSpa"))$metric_value,
-      c("3.325", "5.192", "4.418")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MpiSpa"))$metric_score,
-      c("0.2", "0.2", "0.2")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MpiPis"))$metric_value,
-      c("15.456", "8.115", "11.159")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MpiPis"))$metric_score,
-      c("0.4", "0.2", "0.4")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MpiBen"))$metric_value,
-      c("23.461", "9.25", "15.143")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MpiBen"))$metric_score,
-      c("0.8", "0.4", "0.6")
-    )
+  expect_warning(
+    result_metrics <-
+      calculate_eqr(
+        data_sample %>%
+          filter(indextypology == "estuarien_Schelde_freshwater"),
+        data_fish, output = "metric",
+        cluster = index_info %>%
+          select("sample_id", "index_cluster")
+      )[["metric"]] %>%
+      mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
+    "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., ERI.SIN., CRA.CRA." # nolint: line_length_linter
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MnsTot"))$metric_value,
+    c("14", "12", "16")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MnsTot"))$metric_score,
+    c("0.6", "0.6", "0.8")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MniInd"))$metric_value,
+    c("67.667", "191", "108.778")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MniInd"))$metric_score,
+    c("0.4", "1", "0.6")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MpiDia"))$metric_value,
+    c("26.478", "14.398", "19.408")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MpiDia"))$metric_score,
+    c("0.8", "0.4", "0.6")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MpiSpa"))$metric_value,
+    c("3.325", "5.192", "4.418")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MpiSpa"))$metric_score,
+    c("0.2", "0.2", "0.2")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MpiPis"))$metric_value,
+    c("15.456", "8.115", "11.159")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MpiPis"))$metric_score,
+    c("0.4", "0.2", "0.4")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MpiBen"))$metric_value,
+    c("23.461", "9.25", "15.143")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MpiBen"))$metric_score,
+    c("0.8", "0.4", "0.6")
+  )
 })
 test_that("metrics are calculated correctly for estuarien mesohaline", {
-    expect_warning(
-      result_metrics <-
-        calculate_eqr(
-          data_sample %>%
-            filter(indextypology == "estuarien_Schelde_mesohaline"),
-          data_fish, output = "metric",
-          cluster = index_info %>%
-            select("sample_id", "index_cluster")
-        )[["metric"]] %>%
-        mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., PAL.FFF., CRA.CRA., CAR.MAE., HEM.TAK." # nolint: line_length_linter
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MnsTot"))$metric_value,
-      c("14", "14")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MnsTot"))$metric_score,
-      c("0.6", "0.6")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MnsDia"))$metric_value,
-      c("6", "6")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MnsDia"))$metric_score,
-      c("0.6", "0.6")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MnsSpa"))$metric_value,
-      c("2", "2")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MnsSpa"))$metric_score,
-      c("0.4", "0.4")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MnsHab"))$metric_value,
-      c("6", "6")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MnsHab"))$metric_score,
-      c("0.4", "0.4")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MpiInt"))$metric_value,
-      c("51.84", "51.84")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MpiInt"))$metric_score,
-      c("1", "1")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MnsMms"))$metric_value,
-      c("5", "5")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MnsMms"))$metric_score,
-      c("0.6", "0.6")
-    )
+  expect_warning(
+    result_metrics <-
+      calculate_eqr(
+        data_sample %>%
+          filter(indextypology == "estuarien_Schelde_mesohaline"),
+        data_fish, output = "metric",
+        cluster = index_info %>%
+          select("sample_id", "index_cluster")
+      )[["metric"]] %>%
+      mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
+    "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  ERI.SIN., PAL.FFF., CRA.CRA., CAR.MAE., HEM.TAK." # nolint: line_length_linter
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MnsTot"))$metric_value,
+    c("14", "14")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MnsTot"))$metric_score,
+    c("0.6", "0.6")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MnsDia"))$metric_value,
+    c("6", "6")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MnsDia"))$metric_score,
+    c("0.6", "0.6")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MnsSpa"))$metric_value,
+    c("2", "2")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MnsSpa"))$metric_score,
+    c("0.4", "0.4")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MnsHab"))$metric_value,
+    c("6", "6")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MnsHab"))$metric_score,
+    c("0.4", "0.4")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MpiInt"))$metric_value,
+    c("51.84", "51.84")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MpiInt"))$metric_score,
+    c("1", "1")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MnsMms"))$metric_value,
+    c("5", "5")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MnsMms"))$metric_score,
+    c("0.6", "0.6")
+  )
 })
 test_that("metrics are calculated correctly for estuarien oligohaline", {
-    expect_warning(
-      result_metrics <-
-        calculate_eqr(
-          data_sample %>%
-            filter(indextypology == "estuarien_Schelde_oligohaline"),
-          data_fish, output = "metric",
-          cluster = index_info %>%
-            select("sample_id", "index_cluster")
-        )[["metric"]] %>%
-        mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
-      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., CRA.CRA., ERI.SIN." # nolint: line_length_linter
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MnsPis"))$metric_value,
-      c("6", "5", "7")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MnsPis"))$metric_score,
-      c("0.4", "0.4", "0.6")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MniInd"))$metric_value,
-      c("51.333", "57.667", "54.5")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MniInd"))$metric_score,
-      c("0.4", "0.4", "0.4")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MnsInt"))$metric_value,
-      c("2", "1", "2")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MnsInt"))$metric_score,
-      c("0.2", "0.2", "0.2")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MnsDia"))$metric_value,
-      c("4", "4", "4")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MnsDia"))$metric_score,
-      c("0.4", "0.4", "0.4")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MnsMms"))$metric_value,
-      c("1", "2", "2")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MnsMms"))$metric_score,
-      c("0.4", "0.6", "0.6")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MnsErs"))$metric_value,
-      c("3", "2", "3")
-    )
-    expect_equal(
-      (result_metrics %>%
-         filter(metric_name == "MnsErs"))$metric_score,
-      c("0.6", "0.4", "0.6")
-    )
+  expect_warning(
+    result_metrics <-
+      calculate_eqr(
+        data_sample %>%
+          filter(indextypology == "estuarien_Schelde_oligohaline"),
+        data_fish, output = "metric",
+        cluster = index_info %>%
+          select("sample_id", "index_cluster")
+      )[["metric"]] %>%
+      mutate(metric_value = as.character(round(as.numeric(metric_value), 3))),
+    "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., CRA.CRA., ERI.SIN." # nolint: line_length_linter
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MnsPis"))$metric_value,
+    c("6", "5", "7")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MnsPis"))$metric_score,
+    c("0.4", "0.4", "0.6")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MniInd"))$metric_value,
+    c("51.333", "57.667", "54.5")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MniInd"))$metric_score,
+    c("0.4", "0.4", "0.4")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MnsInt"))$metric_value,
+    c("2", "1", "2")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MnsInt"))$metric_score,
+    c("0.2", "0.2", "0.2")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MnsDia"))$metric_value,
+    c("4", "4", "4")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MnsDia"))$metric_score,
+    c("0.4", "0.4", "0.4")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MnsMms"))$metric_value,
+    c("1", "2", "2")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MnsMms"))$metric_score,
+    c("0.4", "0.6", "0.6")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MnsErs"))$metric_value,
+    c("3", "2", "3")
+  )
+  expect_equal(
+    (result_metrics %>%
+       filter(metric_name == "MnsErs"))$metric_score,
+    c("0.6", "0.4", "0.6")
+  )
 })

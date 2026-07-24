@@ -67,397 +67,397 @@ data_sample <- data_sample |>
   select(-"sample_id_part1", -"sample_id_part2")
 
 test_that("IBI and EQR are calculated correctly", {
-    expect_warning(
-      results_eqr <- calculate_eqr(
-        data_sample,
-        data_fish,
-        cluster = cluster,
-        output = "metric"
-      ),
-      "No fishdata for one of the records, metric gets value 0"
-    )
+  expect_warning(
+    results_eqr <- calculate_eqr(
+      data_sample,
+      data_fish,
+      cluster = cluster,
+      output = "metric"
+    ),
+    "No fishdata for one of the records, metric gets value 0"
+  )
 
-    expect_equal(
-      results_eqr[["eqr"]] |>
-        filter(
-          grepl("_0soorten", sample_id) | grepl("_0soorten", index_cluster)
-        ) |>
-        pull(eqr),
-      c(rep(0.0, 14))
-    )
-    expect_equal(
-      results_eqr[["eqr"]] |>
-        filter(
-          grepl("_blankvoorn", sample_id) | grepl("_blankvoorn", index_cluster)
-        ) |>
-        pull(eqr),
-      c(0.2, 0.17, rep(0.2, 5), 0.0, 0.192307692, rep(0.1, 3), 0.01, 0.1)
-    )
-    expect_equal(
-      results_eqr[["eqr"]] |>
-        filter(
-          grepl("_blauwbandgrondel", sample_id) |
-            grepl("_blauwbandgrondel", index_cluster)
-        ) |>
-        pull(eqr),
-      c(0.2, 0.0, rep(0.2, 5), 0.0, 0.192307692, rep(0.0, 3), -0.000000003, 0.0)
-    )
-    expect_equal(
-      results_eqr[["eqr"]] |>
-        filter(
-          grepl("_0soorten", sample_id) | grepl("_0soorten", index_cluster)
-        ) |>
-        pull(ibi),
-      c(0.0, 1.0, rep(0.0, 5), 1.0, rep(0.0, 4), 0.8, 1.2)
-    )
-    expect_equal(
-      results_eqr[["eqr"]] |>
-        filter(
-          grepl("_blankvoorn", sample_id) | grepl("_blankvoorn", index_cluster)
-        ) |>
-        pull(ibi),
-      c(1, 5.08, 1.0, 4.0, rep(1.0, 5), rep(0.96, 3), 0.832, 1.6)
-    )
-    expect_equal(
-      results_eqr[["eqr"]] |>
-        filter(
-          grepl("_blauwbandgrondel", sample_id) |
-            grepl("_blauwbandgrondel", index_cluster)
-        ) |>
-        pull(ibi),
-      c(1, 1.0, 1.0, 4.0, rep(1.0, 5), rep(0.0, 3), 0.8, 1.2)
-    )
-    expect_equal(
-      results_eqr[["metric"]] |>
-        filter(
-          grepl("_0soorten", sample_id) | grepl("_0soorten", index_cluster),
-          index_cluster != "canals_0soorten"
-        ) |>
-        pull(metric_score),
-      rep(NA_character_, 87)
-    )
-    expect_true(
-      all(
-        !is.na(
-          results_eqr[["metric"]] |>
-            filter(
-              index_cluster == "canals_0soorten"
-            ) |>
-            pull(metric_score)
-        )
+  expect_equal(
+    results_eqr[["eqr"]] |>
+      filter(
+        grepl("_0soorten", sample_id) | grepl("_0soorten", index_cluster)
+      ) |>
+      pull(eqr),
+    c(rep(0.0, 14))
+  )
+  expect_equal(
+    results_eqr[["eqr"]] |>
+      filter(
+        grepl("_blankvoorn", sample_id) | grepl("_blankvoorn", index_cluster)
+      ) |>
+      pull(eqr),
+    c(0.2, 0.17, rep(0.2, 5), 0.0, 0.192307692, rep(0.1, 3), 0.01, 0.1)
+  )
+  expect_equal(
+    results_eqr[["eqr"]] |>
+      filter(
+        grepl("_blauwbandgrondel", sample_id) |
+          grepl("_blauwbandgrondel", index_cluster)
+      ) |>
+      pull(eqr),
+    c(0.2, 0.0, rep(0.2, 5), 0.0, 0.192307692, rep(0.0, 3), -0.000000003, 0.0)
+  )
+  expect_equal(
+    results_eqr[["eqr"]] |>
+      filter(
+        grepl("_0soorten", sample_id) | grepl("_0soorten", index_cluster)
+      ) |>
+      pull(ibi),
+    c(0.0, 1.0, rep(0.0, 5), 1.0, rep(0.0, 4), 0.8, 1.2)
+  )
+  expect_equal(
+    results_eqr[["eqr"]] |>
+      filter(
+        grepl("_blankvoorn", sample_id) | grepl("_blankvoorn", index_cluster)
+      ) |>
+      pull(ibi),
+    c(1, 5.08, 1.0, 4.0, rep(1.0, 5), rep(0.96, 3), 0.832, 1.6)
+  )
+  expect_equal(
+    results_eqr[["eqr"]] |>
+      filter(
+        grepl("_blauwbandgrondel", sample_id) |
+          grepl("_blauwbandgrondel", index_cluster)
+      ) |>
+      pull(ibi),
+    c(1, 1.0, 1.0, 4.0, rep(1.0, 5), rep(0.0, 3), 0.8, 1.2)
+  )
+  expect_equal(
+    results_eqr[["metric"]] |>
+      filter(
+        grepl("_0soorten", sample_id) | grepl("_0soorten", index_cluster),
+        index_cluster != "canals_0soorten"
+      ) |>
+      pull(metric_score),
+    rep(NA_character_, 87)
+  )
+  expect_true(
+    all(
+      !is.na(
+        results_eqr[["metric"]] |>
+          filter(
+            index_cluster == "canals_0soorten"
+          ) |>
+          pull(metric_score)
       )
     )
-    expect_equal(
-      results_eqr[["metric"]] |>
-        filter(
-          grepl("_0soorten", sample_id) | grepl("_0soorten", index_cluster),
-          index_cluster != "canals_0soorten",
-          !metric_name %in% c("MnsTot", "MniYzer"),
-          !(indextypology == "lakes" & metric_name == "MniInd")
-        ) |>
-        pull(metric_value),
-      rep(NA_character_, 74)
-    )
-    expect_true(
-      all(
-        !is.na(
-          results_eqr[["metric"]] |>
-            filter(
-              grepl("_0soorten", sample_id) |
-                grepl("_0soorten", index_cluster),
-              index_cluster == "canals_0soorten"
-            ) |>
-            pull(metric_value)
-        )
+  )
+  expect_equal(
+    results_eqr[["metric"]] |>
+      filter(
+        grepl("_0soorten", sample_id) | grepl("_0soorten", index_cluster),
+        index_cluster != "canals_0soorten",
+        !metric_name %in% c("MnsTot", "MniYzer"),
+        !(indextypology == "lakes" & metric_name == "MniInd")
+      ) |>
+      pull(metric_value),
+    rep(NA_character_, 74)
+  )
+  expect_true(
+    all(
+      !is.na(
+        results_eqr[["metric"]] |>
+          filter(
+            grepl("_0soorten", sample_id) |
+              grepl("_0soorten", index_cluster),
+            index_cluster == "canals_0soorten"
+          ) |>
+          pull(metric_value)
       )
     )
-    expect_true(
-      all(
-        !is.na(
-          results_eqr[["metric"]] |>
-            filter(
-              grepl("_0soorten", sample_id) |
-                grepl("_0soorten", index_cluster),
-              metric_name %in% c("MnsTot", "MniYzer")
-            ) |>
-            pull(metric_value)
-        )
+  )
+  expect_true(
+    all(
+      !is.na(
+        results_eqr[["metric"]] |>
+          filter(
+            grepl("_0soorten", sample_id) |
+              grepl("_0soorten", index_cluster),
+            metric_name %in% c("MnsTot", "MniYzer")
+          ) |>
+          pull(metric_value)
       )
     )
-    expect_true(
-      all(
-        !is.na(
-          results_eqr[["metric"]] |>
-            filter(
-              grepl("_0soorten", sample_id) |
-                grepl("_0soorten", index_cluster),
-              indextypology == "lakes" & metric_name == "MniInd"
-            ) |>
-            pull(metric_value)
-        )
+  )
+  expect_true(
+    all(
+      !is.na(
+        results_eqr[["metric"]] |>
+          filter(
+            grepl("_0soorten", sample_id) |
+              grepl("_0soorten", index_cluster),
+            indextypology == "lakes" & metric_name == "MniInd"
+          ) |>
+          pull(metric_value)
       )
     )
-    expect_equal(
-      results_eqr[["metric"]] |>
-        filter(
-          grepl("_blankvoorn", sample_id) |
-            grepl("_blankvoorn", index_cluster),
-          !index_cluster %in%
-            c("canals_blankvoorn", "forel_blankvoorn", "vlagzalm_blankvoorn",
-              "estuarien_IJzer_blankvoorn", "lakes_blankvoorn")
-        ) |>
-        pull(metric_score),
-      rep(NA_character_, 62)
-    )
-    expect_equal(
-      results_eqr[["metric"]] |>
-        filter(
-          grepl("_blankvoorn", sample_id) |
-            grepl("_blankvoorn", index_cluster),
-          index_cluster == "estuarien_IJzer_blankvoorn",
-          metric_name == "MniYzer"
-        ) |>
-        pull(metric_score),
-      NA_character_
-    )
-    expect_true(
-      all(
-        !is.na(
-          results_eqr[["metric"]] |>
-            filter(
-              grepl("_blankvoorn", sample_id) |
-                grepl("_blankvoorn", index_cluster),
-              index_cluster %in%
-                c("canals_blankvoorn", "forel_blankvoorn",
-                  "vlagzalm_blankvoorn", "estuarien_IJzer_blankvoorn",
-                  "lakes_blankvoorn"),
-              !is.na(metric_score_name)
-            ) |>
-            pull(metric_score)
-        )
+  )
+  expect_equal(
+    results_eqr[["metric"]] |>
+      filter(
+        grepl("_blankvoorn", sample_id) |
+          grepl("_blankvoorn", index_cluster),
+        !index_cluster %in%
+          c("canals_blankvoorn", "forel_blankvoorn", "vlagzalm_blankvoorn",
+            "estuarien_IJzer_blankvoorn", "lakes_blankvoorn")
+      ) |>
+      pull(metric_score),
+    rep(NA_character_, 62)
+  )
+  expect_equal(
+    results_eqr[["metric"]] |>
+      filter(
+        grepl("_blankvoorn", sample_id) |
+          grepl("_blankvoorn", index_cluster),
+        index_cluster == "estuarien_IJzer_blankvoorn",
+        metric_name == "MniYzer"
+      ) |>
+      pull(metric_score),
+    NA_character_
+  )
+  expect_true(
+    all(
+      !is.na(
+        results_eqr[["metric"]] |>
+          filter(
+            grepl("_blankvoorn", sample_id) |
+              grepl("_blankvoorn", index_cluster),
+            index_cluster %in%
+              c("canals_blankvoorn", "forel_blankvoorn",
+                "vlagzalm_blankvoorn", "estuarien_IJzer_blankvoorn",
+                "lakes_blankvoorn"),
+            !is.na(metric_score_name)
+          ) |>
+          pull(metric_score)
       )
     )
-    expect_equal(
-      results_eqr[["metric"]] |>
-        filter(
-          grepl("_blankvoorn", sample_id) |
-            grepl("_blankvoorn", index_cluster),
-          !index_cluster %in%
-            c("canals_blankvoorn", "forel_blankvoorn", "vlagzalm_blankvoorn",
-              "estuarien_IJzer_blankvoorn", "lakes_blankvoorn"),
-          !metric_name == "MnsTot",
-          !(metric_name == "MniInd" &
-              indextypology %in% c("brabeel", "upstream")),
-          !(metric_name == "MnsInd" & indextypology == "bron")
-        ) |>
-        pull(metric_value),
-      rep(NA_character_, 50)
-    )
-    expect_true(
-      all(
-        !is.na(
-          results_eqr[["metric"]] |>
-            filter(
-              grepl("_blankvoorn", sample_id) |
-                grepl("_blankvoorn", index_cluster),
-              index_cluster %in%
-                c("canals_blankvoorn", "forel_blankvoorn",
-                  "vlagzalm_blankvoorn", "estuarien_IJzer_blankvoorn",
-                  "lakes_blankvoorn"),
-              !metric_name == "MniYzer"
-            ) |>
-            pull(metric_value)
-        )
+  )
+  expect_equal(
+    results_eqr[["metric"]] |>
+      filter(
+        grepl("_blankvoorn", sample_id) |
+          grepl("_blankvoorn", index_cluster),
+        !index_cluster %in%
+          c("canals_blankvoorn", "forel_blankvoorn", "vlagzalm_blankvoorn",
+            "estuarien_IJzer_blankvoorn", "lakes_blankvoorn"),
+        !metric_name == "MnsTot",
+        !(metric_name == "MniInd" &
+            indextypology %in% c("brabeel", "upstream")),
+        !(metric_name == "MnsInd" & indextypology == "bron")
+      ) |>
+      pull(metric_value),
+    rep(NA_character_, 50)
+  )
+  expect_true(
+    all(
+      !is.na(
+        results_eqr[["metric"]] |>
+          filter(
+            grepl("_blankvoorn", sample_id) |
+              grepl("_blankvoorn", index_cluster),
+            index_cluster %in%
+              c("canals_blankvoorn", "forel_blankvoorn",
+                "vlagzalm_blankvoorn", "estuarien_IJzer_blankvoorn",
+                "lakes_blankvoorn"),
+            !metric_name == "MniYzer"
+          ) |>
+          pull(metric_value)
       )
     )
-    expect_true(
-      all(
-        !is.na(
-          results_eqr[["metric"]] |>
-            filter(
-              grepl("_blankvoorn", sample_id) |
-                grepl("_blankvoorn", index_cluster),
-              metric_name == "MnsTot"
-            ) |>
-            pull(metric_value)
-        )
+  )
+  expect_true(
+    all(
+      !is.na(
+        results_eqr[["metric"]] |>
+          filter(
+            grepl("_blankvoorn", sample_id) |
+              grepl("_blankvoorn", index_cluster),
+            metric_name == "MnsTot"
+          ) |>
+          pull(metric_value)
       )
     )
-    expect_true(
-      all(
-        !is.na(
-          results_eqr[["metric"]] |>
-            filter(
-              grepl("_blankvoorn", sample_id) |
-                grepl("_blankvoorn", index_cluster),
-              metric_name == "MniInd" &
-                indextypology %in% c("brabeel", "upstream")
-            ) |>
-            pull(metric_value)
-        )
+  )
+  expect_true(
+    all(
+      !is.na(
+        results_eqr[["metric"]] |>
+          filter(
+            grepl("_blankvoorn", sample_id) |
+              grepl("_blankvoorn", index_cluster),
+            metric_name == "MniInd" &
+              indextypology %in% c("brabeel", "upstream")
+          ) |>
+          pull(metric_value)
       )
     )
-    expect_true(
-      all(
-        !is.na(
-          results_eqr[["metric"]] |>
-            filter(
-              grepl("_blankvoorn", sample_id) |
-                grepl("_blankvoorn", index_cluster),
-              metric_name == "MnsInd" & indextypology == "bron"
-            ) |>
-            pull(metric_value)
-        )
+  )
+  expect_true(
+    all(
+      !is.na(
+        results_eqr[["metric"]] |>
+          filter(
+            grepl("_blankvoorn", sample_id) |
+              grepl("_blankvoorn", index_cluster),
+            metric_name == "MnsInd" & indextypology == "bron"
+          ) |>
+          pull(metric_value)
       )
     )
-    expect_equal(
-      results_eqr[["metric"]] |>
-        filter(
-          grepl("_blauwbandgrondel", sample_id) |
-            grepl("_blauwbandgrondel", index_cluster),
-          !index_cluster %in%
-            c("canals_blauwbandgrondel", "forel_blauwbandgrondel",
-              "vlagzalm_blauwbandgrondel", "estuarien_IJzer_blauwbandgrondel")
-        ) |>
-        pull(metric_score),
-      rep(NA_character_, 69)
-    )
-    expect_equal(
-      results_eqr[["metric"]] |>
-        filter(
-          grepl("_blauwbandgrondel", sample_id) |
-            grepl("_blauwbandgrondel", index_cluster),
-          index_cluster == "estuarien_IJzer_blauwbandgrondel",
-          metric_name == "MniYzer"
-        ) |>
-        pull(metric_score),
-      NA_character_
-    )
-    expect_true(
-      all(
-        !is.na(
-          results_eqr[["metric"]] |>
-            filter(
-              grepl("_blauwbandgrondel", sample_id) |
-                grepl("_blauwbandgrondel", index_cluster),
-              index_cluster %in%
-                c("canals_blauwbandgrondel", "forel_blauwbandgrondel",
-                  "vlagzalm_blauwbandgrondel",
-                  "estuarien_IJzer_blauwbandgrondel"),
-              !is.na(metric_score_name)
-            ) |>
-            pull(metric_score)
-        )
+  )
+  expect_equal(
+    results_eqr[["metric"]] |>
+      filter(
+        grepl("_blauwbandgrondel", sample_id) |
+          grepl("_blauwbandgrondel", index_cluster),
+        !index_cluster %in%
+          c("canals_blauwbandgrondel", "forel_blauwbandgrondel",
+            "vlagzalm_blauwbandgrondel", "estuarien_IJzer_blauwbandgrondel")
+      ) |>
+      pull(metric_score),
+    rep(NA_character_, 69)
+  )
+  expect_equal(
+    results_eqr[["metric"]] |>
+      filter(
+        grepl("_blauwbandgrondel", sample_id) |
+          grepl("_blauwbandgrondel", index_cluster),
+        index_cluster == "estuarien_IJzer_blauwbandgrondel",
+        metric_name == "MniYzer"
+      ) |>
+      pull(metric_score),
+    NA_character_
+  )
+  expect_true(
+    all(
+      !is.na(
+        results_eqr[["metric"]] |>
+          filter(
+            grepl("_blauwbandgrondel", sample_id) |
+              grepl("_blauwbandgrondel", index_cluster),
+            index_cluster %in%
+              c("canals_blauwbandgrondel", "forel_blauwbandgrondel",
+                "vlagzalm_blauwbandgrondel",
+                "estuarien_IJzer_blauwbandgrondel"),
+            !is.na(metric_score_name)
+          ) |>
+          pull(metric_score)
       )
     )
-    expect_equal(
-      results_eqr[["metric"]] |>
-        filter(
-          grepl("_blauwbandgrondel", sample_id) |
-            grepl("_blauwbandgrondel", index_cluster),
-          !index_cluster %in%
-            c("canals_blauwbandgrondel", "forel_blauwbandgrondel",
-              "vlagzalm_blauwbandgrondel", "estuarien_IJzer_blauwbandgrondel"),
-          !grepl("estuarien_Schelde_.*_blauwbandgrondel", index_cluster),
-          !metric_name == "MnsTot",
-          !(metric_name == "MniInd" &
-              indextypology %in% c("upstream", "lakes")),
-          !(metric_name == "MnsInd" & indextypology == "bron")
-        ) |>
-        pull(metric_value),
-      rep(NA_character_, 41)
-    )
-    expect_true(
-      all(
-        !is.na(
-          results_eqr[["metric"]] |>
-            filter(
-              grepl("_blauwbandgrondel", sample_id) |
-                grepl("_blauwbandgrondel", index_cluster),
-              index_cluster %in%
-                c("canals_blauwbandgrondel", "forel_blauwbandgrondel",
-                  "vlagzalm_blauwbandgrondel",
-                  "estuarien_IJzer_blauwbandgrondel"),
-              !grepl("estuarien_Schelde_.*_blauwbandgrondel", index_cluster)
-            ) |>
-            pull(metric_value)
-        )
+  )
+  expect_equal(
+    results_eqr[["metric"]] |>
+      filter(
+        grepl("_blauwbandgrondel", sample_id) |
+          grepl("_blauwbandgrondel", index_cluster),
+        !index_cluster %in%
+          c("canals_blauwbandgrondel", "forel_blauwbandgrondel",
+            "vlagzalm_blauwbandgrondel", "estuarien_IJzer_blauwbandgrondel"),
+        !grepl("estuarien_Schelde_.*_blauwbandgrondel", index_cluster),
+        !metric_name == "MnsTot",
+        !(metric_name == "MniInd" &
+            indextypology %in% c("upstream", "lakes")),
+        !(metric_name == "MnsInd" & indextypology == "bron")
+      ) |>
+      pull(metric_value),
+    rep(NA_character_, 41)
+  )
+  expect_true(
+    all(
+      !is.na(
+        results_eqr[["metric"]] |>
+          filter(
+            grepl("_blauwbandgrondel", sample_id) |
+              grepl("_blauwbandgrondel", index_cluster),
+            index_cluster %in%
+              c("canals_blauwbandgrondel", "forel_blauwbandgrondel",
+                "vlagzalm_blauwbandgrondel",
+                "estuarien_IJzer_blauwbandgrondel"),
+            !grepl("estuarien_Schelde_.*_blauwbandgrondel", index_cluster)
+          ) |>
+          pull(metric_value)
       )
     )
-    expect_true(
-      all(
-        !is.na(
-          results_eqr[["metric"]] |>
-            filter(
-              grepl("_blauwbandgrondel", sample_id) |
-                grepl("_blauwbandgrondel", index_cluster),
-              metric_name == "MnsTot"
-            ) |>
-            pull(metric_value)
-        )
+  )
+  expect_true(
+    all(
+      !is.na(
+        results_eqr[["metric"]] |>
+          filter(
+            grepl("_blauwbandgrondel", sample_id) |
+              grepl("_blauwbandgrondel", index_cluster),
+            metric_name == "MnsTot"
+          ) |>
+          pull(metric_value)
       )
     )
-    expect_true(
-      all(
-        !is.na(
-          results_eqr[["metric"]] |>
-            filter(
-              grepl("_blauwbandgrondel", sample_id) |
-                grepl("_blauwbandgrondel", index_cluster),
-              metric_name == "MniInd" &
-                indextypology %in% c("upstream", "lakes")
-            ) |>
-            pull(metric_value)
-        )
+  )
+  expect_true(
+    all(
+      !is.na(
+        results_eqr[["metric"]] |>
+          filter(
+            grepl("_blauwbandgrondel", sample_id) |
+              grepl("_blauwbandgrondel", index_cluster),
+            metric_name == "MniInd" &
+              indextypology %in% c("upstream", "lakes")
+          ) |>
+          pull(metric_value)
       )
     )
-    expect_true(
-      all(
-        !is.na(
-          results_eqr[["metric"]] |>
-            filter(
-              grepl("_blauwbandgrondel", sample_id) |
-                grepl("_blauwbandgrondel", index_cluster),
-              metric_name == "MnsInd" & indextypology == "bron"
-            ) |>
-            pull(metric_value)
-        )
+  )
+  expect_true(
+    all(
+      !is.na(
+        results_eqr[["metric"]] |>
+          filter(
+            grepl("_blauwbandgrondel", sample_id) |
+              grepl("_blauwbandgrondel", index_cluster),
+            metric_name == "MnsInd" & indextypology == "bron"
+          ) |>
+          pull(metric_value)
       )
     )
+  )
 })
 describe("mix of clustered and not clustered: correct presentation", {
-    data_sample <- data_sample |>
-      filter(grepl("bron", sample_id) | grepl("lakes", sample_id))
-    data_fish <- data_fish |>
-      filter(grepl("bron", sample_id) | grepl("lakes", sample_id))
-    cluster1 <- cluster |>
-      filter(grepl("bron", sample_id) | grepl("lakes", sample_id))
-    cluster2 <- cluster |>
-      filter(grepl("lakes", sample_id))
-    expect_warning(
-      results_eqr1 <- calculate_eqr(
-        data_sample,
-        data_fish,
-        cluster = cluster1,
-        output = "metric"
+  data_sample <- data_sample |>
+    filter(grepl("bron", sample_id) | grepl("lakes", sample_id))
+  data_fish <- data_fish |>
+    filter(grepl("bron", sample_id) | grepl("lakes", sample_id))
+  cluster1 <- cluster |>
+    filter(grepl("bron", sample_id) | grepl("lakes", sample_id))
+  cluster2 <- cluster |>
+    filter(grepl("lakes", sample_id))
+  expect_warning(
+    results_eqr1 <- calculate_eqr(
+      data_sample,
+      data_fish,
+      cluster = cluster1,
+      output = "metric"
+    ),
+    "No fishdata for one of the records, metric gets value 0"
+  )
+  expect_warning(
+    results_eqr2 <- calculate_eqr(
+      data_sample,
+      data_fish,
+      cluster = cluster2,
+      output = "metric"
+    ),
+    "No fishdata for one of the records, metric gets value 0"
+  )
+  expect_equal(
+    results_eqr1[["eqr"]] |>
+      mutate(
+        index_cluster =
+          ifelse(grepl("bron", index_cluster), NA, index_cluster)
       ),
-      "No fishdata for one of the records, metric gets value 0"
-    )
-    expect_warning(
-      results_eqr2 <- calculate_eqr(
-        data_sample,
-        data_fish,
-        cluster = cluster2,
-        output = "metric"
-      ),
-      "No fishdata for one of the records, metric gets value 0"
-    )
-    expect_equal(
-      results_eqr1[["eqr"]] |>
-        mutate(
-          index_cluster =
-            ifelse(grepl("bron", index_cluster), NA, index_cluster)
-        ),
-      results_eqr2[["eqr"]]
-    )
+    results_eqr2[["eqr"]]
+  )
 })
