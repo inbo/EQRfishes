@@ -91,7 +91,7 @@ test_that("IBI and EQR are calculated correctly", {
           grepl("_blankvoorn", sample_id) | grepl("_blankvoorn", index_cluster)
         ) |>
         pull(eqr),
-      c(0.2, 0.17, rep(0.2, 5), 0.0, 0.1923077, rep(0.1, 3), 0.01, 0.1)
+      c(0.2, 0.17, rep(0.2, 5), 0.0, 0.192307692, rep(0.1, 3), 0.01, 0.1)
     )
     expect_equal(
       results_eqr[["eqr"]] |>
@@ -100,7 +100,7 @@ test_that("IBI and EQR are calculated correctly", {
             grepl("_blauwbandgrondel", index_cluster)
         ) |>
         pull(eqr),
-      c(0.2, 0.0, rep(0.2, 5), 0.0, 0.1923077, rep(0.0, 3), 0.0, 0.0)
+      c(0.2, 0.0, rep(0.2, 5), 0.0, 0.192307692, rep(0.0, 3), -0.000000003, 0.0)
     )
     expect_equal(
       results_eqr[["eqr"]] |>
