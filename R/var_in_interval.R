@@ -67,11 +67,15 @@ var_in_interval <- function(variable, interval) {
       ifelse(
         value_min == " ",
         TRUE,
-        as.numeric(variable) > as.numeric(value_min)
+        # as.numeric(variable) > as.numeric(value_min), but keep in mind
+        # rounding errors for floats:
+        as.numeric(variable) - as.numeric(value_min) > 1e-8
       ),
       ifelse(
         operator_min == "[",
-        as.numeric(variable) >= as.numeric(value_min),
+        # as.numeric(variable) >= as.numeric(value_min), but keep in mind
+        # rounding errors for floats:
+        as.numeric(variable) - as.numeric(value_min) > -1e-8,
         NA
       )
     )
@@ -82,11 +86,15 @@ var_in_interval <- function(variable, interval) {
       ifelse(
         value_max == " ",
         TRUE,
-        as.numeric(variable) < as.numeric(value_max)
+        # as.numeric(variable) < as.numeric(value_max), but keep in mind
+        # rounding errors for floats:
+        as.numeric(value_max) - as.numeric(variable) > 1e-8
       ),
       ifelse(
         operator_max == "]",
-        as.numeric(variable) <= as.numeric(value_max),
+        # as.numeric(variable) <= as.numeric(value_max), but keep in mind
+        # rounding errors for floats:
+        as.numeric(value_max) - as.numeric(variable) > -1e-8,
         NA
       )
     )
