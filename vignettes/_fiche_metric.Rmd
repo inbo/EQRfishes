@@ -15,7 +15,7 @@ if (nrow(description_metric) == 0) {
       )
     )
 }
-if (nrow(description_metric) > 0) { 
+if (nrow(description_metric) > 0) {
   output_metric[[level]] <- c(
     output_metric[[level]],
     paste0(

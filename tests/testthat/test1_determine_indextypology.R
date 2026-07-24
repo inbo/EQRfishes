@@ -11,7 +11,7 @@ data_sample <- read.csv2(
     index_type_code =
       ifelse(
         index_type_code %in% c("brabeel", "brasem", "barbeel", "forel",
-                             "vlagzalm", "upstream", "bron"),
+                               "vlagzalm", "upstream", "bron"),
         "ZTWA",
         index_type_code
       )

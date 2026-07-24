@@ -957,7 +957,10 @@ calculate_eqr <- function(
         filter(var_in_interval(.data$metric_value, .data$interval)) %>%
         left_join(
           result_metrics,
-          by = c(select_keys, "indextypology", "indextypology_short", "calculated2" = "metric_name"),
+          by = c(
+            select_keys, "indextypology", "indextypology_short",
+            "calculated2" = "metric_name"
+          ),
           suffix = c("", "2"),
           relationship = "many-to-many"
         ) %>%

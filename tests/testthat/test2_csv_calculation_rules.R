@@ -247,7 +247,8 @@ describe("variables exist in dependent tables", {
         by = c("indextypology", "calculated" = "metric_name")
       ) %>%
       filter(
-        is.na(.data$metric_measures_name) & .data$indextypology != "(undetermined)"
+        is.na(.data$metric_measures_name) &
+          .data$indextypology != "(undetermined)"
       )
     expect_equal(
       nrow(lacking_vars), 0,
