@@ -1,5 +1,3 @@
-context("test csv calculation rules")
-
 library(readr)
 library(dplyr)
 library(tidyr)

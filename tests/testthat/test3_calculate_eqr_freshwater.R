@@ -1,5 +1,3 @@
-context("test calculate_eqr freshwater")
-
 library(dplyr)
 library(tidyr)
 

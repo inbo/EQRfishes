@@ -1,5 +1,3 @@
-context("test determine_indextypology")
-
 library(readr)
 library(dplyr)
 library(tidyr)

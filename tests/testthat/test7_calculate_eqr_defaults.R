@@ -1,5 +1,3 @@
-context("test calculate_eqr defaults")
-
 library(dplyr)
 library(tidyr)
 

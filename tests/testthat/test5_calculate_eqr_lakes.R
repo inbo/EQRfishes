@@ -1,5 +1,3 @@
-context("test calculate_eqr lakes")
-
 library(dplyr)
 library(tidyr)
 library(readr)

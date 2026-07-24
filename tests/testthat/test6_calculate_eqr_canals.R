@@ -1,5 +1,3 @@
-context("test calculate_eqr canals")
-
 library(dplyr)
 library(tidyr)
 

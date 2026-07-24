@@ -1,5 +1,3 @@
-context("test calculate_eqr estuaries")
-
 library(dplyr)
 library(tidyr)
 
