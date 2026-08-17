@@ -213,10 +213,12 @@ calculate_eqr <- function(
       function(x) validate(new_sample(x))
     )
   )
+  data_sample$sample_id <- as.character(data_sample$sample_id)
 
   # make sure data_fish has all columns present, and remove additional columns
   # (these can cause problems if fish data are nested)
   assert_that(has_name(data_fish, "sample_id"))
+  data_fish$sample_id <- as.character(data_fish$sample_id)
   assert_that(has_name(data_fish, "record_id"))
   assert_that(has_name(data_fish, "taxoncode"))
   assert_that(has_name(data_fish, "number"))
@@ -252,6 +254,7 @@ calculate_eqr <- function(
       = length(cluster) != 1 || !is.na(cluster)
     )
     assert_that(has_name(cluster, c("sample_id", "index_cluster")))
+    cluster$sample_id <- as.character(cluster$sample_id)
     data_sample <- data_sample %>%
       left_join(
         cluster,
