@@ -425,7 +425,7 @@ test_that("IBI and EQR are calculated correctly", {
     )
   )
 })
-describe("mix of clustered and not clustered: correct presentation", {
+test_that("mix of clustered and not clustered: correct presentation", {
   data_sample <- data_sample |>
     filter(grepl("bron", sample_id) | grepl("lakes", sample_id))
   data_fish <- data_fish |>
