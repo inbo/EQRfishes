@@ -263,6 +263,30 @@ test_that("variables exist in dependent tables: calculate_ibi_eqr.calculated -> 
 test_that("all variables in formulas exist in tables: items in formula are added as submetric variable in table calculate_metric_formula.csv", { # nolint: line_length_linter
 
 })
+
+test_that("A denominator of zero in formulas in table calculate_metric_formula.csv will not cause problems", { # nolint: line_length_linter
+  test <- calculate_metric_formula |>
+    distinct(formula) |>
+    mutate(
+      denominator = gsub("^.* \\/ (\\w*)(, 0)?\\)?$", "\\1", formula),
+      zerocheck1 =
+        gsub("^ifelse\\((\\w*)\\s[=!]\\=\\s0[, ].*\\)$", "\\1", formula),
+      zerocheck2 = gsub(
+        "^ifelse\\(.*[|&]\\s(\\w*)\\s[=!]\\=\\s0\\,\\s.*\\)$", "\\1", formula
+      )
+    ) |>
+    filter(
+      denominator != zerocheck1, denominator != zerocheck2,
+      denominator != "3",
+      # the following formulas cause no problems because the validation drops
+      # an error if n_fyke_nets and n_days are not positive integers
+      !grepl("MniInd_\\w* \\/ n_fyke_days", formula),
+      # the following gives a warning and a high score for ManBio in canals:
+      formula != "TotWeight_canals / surface"
+    )
+  stopifnot(nrow(test) == 0)
+})
+
 test_that("all variables in formulas exist in tables: items in calculate_metric_measures.csv exists in table data_taxonmetrics.csv", { # nolint: line_length_linter
 
 })

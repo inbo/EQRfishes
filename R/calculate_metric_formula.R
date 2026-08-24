@@ -97,7 +97,6 @@ calculate_metric_formula <- function(
         ),
         calculate_formula
       )
-          #formule berekenen (nog uitwerken!), hier overal checken dat noemer niet 0 of NA is
     ) %>%
     arrange(.data$row_id)
 
