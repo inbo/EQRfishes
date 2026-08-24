@@ -625,7 +625,7 @@ calculate_eqr <- function(
         ) %>%
         select(
           "sample_id", "indextypology_short", "year",
-          "MnsTot" = .data$metric_value
+          "MnsTot" = "metric_value"
         ),
       by = c("sample_id", "indextypology_short", "year")
     ) %>%
@@ -967,7 +967,7 @@ calculate_eqr <- function(
       )
     ) %>%
     select(
-      select_keys, "indextypology", "year", "calc_method_old",
+      all_of(select_keys), "indextypology", "year", "calc_method_old",
       "ibi", "eqr_class", "eqr"
     )
 
@@ -1041,7 +1041,7 @@ calculate_eqr <- function(
       metric_name_calc1 = NULL,
       metric_name_calc2 = NULL
     ) %>%
-    select(-.data$indextypology_short)
+    select(-"indextypology_short")
 
   if (output == "metric") {
     return(
