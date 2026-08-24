@@ -297,19 +297,38 @@ calculate_eqr <- function(
         )
       )
     }
-    data_fish <- data_fish %>%
-      inner_join(
-        data_sample %>%
-          select(
-            "sample_id_replace", "method", "sample_id"
-          ) %>%
-          distinct(),
-        by = "sample_id"
-      ) %>%
-      mutate(
-        sample_id = .data$sample_id_replace,
-        sample_id_replace = NULL
-      )
+    data_fish <- withCallingHandlers(
+      data_fish %>%
+        inner_join(
+          data_sample %>%
+            select(
+              "sample_id_replace", "method", "sample_id"
+            ) %>%
+            distinct(),
+          by = "sample_id"
+        ) %>%
+        mutate(
+          sample_id = .data$sample_id_replace,
+          sample_id_replace = NULL
+        ),
+      warning = function(w) {
+        if (
+          grepl("Detected an unexpected many-to-many relationship between", w)
+        ) {
+          w <- simpleWarning(
+            paste(
+              w$message,
+              "It is fine to ignore this warning if you intentionally added",
+              "the same `sample_id` multiple times in table cluster for",
+              "different values of `index_cluster` (e.g. to calculate",
+              "different clustered indexes using the same sample data)"
+            )
+          )
+          warning(w)
+        }
+      }
+    )
+
     join_data_fish <- c("sample_id", "method")
     select_keys <- c("sample_id", "index_cluster")
     data_sample <- data_sample %>%

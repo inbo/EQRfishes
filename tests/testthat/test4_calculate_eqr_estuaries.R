@@ -68,16 +68,19 @@ data_fish <- data_fish %>%
 
 # Metrieken aangepast van 0-5 naar 0-1, dus waarschijnlijk moet EQR-berekening hier ook aan aangepast worden
 test_that("IBI is calculated correctly for estuarien freshwater", {
-  expect_warning(
-    results_eqr <- calculate_eqr(
-      data_sample %>%
-        filter(indextypology == "estuarien_Schelde_freshwater"),
-      data_fish,
-      cluster = index_info %>%
-        select("sample_id", "index_cluster")
-    ),
-    "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., ERI.SIN., CRA.CRA." # nolint: line_length_linter
-  )
+  (results_eqr <- calculate_eqr(
+    data_sample %>%
+      filter(indextypology == "estuarien_Schelde_freshwater"),
+    data_fish,
+    cluster = index_info %>%
+      select("sample_id", "index_cluster")
+  )) |>
+    expect_warning(
+      "Some taxoncodes given in data_fish are unknown fishes and these records will be excluded from the analysis:  PAL.FFF., ERI.SIN., CRA.CRA." # nolint: line_length_linter
+    ) |>
+    expect_warning(
+      "Detected an unexpected many-to-many relationship between `x` and `y`"
+    )
   expect_equal(
     results_eqr$ibi,
     c(3.2, 2.8, 3.2)
