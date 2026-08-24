@@ -67,15 +67,19 @@ data_sample <- data_sample |>
   select(-"sample_id_part1", -"sample_id_part2")
 
 test_that("IBI and EQR are calculated correctly", {
-  expect_warning(
-    results_eqr <- calculate_eqr(
-      data_sample,
-      data_fish,
-      cluster = cluster,
-      output = "metric"
-    ),
-    "No fishdata for one of the records, metric gets value 0"
-  )
+  #testthat::local_edition(3)
+  (results_eqr <- calculate_eqr(
+    data_sample,
+    data_fish,
+    cluster = cluster,
+    output = "metric"
+  )) |>
+    expect_warning(
+      "Samples with sample_id brasem_0soorten, barbeel_0soorten, brabeel_0soorten, upstream_0soorten, forel_0soorten, vlagzalm_0soorten, bron_0soorten, lakes_f_0soorten, lakes_e_0soorten, canals_f_0soorten, canals_e_0soorten, estuarien_IJzer_0soorten, estuarien_Schelde_freshwater_0soorten, estuarien_Schelde_oligohaline_0soorten, estuarien_Schelde_mesohaline_0soorten, estuarien_zijrivieren_zoet_0soorten have no fishdata, metrics get value 0"  # nolint: line_length_linter
+    ) |>
+    expect_warning(
+      "In the fish-based upstream index, slope is used to calibrate some metric scores" #nolint: line_length_linter
+    )
 
   expect_equal(
     results_eqr[["eqr"]] |>
@@ -441,7 +445,7 @@ test_that("mix of clustered and not clustered: correct presentation", {
       cluster = cluster1,
       output = "metric"
     ),
-    "No fishdata for one of the records, metric gets value 0"
+    "Samples with sample_id bron_0soorten, lakes_f_0soorten, lakes_e_0soorten have no fishdata, metrics get value 0"  # nolint: line_length_linter
   )
   expect_warning(
     results_eqr2 <- calculate_eqr(
@@ -450,7 +454,7 @@ test_that("mix of clustered and not clustered: correct presentation", {
       cluster = cluster2,
       output = "metric"
     ),
-    "No fishdata for one of the records, metric gets value 0"
+    "Samples with sample_id bron_0soorten, lakes_f_0soorten, lakes_e_0soorten have no fishdata, metrics get value 0"  # nolint: line_length_linter
   )
   expect_equal(
     results_eqr1[["eqr"]] |>

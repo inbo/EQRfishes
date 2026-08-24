@@ -233,6 +233,17 @@ calculate_eqr <- function(
   assert_that(is.numeric(data_fish$length))
   data_fish <- data_fish %>%
     select("sample_id", "record_id", "taxoncode", "number", "length", "weight")
+  test <- data_sample$sample_id[
+    !data_sample$sample_id %in% unique(data_fish$sample_id)
+  ]
+  if (length(test) > 0) {
+    warning(
+      sprintf(
+        "Samples with sample_id %s have no fishdata, metrics get value 0",
+        paste(test, collapse = ", ")
+      )
+    )
+  }
 
   match.arg(output)
 

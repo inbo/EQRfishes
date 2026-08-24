@@ -54,7 +54,7 @@ calculate_metric_measures <- function(
 ) {
 
   if (is.null(fishdata)) {
-    warning("No fishdata for one of the records, metric gets value 0")
+    #warning("No fishdata for one of the records, metric gets value 0")
     return(
       sampledata <- sampledata %>%
         bind_rows(
