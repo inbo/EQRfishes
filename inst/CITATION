@@ -1,0 +1,13 @@
+citHeader("To cite `EQRfishes` in publications please use:")
+# begin checklist entry
+bibentry(
+  bibtype = "Manual",
+  title = "EQRfishes: Ecological Quality Ratio of waters based on fish data. Version 0.1.0",
+  author = c( author = c(person(given = "Els", family = "Lommelen"), person(given = "Gerlinde", family = "Van Thuyne"))),
+  year = 2025,
+  url = "https://github.com/inbo/EQRfishes/",
+  abstract = "Package allows to calculate the Ecological Quality Ratio of waters based on fish data.",
+  textVersion = "Lommelen, Els; Van Thuyne, Gerlinde (2025) EQRfishes: Ecological Quality Ratio of waters based on fish data. Version 0.1.0. https://github.com/inbo/EQRfishes/",
+  keywords = "ecological quality ratio; EQR",
+)
+# end checklist entry

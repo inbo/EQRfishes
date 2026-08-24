@@ -1,0 +1,48 @@
+{
+  "title": "EQRfishes: Ecological Quality Ratio of waters based on fish data",
+  "version": "0.1.0",
+  "license": "GPL-3.0",
+  "upload_type": "software",
+  "description": "<p>Package allows to calculate the Ecological Quality Ratio of waters based on fish data.<\/p>",
+  "keywords": [
+    "ecological quality ratio",
+    "EQR"
+  ],
+  "access_right": "open",
+  "language": "eng",
+  "contributors": [
+    {
+      "name": "Lommelen, Els",
+      "affiliation": "Research Institute for Nature and Forest (INBO)",
+      "orcid": "0000-0002-3481-5684",
+      "type": "contactperson"
+    },
+    {
+      "name": "Breine, Jan",
+      "affiliation": "Research Institute for Nature and Forest (INBO)",
+      "orcid": "0000-0002-2595-9782",
+      "type": "projectmember"
+    },
+    {
+      "name": "Research Institute for Nature and Forest (INBO)",
+      "type": "rightsholder"
+    }
+  ],
+  "creators": [
+    {
+      "name": "Lommelen, Els",
+      "affiliation": "Research Institute for Nature and Forest (INBO)",
+      "orcid": "0000-0002-3481-5684"
+    },
+    {
+      "name": "Van Thuyne, Gerlinde",
+      "affiliation": "Research Institute for Nature and Forest (INBO)",
+      "orcid": "0000-0001-6362-3588"
+    }
+  ],
+  "communities": [
+    {
+      "identifier": "inbo"
+    }
+  ]
+}

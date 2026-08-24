@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it using these metadata.
+title: "EQRfishes: Ecological Quality Ratio of waters based on fish data"
+authors:
+- given-names: Els
+  family-names: Lommelen
+  affiliation: Research Institute for Nature and Forest (INBO)
+  orcid: 0000-0002-3481-5684
+- given-names: Gerlinde
+  family-names: Van Thuyne
+  affiliation: Research Institute for Nature and Forest (INBO)
+  orcid: 0000-0001-6362-3588
+keywords:
+- ecological quality ratio
+- EQR
+contact:
+- given-names: Els
+  family-names: Lommelen
+  affiliation: Research Institute for Nature and Forest (INBO)
+  orcid: 0000-0002-3481-5684
+doi: ~
+license: GPL-3.0
+repository-code: https://github.com/inbo/EQRfishes/
+type: software
+abstract: "Package allows to calculate the Ecological Quality Ratio of waters based
+  on fish data."
+version: 0.1.0

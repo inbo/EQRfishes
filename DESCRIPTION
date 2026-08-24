@@ -11,7 +11,8 @@ Authors@R: c(
            comment = c(ORCID = "0000-0002-2595-9782", affiliation = "Research Institute for Nature and Forest (INBO)")),
     person("Jo", "Loos", , "jo.loos@inbo.be", role = "ctb",
            comment = c(ORCID = "0000-0001-6192-8150", affiliation = "Research Institute for Nature and Forest (INBO)")),
-    person("Research Institute for Nature and Forest (INBO)", , , "info@inbo.be", role = "cph")
+    person("Research Institute for Nature and Forest (INBO)", , , "info@inbo.be", role = "cph",
+           comment = c(ROR = "00j54wy13"))
   )
 Description: Package allows to calculate the Ecological Quality Ratio of
     waters based on fish data.
@@ -38,7 +39,9 @@ Suggests:
 VignetteBuilder: 
     knitr
 Config/checklist/communities: inbo
+Config/citeme/keywords: ecological quality ratio; EQR
 Config/roxygen2/version: 8.0.0
+Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-GB
 LazyData: true
