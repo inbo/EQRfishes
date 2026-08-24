@@ -193,10 +193,6 @@ calculate_metric_measures <- suppressMessages(
   read_csv2(
     system.file("extdata/calculate_metric_measures.csv", package = "EQRfishes")
   ) %>%
-    filter(
-      !(!is.na(.data$...12) & .data$...12 == "check" &
-          .data$metric_measures_name == "MnsPis_lakes")
-    ) %>%
     left_join(metric_type_description, by = "metric_type")
 )
 data_taxonmetrics <- suppressMessages(
