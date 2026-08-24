@@ -1,5 +1,6 @@
 ---
 output: github_document
+bibliography: vignettes/references.bib
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -29,40 +30,115 @@ knitr::opts_chunk$set(
 
 # EQRfishes
 
-The goal of EQRfishes is to ...
+The goal of R package `EQRfishes` is to calculate an index of biotic integrity (IBI) and ecological quality ratio (EQR) based on fish measures.
+Rivers and water bodies with different characteristics are assessed with different criteria, each called an indextypology, as is described in the different publications on which the calculations are based:
+
+```{r, echo=FALSE, message=FALSE, results='asis'}
+library(dplyr)
+library(readr)
+suppressMessages(
+  read_csv2(
+    system.file("extdata/index_names_english_dutch.csv", package = "EQRfishes")
+  )
+) |>
+  filter(!is.na(.data$reference), grepl("^@", .data$reference)) |>
+  distinct(reference) |>
+  pull("reference") |>
+  paste(collapse = ", ") |>
+  cat()
+```
+
+
+The calculations itself are also described into detail in `vignette("overview_calculations", package = "EQRfishes")`.
+
+## References
+
+<div id="refs"></div>
 
 ## Installation
 
-You can install the development version from [GitHub](https://github.com/) with:
+To install `EQRfishes` from the [INBO universe](https://inbo.r-universe.dev/builds), start a new R session and run this code (before loading any packages):
+
+```r
+# Enable the INBO universe (not needed for INBO employees, as this is the default setting)
+options(
+  repos = c(
+    inbo = "https://inbo.r-universe.dev", CRAN = "https://cloud.r-project.org"
+  )
+)
+# Install the packages
+install.packages("EQRfishes")
+```
+
+To install EQRfishes from GitHub, start a new R session and run this code (before loading any packages):
 
 ``` r
 # install.packages("remotes")
 remotes::install_github("inbo/EQRfishes")
 ```
 
-## Example
+## Use `EQRfishes`
 
-This is a basic example which shows you how to solve a common problem:
+The main function, `calculate_eqr()`, calculates de fish-based ecological quality ratio (EQR) based on a dataset with sampling location characteristics (`data_sample`) including the indextypology that should be used and a dataset with fish measure data for each location (`data_fish`).
+The function documentation of `calculate_eqr()` explains how these datasets should be composed. 
+
+Some examples for different indextypologies:
 
 ```{r example}
 library(EQRfishes)
-## basic example code
+# freshwater river indexes (lowland IBI, upstream,...)
+data_sample <- read.csv2(
+  system.file("testdata/freshwater_sample.csv", package = "EQRfishes")
+)
+data_fish <- read.csv2(
+  system.file("testdata/freshwater_fish_data.csv", package = "EQRfishes")
+)
+# add information on index that should be calculated
+index_info <- data.frame(
+  order_id = 1:12,
+  sample_id = c(
+    11652, 13384, 8681, 13282, 13561, 8434, 4550, 11611, 13534, 13512, 8507,
+    2258
+  ),
+  indextypology = c(
+    rep("brabeel", 6), "bron", "upstream", "vlagzalm", rep("brabeel", 2),
+    "forel"
+  )
+)
+data_sample <- data_sample |>
+  inner_join(index_info, by = "sample_id")
+# calculate index
+calculate_eqr(data_sample, data_fish)
+calculate_eqr(data_sample, data_fish, output = "metric")
+
+# lake index
+data_sample <- read.csv2(
+  system.file("testdata/kallemoeie_sample.csv", package = "EQRfishes")
+)
+data_fish <- read.csv2(
+  system.file("testdata/kallemoeie_fish_data.csv", package = "EQRfishes")
+)
+cluster <- data.frame(
+  sample_id = c("Kallemoeie_e", "Kallemoeie_f"),
+  index_cluster = "Kallemoeie"
+)
+
+calculate_eqr(data_sample, data_fish, cluster = cluster)
+calculate_eqr(data_sample, data_fish, output = "metric", cluster = cluster)
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? 
-You can include R chunks like so:
+Function `determine_indextypology()` can help which indextypology would be appropriate to use for a specific location:
 
-```{r cars}
-summary(cars)
+```{r indextypology}
+# load data
+data_sample <- read.csv2(
+  system.file("testdata/freshwater_sample.csv", package = "EQRfishes")
+) %>%
+  mutate(
+    index_type_code = "ZTWA"
+  )
+# the following function adds an indextypology to the dataset
+# the result can be used to calculate the EQR
+data_sample <- determine_indextypology(data_sample)
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-`devtools::build_readme()` is handy for this.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE, eval = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
