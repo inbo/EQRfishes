@@ -90,7 +90,8 @@ sum_of_scored_length_classes <- function(data, var) {
         )
       ) %>%
         filter(.data$variable == "Recr"),
-      by = "taxoncode"
+      by = "taxoncode",
+      relationship = "many-to-many"
     ) %>%
     filter(!is.na(.data$length)) %>%
     filter(var_in_interval(.data$length, .data$interval)) %>%
