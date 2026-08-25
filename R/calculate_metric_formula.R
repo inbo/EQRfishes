@@ -38,8 +38,7 @@ calculate_metric_formula <- function(
           system.file(
             "extdata/calculate_metric_formula.csv", package = "EQRfishes"
           )
-        ) %>%
-          select(-"opmerking")  # tijdelijk zolang in deze csv een opmerking staat
+        )
       ) %>%
         filter(!is.na(.data$submetric_score_name)) %>%
         nest(
@@ -52,8 +51,7 @@ calculate_metric_formula <- function(
               system.file(
                 "extdata/calculate_metric_formula.csv", package = "EQRfishes"
               )
-            ) %>%
-              select(-"opmerking")  # tijdelijk zolang in deze csv een opmerking staat
+            )
           ) %>%
             filter(is.na(.data$submetric_score_name)) %>%
             mutate(temp_row_nr = seq_along(.data$metric_formula_name)) %>%
