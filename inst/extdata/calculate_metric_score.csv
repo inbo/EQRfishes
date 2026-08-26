@@ -1,505 +1,505 @@
-metric_score;metric;value_metric;add_category;value_add_category;score_id;opmerkingen
-SMnsTot_brasem;MnsTot;[7, [;width_river;[0,3];5;
-SMnsTot_brasem;MnsTot;[6,7[;width_river;[0,3];4;
-SMnsTot_brasem;MnsTot;[4,6[;width_river;[0,3];3;
-SMnsTot_brasem;MnsTot;[2,4[;width_river;[0,3];2;
-SMnsTot_brasem;MnsTot;] ,2[;width_river;[0,3];1;
-SMnsTot_brasem;MnsTot;[12, [;width_river;]3,6.5];5;
-SMnsTot_brasem;MnsTot;[9,12[;width_river;]3,6.5];4;
-SMnsTot_brasem;MnsTot;[6,9[;width_river;]3,6.5];3;
-SMnsTot_brasem;MnsTot;[3,6[;width_river;]3,6.5];2;
-SMnsTot_brasem;MnsTot;] ,3[;width_river;]3,6.5];1;
-SMnsTot_brasem;MnsTot;[13, [;width_river;]6.5,9[;5;
-SMnsTot_brasem;MnsTot;[10,13[;width_river;]6.5,9[;4;
-SMnsTot_brasem;MnsTot;[7,10[;width_river;]6.5,9[;3;
-SMnsTot_brasem;MnsTot;[4,7[;width_river;]6.5,9[;2;
-SMnsTot_brasem;MnsTot;] ,4[;width_river;]6.5,9[;1;
-SMnsTot_brasem;MnsTot;[14, [;width_river;[9, [;5;
-SMnsTot_brasem;MnsTot;[10,14[;width_river;[9, [;4;
-SMnsTot_brasem;MnsTot;[7,10[;width_river;[9, [;3;
-SMnsTot_brasem;MnsTot;[5,7[;width_river;[9, [;2;
-SMnsTot_brasem;MnsTot;] ,5[;width_river;[9, [;1;
-SManTol;ManTol;[2.4, [;;;5;
-SManTol;ManTol;[2,2.4[;;;4;
-SManTol;ManTol;[1.6,2[;;;3;
-SManTol;ManTol;[1.2,1.6[;;;2;
-SManTol;ManTol;] ,1.2[;;;1;
-SManTyp_brasem;ManTyp_brasem;[3.3, [;;;5;
-SManTyp_brasem;ManTyp_brasem;[3,3.3[;;;4;
-SManTyp_brasem;ManTyp_brasem;[2.7,3[;;;3;
-SManTyp_brasem;ManTyp_brasem;[2.4,2.7[;;;2;
-SManTyp_brasem;ManTyp_brasem;] ,2.4[;;;1;
-SManSoort;ManSoort_barbeel;[4.5, [;;;5;
-SManSoort;ManSoort_barbeel;[3.5,4.5[;;;4;
-SManSoort;ManSoort_barbeel;[2.5,3.5[;;;3;
-SManSoort;ManSoort_barbeel;[1.5,2.5[;;;2;
-SManSoort;ManSoort_barbeel;] ,1.5[;;;1;
-SManSoort;ManSoort_brasem;[4.5, [;;;5;
-SManSoort;ManSoort_brasem;[3.5,4.5[;;;4;
-SManSoort;ManSoort_brasem;[2.5,3.5[;;;3;
-SManSoort;ManSoort_brasem;[1.5,2.5[;;;2;
-SManSoort;ManSoort_brasem;] ,1.5[;;;1;
-SMpgrut;PercRutRut;[10,25];;;5;
-SMpgrut;PercRutRut;]25,35];;;4;
-SMpgrut;PercRutRut;]35,45];;;3;
-SMpgrut;PercRutRut;]45,55];;;2;
-SMpgrut;PercRutRut;]55, [;;;1;
-SMpgrut;PercRutRut;[7.5,10[;;;4;
-SMpgrut;PercRutRut;[5,7.5[;;;3;
-SMpgrut;PercRutRut;[2.5,5[;;;2;
-SMpgrut;PercRutRut;] ,2.5[;;;1;
-SMpgsca;PercScaEry;[10, [;;;5;
-SMpgsca;PercScaEry;[5,10[;;;4;
-SMpgsca;PercScaEry;[2,5[;;;3;
-SMpgsca;PercScaEry;[1,2[;;;2;
-SMpgsca;PercScaEry;] ,1[;;;1;
-SMpgtin;PercTinTin;[15, [;AantalGrootteKlassenTinTin;]1, [;5;
-SMpgtin;PercTinTin;[10,15[;AantalGrootteKlassenTinTin;]1, [;4;
-SMpgtin;PercTinTin;] ,10[;AantalGrootteKlassenTinTin;]1, [;3;
-SMpgtin;PercTinTin;[15, [;AantalGrootteKlassenTinTin;] ,1];2;
-SMpgtin;PercTinTin;] ,15[;AantalGrootteKlassenTinTin;] ,1];1;
-SManBio_brasem;ManBio;[100,350[;;;5;
-SManBio_brasem;ManBio;[350,500[;;;4;
-SManBio_brasem;ManBio;[500,650[;;;3;
-SManBio_brasem;ManBio;[650,800[;;;2;
-SManBio_brasem;ManBio;[800, [;;;1;
-SManBio_brasem;ManBio;[75,100[;;;4;
-SManBio_brasem;ManBio;[50,75[;;;3;
-SManBio_brasem;ManBio;[25,50[;;;2;
-SManBio_brasem;ManBio;] ,25[;;;1;
-SMpgExo;MpgExo_river;] ,1[;;;5;
-SMpgExo;MpgExo_river;[1,4[;;;4;
-SMpgExo;MpgExo_river;[4,7[;;;3;
-SMpgExo;MpgExo_river;[7,10[;;;2;
-SMpgExo;MpgExo_river;[10, [;;;1;
-STrofcomp;Trofcomp;[4.3,5];;;5;
-STrofcomp;Trofcomp;[3.5,4.3[;;;4;
-STrofcomp;Trofcomp;[2.5,3.5[;;;3;
-STrofcomp;Trofcomp;[1.7,2.5[;;;2;
-STrofcomp;Trofcomp;] ,1.7[;;;1;
-SMpiinvt_river;PercInvert;] ,20[;;;1;
-SMpiinvt_river;PercInvert;[20,45];;;3;
-SMpiinvt_river;PercInvert;]45,100[;;;5;
-SMpiinvt_river;PercInvert;[100,100];;;1;
-SMpipisc;PercPisci;]7, [;;;1;
-SMpipisc;PercPisci;]5,7];;;3;
-SMpipisc;PercPisci;[3,5];;;5;
-SMpipisc;PercPisci;[1,3[;;;3;
-SMpipisc;PercPisci;] ,1[;;;1;
-SMpiomni;PercOmni;[0,0];;;1;
-SMpiomni;PercOmni;]0,1[;;;5;
-SMpiomni;PercOmni;[1,5];;;3;
-SMpiomni;PercOmni;]5, [;;;1;
-SMpsRekr;MpsRekr;[85, [;;;5;
-SMpsRekr;MpsRekr;[70,85[;;;4;
-SMpsRekr;MpsRekr;[55,70[;;;3;
-SMpsRekr;MpsRekr;[40,55[;;;2;
-SMpsRekr;MpsRekr;] ,40[;;;1;
-SMnsTot_barbeel;MnsTot;[5, [;width_river;[0,3];5;
-SMnsTot_barbeel;MnsTot;[4,5[;width_river;[0,3];4;
-SMnsTot_barbeel;MnsTot;[3,4[;width_river;[0,3];3;
-SMnsTot_barbeel;MnsTot;[2,3[;width_river;[0,3];2;
-SMnsTot_barbeel;MnsTot;] ,2[;width_river;[0,3];1;
-SMnsTot_barbeel;MnsTot;[7, [;width_river;]3,6.5];5;
-SMnsTot_barbeel;MnsTot;[6,7[;width_river;]3,6.5];4;
-SMnsTot_barbeel;MnsTot;[4,6[;width_river;]3,6.5];3;
-SMnsTot_barbeel;MnsTot;[2,4[;width_river;]3,6.5];2;
-SMnsTot_barbeel;MnsTot;] ,2[;width_river;]3,6.5];1;
-SMnsTot_barbeel;MnsTot;[10, [;width_river;]6.5,9[;5;
-SMnsTot_barbeel;MnsTot;[8,10[;width_river;]6.5,9[;4;
-SMnsTot_barbeel;MnsTot;[6,8[;width_river;]6.5,9[;3;
-SMnsTot_barbeel;MnsTot;[4,6[;width_river;]6.5,9[;2;
-SMnsTot_barbeel;MnsTot;] ,4[;width_river;]6.5,9[;1;
-SMnsTot_barbeel;MnsTot;[12, [;width_river;[9, [;5;
-SMnsTot_barbeel;MnsTot;[9,12[;width_river;[9, [;4;
-SMnsTot_barbeel;MnsTot;[6,9[;width_river;[9, [;3;
-SMnsTot_barbeel;MnsTot;[4,6[;width_river;[9, [;2;
-SMnsTot_barbeel;MnsTot;] ,4[;width_river;[9, [;1;
-SManTyp_barbeel;ManTyp_barbeel;[3.1, [;;;5;
-SManTyp_barbeel;ManTyp_barbeel;[2.8,3.1[;;;4;
-SManTyp_barbeel;ManTyp_barbeel;[2.5,2.8[;;;3;
-SManTyp_barbeel;ManTyp_barbeel;[2.2,2.5[;;;2;
-SManTyp_barbeel;ManTyp_barbeel;] ,2.2[;;;1;
-SMpggas;PercGasAcu;] ,3[;;;5;
-SMpggas;PercGasAcu;[3,5[;;;4;
-SMpggas;PercGasAcu;[5,7[;;;3;
-SMpggas;PercGasAcu;[7,9[;;;2;
-SMpggas;PercGasAcu;[9, [;;;1;
-SMpgbar;PercBarBus;[11, [;;;5;
-SMpgbar;PercBarBus;[9,11[;;;4;
-SMpgbar;PercBarBus;[7,9[;;;3;
-SMpgbar;PercBarBus;[5,7[;;;2;
-SMpgbar;PercBarBus;] ,5[;;;1;
-SMpgleu;PercLeuCep;]20, [;AantalGrootteKlassenLeuCep;]1, [;5;
-SMpgleu;PercLeuCep;[5,20];AantalGrootteKlassenLeuCep;]1, [;4;
-SMpgleu;PercLeuCep;] ,5[;AantalGrootteKlassenLeuCep;]1, [;3;
-SMpgleu;PercLeuCep;[25, [;AantalGrootteKlassenLeuCep;] ,1];2;
-SMpgleu;PercLeuCep;] ,25[;AantalGrootteKlassenLeuCep;] ,1];1;
-SManBio_barbeel;ManBio;[250,350[;;;5;
-SManBio_barbeel;ManBio;[350,450[;;;4;
-SManBio_barbeel;ManBio;[450,550[;;;3;
-SManBio_barbeel;ManBio;[550,650[;;;2;
-SManBio_barbeel;ManBio;[650, [;;;1;
-SManBio_barbeel;ManBio;[100,250[;;;4;
-SManBio_barbeel;ManBio;[60,100[;;;3;
-SManBio_barbeel;ManBio;[20,60[;;;2;
-SManBio_barbeel;ManBio;] ,20[;;;1;
-SMnsTot_brabeel;MnsTot_brabeel;]19, [;width_river;[0,5];5;
-SMnsTot_brabeel;MnsTot_brabeel;[13,19];width_river;[0,5];4;
-SMnsTot_brabeel;MnsTot_brabeel;[4,13[;width_river;[0,5];3;
-SMnsTot_brabeel;MnsTot_brabeel;[3,4[;width_river;[0,5];2;
-SMnsTot_brabeel;MnsTot_brabeel;[1,3[;width_river;[0,5];1;
-SMnsTot_brabeel;MnsTot_brabeel;] ,1[;width_river;[0,5];0;
-SMnsTot_brabeel;MnsTot_brabeel;]19, [;width_river;]5,10];5;
-SMnsTot_brabeel;MnsTot_brabeel;[13,19];width_river;]5,10];4;
-SMnsTot_brabeel;MnsTot_brabeel;[6,13[;width_river;]5,10];3;
-SMnsTot_brabeel;MnsTot_brabeel;[4,6[;width_river;]5,10];2;
-SMnsTot_brabeel;MnsTot_brabeel;[2,4[;width_river;]5,10];1;
-SMnsTot_brabeel;MnsTot_brabeel;] ,2[;width_river;]5,10];0;
-SMnsTot_brabeel;MnsTot_brabeel;]19, [;width_river;]10,15];5;
-SMnsTot_brabeel;MnsTot_brabeel;[13,19];width_river;]10,15];4;
-SMnsTot_brabeel;MnsTot_brabeel;[7,13[;width_river;]10,15];3;
-SMnsTot_brabeel;MnsTot_brabeel;[5,7[;width_river;]10,15];2;
-SMnsTot_brabeel;MnsTot_brabeel;[2,5[;width_river;]10,15];1;
-SMnsTot_brabeel;MnsTot_brabeel;] ,2[;width_river;]10,15];0;
-SMnsTot_brabeel;MnsTot_brabeel;]19, [;width_river;]15,30];5;
-SMnsTot_brabeel;MnsTot_brabeel;[13,19];width_river;]15,30];4;
-SMnsTot_brabeel;MnsTot_brabeel;[8,13[;width_river;]15,30];3;
-SMnsTot_brabeel;MnsTot_brabeel;[5,8[;width_river;]15,30];2;
-SMnsTot_brabeel;MnsTot_brabeel;[3,5[;width_river;]15,30];1;
-SMnsTot_brabeel;MnsTot_brabeel;] ,3[;width_river;]15,30];0;
-SManSha_brabeel;ManSha;] ,0.245[;width_river;[0,5];0;
-SManSha_brabeel;ManSha;] ,0.397[;width_river;]5, [;0;
-SManSha_brabeel;ManSha;[0.245,0.490[;width_river;[0,5];1;
-SManSha_brabeel;ManSha;[0.397,0.794[;width_river;]5, [;1;
-SManSha_brabeel;ManSha;[0.490,0.736[;width_river;[0,5];2;
-SManSha_brabeel;ManSha;[0.794,1.191[;width_river;]5, [;2;
-SManSha_brabeel;ManSha;[0.736,0.981[;width_river;[0,5];3;
-SManSha_brabeel;ManSha;[1.191,1.588[;width_river;]5, [;3;
-SManSha_brabeel;ManSha;[0.981,1.226[;width_river;[0,5];4;
-SManSha_brabeel;ManSha;[1.588,1.985[;width_river;]5, [;4;
-SManSha_brabeel;ManSha;[1.226, [;width_river;[0,5];5;
-SManSha_brabeel;ManSha;[1.985, [;width_river;]5, [;5;
-SMpiTol_brabeel;MpiTol_brabeel;] ,24.4];width_river;[0,5];1;
-SMpiTol_brabeel;MpiTol_brabeel;]73.1, [;width_river;[0,5];1;
-SMpiTol_brabeel;MpiTol_brabeel;] ,19.3];width_river;]5, [;1;
-SMpiTol_brabeel;MpiTol_brabeel;]57.8, [;width_river;]5, [;1;
-SMpiTol_brabeel;MpiTol_brabeel;]60.9,73.1];width_river;[0,5];2;
-SMpiTol_brabeel;MpiTol_brabeel;]48.2,57.8];width_river;]5, [;2;
-SMpiTol_brabeel;MpiTol_brabeel;]48.7,60.9];width_river;[0,5];3;
-SMpiTol_brabeel;MpiTol_brabeel;]38.6,48.2];width_river;]5, [;3;
-SMpiTol_brabeel;MpiTol_brabeel;]36.5,48.7];width_river;[0,5];4;
-SMpiTol_brabeel;MpiTol_brabeel;]28.9,38.6];width_river;]5, [;4;
-SMpiTol_brabeel;MpiTol_brabeel;]24.4,36.5];width_river;[0,5];5;
-SMpiTol_brabeel;MpiTol_brabeel;]19.3,28.9];width_river;]5, [;5;
-SMpiInv_brabeel;MpiInv_brabeel;] ,9.7[;width_river;[0,5];0;
-SMpiInv_brabeel;MpiInv_brabeel;] ,12.8[;width_river;]5, [;0;
-SMpiInv_brabeel;MpiInv_brabeel;[9.7,19.3[;width_river;[0,5];1;
-SMpiInv_brabeel;MpiInv_brabeel;[58, [;width_river;[0,5];1;
-SMpiInv_brabeel;MpiInv_brabeel;[12.8,25.5[;width_river;]5, [;1;
-SMpiInv_brabeel;MpiInv_brabeel;[76.6, [;width_river;]5, [;1;
-SMpiInv_brabeel;MpiInv_brabeel;[19.3,29[;width_river;[0,5];2;
-SMpiInv_brabeel;MpiInv_brabeel;[25.5,38.2[;width_river;]5, [;2;
-SMpiInv_brabeel;MpiInv_brabeel;[29,38.6[;width_river;[0,5];3;
-SMpiInv_brabeel;MpiInv_brabeel;[38.2,51.1[;width_river;]5, [;3;
-SMpiInv_brabeel;MpiInv_brabeel;[38.6,48.3[;width_river;[0,5];4;
-SMpiInv_brabeel;MpiInv_brabeel;[51.1,63.8[;width_river;]5, [;4;
-SMpiInv_brabeel;MpiInv_brabeel;[48.3,58[;width_river;[0,5];5;
-SMpiInv_brabeel;MpiInv_brabeel;[63.8,76.6[;width_river;]5, [;5;
-SMpsRekr_brabeel;MpsRekr;] ,11.3[;season;spring;0;
-SMpsRekr_brabeel;MpsRekr;] ,14.9[;season;summer;0;
-SMpsRekr_brabeel;MpsRekr;] ,14.9[;season;autumn;0;
-SMpsRekr_brabeel;MpsRekr;[11.3,22.5[;season;spring;1;
-SMpsRekr_brabeel;MpsRekr;[14.9,29.8[;season;summer;1;
-SMpsRekr_brabeel;MpsRekr;[14.9,29.8[;season;autumn;1;
-SMpsRekr_brabeel;MpsRekr;[22.5,33.8[;season;spring;2;
-SMpsRekr_brabeel;MpsRekr;[29.8,44.7[;season;summer;2;
-SMpsRekr_brabeel;MpsRekr;[29.8,44.7[;season;autumn;2;
-SMpsRekr_brabeel;MpsRekr;[33.8,45.1[;season;spring;3;
-SMpsRekr_brabeel;MpsRekr;[44.7,59.6[;season;summer;3;
-SMpsRekr_brabeel;MpsRekr;[44.7,59.6[;season;autumn;3;
-SMpsRekr_brabeel;MpsRekr;[45.1,56.3[;season;spring;4;
-SMpsRekr_brabeel;MpsRekr;[59.6,74.5[;season;summer;4;
-SMpsRekr_brabeel;MpsRekr;[59.6,74.5[;season;autumn;4;
-SMpsRekr_brabeel;MpsRekr;[56.3, [;season;spring;5;
-SMpsRekr_brabeel;MpsRekr;[74.5, [;season;summer;5;
-SMpsRekr_brabeel;MpsRekr;[74.5, [;season;autumn;5;
-SMnsTot_upstream;MnsTot;] ,4[;slope;] ,4[;1;
-SMnsTot_upstream;MnsTot;[4,7];slope;] ,4[;3;
-SMnsTot_upstream;MnsTot;[7, [;slope;] ,4[;5;
-SMnsTot_upstream;MnsTot;] ,3[;slope;[4,5];1;
-SMnsTot_upstream;MnsTot;[3,5];slope;[4,5];3;
-SMnsTot_upstream;MnsTot;]5, [;slope;[4,5];5;
-SMnsTot_upstream;MnsTot;] ,2[;slope;]5, [;1;
-SMnsTot_upstream;MnsTot;[2,4];slope;]5, [;3;
-SMnsTot_upstream;MnsTot;]4, [;slope;]5, [;5;
-SManTyp_upstream;ManTyp_upstream;] ,1.44[;slope;] ,4[;1;
-SManTyp_upstream;ManTyp_upstream;[1.44,2.88];slope;] ,4[;3;
-SManTyp_upstream;ManTyp_upstream;]2.88, [;slope;] ,4[;5;
-SManTyp_upstream;ManTyp_upstream;] ,1.49[;slope;[4,5];1;
-SManTyp_upstream;ManTyp_upstream;[1.49,2.97];slope;[4,5];3;
-SManTyp_upstream;ManTyp_upstream;]2.97, [;slope;[4,5];5;
-SManTyp_upstream;ManTyp_upstream;] ,1.57[;slope;]5,8];1;
-SManTyp_upstream;ManTyp_upstream;[1.57,3.13];slope;]5,8];3;
-SManTyp_upstream;ManTyp_upstream;]3.13, [;slope;]5,8];5;
-SManTyp_upstream;ManTyp_upstream;] ,1.69[;slope;]8,12.5];1;
-SManTyp_upstream;ManTyp_upstream;[1.69,3.37];slope;]8,12.5];3;
-SManTyp_upstream;ManTyp_upstream;]3.37, [;slope;]8,12.5];5;
-SManTyp_upstream;ManTyp_upstream;] ,1.85[;slope;]12.5, [;1;
-SManTyp_upstream;ManTyp_upstream;[1.85,3.69];slope;]12.5, [;3;
-SManTyp_upstream;ManTyp_upstream;]3.69, [;slope;]12.5, [;5;
-SManswi;Manswi;] ,0.85[;;;1;
-SManswi;Manswi;[0.85,2];;;3;
-SManswi;Manswi;]2, [;;;5;
-SManmigw;Manmigw;] ,2[;;;1;
-SManmigw;Manmigw;[2,4];;;3;
-SManmigw;Manmigw;]4, [;;;5;
-SManBio_upstream;ManBio;] ,130];slope;] ,4[;1;
-SManBio_upstream;ManBio;]130,250];slope;] ,4[;3;
-SManBio_upstream;ManBio;]250, [;slope;] ,4[;5;
-SManBio_upstream;ManBio;] ,80];slope;[4,5];1;
-SManBio_upstream;ManBio;]80,150];slope;[4,5];3;
-SManBio_upstream;ManBio;]150, [;slope;[4,5];5;
-SManBio_upstream;ManBio;] ,46];slope;]5,8];1;
-SManBio_upstream;ManBio;]46,100];slope;]5,8];3;
-SManBio_upstream;ManBio;]100, [;slope;]5,8];5;
-SManBio_upstream;ManBio;] ,30];slope;]8, [;1;
-SManBio_upstream;ManBio;]30,60];slope;]8, [;3;
-SManBio_upstream;ManBio;]60, [;slope;]8, [;5;
-SMangkw;Mangkw;] ,2[;;;1;
-SMangkw;Mangkw;[2,4[;;;3;
-SMangkw;Mangkw;[4,5];;;5;
-SMpiInvt_upstream;MpiInvt;[0,26[;MnsTot;[0,0];0;
-SMpiInvt_upstream;MpiInvt;[0,26[;MnsTot;]0, [;1;
-SMpiInvt_upstream;MpiInvt;[26,45];MnsTot;[0, [;3;
-SMpiInvt_upstream;MpiInvt;]45,73[;MnsTot;[0, [;5;
-SMpiInvt_upstream;MpiInvt;[73,100[;MnsTot;[0, [;3;
-SMpiInvt_upstream;MpiInvt;[100,100];MnsTot;[0, [;1;
-SMnsBen;MnsBen;] ,1];;;1;
-SMnsBen;MnsBen;]1,3];;;3;
-SMnsBen;MnsBen;]3, [;;;5;
-SMpigesp;Mpigesp;] ,8[;slope;] ,4[;1;
-SMpigesp;Mpigesp;[8,16[;slope;] ,4[;3;
-SMpigesp;Mpigesp;[16, [;slope;] ,4[;5;
-SMpigesp;Mpigesp;] ,10[;slope;[4,5];1;
-SMpigesp;Mpigesp;[10,21[;slope;[4,5];3;
-SMpigesp;Mpigesp;[21, [;slope;[4,5];5;
-SMpigesp;Mpigesp;] ,12[;slope;]5,8];1;
-SMpigesp;Mpigesp;[12,31[;slope;]5,8];3;
-SMpigesp;Mpigesp;[31, [;slope;]5,8];5;
-SMpigesp;Mpigesp;] ,24[;slope;]8,12.5];1;
-SMpigesp;Mpigesp;[24,48[;slope;]8,12.5];3;
-SMpigesp;Mpigesp;[48, [;slope;]8,12.5];5;
-SMpigesp;Mpigesp;] ,35[;slope;]12.5, [;1;
-SMpigesp;Mpigesp;[35,70[;slope;]12.5, [;3;
-SMpigesp;Mpigesp;[70, [;slope;]12.5, [;5;
-SMnsTot_forel;MnsTot;[0,0];;;0;
-SMnsTot_forel;MnsTot;]0,4[;;;1;
-SMnsTot_forel;MnsTot;[4,7];;;3;
-SMnsTot_forel;MnsTot;[7, [;;;5;
-SBenWei_lakes_fyke;BenWei_lakes;] ,7[;;;0,6;
-SBenWei_lakes_fyke;BenWei_lakes;[7,14[;;;0,8;
-SBenWei_lakes_fyke;BenWei_lakes;[14,28[;;;0,6;
-SBenWei_lakes_fyke;BenWei_lakes;[28,42[;;;0,4;
-SBenWei_lakes_fyke;BenWei_lakes;[42, [;;;0,2;
-SManTol_lakes;ManTol_lakes;[50, [;;;1;
-SManTol_lakes;ManTol_lakes;[40,50[;;;0,8;
-SManTol_lakes;ManTol_lakes;[27,40[;;;0,6;
-SManTol_lakes;ManTol_lakes;[13,27[;;;0,4;
-SManTol_lakes;ManTol_lakes;] ,13[;;;0,2;
-SMpiOmn_lakes;MpiOmn_lakes;] ,7.9[;;;0,6;
-SMpiOmn_lakes;MpiOmn_lakes;[7.9,15.9[;;;0,8;
-SMpiOmn_lakes;MpiOmn_lakes;[15.9,31.7[;;;0,6;
-SMpiOmn_lakes;MpiOmn_lakes;[31.7,47.6[;;;0,4;
-SMpiOmn_lakes;MpiOmn_lakes;[47.6, [;;;0,2;
-SMnsPis_lakes;MnsPis_lakes;[5, [;;;1;
-SMnsPis_lakes;MnsPis_lakes;[3,5[;;;0,8;
-SMnsPis_lakes;MnsPis_lakes;[2,3[;;;0,6;
-SMnsPis_lakes;MnsPis_lakes;[1,2[;;;0,4;
-SMnsPis_lakes;MnsPis_lakes;] ,1[;;;0,2;
-SMpiInv_lakes;MpiInv_lakes;[14.2,28.9[;;;0,8;
-SMpiInv_lakes;MpiInv_lakes;[9.4,14.2[;;;0,6;
-SMpiInv_lakes;MpiInv_lakes;[4.7,9.4[;;;0,4;
-SMpiInv_lakes;MpiInv_lakes;] ,4.7[;;;0,2;
-SMpiInv_lakes;MpiInv_lakes;[28.9, [;;;0,6;
-SMpiSpa_lakes;MpiSpa_lakes;[21.4,28.5[;;;0,8;
-SMpiSpa_lakes;MpiSpa_lakes;[14.2,21.4[;;;0,6;
-SMpiSpa_lakes;MpiSpa_lakes;[7.1,14.2[;;;0,4;
-SMpiSpa_lakes;MpiSpa_lakes;] ,7.1[;;;0,2;
-SMpiSpa_lakes;MpiSpa_lakes;[28.5, [;;;0,6;
-SMnsTot_canals;MnsTot_canals;[18, [;;;1;
-SMnsTot_canals;MnsTot_canals;[7,18[;;;0,8;
-SMnsTot_canals;MnsTot_canals;[5,7[;;;0,6;
-SMnsTot_canals;MnsTot_canals;[2,5[;;;0,4;
-SMnsTot_canals;MnsTot_canals;] ,2[;;;0,2;
-SManBio_canals;ManBio_canals;[32.6, [;;;0,8;
-SManBio_canals;ManBio_canals;[24.5,32.6[;;;0,6;
-SManBio_canals;ManBio_canals;[16.3,24.5[;;;0,4;
-SManBio_canals;ManBio_canals;] ,16.3[;;;0,2;
-SManSha_canals;ManSha;[1.64, [;;;0,8;
-SManSha_canals;ManSha;[1.23,1.64[;;;0,6;
-SManSha_canals;ManSha;[0.82,1.23[;;;0,4;
-SManSha_canals;ManSha;] ,0.82[;;;0,2;
-SManRec_canals;ManRec_canals;[100,100];;;1;
-SManRec_canals;ManRec_canals;[80,100[;;;0,8;
-SManRec_canals;ManRec_canals;[53.3,80[;;;0,6;
-SManRec_canals;ManRec_canals;[26.7,53.3[;;;0,4;
-SManRec_canals;ManRec_canals;] ,26.7[;;;0,2;
-SBenWei_canals;BenWei_canals;] ,11.1[;;;0,2;
-SBenWei_canals;BenWei_canals;[11.1,22.2[;;;0,8;
-SBenWei_canals;BenWei_canals;[22.2,44.4[;;;0,6;
-SBenWei_canals;BenWei_canals;[44.4,66.6[;;;0,4;
-SBenWei_canals;BenWei_canals;[66.6, [;;;0,2;
-SMnsEst;MnsEst;[12, [;;;1;
-SMnsEst;MnsEst;[10,12[;;;0,8;
-SMnsEst;MnsEst;[7,10[;;;0,6;
-SMnsEst;MnsEst;[4,7[;;;0,4;
-SMnsEst;MnsEst;] ,4[;;;0,2;
-SMnsDia_Ijzer;MnsDia_Ijzer;[9, [;;;1;
-SMnsDia_Ijzer;MnsDia_Ijzer;[7,9[;;;0,8;
-SMnsDia_Ijzer;MnsDia_Ijzer;[5,7[;;;0,6;
-SMnsDia_Ijzer;MnsDia_Ijzer;[3,5[;;;0,4;
-SMnsDia_Ijzer;MnsDia_Ijzer;] ,3[;;;0,2;
-SRmniDia;RmniDia;[20, [;;;1;
-SRmniDia;RmniDia;[15,20[;;;0,8;
-SRmniDia;RmniDia;[10,15[;;;0,6;
-SRmniDia;RmniDia;[5,10[;;;0,4;
-SRmniDia;RmniDia;] ,5[;;;0,2;
-SMnsMjs;MnsMjs;[22, [;;;1;
-SMnsMjs;MnsMjs;[16,22[;;;0,8;
-SMnsMjs;MnsMjs;[11,16[;;;0,6;
-SMnsMjs;MnsMjs;[6,11[;;;0,4;
-SMnsMjs;MnsMjs;] ,6[;;;0,2;
-SMnsTyp;MnsTyp;[9, [;;;1;
-SMnsTyp;MnsTyp;[7,9[;;;0,8;
-SMnsTyp;MnsTyp;[5,7[;;;0,6;
-SMnsTyp;MnsTyp;[3,5[;;;0,4;
-SMnsTyp;MnsTyp;] ,3[;;;0,2;
-SMnsTot_freshwater;MnsTot_freshwater;[20.7, [;;;1;
-SMnsTot_freshwater;MnsTot_freshwater;[15.5,20.7[;;;0,8;
-SMnsTot_freshwater;MnsTot_freshwater;[10.4,15.5[;;;0,6;
-SMnsTot_freshwater;MnsTot_freshwater;[5.2,10.4[;;;0,4;
-SMnsTot_freshwater;MnsTot_freshwater;] ,5.2[;;;0,2;
-SMniInd_freshwater;MniInd_f_freshwater;[174, [;;;1;
-SMniInd_freshwater;MniInd_f_freshwater;[130,174[;;;0,8;
-SMniInd_freshwater;MniInd_f_freshwater;[87,130[;;;0,6;
-SMniInd_freshwater;MniInd_f_freshwater;[43,87[;;;0,4;
-SMniInd_freshwater;MniInd_f_freshwater;] ,43[;;;0,2;
-SMpiDia_freshwater;MpiDia_freshwater;[35.2, [;;;1;
-SMpiDia_freshwater;MpiDia_freshwater;[26.4,35.2[;;;0,8;
-SMpiDia_freshwater;MpiDia_freshwater;[17.6,26.4[;;;0,6;
-SMpiDia_freshwater;MpiDia_freshwater;[8.8,17.6[;;;0,4;
-SMpiDia_freshwater;MpiDia_freshwater;] ,8.8[;;;0,2;
-SMpiSpa_freshwater;MpiSpa_freshwater;[31.3, [;;;1;
-SMpiSpa_freshwater;MpiSpa_freshwater;[23.5,31.3[;;;0,8;
-SMpiSpa_freshwater;MpiSpa_freshwater;[15.7,23.5[;;;0,6;
-SMpiSpa_freshwater;MpiSpa_freshwater;[7.8,15.7[;;;0,4;
-SMpiSpa_freshwater;MpiSpa_freshwater;] ,7.8[;;;0,2;
-SMpiPis_freshwater;MpiPis_freshwater;[43, [;;;1;
-SMpiPis_freshwater;MpiPis_freshwater;[32.3,43[;;;0,8;
-SMpiPis_freshwater;MpiPis_freshwater;[21.5,32.3[;;;0,6;
-SMpiPis_freshwater;MpiPis_freshwater;[10.8,21.5[;;;0,4;
-SMpiPis_freshwater;MpiPis_freshwater;] ,10.8[;;;0,2;
-SMpiBen_freshwater;MpiBen_freshwater;[27.4, [;;;1;
-SMpiBen_freshwater;MpiBen_freshwater;[20.5,27.4[;;;0,8;
-SMpiBen_freshwater;MpiBen_freshwater;[13.7,20.5[;;;0,6;
-SMpiBen_freshwater;MpiBen_freshwater;[6.9,13.7[;;;0,4;
-SMpiBen_freshwater;MpiBen_freshwater;] ,6.9[;;;0,2;
-SMnsPis_oligohaline;MnsPis_oligohaline;[13.5, [;;;1;
-SMnsPis_oligohaline;MnsPis_oligohaline;[10.1,13.5[;;;0,8;
-SMnsPis_oligohaline;MnsPis_oligohaline;[6.8,10.1[;;;0,6;
-SMnsPis_oligohaline;MnsPis_oligohaline;[3.4,6.8[;;;0,4;
-SMnsPis_oligohaline;MnsPis_oligohaline;] ,3.4[;;;0,2;
-SMnsInt_oligohaline;MnsInt_oligohaline;[9, [;;;1;
-SMnsInt_oligohaline;MnsInt_oligohaline;[6.8,9[;;;0,8;
-SMnsInt_oligohaline;MnsInt_oligohaline;[4.5,6.8[;;;0,6;
-SMnsInt_oligohaline;MnsInt_oligohaline;[2.3,4.5[;;;0,4;
-SMnsInt_oligohaline;MnsInt_oligohaline;] ,2.3[;;;0,2;
-SMnsDia_oligohaline;MnsDia_oligohaline;[8.1, [;;;1;
-SMnsDia_oligohaline;MnsDia_oligohaline;[6.1,8.1[;;;0,8;
-SMnsDia_oligohaline;MnsDia_oligohaline;[4.1,6.1[;;;0,6;
-SMnsDia_oligohaline;MnsDia_oligohaline;[2,4.1[;;;0,4;
-SMnsDia_oligohaline;MnsDia_oligohaline;] ,2[;;;0,2;
-SMnsDia_mesohaline;MnsDia_mesohaline;[8.1, [;;;1;
-SMnsDia_mesohaline;MnsDia_mesohaline;[6.1,8.1[;;;0,8;
-SMnsDia_mesohaline;MnsDia_mesohaline;[4.1,6.1[;;;0,6;
-SMnsDia_mesohaline;MnsDia_mesohaline;[2,4.1[;;;0,4;
-SMnsDia_mesohaline;MnsDia_mesohaline;] ,2[;;;0,2;
-SMniInd_oligohaline;MniInd_f_oligohaline;[180, [;;;1;
-SMniInd_oligohaline;MniInd_f_oligohaline;[135,180[;;;0,8;
-SMniInd_oligohaline;MniInd_f_oligohaline;[90,135[;;;0,6;
-SMniInd_oligohaline;MniInd_f_oligohaline;[45,90[;;;0,4;
-SMniInd_oligohaline;MniInd_f_oligohaline;] ,45[;;;0,2;
-SMnsMms_oligohaline;MnsMms_oligohaline;[3.6, [;;;1;
-SMnsMms_oligohaline;MnsMms_oligohaline;[2.7,3.6[;;;0,8;
-SMnsMms_oligohaline;MnsMms_oligohaline;[1.8,2.7[;;;0,6;
-SMnsMms_oligohaline;MnsMms_oligohaline;[0.9,1.8[;;;0,4;
-SMnsMms_oligohaline;MnsMms_oligohaline;] ,0.9[;;;0,2;
-SMnsErs_oligohaline;MnsErs_oligohaline;[5.4, [;;;1;
-SMnsErs_oligohaline;MnsErs_oligohaline;[4.1,5.4[;;;0,8;
-SMnsErs_oligohaline;MnsErs_oligohaline;[2.7,4.1[;;;0,6;
-SMnsErs_oligohaline;MnsErs_oligohaline;[1.4,2.7[;;;0,4;
-SMnsErs_oligohaline;MnsErs_oligohaline;] ,1.4[;;;0,2;
-SMnsTot_mesohaline;MnsTot_mesohaline;[27, [;;;1;
-SMnsTot_mesohaline;MnsTot_mesohaline;[20.3,27[;;;0,8;
-SMnsTot_mesohaline;MnsTot_mesohaline;[13.5,20.3[;;;0,6;
-SMnsTot_mesohaline;MnsTot_mesohaline;[6.8,13.5[;;;0,4;
-SMnsTot_mesohaline;MnsTot_mesohaline;] ,6.8[;;;0,2;
-SMnsSpa_mesohaline;MnsSpa_mesohaline;[5.4, [;;;1;
-SMnsSpa_mesohaline;MnsSpa_mesohaline;[4.1,5.4[;;;0,8;
-SMnsSpa_mesohaline;MnsSpa_mesohaline;[2.7,4.1[;;;0,6;
-SMnsSpa_mesohaline;MnsSpa_mesohaline;[1.4,2.7[;;;0,4;
-SMnsSpa_mesohaline;MnsSpa_mesohaline;] ,1.4[;;;0,2;
-SMnsHab_mesohaline;MnsHab_mesohaline;[14.4, [;;;1;
-SMnsHab_mesohaline;MnsHab_mesohaline;[10.8,14.4[;;;0,8;
-SMnsHab_mesohaline;MnsHab_mesohaline;[7.2,10.8[;;;0,6;
-SMnsHab_mesohaline;MnsHab_mesohaline;[3.6,7.2[;;;0,4;
-SMnsHab_mesohaline;MnsHab_mesohaline;] ,3.6[;;;0,2;
-SMpiInt_mesohaline;MpiInt_mesohaline;[30, [;;;1;
-SMpiInt_mesohaline;MpiInt_mesohaline;[22.5,30[;;;0,8;
-SMpiInt_mesohaline;MpiInt_mesohaline;[15,22.5[;;;0,6;
-SMpiInt_mesohaline;MpiInt_mesohaline;[7.5,15[;;;0,4;
-SMpiInt_mesohaline;MpiInt_mesohaline;] ,7.5[;;;0,2;
-SMnsMms_mesohaline;MnsMms_mesohaline;[9, [;;;1;
-SMnsMms_mesohaline;MnsMms_mesohaline;[6.8,9[;;;0,8;
-SMnsMms_mesohaline;MnsMms_mesohaline;[4.5,6.8[;;;0,6;
-SMnsMms_mesohaline;MnsMms_mesohaline;[2.3,4.5[;;;0,4;
-SMnsMms_mesohaline;MnsMms_mesohaline;] ,2.3[;;;0,2;
-SManTol_bron;ManTol_bron;[7, [;;;4;
-SManTol_bron;ManTol_bron;[5,7[;;;3;
-SManTol_bron;ManTol_bron;[3,5[;;;2;
-SManTol_bron;ManTol_bron;] ,3[;;;1;
-SManSha_bron;ManSha;[0.58, [;;;4;
-SManSha_bron;ManSha;[0.39,0.58[;;;3;
-SManSha_bron;ManSha;[0.19,0.39[;;;2;
-SManSha_bron;ManSha;] ,0.19[;;;1;
-SMpiSpa_bron;MpiSpa_bron;[61.3, [;;;4;
-SMpiSpa_bron;MpiSpa_bron;[40.9,61.3[;;;3;
-SMpiSpa_bron;MpiSpa_bron;[20.4,40.9[;;;2;
-SMpiSpa_bron;MpiSpa_bron;] ,20.4[;;;1;
-SMpiRhe_bron;MpiRhe_bron;[61, [;;;4;
-SMpiRhe_bron;MpiRhe_bron;[40.7,61[;;;3;
-SMpiRhe_bron;MpiRhe_bron;[20.3,40.7[;;;2;
-SMpiRhe_bron;MpiRhe_bron;] ,20.3[;;;1;
-SManSha_est_zijriv;ManSha;[2, [;;;1;
-SManSha_est_zijriv;ManSha;[1.5,2[;;;0,8;
-SManSha_est_zijriv;ManSha;[1,1.5[;;;0,6;
-SManSha_est_zijriv;ManSha;[0.5,1[;;;0,4;
-SManSha_est_zijriv;ManSha;] ,0.5[;;;0,2;
-SMpiInv_est_zijriv;MpiInv_est_zijriv;[51.8,62.1[;;;1;
-SMpiInv_est_zijriv;MpiInv_est_zijriv;[41.4,51.8[;;;0,8;
-SMpiInv_est_zijriv;MpiInv_est_zijriv;[31,41.4[;;;0,6;
-SMpiInv_est_zijriv;MpiInv_est_zijriv;[20.7,31[;;;0,4;
-SMpiInv_est_zijriv;MpiInv_est_zijriv;] ,20.7[;;;0,2;
-SMpiInv_est_zijriv;MpiInv_est_zijriv;[62.1, [;;;0,2;
-SMpiSpa_est_zijriv;MpiSpa_est_zijriv;[51.6,61.9[;;;1;
-SMpiSpa_est_zijriv;MpiSpa_est_zijriv;[41.2,51.6[;;;0,8;
-SMpiSpa_est_zijriv;MpiSpa_est_zijriv;[30.9,41.2[;;;0,6;
-SMpiSpa_est_zijriv;MpiSpa_est_zijriv;[20.6,30.9[;;;0,4;
-SMpiSpa_est_zijriv;MpiSpa_est_zijriv;] ,20.6[;;;0,2;
-SMpiSpa_est_zijriv;MpiSpa_est_zijriv;[61.9, [;;;0,2;
-SMnsPis_est_zijriv;MnsPis_est_zijriv;[5, [;;;1;
-SMnsPis_est_zijriv;MnsPis_est_zijriv;[4,5[;;;0,8;
-SMnsPis_est_zijriv;MnsPis_est_zijriv;[3,4[;;;0,6;
-SMnsPis_est_zijriv;MnsPis_est_zijriv;]1,3[;;;0,4;
-SMnsPis_est_zijriv;MnsPis_est_zijriv;] ,1];;;0,2;
+metric_score;metric;value_metric;add_category;value_add_category;score_id
+SMnsTot_brasem;MnsTot;[7, [;width_river;[0,3];5
+SMnsTot_brasem;MnsTot;[6,7[;width_river;[0,3];4
+SMnsTot_brasem;MnsTot;[4,6[;width_river;[0,3];3
+SMnsTot_brasem;MnsTot;[2,4[;width_river;[0,3];2
+SMnsTot_brasem;MnsTot;] ,2[;width_river;[0,3];1
+SMnsTot_brasem;MnsTot;[12, [;width_river;]3,6.5];5
+SMnsTot_brasem;MnsTot;[9,12[;width_river;]3,6.5];4
+SMnsTot_brasem;MnsTot;[6,9[;width_river;]3,6.5];3
+SMnsTot_brasem;MnsTot;[3,6[;width_river;]3,6.5];2
+SMnsTot_brasem;MnsTot;] ,3[;width_river;]3,6.5];1
+SMnsTot_brasem;MnsTot;[13, [;width_river;]6.5,9[;5
+SMnsTot_brasem;MnsTot;[10,13[;width_river;]6.5,9[;4
+SMnsTot_brasem;MnsTot;[7,10[;width_river;]6.5,9[;3
+SMnsTot_brasem;MnsTot;[4,7[;width_river;]6.5,9[;2
+SMnsTot_brasem;MnsTot;] ,4[;width_river;]6.5,9[;1
+SMnsTot_brasem;MnsTot;[14, [;width_river;[9, [;5
+SMnsTot_brasem;MnsTot;[10,14[;width_river;[9, [;4
+SMnsTot_brasem;MnsTot;[7,10[;width_river;[9, [;3
+SMnsTot_brasem;MnsTot;[5,7[;width_river;[9, [;2
+SMnsTot_brasem;MnsTot;] ,5[;width_river;[9, [;1
+SManTol;ManTol;[2.4, [;;;5
+SManTol;ManTol;[2,2.4[;;;4
+SManTol;ManTol;[1.6,2[;;;3
+SManTol;ManTol;[1.2,1.6[;;;2
+SManTol;ManTol;] ,1.2[;;;1
+SManTyp_brasem;ManTyp_brasem;[3.3, [;;;5
+SManTyp_brasem;ManTyp_brasem;[3,3.3[;;;4
+SManTyp_brasem;ManTyp_brasem;[2.7,3[;;;3
+SManTyp_brasem;ManTyp_brasem;[2.4,2.7[;;;2
+SManTyp_brasem;ManTyp_brasem;] ,2.4[;;;1
+SManSoort;ManSoort_barbeel;[4.5, [;;;5
+SManSoort;ManSoort_barbeel;[3.5,4.5[;;;4
+SManSoort;ManSoort_barbeel;[2.5,3.5[;;;3
+SManSoort;ManSoort_barbeel;[1.5,2.5[;;;2
+SManSoort;ManSoort_barbeel;] ,1.5[;;;1
+SManSoort;ManSoort_brasem;[4.5, [;;;5
+SManSoort;ManSoort_brasem;[3.5,4.5[;;;4
+SManSoort;ManSoort_brasem;[2.5,3.5[;;;3
+SManSoort;ManSoort_brasem;[1.5,2.5[;;;2
+SManSoort;ManSoort_brasem;] ,1.5[;;;1
+SMpgrut;PercRutRut;[10,25];;;5
+SMpgrut;PercRutRut;]25,35];;;4
+SMpgrut;PercRutRut;]35,45];;;3
+SMpgrut;PercRutRut;]45,55];;;2
+SMpgrut;PercRutRut;]55, [;;;1
+SMpgrut;PercRutRut;[7.5,10[;;;4
+SMpgrut;PercRutRut;[5,7.5[;;;3
+SMpgrut;PercRutRut;[2.5,5[;;;2
+SMpgrut;PercRutRut;] ,2.5[;;;1
+SMpgsca;PercScaEry;[10, [;;;5
+SMpgsca;PercScaEry;[5,10[;;;4
+SMpgsca;PercScaEry;[2,5[;;;3
+SMpgsca;PercScaEry;[1,2[;;;2
+SMpgsca;PercScaEry;] ,1[;;;1
+SMpgtin;PercTinTin;[15, [;AantalGrootteKlassenTinTin;]1, [;5
+SMpgtin;PercTinTin;[10,15[;AantalGrootteKlassenTinTin;]1, [;4
+SMpgtin;PercTinTin;] ,10[;AantalGrootteKlassenTinTin;]1, [;3
+SMpgtin;PercTinTin;[15, [;AantalGrootteKlassenTinTin;] ,1];2
+SMpgtin;PercTinTin;] ,15[;AantalGrootteKlassenTinTin;] ,1];1
+SManBio_brasem;ManBio;[100,350[;;;5
+SManBio_brasem;ManBio;[350,500[;;;4
+SManBio_brasem;ManBio;[500,650[;;;3
+SManBio_brasem;ManBio;[650,800[;;;2
+SManBio_brasem;ManBio;[800, [;;;1
+SManBio_brasem;ManBio;[75,100[;;;4
+SManBio_brasem;ManBio;[50,75[;;;3
+SManBio_brasem;ManBio;[25,50[;;;2
+SManBio_brasem;ManBio;] ,25[;;;1
+SMpgExo;MpgExo_river;] ,1[;;;5
+SMpgExo;MpgExo_river;[1,4[;;;4
+SMpgExo;MpgExo_river;[4,7[;;;3
+SMpgExo;MpgExo_river;[7,10[;;;2
+SMpgExo;MpgExo_river;[10, [;;;1
+STrofcomp;Trofcomp;[4.3,5];;;5
+STrofcomp;Trofcomp;[3.5,4.3[;;;4
+STrofcomp;Trofcomp;[2.5,3.5[;;;3
+STrofcomp;Trofcomp;[1.7,2.5[;;;2
+STrofcomp;Trofcomp;] ,1.7[;;;1
+SMpiinvt_river;PercInvert;] ,20[;;;1
+SMpiinvt_river;PercInvert;[20,45];;;3
+SMpiinvt_river;PercInvert;]45,100[;;;5
+SMpiinvt_river;PercInvert;[100,100];;;1
+SMpipisc;PercPisci;]7, [;;;1
+SMpipisc;PercPisci;]5,7];;;3
+SMpipisc;PercPisci;[3,5];;;5
+SMpipisc;PercPisci;[1,3[;;;3
+SMpipisc;PercPisci;] ,1[;;;1
+SMpiomni;PercOmni;[0,0];;;1
+SMpiomni;PercOmni;]0,1[;;;5
+SMpiomni;PercOmni;[1,5];;;3
+SMpiomni;PercOmni;]5, [;;;1
+SMpsRekr;MpsRekr;[85, [;;;5
+SMpsRekr;MpsRekr;[70,85[;;;4
+SMpsRekr;MpsRekr;[55,70[;;;3
+SMpsRekr;MpsRekr;[40,55[;;;2
+SMpsRekr;MpsRekr;] ,40[;;;1
+SMnsTot_barbeel;MnsTot;[5, [;width_river;[0,3];5
+SMnsTot_barbeel;MnsTot;[4,5[;width_river;[0,3];4
+SMnsTot_barbeel;MnsTot;[3,4[;width_river;[0,3];3
+SMnsTot_barbeel;MnsTot;[2,3[;width_river;[0,3];2
+SMnsTot_barbeel;MnsTot;] ,2[;width_river;[0,3];1
+SMnsTot_barbeel;MnsTot;[7, [;width_river;]3,6.5];5
+SMnsTot_barbeel;MnsTot;[6,7[;width_river;]3,6.5];4
+SMnsTot_barbeel;MnsTot;[4,6[;width_river;]3,6.5];3
+SMnsTot_barbeel;MnsTot;[2,4[;width_river;]3,6.5];2
+SMnsTot_barbeel;MnsTot;] ,2[;width_river;]3,6.5];1
+SMnsTot_barbeel;MnsTot;[10, [;width_river;]6.5,9[;5
+SMnsTot_barbeel;MnsTot;[8,10[;width_river;]6.5,9[;4
+SMnsTot_barbeel;MnsTot;[6,8[;width_river;]6.5,9[;3
+SMnsTot_barbeel;MnsTot;[4,6[;width_river;]6.5,9[;2
+SMnsTot_barbeel;MnsTot;] ,4[;width_river;]6.5,9[;1
+SMnsTot_barbeel;MnsTot;[12, [;width_river;[9, [;5
+SMnsTot_barbeel;MnsTot;[9,12[;width_river;[9, [;4
+SMnsTot_barbeel;MnsTot;[6,9[;width_river;[9, [;3
+SMnsTot_barbeel;MnsTot;[4,6[;width_river;[9, [;2
+SMnsTot_barbeel;MnsTot;] ,4[;width_river;[9, [;1
+SManTyp_barbeel;ManTyp_barbeel;[3.1, [;;;5
+SManTyp_barbeel;ManTyp_barbeel;[2.8,3.1[;;;4
+SManTyp_barbeel;ManTyp_barbeel;[2.5,2.8[;;;3
+SManTyp_barbeel;ManTyp_barbeel;[2.2,2.5[;;;2
+SManTyp_barbeel;ManTyp_barbeel;] ,2.2[;;;1
+SMpggas;PercGasAcu;] ,3[;;;5
+SMpggas;PercGasAcu;[3,5[;;;4
+SMpggas;PercGasAcu;[5,7[;;;3
+SMpggas;PercGasAcu;[7,9[;;;2
+SMpggas;PercGasAcu;[9, [;;;1
+SMpgbar;PercBarBus;[11, [;;;5
+SMpgbar;PercBarBus;[9,11[;;;4
+SMpgbar;PercBarBus;[7,9[;;;3
+SMpgbar;PercBarBus;[5,7[;;;2
+SMpgbar;PercBarBus;] ,5[;;;1
+SMpgleu;PercLeuCep;]20, [;AantalGrootteKlassenLeuCep;]1, [;5
+SMpgleu;PercLeuCep;[5,20];AantalGrootteKlassenLeuCep;]1, [;4
+SMpgleu;PercLeuCep;] ,5[;AantalGrootteKlassenLeuCep;]1, [;3
+SMpgleu;PercLeuCep;[25, [;AantalGrootteKlassenLeuCep;] ,1];2
+SMpgleu;PercLeuCep;] ,25[;AantalGrootteKlassenLeuCep;] ,1];1
+SManBio_barbeel;ManBio;[250,350[;;;5
+SManBio_barbeel;ManBio;[350,450[;;;4
+SManBio_barbeel;ManBio;[450,550[;;;3
+SManBio_barbeel;ManBio;[550,650[;;;2
+SManBio_barbeel;ManBio;[650, [;;;1
+SManBio_barbeel;ManBio;[100,250[;;;4
+SManBio_barbeel;ManBio;[60,100[;;;3
+SManBio_barbeel;ManBio;[20,60[;;;2
+SManBio_barbeel;ManBio;] ,20[;;;1
+SMnsTot_brabeel;MnsTot_brabeel;]19, [;width_river;[0,5];5
+SMnsTot_brabeel;MnsTot_brabeel;[13,19];width_river;[0,5];4
+SMnsTot_brabeel;MnsTot_brabeel;[4,13[;width_river;[0,5];3
+SMnsTot_brabeel;MnsTot_brabeel;[3,4[;width_river;[0,5];2
+SMnsTot_brabeel;MnsTot_brabeel;[1,3[;width_river;[0,5];1
+SMnsTot_brabeel;MnsTot_brabeel;] ,1[;width_river;[0,5];0
+SMnsTot_brabeel;MnsTot_brabeel;]19, [;width_river;]5,10];5
+SMnsTot_brabeel;MnsTot_brabeel;[13,19];width_river;]5,10];4
+SMnsTot_brabeel;MnsTot_brabeel;[6,13[;width_river;]5,10];3
+SMnsTot_brabeel;MnsTot_brabeel;[4,6[;width_river;]5,10];2
+SMnsTot_brabeel;MnsTot_brabeel;[2,4[;width_river;]5,10];1
+SMnsTot_brabeel;MnsTot_brabeel;] ,2[;width_river;]5,10];0
+SMnsTot_brabeel;MnsTot_brabeel;]19, [;width_river;]10,15];5
+SMnsTot_brabeel;MnsTot_brabeel;[13,19];width_river;]10,15];4
+SMnsTot_brabeel;MnsTot_brabeel;[7,13[;width_river;]10,15];3
+SMnsTot_brabeel;MnsTot_brabeel;[5,7[;width_river;]10,15];2
+SMnsTot_brabeel;MnsTot_brabeel;[2,5[;width_river;]10,15];1
+SMnsTot_brabeel;MnsTot_brabeel;] ,2[;width_river;]10,15];0
+SMnsTot_brabeel;MnsTot_brabeel;]19, [;width_river;]15,30];5
+SMnsTot_brabeel;MnsTot_brabeel;[13,19];width_river;]15,30];4
+SMnsTot_brabeel;MnsTot_brabeel;[8,13[;width_river;]15,30];3
+SMnsTot_brabeel;MnsTot_brabeel;[5,8[;width_river;]15,30];2
+SMnsTot_brabeel;MnsTot_brabeel;[3,5[;width_river;]15,30];1
+SMnsTot_brabeel;MnsTot_brabeel;] ,3[;width_river;]15,30];0
+SManSha_brabeel;ManSha;] ,0.245[;width_river;[0,5];0
+SManSha_brabeel;ManSha;] ,0.397[;width_river;]5, [;0
+SManSha_brabeel;ManSha;[0.245,0.490[;width_river;[0,5];1
+SManSha_brabeel;ManSha;[0.397,0.794[;width_river;]5, [;1
+SManSha_brabeel;ManSha;[0.490,0.736[;width_river;[0,5];2
+SManSha_brabeel;ManSha;[0.794,1.191[;width_river;]5, [;2
+SManSha_brabeel;ManSha;[0.736,0.981[;width_river;[0,5];3
+SManSha_brabeel;ManSha;[1.191,1.588[;width_river;]5, [;3
+SManSha_brabeel;ManSha;[0.981,1.226[;width_river;[0,5];4
+SManSha_brabeel;ManSha;[1.588,1.985[;width_river;]5, [;4
+SManSha_brabeel;ManSha;[1.226, [;width_river;[0,5];5
+SManSha_brabeel;ManSha;[1.985, [;width_river;]5, [;5
+SMpiTol_brabeel;MpiTol_brabeel;] ,24.4];width_river;[0,5];1
+SMpiTol_brabeel;MpiTol_brabeel;]73.1, [;width_river;[0,5];1
+SMpiTol_brabeel;MpiTol_brabeel;] ,19.3];width_river;]5, [;1
+SMpiTol_brabeel;MpiTol_brabeel;]57.8, [;width_river;]5, [;1
+SMpiTol_brabeel;MpiTol_brabeel;]60.9,73.1];width_river;[0,5];2
+SMpiTol_brabeel;MpiTol_brabeel;]48.2,57.8];width_river;]5, [;2
+SMpiTol_brabeel;MpiTol_brabeel;]48.7,60.9];width_river;[0,5];3
+SMpiTol_brabeel;MpiTol_brabeel;]38.6,48.2];width_river;]5, [;3
+SMpiTol_brabeel;MpiTol_brabeel;]36.5,48.7];width_river;[0,5];4
+SMpiTol_brabeel;MpiTol_brabeel;]28.9,38.6];width_river;]5, [;4
+SMpiTol_brabeel;MpiTol_brabeel;]24.4,36.5];width_river;[0,5];5
+SMpiTol_brabeel;MpiTol_brabeel;]19.3,28.9];width_river;]5, [;5
+SMpiInv_brabeel;MpiInv_brabeel;] ,9.7[;width_river;[0,5];0
+SMpiInv_brabeel;MpiInv_brabeel;] ,12.8[;width_river;]5, [;0
+SMpiInv_brabeel;MpiInv_brabeel;[9.7,19.3[;width_river;[0,5];1
+SMpiInv_brabeel;MpiInv_brabeel;[58, [;width_river;[0,5];1
+SMpiInv_brabeel;MpiInv_brabeel;[12.8,25.5[;width_river;]5, [;1
+SMpiInv_brabeel;MpiInv_brabeel;[76.6, [;width_river;]5, [;1
+SMpiInv_brabeel;MpiInv_brabeel;[19.3,29[;width_river;[0,5];2
+SMpiInv_brabeel;MpiInv_brabeel;[25.5,38.2[;width_river;]5, [;2
+SMpiInv_brabeel;MpiInv_brabeel;[29,38.6[;width_river;[0,5];3
+SMpiInv_brabeel;MpiInv_brabeel;[38.2,51.1[;width_river;]5, [;3
+SMpiInv_brabeel;MpiInv_brabeel;[38.6,48.3[;width_river;[0,5];4
+SMpiInv_brabeel;MpiInv_brabeel;[51.1,63.8[;width_river;]5, [;4
+SMpiInv_brabeel;MpiInv_brabeel;[48.3,58[;width_river;[0,5];5
+SMpiInv_brabeel;MpiInv_brabeel;[63.8,76.6[;width_river;]5, [;5
+SMpsRekr_brabeel;MpsRekr;] ,11.3[;season;spring;0
+SMpsRekr_brabeel;MpsRekr;] ,14.9[;season;summer;0
+SMpsRekr_brabeel;MpsRekr;] ,14.9[;season;autumn;0
+SMpsRekr_brabeel;MpsRekr;[11.3,22.5[;season;spring;1
+SMpsRekr_brabeel;MpsRekr;[14.9,29.8[;season;summer;1
+SMpsRekr_brabeel;MpsRekr;[14.9,29.8[;season;autumn;1
+SMpsRekr_brabeel;MpsRekr;[22.5,33.8[;season;spring;2
+SMpsRekr_brabeel;MpsRekr;[29.8,44.7[;season;summer;2
+SMpsRekr_brabeel;MpsRekr;[29.8,44.7[;season;autumn;2
+SMpsRekr_brabeel;MpsRekr;[33.8,45.1[;season;spring;3
+SMpsRekr_brabeel;MpsRekr;[44.7,59.6[;season;summer;3
+SMpsRekr_brabeel;MpsRekr;[44.7,59.6[;season;autumn;3
+SMpsRekr_brabeel;MpsRekr;[45.1,56.3[;season;spring;4
+SMpsRekr_brabeel;MpsRekr;[59.6,74.5[;season;summer;4
+SMpsRekr_brabeel;MpsRekr;[59.6,74.5[;season;autumn;4
+SMpsRekr_brabeel;MpsRekr;[56.3, [;season;spring;5
+SMpsRekr_brabeel;MpsRekr;[74.5, [;season;summer;5
+SMpsRekr_brabeel;MpsRekr;[74.5, [;season;autumn;5
+SMnsTot_upstream;MnsTot;] ,4[;slope;] ,4[;1
+SMnsTot_upstream;MnsTot;[4,7];slope;] ,4[;3
+SMnsTot_upstream;MnsTot;[7, [;slope;] ,4[;5
+SMnsTot_upstream;MnsTot;] ,3[;slope;[4,5];1
+SMnsTot_upstream;MnsTot;[3,5];slope;[4,5];3
+SMnsTot_upstream;MnsTot;]5, [;slope;[4,5];5
+SMnsTot_upstream;MnsTot;] ,2[;slope;]5, [;1
+SMnsTot_upstream;MnsTot;[2,4];slope;]5, [;3
+SMnsTot_upstream;MnsTot;]4, [;slope;]5, [;5
+SManTyp_upstream;ManTyp_upstream;] ,1.44[;slope;] ,4[;1
+SManTyp_upstream;ManTyp_upstream;[1.44,2.88];slope;] ,4[;3
+SManTyp_upstream;ManTyp_upstream;]2.88, [;slope;] ,4[;5
+SManTyp_upstream;ManTyp_upstream;] ,1.49[;slope;[4,5];1
+SManTyp_upstream;ManTyp_upstream;[1.49,2.97];slope;[4,5];3
+SManTyp_upstream;ManTyp_upstream;]2.97, [;slope;[4,5];5
+SManTyp_upstream;ManTyp_upstream;] ,1.57[;slope;]5,8];1
+SManTyp_upstream;ManTyp_upstream;[1.57,3.13];slope;]5,8];3
+SManTyp_upstream;ManTyp_upstream;]3.13, [;slope;]5,8];5
+SManTyp_upstream;ManTyp_upstream;] ,1.69[;slope;]8,12.5];1
+SManTyp_upstream;ManTyp_upstream;[1.69,3.37];slope;]8,12.5];3
+SManTyp_upstream;ManTyp_upstream;]3.37, [;slope;]8,12.5];5
+SManTyp_upstream;ManTyp_upstream;] ,1.85[;slope;]12.5, [;1
+SManTyp_upstream;ManTyp_upstream;[1.85,3.69];slope;]12.5, [;3
+SManTyp_upstream;ManTyp_upstream;]3.69, [;slope;]12.5, [;5
+SManswi;Manswi;] ,0.85[;;;1
+SManswi;Manswi;[0.85,2];;;3
+SManswi;Manswi;]2, [;;;5
+SManmigw;Manmigw;] ,2[;;;1
+SManmigw;Manmigw;[2,4];;;3
+SManmigw;Manmigw;]4, [;;;5
+SManBio_upstream;ManBio;] ,130];slope;] ,4[;1
+SManBio_upstream;ManBio;]130,250];slope;] ,4[;3
+SManBio_upstream;ManBio;]250, [;slope;] ,4[;5
+SManBio_upstream;ManBio;] ,80];slope;[4,5];1
+SManBio_upstream;ManBio;]80,150];slope;[4,5];3
+SManBio_upstream;ManBio;]150, [;slope;[4,5];5
+SManBio_upstream;ManBio;] ,46];slope;]5,8];1
+SManBio_upstream;ManBio;]46,100];slope;]5,8];3
+SManBio_upstream;ManBio;]100, [;slope;]5,8];5
+SManBio_upstream;ManBio;] ,30];slope;]8, [;1
+SManBio_upstream;ManBio;]30,60];slope;]8, [;3
+SManBio_upstream;ManBio;]60, [;slope;]8, [;5
+SMangkw;Mangkw;] ,2[;;;1
+SMangkw;Mangkw;[2,4[;;;3
+SMangkw;Mangkw;[4,5];;;5
+SMpiInvt_upstream;MpiInvt;[0,26[;MnsTot;[0,0];0
+SMpiInvt_upstream;MpiInvt;[0,26[;MnsTot;]0, [;1
+SMpiInvt_upstream;MpiInvt;[26,45];MnsTot;[0, [;3
+SMpiInvt_upstream;MpiInvt;]45,73[;MnsTot;[0, [;5
+SMpiInvt_upstream;MpiInvt;[73,100[;MnsTot;[0, [;3
+SMpiInvt_upstream;MpiInvt;[100,100];MnsTot;[0, [;1
+SMnsBen;MnsBen;] ,1];;;1
+SMnsBen;MnsBen;]1,3];;;3
+SMnsBen;MnsBen;]3, [;;;5
+SMpigesp;Mpigesp;] ,8[;slope;] ,4[;1
+SMpigesp;Mpigesp;[8,16[;slope;] ,4[;3
+SMpigesp;Mpigesp;[16, [;slope;] ,4[;5
+SMpigesp;Mpigesp;] ,10[;slope;[4,5];1
+SMpigesp;Mpigesp;[10,21[;slope;[4,5];3
+SMpigesp;Mpigesp;[21, [;slope;[4,5];5
+SMpigesp;Mpigesp;] ,12[;slope;]5,8];1
+SMpigesp;Mpigesp;[12,31[;slope;]5,8];3
+SMpigesp;Mpigesp;[31, [;slope;]5,8];5
+SMpigesp;Mpigesp;] ,24[;slope;]8,12.5];1
+SMpigesp;Mpigesp;[24,48[;slope;]8,12.5];3
+SMpigesp;Mpigesp;[48, [;slope;]8,12.5];5
+SMpigesp;Mpigesp;] ,35[;slope;]12.5, [;1
+SMpigesp;Mpigesp;[35,70[;slope;]12.5, [;3
+SMpigesp;Mpigesp;[70, [;slope;]12.5, [;5
+SMnsTot_forel;MnsTot;[0,0];;;0
+SMnsTot_forel;MnsTot;]0,4[;;;1
+SMnsTot_forel;MnsTot;[4,7];;;3
+SMnsTot_forel;MnsTot;[7, [;;;5
+SBenWei_lakes_fyke;BenWei_lakes;] ,7[;;;0,6
+SBenWei_lakes_fyke;BenWei_lakes;[7,14[;;;0,8
+SBenWei_lakes_fyke;BenWei_lakes;[14,28[;;;0,6
+SBenWei_lakes_fyke;BenWei_lakes;[28,42[;;;0,4
+SBenWei_lakes_fyke;BenWei_lakes;[42, [;;;0,2
+SManTol_lakes;ManTol_lakes;[50, [;;;1
+SManTol_lakes;ManTol_lakes;[40,50[;;;0,8
+SManTol_lakes;ManTol_lakes;[27,40[;;;0,6
+SManTol_lakes;ManTol_lakes;[13,27[;;;0,4
+SManTol_lakes;ManTol_lakes;] ,13[;;;0,2
+SMpiOmn_lakes;MpiOmn_lakes;] ,7.9[;;;0,6
+SMpiOmn_lakes;MpiOmn_lakes;[7.9,15.9[;;;0,8
+SMpiOmn_lakes;MpiOmn_lakes;[15.9,31.7[;;;0,6
+SMpiOmn_lakes;MpiOmn_lakes;[31.7,47.6[;;;0,4
+SMpiOmn_lakes;MpiOmn_lakes;[47.6, [;;;0,2
+SMnsPis_lakes;MnsPis_lakes;[5, [;;;1
+SMnsPis_lakes;MnsPis_lakes;[3,5[;;;0,8
+SMnsPis_lakes;MnsPis_lakes;[2,3[;;;0,6
+SMnsPis_lakes;MnsPis_lakes;[1,2[;;;0,4
+SMnsPis_lakes;MnsPis_lakes;] ,1[;;;0,2
+SMpiInv_lakes;MpiInv_lakes;[14.2,28.9[;;;0,8
+SMpiInv_lakes;MpiInv_lakes;[9.4,14.2[;;;0,6
+SMpiInv_lakes;MpiInv_lakes;[4.7,9.4[;;;0,4
+SMpiInv_lakes;MpiInv_lakes;] ,4.7[;;;0,2
+SMpiInv_lakes;MpiInv_lakes;[28.9, [;;;0,6
+SMpiSpa_lakes;MpiSpa_lakes;[21.4,28.5[;;;0,8
+SMpiSpa_lakes;MpiSpa_lakes;[14.2,21.4[;;;0,6
+SMpiSpa_lakes;MpiSpa_lakes;[7.1,14.2[;;;0,4
+SMpiSpa_lakes;MpiSpa_lakes;] ,7.1[;;;0,2
+SMpiSpa_lakes;MpiSpa_lakes;[28.5, [;;;0,6
+SMnsTot_canals;MnsTot_canals;[18, [;;;1
+SMnsTot_canals;MnsTot_canals;[7,18[;;;0,8
+SMnsTot_canals;MnsTot_canals;[5,7[;;;0,6
+SMnsTot_canals;MnsTot_canals;[2,5[;;;0,4
+SMnsTot_canals;MnsTot_canals;] ,2[;;;0,2
+SManBio_canals;ManBio_canals;[32.6, [;;;0,8
+SManBio_canals;ManBio_canals;[24.5,32.6[;;;0,6
+SManBio_canals;ManBio_canals;[16.3,24.5[;;;0,4
+SManBio_canals;ManBio_canals;] ,16.3[;;;0,2
+SManSha_canals;ManSha;[1.64, [;;;0,8
+SManSha_canals;ManSha;[1.23,1.64[;;;0,6
+SManSha_canals;ManSha;[0.82,1.23[;;;0,4
+SManSha_canals;ManSha;] ,0.82[;;;0,2
+SManRec_canals;ManRec_canals;[100,100];;;1
+SManRec_canals;ManRec_canals;[80,100[;;;0,8
+SManRec_canals;ManRec_canals;[53.3,80[;;;0,6
+SManRec_canals;ManRec_canals;[26.7,53.3[;;;0,4
+SManRec_canals;ManRec_canals;] ,26.7[;;;0,2
+SBenWei_canals;BenWei_canals;] ,11.1[;;;0,2
+SBenWei_canals;BenWei_canals;[11.1,22.2[;;;0,8
+SBenWei_canals;BenWei_canals;[22.2,44.4[;;;0,6
+SBenWei_canals;BenWei_canals;[44.4,66.6[;;;0,4
+SBenWei_canals;BenWei_canals;[66.6, [;;;0,2
+SMnsEst;MnsEst;[12, [;;;1
+SMnsEst;MnsEst;[10,12[;;;0,8
+SMnsEst;MnsEst;[7,10[;;;0,6
+SMnsEst;MnsEst;[4,7[;;;0,4
+SMnsEst;MnsEst;] ,4[;;;0,2
+SMnsDia_Ijzer;MnsDia_Ijzer;[9, [;;;1
+SMnsDia_Ijzer;MnsDia_Ijzer;[7,9[;;;0,8
+SMnsDia_Ijzer;MnsDia_Ijzer;[5,7[;;;0,6
+SMnsDia_Ijzer;MnsDia_Ijzer;[3,5[;;;0,4
+SMnsDia_Ijzer;MnsDia_Ijzer;] ,3[;;;0,2
+SRmniDia;RmniDia;[20, [;;;1
+SRmniDia;RmniDia;[15,20[;;;0,8
+SRmniDia;RmniDia;[10,15[;;;0,6
+SRmniDia;RmniDia;[5,10[;;;0,4
+SRmniDia;RmniDia;] ,5[;;;0,2
+SMnsMjs;MnsMjs;[22, [;;;1
+SMnsMjs;MnsMjs;[16,22[;;;0,8
+SMnsMjs;MnsMjs;[11,16[;;;0,6
+SMnsMjs;MnsMjs;[6,11[;;;0,4
+SMnsMjs;MnsMjs;] ,6[;;;0,2
+SMnsTyp;MnsTyp;[9, [;;;1
+SMnsTyp;MnsTyp;[7,9[;;;0,8
+SMnsTyp;MnsTyp;[5,7[;;;0,6
+SMnsTyp;MnsTyp;[3,5[;;;0,4
+SMnsTyp;MnsTyp;] ,3[;;;0,2
+SMnsTot_freshwater;MnsTot_freshwater;[20.7, [;;;1
+SMnsTot_freshwater;MnsTot_freshwater;[15.5,20.7[;;;0,8
+SMnsTot_freshwater;MnsTot_freshwater;[10.4,15.5[;;;0,6
+SMnsTot_freshwater;MnsTot_freshwater;[5.2,10.4[;;;0,4
+SMnsTot_freshwater;MnsTot_freshwater;] ,5.2[;;;0,2
+SMniInd_freshwater;MniInd_f_freshwater;[174, [;;;1
+SMniInd_freshwater;MniInd_f_freshwater;[130,174[;;;0,8
+SMniInd_freshwater;MniInd_f_freshwater;[87,130[;;;0,6
+SMniInd_freshwater;MniInd_f_freshwater;[43,87[;;;0,4
+SMniInd_freshwater;MniInd_f_freshwater;] ,43[;;;0,2
+SMpiDia_freshwater;MpiDia_freshwater;[35.2, [;;;1
+SMpiDia_freshwater;MpiDia_freshwater;[26.4,35.2[;;;0,8
+SMpiDia_freshwater;MpiDia_freshwater;[17.6,26.4[;;;0,6
+SMpiDia_freshwater;MpiDia_freshwater;[8.8,17.6[;;;0,4
+SMpiDia_freshwater;MpiDia_freshwater;] ,8.8[;;;0,2
+SMpiSpa_freshwater;MpiSpa_freshwater;[31.3, [;;;1
+SMpiSpa_freshwater;MpiSpa_freshwater;[23.5,31.3[;;;0,8
+SMpiSpa_freshwater;MpiSpa_freshwater;[15.7,23.5[;;;0,6
+SMpiSpa_freshwater;MpiSpa_freshwater;[7.8,15.7[;;;0,4
+SMpiSpa_freshwater;MpiSpa_freshwater;] ,7.8[;;;0,2
+SMpiPis_freshwater;MpiPis_freshwater;[43, [;;;1
+SMpiPis_freshwater;MpiPis_freshwater;[32.3,43[;;;0,8
+SMpiPis_freshwater;MpiPis_freshwater;[21.5,32.3[;;;0,6
+SMpiPis_freshwater;MpiPis_freshwater;[10.8,21.5[;;;0,4
+SMpiPis_freshwater;MpiPis_freshwater;] ,10.8[;;;0,2
+SMpiBen_freshwater;MpiBen_freshwater;[27.4, [;;;1
+SMpiBen_freshwater;MpiBen_freshwater;[20.5,27.4[;;;0,8
+SMpiBen_freshwater;MpiBen_freshwater;[13.7,20.5[;;;0,6
+SMpiBen_freshwater;MpiBen_freshwater;[6.9,13.7[;;;0,4
+SMpiBen_freshwater;MpiBen_freshwater;] ,6.9[;;;0,2
+SMnsPis_oligohaline;MnsPis_oligohaline;[13.5, [;;;1
+SMnsPis_oligohaline;MnsPis_oligohaline;[10.1,13.5[;;;0,8
+SMnsPis_oligohaline;MnsPis_oligohaline;[6.8,10.1[;;;0,6
+SMnsPis_oligohaline;MnsPis_oligohaline;[3.4,6.8[;;;0,4
+SMnsPis_oligohaline;MnsPis_oligohaline;] ,3.4[;;;0,2
+SMnsInt_oligohaline;MnsInt_oligohaline;[9, [;;;1
+SMnsInt_oligohaline;MnsInt_oligohaline;[6.8,9[;;;0,8
+SMnsInt_oligohaline;MnsInt_oligohaline;[4.5,6.8[;;;0,6
+SMnsInt_oligohaline;MnsInt_oligohaline;[2.3,4.5[;;;0,4
+SMnsInt_oligohaline;MnsInt_oligohaline;] ,2.3[;;;0,2
+SMnsDia_oligohaline;MnsDia_oligohaline;[8.1, [;;;1
+SMnsDia_oligohaline;MnsDia_oligohaline;[6.1,8.1[;;;0,8
+SMnsDia_oligohaline;MnsDia_oligohaline;[4.1,6.1[;;;0,6
+SMnsDia_oligohaline;MnsDia_oligohaline;[2,4.1[;;;0,4
+SMnsDia_oligohaline;MnsDia_oligohaline;] ,2[;;;0,2
+SMnsDia_mesohaline;MnsDia_mesohaline;[8.1, [;;;1
+SMnsDia_mesohaline;MnsDia_mesohaline;[6.1,8.1[;;;0,8
+SMnsDia_mesohaline;MnsDia_mesohaline;[4.1,6.1[;;;0,6
+SMnsDia_mesohaline;MnsDia_mesohaline;[2,4.1[;;;0,4
+SMnsDia_mesohaline;MnsDia_mesohaline;] ,2[;;;0,2
+SMniInd_oligohaline;MniInd_f_oligohaline;[180, [;;;1
+SMniInd_oligohaline;MniInd_f_oligohaline;[135,180[;;;0,8
+SMniInd_oligohaline;MniInd_f_oligohaline;[90,135[;;;0,6
+SMniInd_oligohaline;MniInd_f_oligohaline;[45,90[;;;0,4
+SMniInd_oligohaline;MniInd_f_oligohaline;] ,45[;;;0,2
+SMnsMms_oligohaline;MnsMms_oligohaline;[3.6, [;;;1
+SMnsMms_oligohaline;MnsMms_oligohaline;[2.7,3.6[;;;0,8
+SMnsMms_oligohaline;MnsMms_oligohaline;[1.8,2.7[;;;0,6
+SMnsMms_oligohaline;MnsMms_oligohaline;[0.9,1.8[;;;0,4
+SMnsMms_oligohaline;MnsMms_oligohaline;] ,0.9[;;;0,2
+SMnsErs_oligohaline;MnsErs_oligohaline;[5.4, [;;;1
+SMnsErs_oligohaline;MnsErs_oligohaline;[4.1,5.4[;;;0,8
+SMnsErs_oligohaline;MnsErs_oligohaline;[2.7,4.1[;;;0,6
+SMnsErs_oligohaline;MnsErs_oligohaline;[1.4,2.7[;;;0,4
+SMnsErs_oligohaline;MnsErs_oligohaline;] ,1.4[;;;0,2
+SMnsTot_mesohaline;MnsTot_mesohaline;[27, [;;;1
+SMnsTot_mesohaline;MnsTot_mesohaline;[20.3,27[;;;0,8
+SMnsTot_mesohaline;MnsTot_mesohaline;[13.5,20.3[;;;0,6
+SMnsTot_mesohaline;MnsTot_mesohaline;[6.8,13.5[;;;0,4
+SMnsTot_mesohaline;MnsTot_mesohaline;] ,6.8[;;;0,2
+SMnsSpa_mesohaline;MnsSpa_mesohaline;[5.4, [;;;1
+SMnsSpa_mesohaline;MnsSpa_mesohaline;[4.1,5.4[;;;0,8
+SMnsSpa_mesohaline;MnsSpa_mesohaline;[2.7,4.1[;;;0,6
+SMnsSpa_mesohaline;MnsSpa_mesohaline;[1.4,2.7[;;;0,4
+SMnsSpa_mesohaline;MnsSpa_mesohaline;] ,1.4[;;;0,2
+SMnsHab_mesohaline;MnsHab_mesohaline;[14.4, [;;;1
+SMnsHab_mesohaline;MnsHab_mesohaline;[10.8,14.4[;;;0,8
+SMnsHab_mesohaline;MnsHab_mesohaline;[7.2,10.8[;;;0,6
+SMnsHab_mesohaline;MnsHab_mesohaline;[3.6,7.2[;;;0,4
+SMnsHab_mesohaline;MnsHab_mesohaline;] ,3.6[;;;0,2
+SMpiInt_mesohaline;MpiInt_mesohaline;[30, [;;;1
+SMpiInt_mesohaline;MpiInt_mesohaline;[22.5,30[;;;0,8
+SMpiInt_mesohaline;MpiInt_mesohaline;[15,22.5[;;;0,6
+SMpiInt_mesohaline;MpiInt_mesohaline;[7.5,15[;;;0,4
+SMpiInt_mesohaline;MpiInt_mesohaline;] ,7.5[;;;0,2
+SMnsMms_mesohaline;MnsMms_mesohaline;[9, [;;;1
+SMnsMms_mesohaline;MnsMms_mesohaline;[6.8,9[;;;0,8
+SMnsMms_mesohaline;MnsMms_mesohaline;[4.5,6.8[;;;0,6
+SMnsMms_mesohaline;MnsMms_mesohaline;[2.3,4.5[;;;0,4
+SMnsMms_mesohaline;MnsMms_mesohaline;] ,2.3[;;;0,2
+SManTol_bron;ManTol_bron;[7, [;;;4
+SManTol_bron;ManTol_bron;[5,7[;;;3
+SManTol_bron;ManTol_bron;[3,5[;;;2
+SManTol_bron;ManTol_bron;] ,3[;;;1
+SManSha_bron;ManSha;[0.58, [;;;4
+SManSha_bron;ManSha;[0.39,0.58[;;;3
+SManSha_bron;ManSha;[0.19,0.39[;;;2
+SManSha_bron;ManSha;] ,0.19[;;;1
+SMpiSpa_bron;MpiSpa_bron;[61.3, [;;;4
+SMpiSpa_bron;MpiSpa_bron;[40.9,61.3[;;;3
+SMpiSpa_bron;MpiSpa_bron;[20.4,40.9[;;;2
+SMpiSpa_bron;MpiSpa_bron;] ,20.4[;;;1
+SMpiRhe_bron;MpiRhe_bron;[61, [;;;4
+SMpiRhe_bron;MpiRhe_bron;[40.7,61[;;;3
+SMpiRhe_bron;MpiRhe_bron;[20.3,40.7[;;;2
+SMpiRhe_bron;MpiRhe_bron;] ,20.3[;;;1
+SManSha_est_zijriv;ManSha;[2, [;;;1
+SManSha_est_zijriv;ManSha;[1.5,2[;;;0,8
+SManSha_est_zijriv;ManSha;[1,1.5[;;;0,6
+SManSha_est_zijriv;ManSha;[0.5,1[;;;0,4
+SManSha_est_zijriv;ManSha;] ,0.5[;;;0,2
+SMpiInv_est_zijriv;MpiInv_est_zijriv;[51.8,62.1[;;;1
+SMpiInv_est_zijriv;MpiInv_est_zijriv;[41.4,51.8[;;;0,8
+SMpiInv_est_zijriv;MpiInv_est_zijriv;[31,41.4[;;;0,6
+SMpiInv_est_zijriv;MpiInv_est_zijriv;[20.7,31[;;;0,4
+SMpiInv_est_zijriv;MpiInv_est_zijriv;] ,20.7[;;;0,2
+SMpiInv_est_zijriv;MpiInv_est_zijriv;[62.1, [;;;0,2
+SMpiSpa_est_zijriv;MpiSpa_est_zijriv;[51.6,61.9[;;;1
+SMpiSpa_est_zijriv;MpiSpa_est_zijriv;[41.2,51.6[;;;0,8
+SMpiSpa_est_zijriv;MpiSpa_est_zijriv;[30.9,41.2[;;;0,6
+SMpiSpa_est_zijriv;MpiSpa_est_zijriv;[20.6,30.9[;;;0,4
+SMpiSpa_est_zijriv;MpiSpa_est_zijriv;] ,20.6[;;;0,2
+SMpiSpa_est_zijriv;MpiSpa_est_zijriv;[61.9, [;;;0,2
+SMnsPis_est_zijriv;MnsPis_est_zijriv;[5, [;;;1
+SMnsPis_est_zijriv;MnsPis_est_zijriv;[4,5[;;;0,8
+SMnsPis_est_zijriv;MnsPis_est_zijriv;[3,4[;;;0,6
+SMnsPis_est_zijriv;MnsPis_est_zijriv;]1,3[;;;0,4
+SMnsPis_est_zijriv;MnsPis_est_zijriv;] ,1];;;0,2

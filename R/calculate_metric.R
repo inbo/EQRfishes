@@ -136,8 +136,7 @@ calculate_metric <- function(
           system.file(
             "extdata/calculate_metric_score.csv", package = "EQRfishes"
           )
-        ) %>%
-          select(-"opmerkingen")  # tijdelijk zolang in deze csv een opmerking staat
+        )
       ) %>%
         nest(
           indices =
