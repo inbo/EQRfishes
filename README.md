@@ -28,7 +28,7 @@ size](https://img.shields.io/github/repo-size/inbo/EQRfishes.svg)
 # EQRfishes
 
 The goal of R package `EQRfishes` is to calculate an index of biotic
-integrity (ibi) and ecological quality ratio (EQR) based on fish
+integrity (IBI) and ecological quality ratio (EQR) based on fish
 measures. Rivers and water bodies with different characteristics are
 assessed with different criteria, each called an indextypology, as is
 described in the different publications on which the calculations are
@@ -87,7 +87,7 @@ Breine, Jan, and Gerlinde Van Thuyne. 2013. *Het Visbestand in Het
 IJzer-Estuarium: Viscampagnes 2008-2012.* INBO.R. 2013.8. Rapporten van
 Het Instituut Voor Natuur- En Bosonderzoek 2013. Instituut voor Natuur-
 en Bosonderzoek.
-<https://pureportal.inbo.be/nl/publications/het-visbestand-in-het-ijzer-estuarium-viscampagnes-2008-2012>.
+<https://pureportal.inbo.be/nl/publications/het-visbestand-in-het-ijzer-estuarium-viscampagnes-2008-2012/>.
 
 </div>
 
