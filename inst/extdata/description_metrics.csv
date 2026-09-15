@@ -96,7 +96,7 @@ MnsTot;@breine_new_2021;MnsTot;total number of native species;
 MnsTot;@breine_fish-based_2004;MNSTOT;total number of observed species;
 MnsTot;;;total number of species;
 MnsTot;@breine_zone-specific_2010;MnsTot;total number of species;
-MnsTot;@breine_visindex_2020;;If less than 2 species are caught, the IBI gets a specific score (see [Calculation of IBI and EQR](#calculation-of-ibi-and-eqr). So MnsTot is not used as a metric to calculate the index, it only serves to score the fish-based estuarine tribuataries river schelde index IBI if less than 2 species are caught;
+MnsTot;@breine_visindex_2020;;If less than 2 species are caught, the IBI gets a specific score (see [Calculation of IBI and EQR](#calculation-of-ibi-and-eqr). So MnsTot is not used as a metric to calculate the index, it only serves to score the fish-based estuarine tributaries river schelde index IBI if less than 2 species are caught;
 MnsTot;@breine_een_2018;;If no or one species are caught, the IBI gets a specific score (see [Calculation of IBI and EQR](#calculation-of-ibi-and-eqr). So MnsTot is not used as a metric to calculate the index, it only serves to score the fish-based river source IBI if less than 2 species are caught;
 MnsTyp;@breine_het_2013;MnsTyp;number of typical species for estuaries;
 MpgExo;@belpaire_index_2000;Weight % of non-native species;% weight of non-native species;

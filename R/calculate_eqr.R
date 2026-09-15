@@ -27,7 +27,7 @@
 #'         (or Dutch `estuariene Schelde oligohaliene index`),
 #'       `fish-based estuarine Schelde mesohaline index`
 #'         (or Dutch `estuariene Schelde mesohaliene index`) and
-#'       `fish-based estuarine tribuataries river Schelde index`
+#'       `fish-based estuarine tributaries river Schelde index`
 #'         (or Dutch `getijgebonden zijrivieren zoet index`).
 #'       (Also Dutch names and abbreviations are accepted.)
 #'     \item `method`: method used for the sampling, possible values are
@@ -38,7 +38,7 @@
 #'      are considered to be different samples.
 #'     \item `year`: year of sampling
 #'   }
-#' For some indextypologies, additional columns are needed:
+#' For some index typologies, additional columns are needed:
 #'   \itemize{
 #'     \item `width_transect` and `length_trajectory` in meter for
 #'       electrofishing in `fish-based bream IBI`, `fish-based barbel IBI`,

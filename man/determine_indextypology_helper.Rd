@@ -19,7 +19,7 @@ determine_indextypology_helper(
 \item{var_indextype}{type based on salinity of the sample location:
 \itemize{
 \item \code{"ZTWA"} for freshwater,
-\item \code{"YZRP"} for estuarine Ijzer,
+\item \code{"YZRP"} for estuarine IJzer,
 \item \code{"SCHM"} for estuarine Schelde mesohaline,
 \item \code{"SCHO"} for estuarine Schelde oligohaline,
 \item \code{"SCHZ"} for estuarine Schelde freshwater,
@@ -28,16 +28,16 @@ determine_indextypology_helper(
 
 \item{version}{'new' version with \verb{fish-based river source IBI} and
 \verb{fish-based lowland IBI}, or 'old' version without
-these two indextypologies?
+these two index typologies?
 Defaults to 'new'.}
 }
 \value{
-indextypology of the focal location(s)
+index typology of the focal location(s)
 }
 \description{
 This helper function determines the index typology based on the
 given measurements for one location.
-In case the result is "stilstaand" (slope = 0), the index typology can be
+In case the result is "lentic" (slope = 0), the index typology can be
 "lakes" or "canals", which should be determined based on the morphology
 of the water object.
 To determine the index typology of the whole dataset at once, please use

@@ -15,7 +15,7 @@ values (column\code{value}, given as character string!)}
 \item{metric_name}{name of the variable to be calculated}
 }
 \value{
-table sampledata with an additional metric which is the result of
+table \code{sampledata} with an additional metric which is the result of
 calculating the formula
 }
 \description{

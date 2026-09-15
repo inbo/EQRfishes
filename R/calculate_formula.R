@@ -10,7 +10,7 @@
 #' values (column`value`, given as character string!)
 #' @param metric_name name of the variable to be calculated
 #'
-#' @return table sampledata with an additional metric which is the result of
+#' @return table `sampledata` with an additional metric which is the result of
 #' calculating the formula
 #'
 #' @importFrom magrittr %>%

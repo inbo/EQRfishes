@@ -98,22 +98,22 @@ cat(
 
 After calculations are done, the metric score (named as metric name preceded by an `S`) is calculated by looking up in which interval the result is situated.
 Intervals are presented as `[min, max]`, `]min, max[`, `[min, max[`, `]min, max]`, `] , max]` or `[min, [`, where `[]` presents a closed interval (`min` and `max` included), `][` an open interval (`min` and `max` excluded) and the absence of `min` or `max` means everything lower resp. higher than `max` resp. `min`.
-For the Scheldt estuarium, the calculation of all scores have an additional precondition: if MnsTot is 0, so if no typical species are caught, the metric score is set 0.  This condition is not added to the tables with the calculations, because due to the technical workflow of the package, this would mean that MnsTot would be calculated together with every metric, most likely slowing down the calculation a lot.
+For the Schelde estuary, the calculation of all scores have an additional precondition: if `MnsTot` is 0, so if no typical species are caught, the metric score is set 0.  This condition is not added to the tables with the calculations, because due to the technical workflow of the package, this would mean that `MnsTot` would be calculated together with every metric, most likely slowing down the calculation a lot.
 
-The overview in the different chapters of this report presents all these calculations, with chapter titles indicating the indextypologies, second level titles the metrics that are needed to calculate the IBI and EQR, and the lower levels the calculations of the variables that are needed to calculate the higher level metric.
+The overview in the different chapters of this report presents all these calculations, with chapter titles indicating the index typologies, second level titles the metrics that are needed to calculate the IBI and EQR, and the lower levels the calculations of the variables that are needed to calculate the higher level metric.
 The last subtitle always present how to derive the score starting from the calculated value.
 
 ## Aggregation of data
 
 For the indexes of freshwater rivers, the index is calculated for each separate sample day, location and method.
-For the other indexes, including lakes, canals and estuarine indextypologies, data of different sample days and sample locations are aggegated per year and per 'waterbody' before doing the calculation.
+For the other indexes, including lakes, canals and estuarine index typologies, data of different sample days and sample locations are aggregated per year and per 'waterbody' before doing the calculation.
 A waterbody is for instance a lake or a canal, and fishes are mostly sampled on different locations several times a year.
 These other, mostly newer, indexes often require specific sampling methods for different metrics, the final EQR being a result of metrics calculated using datasets originating from different methods.
 
 ## Calculation of IBI and EQR
 
-For the older indexes, of indextypologies brasem, barbeel, upstream, forel and vlagzalm, the IBI is calculated as the average of the metric scores (sum of scores divided by the number of scores).
-For the newer indexes (all other indextypologies), the IBI is calculated as the sum of the metric scores.
+For the older indexes, of fish-based bream IBI, barbel IBI, upstream IBI, trout IBI and grayling IBI, the IBI is calculated as the average of the metric scores (sum of scores divided by the number of scores).
+For the newer indexes (all other index typologies), the IBI is calculated as the sum of the metric scores.
 But there are a few exceptions to deal with a lack of (typical) species:
 
 ```{r}
@@ -129,22 +129,22 @@ suppressMessages(
   )
 ```
 
-(For brabeel: if less than 10 individuals, the number of individuals is considered too low to calculate a reliable index.)
+(For fish-based lowland IBI: if less than 10 individuals, the number of individuals is considered too low to calculate a reliable index.)
 
 After that, a standardised IBI is calculated.
 For the older indexes, this is $IBI / 5$.
 For the newer indexes, this is
  $(IBI - \frac{n_{metrics}}{c}) / (IBI_{max} - \frac{n_{metrics}}{c})$
-with $c = 1$ for indextypology bron and $c = 5$ for all other indextypologies.
-For the estuarine indextypologies of IJzer and Schelde, no standardisation is done.
+with $c = 1$ for fish-based river source IBI and $c = 5$ for all other index typologies.
+For the estuarine index typologies of IJzer and Schelde, no standardisation is done.
  
 This standardised IBI is used to determine the EQR class, using the below table, where the upper limit
 
 - `std_ibi_old` is used for the older indexes
 - `std_ibi_new` is used for the newer indexes, and
-- `std_ibi_newst` is used for the indextypologies lakes, brabeel, estuarien_Schelde_freshwater, estuarien_Schelde_oligohaline, estuarien_Schelde_mesohaline
-- `ibi_ijzer` gives the class borders of the non-standardised classes for indextypology estuarien_IJzer
-- `ibi_estuarien` gives the class borders of the non-standardised classes for indextypologies estuarien_Schelde (freshwater, oligohaline and mesohaline)
+- `std_ibi_newst` is used for the fish-based lakes IBI, fish-based lowland IBI, fish-based estuarine Schelde freshwater index, fish-based estuarine Schelde oligohaline index and fish-based estuarine Schelde mesohaline index
+- `ibi_ijzer` gives the class borders of the non-standardised classes for the fish-based IJzer estuarine index
+- `ibi_estuarien` gives the class borders of the non-standardised classes for the fish-based estuarine Schelde indexes (freshwater, oligohaline and mesohaline)
 
 
 ```{r}
@@ -160,17 +160,17 @@ suppressMessages(
   )
 ```
 
-Finally the EQR is calculated for most indexes (the older indexes, the canals index and the IJzer and Schelde estuaria indexes) as
+Finally the EQR is calculated for most indexes (the older indexes, the canals IBI and the IJzer and Schelde estuaries indexes) as
 
 $\frac{EQR_{class} - 1}{n_{class}} + \frac{IBI_{std} - ibi_{classmin}}{n_{class} * (IBI_{classmax} - IBI_{classmin})}$
 
-For the indexes brabeel, lakes, bron and estuarien_zijrivieren_zoet, the standardised IBI is used as EQR.
+For the fish-based lowland IBI, lakes IBI, river source IBI and estuarine tributaries river Schelde index, the standardised IBI is used as EQR.
 
 Exceptions are:
 
-- if indextypology = bron and IBI = 4, EQR = 0.2
-- if indextypology = bron and IBI = 0, EQR = 0
-- if indextypology = estuarien_zijrivieren_zoet and IBI = 0.8, EQR = 0.05
+- if index typology = fish-based river source IBI and IBI = 4, EQR = 0.2
+- if index typology = fish-based river source IBI and IBI = 0, EQR = 0
+- if index typology = fish-based estuarine tributaries river Schelde index and IBI = 0.8, EQR = 0.05
 
 ```{r load-sheets}
 indextypology_metric <- suppressMessages(
@@ -239,7 +239,7 @@ cat(output, sep = "\n")
 
 ### `indextypology_metric.csv`
 
-This datasheet shows which metrics and metric scores have to be calculated for each indextypology, with additional information on where to find the information for calculation of the metric:
+This datasheet shows which metrics and metric scores have to be calculated for each index typology, with additional information on where to find the information for calculation of the metric:
 
 - column metric_formula_name contains metrics for which the formulas for calculation are added to `calculate_metric_formula.csv`
 - column metric_measures_name contains metrics for which the calculation methods (directly based on measures) are added to `calculate_metric_measures.csv`
@@ -292,5 +292,5 @@ This datasheet mentions the intervals that are used to derive a metric score bas
 This datasheet gives the information to calculate the IBI and EQR:
 
 - for IBI, only exceptions to the normal rule of the average of the metric scores are mentioned
-- EQR calculation is based on IBI and is given for each indextypology separately -->
+- EQR calculation is based on IBI and is given for each index typology separately -->
 

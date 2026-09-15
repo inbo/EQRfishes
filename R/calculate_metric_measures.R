@@ -32,7 +32,7 @@
 #'
 #' @inheritParams calculate_metric
 #'
-#' @return table sampledata in which the newly calculated metric is added
+#' @return table `sampledata` in which the newly calculated metric is added
 #'
 #' @importFrom readr read_csv2
 #' @importFrom magrittr %>%

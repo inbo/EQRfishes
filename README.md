@@ -30,7 +30,7 @@ size](https://img.shields.io/github/repo-size/inbo/EQRfishes.svg)
 The goal of R package `EQRfishes` is to calculate an index of biotic
 integrity (IBI) and ecological quality ratio (EQR) based on fish
 measures. Rivers and water bodies with different characteristics are
-assessed with different criteria, each called an indextypology, as is
+assessed with different criteria, each called an index typology, as is
 described in the different publications on which the calculations are
 based:
 
@@ -151,12 +151,12 @@ remotes::install_github("inbo/EQRfishes")
 
 The main function, `calculate_eqr()`, calculates de fish-based
 ecological quality ratio (EQR) based on a dataset with sampling location
-characteristics (`data_sample`) including the indextypology that should
+characteristics (`data_sample`) including the index typology that should
 be used and a dataset with fish measure data for each location
 (`data_fish`). The function documentation of `calculate_eqr()` explains
 how these datasets should be composed.
 
-Some examples for different indextypologies:
+Some examples for different index typologies:
 
 ``` r
 library(EQRfishes)
@@ -281,7 +281,7 @@ calculate_eqr(data_sample, data_fish, output = "metric", cluster = cluster)
 #> #   metric_score <chr>, index_cluster <chr>
 ```
 
-Function `determine_indextypology()` can help which indextypology would
+Function `determine_indextypology()` can help which index typology would
 be appropriate to use for a specific location:
 
 ``` r

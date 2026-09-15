@@ -31,7 +31,7 @@ knitr::opts_chunk$set(
 # EQRfishes
 
 The goal of R package `EQRfishes` is to calculate an index of biotic integrity (IBI) and ecological quality ratio (EQR) based on fish measures.
-Rivers and water bodies with different characteristics are assessed with different criteria, each called an indextypology, as is described in the different publications on which the calculations are based:
+Rivers and water bodies with different characteristics are assessed with different criteria, each called an index typology, as is described in the different publications on which the calculations are based:
 
 ```{r, echo=FALSE, message=FALSE, results='asis'}
 library(dplyr)
@@ -79,10 +79,10 @@ remotes::install_github("inbo/EQRfishes")
 
 ## Use `EQRfishes`
 
-The main function, `calculate_eqr()`, calculates de fish-based ecological quality ratio (EQR) based on a dataset with sampling location characteristics (`data_sample`) including the indextypology that should be used and a dataset with fish measure data for each location (`data_fish`).
+The main function, `calculate_eqr()`, calculates de fish-based ecological quality ratio (EQR) based on a dataset with sampling location characteristics (`data_sample`) including the index typology that should be used and a dataset with fish measure data for each location (`data_fish`).
 The function documentation of `calculate_eqr()` explains how these datasets should be composed. 
 
-Some examples for different indextypologies:
+Some examples for different index typologies:
 
 ```{r example}
 library(EQRfishes)
@@ -127,7 +127,7 @@ calculate_eqr(data_sample, data_fish, cluster = cluster)
 calculate_eqr(data_sample, data_fish, output = "metric", cluster = cluster)
 ```
 
-Function `determine_indextypology()` can help which indextypology would be appropriate to use for a specific location:
+Function `determine_indextypology()` can help which index typology would be appropriate to use for a specific location:
 
 ```{r indextypology}
 # load data

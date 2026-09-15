@@ -14,7 +14,7 @@ determine_indextypology(dataset, version = c("new", "old"))
 \item \code{index_type_code} type based on salinity of the sample location:
 \itemize{
 \item \code{"ZTWA"} for freshwater,
-\item \code{"YZRP"} for estuarine Ijzer,
+\item \code{"YZRP"} for estuarine IJzer,
 \item \code{"SCHM"} for estuarine Schelde mesohaline,
 \item \code{"SCHO"} for estuarine Schelde oligohaline,
 \item \code{"SCHZ"} for estuarine Schelde freshwater,
@@ -23,9 +23,9 @@ determine_indextypology(dataset, version = c("new", "old"))
 }}
 
 \item{version}{'new' version with fish-based river source IBI and
-fish-based lowland IBI or 'old' version without these two indextypologies?
+fish-based lowland IBI or 'old' version without these two index typologies?
 Defaults to 'new'.
-This information will be used if dataset has no column \code{version} or to
+This information will be used if \code{dataset} has no column \code{version} or to
 replace NA values in column \code{version}.}
 }
 \value{

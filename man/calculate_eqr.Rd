@@ -35,7 +35,7 @@ Possible values are \verb{fish-based bream IBI} (or Dutch \verb{brasem index}),
 (or Dutch \verb{estuariene Schelde oligohaliene index}),
 \verb{fish-based estuarine Schelde mesohaline index}
 (or Dutch \verb{estuariene Schelde mesohaliene index}) and
-\verb{fish-based estuarine tribuataries river Schelde index}
+\verb{fish-based estuarine tributaries river Schelde index}
 (or Dutch \verb{getijgebonden zijrivieren zoet index}).
 (Also Dutch names and abbreviations are accepted.)
 \item \code{method}: method used for the sampling, possible values are
@@ -46,7 +46,7 @@ method, so measures taken with different methods on the same spot
 are considered to be different samples.
 \item \code{year}: year of sampling
 }
-For some indextypologies, additional columns are needed:
+For some index typologies, additional columns are needed:
 \itemize{
 \item \code{width_transect} and \code{length_trajectory} in meter for
 electrofishing in \verb{fish-based bream IBI}, \verb{fish-based barbel IBI},

@@ -25,15 +25,15 @@
 #' - `slope` slope of the river at the sample location (per thousand),
 #' - `index_type_code` type based on salinity of the sample location:
 #'   - `"ZTWA"` for freshwater,
-#'   - `"YZRP"` for estuarine Ijzer,
+#'   - `"YZRP"` for estuarine IJzer,
 #'   - `"SCHM"` for estuarine Schelde mesohaline,
 #'   - `"SCHO"` for estuarine Schelde oligohaline,
 #'   - `"SCHZ"` for estuarine Schelde freshwater,
 #'   - `"ZTWZ"` for estuarine tributaries with freshwater
 #' @param version 'new' version with fish-based river source IBI and
-#' fish-based lowland IBI or 'old' version without these two indextypologies?
+#' fish-based lowland IBI or 'old' version without these two index typologies?
 #' Defaults to 'new'.
-#' This information will be used if dataset has no column `version` or to
+#' This information will be used if `dataset` has no column `version` or to
 #' replace NA values in column `version`.
 #'
 #' @return input dataset with additional columns `indextypology`,
