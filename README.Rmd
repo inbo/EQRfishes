@@ -53,7 +53,11 @@ The calculations itself are also described into detail in `vignette("overview_ca
 
 ## References
 
+<!-- spell-check: ignore:start -->
+
 <div id="refs"></div>
+
+<!-- spell-check: ignore:end -->
 
 ## Installation
 

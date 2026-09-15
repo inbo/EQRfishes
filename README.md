@@ -43,6 +43,8 @@ The calculations itself are also described into detail in
 
 ## References
 
+<!-- spell-check: ignore:start -->
+
 <div id="refs" class="references csl-bib-body hanging-indent">
 
 <div id="ref-belpaire_index_2000" class="csl-entry">
@@ -121,6 +123,8 @@ Journal of Zoology* 145 (1): 17–39.
 </div>
 
 </div>
+
+<!-- spell-check: ignore:end -->
 
 ## Installation
 
