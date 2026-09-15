@@ -66,7 +66,6 @@ data_fish <- data_fish %>%
   ) %>%
   filter(!is.na(sample_id), number > 0)
 
-# Metrieken aangepast van 0-5 naar 0-1, dus waarschijnlijk moet EQR-berekening hier ook aan aangepast worden
 test_that("IBI is calculated correctly for estuarien freshwater", {
   (results_eqr <- calculate_eqr(
     data_sample %>%

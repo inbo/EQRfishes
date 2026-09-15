@@ -7,10 +7,6 @@ This score is deduced as shown in the table (the calculation of the variables is
 table_metric_score <- calculate_metric_score %>%
   filter(.data$metric_score == var_metric_score, .data$metric == var_metric_ms)
 if (nrow(table_metric_score) < 1) {
-  # print("ERROR!!!")
-  # print(paste("var_metric_score = ", var_metric_score))
-  # print(paste("var_metric_ms = ", var_metric_ms))
-  # cat(kable(metric_item[[level]]))
   table_metric_score <- calculate_metric_score %>%
     filter(.data$metric_score == var_metric_score,
            .data$add_category == var_metric_ms)
