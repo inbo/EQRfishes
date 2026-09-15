@@ -65,8 +65,9 @@ calculate_ibi_eqr <-
 test_that("variables exist in dependent tables: data_indextypology.indextypology -> indextypology_metric.indextypology", {  # nolint: line_length_linter
   lacking_vars <-
     unique(data_indextypology$indextypology)[
-      !unique(data_indextypology$indextypology) %in%
-        unique(indextypology_metric$indextypology)
+      !unique(data_indextypology$indextypology) %in% unique(
+        indextypology_metric$indextypology
+      )
     ]
   lacking_vars <- lacking_vars[lacking_vars != "stilstaand"]
   expect_equal(
