@@ -63,114 +63,114 @@ calculate_ibi_exceptions <-
 #   )
 
 test_that("variables exist in dependent tables: data_indextypology.indextypology -> indextypology_metric.indextypology", {  # nolint: line_length_linter
-  lacking_vars <-
+  missing_vars <-
     unique(data_indextypology$indextypology)[
       !unique(data_indextypology$indextypology) %in% unique(
         indextypology_metric$indextypology
       )
     ]
-  lacking_vars <- lacking_vars[lacking_vars != "stilstaand"]
+  missing_vars <- missing_vars[missing_vars != "stilstaand"]
   expect_equal(
-    length(lacking_vars), 0,
+    length(missing_vars), 0,
     info =
       paste(
-        paste(lacking_vars, collapse = ", "),
+        paste(missing_vars, collapse = ", "),
         "should be added to column indextypology in table indextypology_metric.csv" # nolint: line_length_linter
       )
   )
 })
 test_that("variables exist in dependent tables: indextypology_metric.metric_formula_name -> calculate_metric_formula.metric_formula_name", { # nolint: line_length_linter
-  lacking_vars <- unique(indextypology_metric$metric_formula_name)[
+  missing_vars <- unique(indextypology_metric$metric_formula_name)[
     !unique(indextypology_metric$metric_formula_name) %in%
       unique(calculate_metric_formula$metric_formula_name)
   ]
-  lacking_vars <- lacking_vars[!is.na(lacking_vars)]
+  missing_vars <- missing_vars[!is.na(missing_vars)]
   expect_equal(
-    length(lacking_vars), 0,
+    length(missing_vars), 0,
     info =
       paste(
-        paste(lacking_vars, collapse = ", "),
+        paste(missing_vars, collapse = ", "),
         "should be added to column metric_formula_name in table calculate_metric_formula.csv" # nolint: line_length_linter
       )
   )
 })
 test_that("variables exist in dependent tables: indextypology_metric.metric_measures_name -> calculate_metric_measures.metric_measures_name", { # nolint: line_length_linter
-  lacking_vars <- unique(indextypology_metric$metric_measures_name)[
+  missing_vars <- unique(indextypology_metric$metric_measures_name)[
     !unique(indextypology_metric$metric_measures_name) %in%
       unique(calculate_metric_measures$metric_measures_name)
   ]
-  lacking_vars <- lacking_vars[!is.na(lacking_vars)]
+  missing_vars <- missing_vars[!is.na(missing_vars)]
   expect_equal(
-    length(lacking_vars), 0,
+    length(missing_vars), 0,
     info =
       paste(
-        paste(lacking_vars, collapse = ", "),
+        paste(missing_vars, collapse = ", "),
         "should be added to column metric_measures_name in table calculate_metric_measures.csv" # nolint: line_length_linter
       )
   )
 })
 test_that("variables exist in dependent tables: indextypology_metric.metric_score_name -> calculate_metric_score.metric_score", { # nolint: line_length_linter
-  lacking_vars <- unique(indextypology_metric$metric_score_name)[
+  missing_vars <- unique(indextypology_metric$metric_score_name)[
     !unique(indextypology_metric$metric_score_name) %in%
       unique(calculate_metric_score$metric_score)
   ]
-  lacking_vars <- lacking_vars[!is.na(lacking_vars)]
+  missing_vars <- missing_vars[!is.na(missing_vars)]
   expect_equal(
-    length(lacking_vars), 0,
+    length(missing_vars), 0,
     info =
       paste(
-        paste(lacking_vars, collapse = ", "),
+        paste(missing_vars, collapse = ", "),
         "should be added to column metric_score in table calculate_metric_score.csv" # nolint: line_length_linter
       )
   )
 })
 test_that("variables exist in dependent tables: calculate_metric_formula.submetric_formula_name -> calculate_metric_formula.metric_formula_name", { # nolint: line_length_linter
-  lacking_vars <- unique(calculate_metric_formula$submetric_formula_name)[
+  missing_vars <- unique(calculate_metric_formula$submetric_formula_name)[
     !unique(calculate_metric_formula$submetric_formula_name) %in%
       unique(calculate_metric_formula$metric_formula_name)
   ]
-  lacking_vars <- lacking_vars[!is.na(lacking_vars)]
+  missing_vars <- missing_vars[!is.na(missing_vars)]
   expect_equal(
-    length(lacking_vars), 0,
+    length(missing_vars), 0,
     info =
       paste(
-        paste(lacking_vars, collapse = ", "),
+        paste(missing_vars, collapse = ", "),
         "should be added to column metric_formula_name in table calculate_metric_formula.csv" # nolint: line_length_linter
       )
   )
 })
 test_that("variables exist in dependent tables: calculate_metric_formula.submetric_measures_name -> calculate_metric_measures.metric_measures_name", { # nolint: line_length_linter
-  lacking_vars <- unique(calculate_metric_formula$submetric_measures_name)[
+  missing_vars <- unique(calculate_metric_formula$submetric_measures_name)[
     !unique(calculate_metric_formula$submetric_measures_name) %in%
       unique(calculate_metric_measures$metric_measures_name)
   ]
-  lacking_vars <- lacking_vars[!is.na(lacking_vars)]
+  missing_vars <- missing_vars[!is.na(missing_vars)]
   expect_equal(
-    length(lacking_vars), 0,
+    length(missing_vars), 0,
     info =
       paste(
-        paste(lacking_vars, collapse = ", "),
+        paste(missing_vars, collapse = ", "),
         "should be added to column metric_measures_name in table calculate_metric_measures.csv" # nolint: line_length_linter
       )
   )
 })
 test_that("variables exist in dependent tables: calculate_metric_formula.submetric_score_name -> calculate_metric_score.metric_score", { # nolint: line_length_linter
-  lacking_vars <- unique(calculate_metric_formula$submetric_score_name)[
+  missing_vars <- unique(calculate_metric_formula$submetric_score_name)[
     !unique(calculate_metric_formula$submetric_score_name) %in%
       unique(calculate_metric_score$metric_score)
   ]
-  lacking_vars <- lacking_vars[!is.na(lacking_vars)]
+  missing_vars <- missing_vars[!is.na(missing_vars)]
   expect_equal(
-    length(lacking_vars), 0,
+    length(missing_vars), 0,
     info =
       paste(
-        paste(lacking_vars, collapse = ", "),
+        paste(missing_vars, collapse = ", "),
         "should be added to column metric_score in table calculate_metric_score.csv" # nolint: line_length_linter
       )
   )
 })
 test_that("variables exist in dependent tables: calculate_metric_score.metric -> ...", {  # nolint: line_length_linter
-  lacking_vars <- calculate_metric_score %>%
+  missing_vars <- calculate_metric_score %>%
     select("metric_score", "metric", "add_category") %>%
     gather(
       key = "magweg", value = "metric", -"metric_score", na.rm = TRUE
@@ -210,31 +210,31 @@ test_that("variables exist in dependent tables: calculate_metric_score.metric ->
         paste0(.data$metric, " (for ", .data$metric_score, ")")
     )
   expect_equal(
-    nrow(lacking_vars), 0,
+    nrow(missing_vars), 0,
     info =
       paste(
         "To calculate the scores in parentheses, the following metrics should be added to columns metric_formula_name or metric_measures_name of table indextypology_metric.csv or to columns submetric_formula_name or submetric_measures_name of table calculate_metric_formula.csv: ", # nolint: line_length_linter
-        paste(lacking_vars$metric_for_score, collapse = ", ")
+        paste(missing_vars$metric_for_score, collapse = ", ")
       )
   )
 })
 test_that("variables exist in dependent tables: calculate_ibi_exceptions.indextypology <-> indextypology_metric.indextypology", {  # nolint: line_length_linter
-  lacking_vars <- unique(calculate_ibi_exceptions$indextypology)[
+  missing_vars <- unique(calculate_ibi_exceptions$indextypology)[
     !unique(calculate_ibi_exceptions$indextypology) %in%
       unique(indextypology_metric$indextypology)
   ]
   expect_equal(
-    length(lacking_vars), 0,
+    length(missing_vars), 0,
     info =
       paste(
         "calculate_ibi_exceptions.csv contains information on indextypology(s)",
-        paste(lacking_vars, collapse = ", "),
+        paste(missing_vars, collapse = ", "),
         ", but there is no information on how to calculate the indextypology(s) in table indextypology_metric.csv" # nolint: line_length_linter
       )
   )
 })
 test_that("variables exist in dependent tables: calculate_ibi_exceptions.calculated -> indextypology_metric.metric_name", {  # nolint: line_length_linter
-  lacking_vars <- calculate_ibi_exceptions %>%
+  missing_vars <- calculate_ibi_exceptions %>%
     select("indextypology", "to_calculate", "calculated") %>%
     filter(!(.data$to_calculate == "EQR" & .data$calculated == "IBI")) %>%
     distinct() %>%
@@ -249,13 +249,13 @@ test_that("variables exist in dependent tables: calculate_ibi_exceptions.calcula
         .data$indextypology != "(undetermined)"
     )
   expect_equal(
-    nrow(lacking_vars), 0,
+    nrow(missing_vars), 0,
     info =
       paste0(
         "To calculate the IBI of ",
-        lacking_vars$indextypology,
+        missing_vars$indextypology,
         ", the metric ",
-        lacking_vars$calculated,
+        missing_vars$calculated,
         " should be added to the column metric_name of table indextypology_metric.csv (and calculation rules should be provided in other columns)" # nolint: line_length_linter
       )
   )
