@@ -50,10 +50,10 @@ calculate_metric_score <-
 #     read_csv2(system.file("extdata/data_classes.csv", package = "EQRfishes"))
 #   )
 
-calculate_ibi_eqr <-
+calculate_ibi_exceptions <-
   suppressMessages(
     read_csv2(
-      system.file("extdata/calculate_ibi_eqr.csv", package = "EQRfishes")
+      system.file("extdata/calculate_ibi_exceptions.csv", package = "EQRfishes")
     )
   )
 
@@ -218,23 +218,23 @@ test_that("variables exist in dependent tables: calculate_metric_score.metric ->
       )
   )
 })
-test_that("variables exist in dependent tables: calculate_ibi_eqr.indextypology <-> indextypology_metric.indextypology", {  # nolint: line_length_linter
-  lacking_vars <- unique(calculate_ibi_eqr$indextypology)[
-    !unique(calculate_ibi_eqr$indextypology) %in%
+test_that("variables exist in dependent tables: calculate_ibi_exceptions.indextypology <-> indextypology_metric.indextypology", {  # nolint: line_length_linter
+  lacking_vars <- unique(calculate_ibi_exceptions$indextypology)[
+    !unique(calculate_ibi_exceptions$indextypology) %in%
       unique(indextypology_metric$indextypology)
   ]
   expect_equal(
     length(lacking_vars), 0,
     info =
       paste(
-        "calculate_ibi_eqr.csv contains information on indextypology(s)",
+        "calculate_ibi_exceptions.csv contains information on indextypology(s)",
         paste(lacking_vars, collapse = ", "),
         ", but there is no information on how to calculate the indextypology(s) in table indextypology_metric.csv" # nolint: line_length_linter
       )
   )
 })
-test_that("variables exist in dependent tables: calculate_ibi_eqr.calculated -> indextypology_metric.metric_name", {  # nolint: line_length_linter
-  lacking_vars <- calculate_ibi_eqr %>%
+test_that("variables exist in dependent tables: calculate_ibi_exceptions.calculated -> indextypology_metric.metric_name", {  # nolint: line_length_linter
+  lacking_vars <- calculate_ibi_exceptions %>%
     select("indextypology", "to_calculate", "calculated") %>%
     filter(!(.data$to_calculate == "EQR" & .data$calculated == "IBI")) %>%
     distinct() %>%
@@ -421,7 +421,7 @@ test_that("intervals are correct: string is correctly noted", {
         paste(wrong_interval$value_add_category, collapse = ", ")
       )
   )
-  wrong_interval <- calculate_ibi_eqr %>%
+  wrong_interval <- calculate_ibi_exceptions %>%
     select("interval") %>%
     distinct() %>%
     filter(!is.na(.data$interval) & !.data$interval %in% c("-1")) %>%
@@ -464,7 +464,7 @@ test_that("intervals are correct: string is correctly noted", {
     nrow(wrong_interval), 0,
     info =
       paste(
-        "Column interval from calculate_ibi_eqr.csv has invalable interval(s):", # nolint: line_length_linter
+        "Column interval from calculate_ibi_exceptions.csv has invalable interval(s):", # nolint: line_length_linter
         paste(wrong_interval$interval, collapse = ", ")
       )
   )

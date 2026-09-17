@@ -672,7 +672,10 @@ calculate_eqr <- function(
   ibi_exceptions <-
     suppressMessages(
       read_csv2(
-        system.file("extdata/calculate_ibi_eqr.csv", package = "EQRfishes")
+        system.file(
+          "extdata/calculate_ibi_exceptions.csv",
+          package = "EQRfishes"
+        )
       )
     )
 

@@ -56,7 +56,7 @@ information <- tribble(
   "var_in_interval()", 3, -16, 0, 0.5, "",
   "calculate_metric_score()", 1, -18, 0, 0.5, "calculate_metric_score.csv",
   "var_in_interval()", 2, -20, 0, 0.5, "",
-  "calculate_ibi_score()", 0, -22, 0, 0.5, "calculate_ibi_eqr.csv",
+  "calculate_ibi_score()", 0, -22, 0, 0.5, "calculate_ibi_exceptions.csv",
   "var_in_interval()", 1, -24, 0, 0.5, "",
   "standardise_ibi()", 0, -26, 0, 0.5, "",
 )
@@ -159,7 +159,7 @@ This table also mentions the methods for which the metric is developed (E = elec
 Calculations will only be done on data collected with the mentioned method(s).
 
 For some index typologies, metrics `MniInd` or `MnsTot` are added without `metric_score_name`.
-Here the metric score is not used to calculate the IBI, but it is used to give IBI a low value if the number of individuals or species is too low to calculate the IBI and EQR (see [`calculate_ibi_eqr.csv`](#calculate_ibi_eqr-csv)).
+Here the metric score is not used to calculate the IBI, but it is used to give IBI a low value if the number of individuals or species is too low to calculate the IBI and EQR (see [`calculate_ibi_exceptions.csv`](#calculate_ibi_exceptions-csv)).
 
 ```{r indextypology_metric}
 suppressMessages(
@@ -308,15 +308,14 @@ suppressMessages(
   datatable()
 ```
 
-### `calculate_ibi_eqr.csv`
-
+### `calculate_ibi_exceptions.csv`
 
 This data sheet gives the information to calculate the IBI, but only exceptions to the general rule of the average of the metric scores are mentioned.
 These exceptions are often low scores that are given in case the number of species or individuals is low.
 
-```{r calculate_ibi_eqr}
+```{r calculate_ibi_exceptions}
 suppressMessages(
-  read_csv2(system.file("extdata/calculate_ibi_eqr.csv", package = "EQRfishes"))
+  read_csv2(system.file("extdata/calculate_ibi_exceptions.csv", package = "EQRfishes"))
 ) %>%
   datatable()
 ```
