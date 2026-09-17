@@ -87,7 +87,7 @@
 #'
 #' @importFrom assertthat assert_that has_name
 #' @importFrom dplyr across all_of arrange distinct filter group_by left_join
-#'   mutate n select summarise ungroup
+#' @importFrom dplyr mutate n select summarise ungroup
 #' @importFrom plyr .
 #' @importFrom magrittr %>%
 #' @importFrom rlang .data

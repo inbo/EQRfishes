@@ -3,7 +3,7 @@
 
 #' @importFrom magrittr %>%
 #' @importFrom dplyr count distinct filter group_by inner_join left_join mutate
-#' select summarise ungroup
+#' @importFrom dplyr select summarise ungroup
 #' @importFrom rlang .data
 #' @importFrom readr read_csv2
 

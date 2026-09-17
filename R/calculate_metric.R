@@ -21,7 +21,7 @@
 #' @importFrom magrittr %>%
 #' @importFrom assertthat has_name
 #' @importFrom dplyr arrange bind_rows distinct filter left_join mutate rename
-#' select
+#' @importFrom dplyr select
 #' @importFrom plyr .
 #' @importFrom readr read_csv2
 #' @importFrom rlang .data
