@@ -97,7 +97,7 @@ cat(
 
 
 After calculations are done, the metric score (named as metric name preceded by an `S`) is calculated by looking up in which interval the result is situated.
-Intervals are presented as `[min, max]`, `]min, max[`, `[min, max[`, `]min, max]`, `] , max]` or `[min, [`, where `[]` presents a closed interval (`min` and `max` included), `][` an open interval (`min` and `max` excluded) and the absence of `min` or `max` means everything lower resp. higher than `max` resp. `min`.
+Intervals are presented as `[min, max]`, `]min, max[`, `[min, max[`, `]min, max]`, `] , max]` or `[min, [`, where `[]` presents a closed interval (`min` and `max` included), `][` an open interval (`min` and `max` excluded) and the absence of `min` or `max` means everything lower respectively higher than `max` respectively `min`.
 For the Schelde estuary, the calculation of all scores have an additional precondition: if `MnsTot` is 0, so if no typical species are caught, the metric score is set 0.  This condition is not added to the tables with the calculations, because due to the technical workflow of the package, this would mean that `MnsTot` would be calculated together with every metric, most likely slowing down the calculation a lot.
 
 The overview in the different chapters of this report presents all these calculations, with chapter titles indicating the index typologies, second level titles the metrics that are needed to calculate the IBI and EQR, and the lower levels the calculations of the variables that are needed to calculate the higher level metric.
