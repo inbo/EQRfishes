@@ -118,7 +118,9 @@ But there are a few exceptions to deal with a lack of (typical) species:
 
 ```{r}
 suppressMessages(
-  read_csv2(system.file("extdata/calculate_ibi_exceptions.csv", package = "EQRfishes"))
+  read_csv2(
+    system.file("extdata/calculate_ibi_exceptions.csv", package = "EQRfishes")
+  )
 ) %>%
   gt() %>%
   sub_missing(missing_text = "") %>%
@@ -207,7 +209,9 @@ calculate_metric_score <- suppressMessages(
   )
 )
 calculate_ibi_exceptions <- suppressMessages(
-  read_csv2(system.file("extdata/calculate_ibi_exceptions.csv", package = "EQRfishes"))
+  read_csv2(
+    system.file("extdata/calculate_ibi_exceptions.csv", package = "EQRfishes")
+  )
 )
 index_overview <- suppressMessages(
   read_csv2(
