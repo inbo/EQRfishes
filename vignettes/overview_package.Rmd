@@ -108,7 +108,7 @@ suppressMessages(
   datatable()
 ```
 
-Graphic presentation of these data for `indextypecode` ZTWA for the new index typology
+Graphic presentation of these data for `indextypecode` `"ZTWA"` for the new index typology
 (column `indextypology` in table):
 
 ```{r indextypology-ZTWA}
@@ -137,7 +137,7 @@ dataset_ztwa %>%
   geom_point()
 ```
 
-Graphic presentation of these data for `indextypecode` ZTWA for the old index typology
+Graphic presentation of these data for `indextypecode` `"ZTWA"` for the old index typology
 (column `indextypology_old` in table):
 
 ```{r indextypology-ZTWA-old}
