@@ -62,6 +62,22 @@ argument \code{version}.
 When both are added, NA values of column version in the dataset will be
 replaced by the version given in argument \code{version}.
 }
+\examples{
+library(dplyr)
+library(EQRfishes)
+# load data
+data_sample <- read.csv2(
+  system.file("testdata/freshwater_sample.csv", package = "EQRfishes")
+) \%>\%
+  mutate(
+    index_type_code = "ZTWA"
+  )
+# the following function adds an indextypology to the dataset
+# the result can be used to calculate the EQR
+data_sample <- determine_indextypology(data_sample)
+
+
+}
 \seealso{
 Other main:
 \code{\link[=calculate_eqr]{calculate_eqr()}}
