@@ -8,9 +8,9 @@ vlagzalm;vlagzalm index;fish-based grayling IBI;1;0;ZTWA;based on @breine_fish-b
 bron;bron index;fish-based river source IBI;1;0;ZTWA;@breine_een_2018;
 canals;kanaal index;fish- based canals IBI;0;0;CANA;not published;
 lakes;meren index;fish-based lakes IBI;0;0;ENCL;@breine_development_2015;
-estuarien_IJzer;IJzer estuariene index;fish-based IJzer estuarine index;0;1;YZRP;@breine_het_2013;
-estuarien_Schelde_mesohaline;estuariene Schelde mesohaliene index;fish-based estuarine Schelde mesohaline   index;0;1;SCHM;@breine_zone-specific_2010;
-estuarien_Schelde_oligohaline;estuariene Schelde oligohaliene index;fish-based estuarine Schelde oligohaline  index;0;1;SCHO;@breine_zone-specific_2010;It is also used for river Rupel.
-estuarien_Schelde_freshwater;estuariene Schelde zoetwater index;fish-based estuarine Schelde freshwater index;0;1;SCHZ;@breine_zone-specific_2010;
-estuarien_zijrivieren_zoet;getijgebonden zijrivieren zoet index;fish-based estuarine tributaries river Schelde index;0;1;ZTWZ;@breine_visindex_2020;
+estuarien_IJzer;IJzer estuariene index;fish-based IJzer estuarine index;0;1;YZRP;@breine_het_2013;The river IJzer originates in Kassel, France, and flows into the North Sea at Nieuwpoort via the Ganzepoot. The IJzer is 78 km long, 45 km of which lie within Belgian territory. The tidal section of the IJzer is approximately 3 km long and extends from the mouth of the river into the North Sea to the Ganzepoot lock complex.
+estuarien_Schelde_mesohaline;estuariene Schelde mesohaliene index;fish-based estuarine Schelde mesohaline   index;0;1;SCHM;@breine_zone-specific_2010;The mesohaline zone of the Zeeschelde (salinity: 5–18) is situated between Zandvliet (Dutch–Belgian border) and Antwerpen (Belgium).
+estuarien_Schelde_oligohaline;estuariene Schelde oligohaliene index;fish-based estuarine Schelde oligohaline  index;0;1;SCHO;@breine_zone-specific_2010;The oligohaline zone (salinity 0.5–5) is situated between Antwerpen and Rupelmonde and includes the Rupel River.
+estuarien_Schelde_freshwater;estuariene Schelde zoetwater index;fish-based estuarine Schelde freshwater index;0;1;SCHZ;@breine_zone-specific_2010;The freshwater zone of the Zeeschelde is situated between Rupelmonde and Gent, including the River Durme (limnetic zone: <0.5).
+estuarien_zijrivieren_zoet;getijgebonden zijrivieren zoet index;fish-based estuarine tributaries river Schelde index;0;1;ZTWZ;@breine_visindex_2020;This index was developed for freshwater tributaries affected by tidal influences. The index is comprising four metrics. Metric values were calculated using data (fykefishing) obtained within one year (3 seasons).
 brabeel;brasem & barbeel index versie 2021;fish-based lowland IBI;1;0;ZTWA;@breine_new_2021;

@@ -23,13 +23,21 @@
 #'
 #' - `width_river` width of the river at the sample location (meters),
 #' - `slope` slope of the river at the sample location (per thousand),
-#' - `index_type_code` type based on salinity of the sample location:
-#'   - `"ZTWA"` for freshwater,
-#'   - `"YZRP"` for estuarine IJzer,
-#'   - `"SCHM"` for estuarine Schelde mesohaline,
-#'   - `"SCHO"` for estuarine Schelde oligohaline,
-#'   - `"SCHZ"` for estuarine Schelde freshwater,
-#'   - `"ZTWZ"` for estuarine tributaries with freshwater
+#' - `index_type_code` type based on salinity of the sample location
+#'   (detailed description in
+#'   `vignette("indextypologies", package = "EQRfishes")`):
+#'   - `"ZTWA"` for freshwater that is not under tidal influence,
+#'   - `"YZRP"` for the tidal section of the IJzer estuary (Belgium),
+#'   - `"SCHM"` for the mesohaline zone (salinity 5-18) of the Zeeschelde
+#'     estuary between Zandvliet (Dutch-Belgian border) and Antwerpen (Belgium),
+#'   - `"SCHO"` for the oligohaline zone (salinity 0.5-5) of the Zeeschelde
+#'     estuary (Belgium) between Antwerpen en Rupelmonde including the Rupel
+#'     river,
+#'   - `"SCHZ"` for the freshwater zone of the Zeeschelde estuary (Belgium)
+#'     between Rupelmonde and Gent including the River Durme
+#'     (limnetic zone: < 0.5),
+#'   - `"ZTWZ"` for freshwater tributaries of the Zeeschelde estuary (Belgium)
+#'     that are under tidal influence
 #' @param version 'new' version with fish-based river source IBI and
 #' fish-based lowland IBI or 'old' version without these two index typologies?
 #' Defaults to 'new'.

@@ -285,8 +285,9 @@ calculate_eqr(data_sample, data_fish, output = "metric", cluster = cluster)
 #> #   metric_score <chr>, index_cluster <chr>
 ```
 
-Function `determine_indextypology()` can help which index typology would
-be appropriate to use for a specific location:
+Function `determine_indextypology()` and article
+`vignette("indextypologies", package = "EQRfishes")` can help which
+index typology would be appropriate to use for a specific location:
 
 ``` r
 # load data

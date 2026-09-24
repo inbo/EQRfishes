@@ -11,14 +11,22 @@ determine_indextypology(dataset, version = c("new", "old"))
 \itemize{
 \item \code{width_river} width of the river at the sample location (meters),
 \item \code{slope} slope of the river at the sample location (per thousand),
-\item \code{index_type_code} type based on salinity of the sample location:
+\item \code{index_type_code} type based on salinity of the sample location
+(detailed description in
+\code{vignette("indextypologies", package = "EQRfishes")}):
 \itemize{
-\item \code{"ZTWA"} for freshwater,
-\item \code{"YZRP"} for estuarine IJzer,
-\item \code{"SCHM"} for estuarine Schelde mesohaline,
-\item \code{"SCHO"} for estuarine Schelde oligohaline,
-\item \code{"SCHZ"} for estuarine Schelde freshwater,
-\item \code{"ZTWZ"} for estuarine tributaries with freshwater
+\item \code{"ZTWA"} for freshwater that is not under tidal influence,
+\item \code{"YZRP"} for the tidal section of the IJzer estuary (Belgium),
+\item \code{"SCHM"} for the mesohaline zone (salinity 5-18) of the Zeeschelde
+estuary between Zandvliet (Dutch-Belgian border) and Antwerpen (Belgium),
+\item \code{"SCHO"} for the oligohaline zone (salinity 0.5-5) of the Zeeschelde
+estuary (Belgium) between Antwerpen en Rupelmonde including the Rupel
+river,
+\item \code{"SCHZ"} for the freshwater zone of the Zeeschelde estuary (Belgium)
+between Rupelmonde and Gent including the River Durme
+(limnetic zone: < 0.5),
+\item \code{"ZTWZ"} for freshwater tributaries of the Zeeschelde estuary (Belgium)
+that are under tidal influence
 }
 }}
 
